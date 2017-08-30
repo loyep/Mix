@@ -12,7 +12,6 @@
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
-		29229B4C1F569D40007059A5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03AD1F569C4D00CF33FF /* Main.storyboard */; };
 		29229B591F569D90007059A5 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29229B581F569D90007059A5 /* ShareViewController.swift */; };
 		29229B5C1F569D90007059A5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29229B5A1F569D90007059A5 /* MainInterface.storyboard */; };
 		29229B601F569D90007059A5 /* MixShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29229B561F569D90007059A5 /* MixShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -36,6 +35,8 @@
 		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
+		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
+		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,13 +97,12 @@
 		298ACA8C1F56A1D8005D2DAC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		298ACA8D1F56A1D8005D2DAC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Mix.swift"; sourceTree = "<group>"; };
-		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Mix/Config.swift; sourceTree = SOURCE_ROOT; };
-		298ACA981F56C831005D2DAC /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConfig.swift; path = Mix/RealmConfig.swift; sourceTree = SOURCE_ROOT; };
-		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = Mix/SafeDispatch.swift; sourceTree = SOURCE_ROOT; };
-		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeiboProvider.swift; path = Mix/WeiboProvider.swift; sourceTree = SOURCE_ROOT; };
+		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		298ACA981F56C831005D2DAC /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
+		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboProvider.swift; sourceTree = "<group>"; };
 		29CB03A91F569C4D00CF33FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CB03AB1F569C4D00CF33FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		29CB03AE1F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		29CB03B01F569C4D00CF33FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CB03B31F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CB03B51F569C4D00CF33FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +112,8 @@
 		760F6BBED314353598466D2F /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
 		823B2E42537B0B69A24A9A3F /* Pods-Mix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.release.xcconfig"; sourceTree = "<group>"; };
 		BD951BDEE158C234886697E4 /* Pods_MixShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
+		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		F960CAE0128160D952F284A6 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -280,7 +282,7 @@
 			children = (
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
 			);
-			name = Extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		29CB039D1F569C4D00CF33FF = {
@@ -308,10 +310,11 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
-				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA621F569FCB005D2DAC /* Assets */,
+				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
 				298ACA651F569FFF005D2DAC /* Models */,
+				CF60C2811F56ED68004CCD5B /* Protocols */,
 				298ACA671F56A012005D2DAC /* Services */,
 				298ACA631F569FF2005D2DAC /* ViewControllers */,
 				298ACA641F569FF8005D2DAC /* Views */,
@@ -320,7 +323,6 @@
 				298ACA7A1F56A0D7005D2DAC /* InfoPlist.strings */,
 				29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */,
 				298ACA7E1F56A0FB005D2DAC /* Localizable.strings */,
-				29CB03AD1F569C4D00CF33FF /* Main.storyboard */,
 				298ACA731F56A0AE005D2DAC /* Mix-Bridging-Header.h */,
 				29CB03AB1F569C4D00CF33FF /* ViewController.swift */,
 			);
@@ -348,6 +350,15 @@
 				2D28C97985A40BDEA2FE54ED /* Pods-MixTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF60C2811F56ED68004CCD5B /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */,
+				CF60C2831F56ED7F004CCD5B /* Reusable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -472,7 +483,6 @@
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				298ACA8F1F56A1D8005D2DAC /* SettingsViewController.xib in Resources */,
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,
-				29229B4C1F569D40007059A5 /* Main.storyboard in Resources */,
 				298ACA6C1F56A047005D2DAC /* HomeViewController.xib in Resources */,
 				298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */,
 			);
@@ -651,6 +661,7 @@
 				298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */,
 				29229B461F569D40007059A5 /* ViewController.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
+				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
@@ -659,6 +670,7 @@
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
+				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
@@ -723,15 +735,6 @@
 				298ACA7D1F56A0FB005D2DAC /* zh-Hans */,
 			);
 			name = Localizable.strings;
-			path = .;
-			sourceTree = "<group>";
-		};
-		29CB03AD1F569C4D00CF33FF /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				29CB03AE1F569C4D00CF33FF /* Base */,
-			);
-			name = Main.storyboard;
 			path = .;
 			sourceTree = "<group>";
 		};

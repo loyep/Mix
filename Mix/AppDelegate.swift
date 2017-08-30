@@ -82,6 +82,8 @@ extension AppDelegate {
     
     fileprivate func setupAppRoot() -> () {
         print("\(window!))")
+        window?.rootViewController = NavigationController(rootViewController: TabBarController())
+        window?.makeKeyAndVisible()
     }
     
 }
