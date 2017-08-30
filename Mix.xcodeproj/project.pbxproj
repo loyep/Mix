@@ -29,6 +29,11 @@
 		298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */; };
 		298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA8C1F56A1D8005D2DAC /* SettingsViewController.swift */; };
 		298ACA8F1F56A1D8005D2DAC /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298ACA8D1F56A1D8005D2DAC /* SettingsViewController.xib */; };
+		298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */; };
+		298ACA9B1F56C831005D2DAC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA971F56C831005D2DAC /* Config.swift */; };
+		298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA981F56C831005D2DAC /* RealmConfig.swift */; };
+		298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA991F56C831005D2DAC /* SafeDispatch.swift */; };
+		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 /* End PBXBuildFile section */
@@ -90,6 +95,11 @@
 		298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		298ACA8C1F56A1D8005D2DAC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		298ACA8D1F56A1D8005D2DAC /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Mix.swift"; sourceTree = "<group>"; };
+		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Config.swift; path = Mix/Config.swift; sourceTree = SOURCE_ROOT; };
+		298ACA981F56C831005D2DAC /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmConfig.swift; path = Mix/RealmConfig.swift; sourceTree = SOURCE_ROOT; };
+		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SafeDispatch.swift; path = Mix/SafeDispatch.swift; sourceTree = SOURCE_ROOT; };
+		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeiboProvider.swift; path = Mix/WeiboProvider.swift; sourceTree = SOURCE_ROOT; };
 		29CB03A91F569C4D00CF33FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CB03AB1F569C4D00CF33FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		29CB03AE1F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -191,6 +201,10 @@
 		298ACA661F56A00B005D2DAC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				298ACA971F56C831005D2DAC /* Config.swift */,
+				298ACA981F56C831005D2DAC /* RealmConfig.swift */,
+				298ACA991F56C831005D2DAC /* SafeDispatch.swift */,
+				298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -261,6 +275,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		298ACA901F56C72E005D2DAC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		29CB039D1F569C4D00CF33FF = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +308,7 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
 				298ACA651F569FFF005D2DAC /* Models */,
@@ -629,11 +652,16 @@
 				29229B461F569D40007059A5 /* ViewController.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
+				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
+				298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
+				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
 				298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */,
+				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
+				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

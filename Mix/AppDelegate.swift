@@ -11,11 +11,15 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow?
-    
+    var window: UIWindow? =  {
+        var appWindow = UIWindow(frame: UIScreen.main.bounds)
+        return appWindow
+    }()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupConfigurations()
+        
+        setupAppRoot()
         return true
     }
     
@@ -45,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate: WeiboSDKDelegate {
     
-    // MARK: Setup weibo config
+    // MARK: 设置微博的app配置
     fileprivate func setupSinaWeiboConfig() -> () {
         WeiboSDK.enableDebugMode(true)
         WeiboSDK.registerApp("1522592428")
@@ -69,11 +73,15 @@ extension AppDelegate: WeiboSDKDelegate {
     
 }
 
-
 extension AppDelegate {
     
-    func setupConfigurations() -> () {
+    /// 进行App的配置
+    fileprivate func setupConfigurations() -> () {
         setupSinaWeiboConfig()
+    }
+    
+    fileprivate func setupAppRoot() -> () {
+        print("\(window!))")
     }
     
 }
