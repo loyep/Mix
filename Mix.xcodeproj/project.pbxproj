@@ -46,6 +46,7 @@
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
+		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		BD951BDEE158C234886697E4 /* Pods_MixShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
 		F960CAE0128160D952F284A6 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
+				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				CF6F25A81F5845A100329CE7 /* Persistence */,
 				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA901F56C72E005D2DAC /* Extensions */,
@@ -412,6 +416,13 @@
 				CF60C2831F56ED7F004CCD5B /* Reusable.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CF6F25A81F5845A100329CE7 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -738,6 +749,7 @@
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
+				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,

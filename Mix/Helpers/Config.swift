@@ -21,8 +21,8 @@ final public class Config: Object {
         return "bundleIdentifier"
     }
     
-    dynamic var lastLoginVersion: String?
+    dynamic var lastLoginVersion: String = "0.0.0"
     
-    dynamic var bundleIdentifier: String = bundleShortVersion
+    dynamic var bundleIdentifier: String = ""
     
 }

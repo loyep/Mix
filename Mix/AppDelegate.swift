@@ -91,17 +91,15 @@ extension AppDelegate {
         
         let bundleShortVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
         let bundleIdentifier = Bundle.main.bundleIdentifier!
-//        try? realm.write {
-//            realm.deleteAll()
-//        }
-        if realm.objects(Config.self).count == 0 {
-            try! realm.write {
-                realm.create(Config.self)
+        
+        if realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier) == nil {
+            try? realm.write {
+                realm.create(Config.self, value: ["bundleIdentifier": bundleIdentifier], update: false)
             }
         }
         
         let config: Config = realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier)!
-        guard config.lastLoginVersion! >= bundleShortVersion else {
+        guard config.lastLoginVersion >= bundleShortVersion else {
             try? realm.write {
                 config.lastLoginVersion = bundleShortVersion
             }
