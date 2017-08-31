@@ -7,9 +7,22 @@
 //
 
 import Foundation
+import Realm
+import RealmSwift
 
-final public class Config {
+let bundleShortVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+let bundleIdentifier = Bundle.main.bundleIdentifier!
+
+final public class Config: Object {
     
     public static let appGroupID: String = "group.Maxsey.Mix"
+    
+    @objc override public class func primaryKey() -> String? {
+        return "bundleIdentifier"
+    }
+    
+    dynamic var lastLoginVersion: String?
+    
+    dynamic var bundleIdentifier: String = bundleShortVersion
     
 }

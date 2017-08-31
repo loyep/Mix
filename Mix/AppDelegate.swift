@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,9 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupConfigurations()
-        
-        setupAppRoot()
-        return true
+        return setupAppRoot()
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
@@ -51,8 +50,12 @@ extension AppDelegate: WeiboSDKDelegate {
     
     // MARK: 设置微博的app配置
     fileprivate func setupSinaWeiboConfig() -> () {
-        WeiboSDK.enableDebugMode(true)
+        #if DEBUG
+            WeiboSDK.enableDebugMode(true)
+        #endif
         WeiboSDK.registerApp("1522592428")
+        
+        Realm.Configuration.defaultConfiguration = realmConfig()
     }
     
     func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
@@ -80,10 +83,41 @@ extension AppDelegate {
         setupSinaWeiboConfig()
     }
     
-    fileprivate func setupAppRoot() -> () {
-        print("\(window!))")
-        window?.rootViewController = NavigationController(rootViewController: TabBarController())
+    fileprivate func setupAppRoot() -> Bool {
+        window?.backgroundColor = UIColor.white
+        guard let realm = try? Realm() else {
+            return false
+        }
+        
+        let bundleShortVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
+        let bundleIdentifier = Bundle.main.bundleIdentifier!
+//        try? realm.write {
+//            realm.deleteAll()
+//        }
+        if realm.objects(Config.self).count == 0 {
+            try! realm.write {
+                realm.create(Config.self)
+            }
+        }
+        
+        let config: Config = realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier)!
+        guard config.lastLoginVersion! >= bundleShortVersion else {
+            try? realm.write {
+                config.lastLoginVersion = bundleShortVersion
+            }
+            let navigationController = NavigationController(rootViewController: WelcomeViewController())
+            navigationController.isNavigationBarHidden = true
+            window?.rootViewController = navigationController
+            window?.makeKeyAndVisible()
+            return true
+        }
+        
+        let navigationController = NavigationController(rootViewController: TabBarController())
+        navigationController.isNavigationBarHidden = true
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        return true
     }
     
 }

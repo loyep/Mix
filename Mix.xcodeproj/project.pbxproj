@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		120C725F16602327E8BE45C3 /* Pods_MixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E34CD3015DBB9B1DDB004B7 /* Pods_MixTests.framework */; };
-		29229B461F569D40007059A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03AB1F569C4D00CF33FF /* ViewController.swift */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -33,6 +32,16 @@
 		298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA981F56C831005D2DAC /* RealmConfig.swift */; };
 		298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA991F56C831005D2DAC /* SafeDispatch.swift */; };
 		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
+		298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA01F57A308005D2DAC /* TabBar.swift */; };
+		298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA11F57A308005D2DAC /* TabBarItem.swift */; };
+		298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA21F57A308005D2DAC /* TabBarItemBadgeView.swift */; };
+		298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA31F57A308005D2DAC /* TabBarItemContainer.swift */; };
+		298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA41F57A308005D2DAC /* TabBarItemContentView.swift */; };
+		298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAAD1F57AC37005D2DAC /* PlusViewController.swift */; };
+		298ACAB01F57ADFA005D2DAC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 298ACAAF1F57ADFA005D2DAC /* Images.xcassets */; };
+		298ACAB21F57B296005D2DAC /* PlusTabBarItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB11F57B295005D2DAC /* PlusTabBarItemContentView.swift */; };
+		298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */; };
+		298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
@@ -101,8 +110,18 @@
 		298ACA981F56C831005D2DAC /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
 		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboProvider.swift; sourceTree = "<group>"; };
+		298ACAA01F57A308005D2DAC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		298ACAA11F57A308005D2DAC /* TabBarItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItem.swift; sourceTree = "<group>"; };
+		298ACAA21F57A308005D2DAC /* TabBarItemBadgeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemBadgeView.swift; sourceTree = "<group>"; };
+		298ACAA31F57A308005D2DAC /* TabBarItemContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContainer.swift; sourceTree = "<group>"; };
+		298ACAA41F57A308005D2DAC /* TabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemContentView.swift; sourceTree = "<group>"; };
+		298ACAAD1F57AC37005D2DAC /* PlusViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
+		298ACAAF1F57ADFA005D2DAC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		298ACAB11F57B295005D2DAC /* PlusTabBarItemContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlusTabBarItemContentView.swift; sourceTree = "<group>"; };
+		298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
+		298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		298ACABC1F57F030005D2DAC /* Mix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mix.entitlements; sourceTree = "<group>"; };
 		29CB03A91F569C4D00CF33FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		29CB03AB1F569C4D00CF33FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		29CB03B01F569C4D00CF33FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CB03B31F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CB03B51F569C4D00CF33FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				29CB03B01F569C4D00CF33FF /* Assets.xcassets */,
+				298ACAAF1F57ADFA005D2DAC /* Images.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -175,10 +195,12 @@
 		298ACA631F569FF2005D2DAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				298ACAB51F57D5A6005D2DAC /* Welcome */,
 				298ACA881F56A170005D2DAC /* Contacts */,
 				298ACA851F56A15F005D2DAC /* Discover */,
 				298ACA681F56A01D005D2DAC /* Home */,
 				298ACA701F56A069005D2DAC /* Navigation */,
+				298ACAAC1F57AC24005D2DAC /* Plus */,
 				298ACA801F56A145005D2DAC /* Profile */,
 				298ACA8B1F56A1AC005D2DAC /* Settings */,
 				298ACA6D1F56A052005D2DAC /* TabBar */,
@@ -189,6 +211,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				298ACA9F1F57A2F2005D2DAC /* TabBar */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -285,6 +308,36 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		298ACA9F1F57A2F2005D2DAC /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				298ACAB11F57B295005D2DAC /* PlusTabBarItemContentView.swift */,
+				298ACAA01F57A308005D2DAC /* TabBar.swift */,
+				298ACAA11F57A308005D2DAC /* TabBarItem.swift */,
+				298ACAA21F57A308005D2DAC /* TabBarItemBadgeView.swift */,
+				298ACAA31F57A308005D2DAC /* TabBarItemContainer.swift */,
+				298ACAA41F57A308005D2DAC /* TabBarItemContentView.swift */,
+				298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		298ACAAC1F57AC24005D2DAC /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				298ACAAD1F57AC37005D2DAC /* PlusViewController.swift */,
+			);
+			path = Plus;
+			sourceTree = "<group>";
+		};
+		298ACAB51F57D5A6005D2DAC /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */,
+			);
+			name = Welcome;
+			sourceTree = "<group>";
+		};
 		29CB039D1F569C4D00CF33FF = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +363,7 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
@@ -324,7 +378,6 @@
 				29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */,
 				298ACA7E1F56A0FB005D2DAC /* Localizable.strings */,
 				298ACA731F56A0AE005D2DAC /* Mix-Bridging-Header.h */,
-				29CB03AB1F569C4D00CF33FF /* ViewController.swift */,
 			);
 			path = Mix;
 			sourceTree = "<group>";
@@ -438,6 +491,11 @@
 				TargetAttributes = {
 					29229B441F569D40007059A5 = {
 						DevelopmentTeam = 2F3H7A9G57;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					29229B551F569D90007059A5 = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -479,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				298ACA841F56A15D005D2DAC /* ProfileViewController.xib in Resources */,
+				298ACAB01F57ADFA005D2DAC /* Images.xcassets in Resources */,
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				298ACA8F1F56A1D8005D2DAC /* SettingsViewController.xib in Resources */,
@@ -624,9 +683,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MixTests/Pods-MixTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -659,17 +721,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */,
-				29229B461F569D40007059A5 /* ViewController.swift in Sources */,
+				298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */,
+				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
+				298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
+				298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */,
+				298ACAB21F57B296005D2DAC /* PlusTabBarItemContentView.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
+				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
+				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
+				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
+				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
@@ -756,6 +826,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = Mix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -773,6 +844,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = Mix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
