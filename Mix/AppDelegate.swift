@@ -14,20 +14,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow? =  {
         var appWindow = UIWindow(frame: UIScreen.main.bounds)
+        appWindow.backgroundColor = UIColor.white
         return appWindow
     }()
     
+    var rootViewController: UIViewController!
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setupConfigurations()
-        return setupAppRoot()
+        
+        guard setupAppRoot() else {
+            return false
+        }
+        
+        let navigationController = NavigationController(rootViewController: rootViewController)
+        navigationController.isNavigationBarHidden = true
+        window?.rootViewController = navigationController
+        window?.makeKeyAndVisible()
+        return true
     }
     
     func applicationWillResignActive(_ application: UIApplication) {
-    
+        
     }
     
     func applicationDidEnterBackground(_ application: UIApplication) {
-    
+        
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
@@ -82,7 +94,6 @@ extension AppDelegate {
     }
     
     fileprivate func setupAppRoot() -> Bool {
-        window?.backgroundColor = UIColor.white
         guard let realm = try? Realm() else {
             return false
         }
@@ -101,18 +112,16 @@ extension AppDelegate {
             try? realm.write {
                 config.lastLoginVersion = bundleShortVersion
             }
-            let navigationController = NavigationController(rootViewController: FeatureViewController())
-            navigationController.isNavigationBarHidden = true
-            window?.rootViewController = navigationController
-            window?.makeKeyAndVisible()
+            rootViewController = FeatureViewController()
             return true
         }
         
-        let navigationController = NavigationController(rootViewController: TabBarController())
-        navigationController.isNavigationBarHidden = true
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+        guard weibo.token != nil else {
+            rootViewController = WelcomeViewController()
+            return true
+        }
         
+        rootViewController = TabBarController()
         return true
     }
     

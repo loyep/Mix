@@ -9,6 +9,50 @@
 import Foundation
 import Result
 
+public protocol TokenStore {
+    /**
+     Retrieve a token for the given Provider
+     
+     - parameter provider: The provider requesting the `Token`.
+     
+     - returns: Optional `Token`
+     */
+    func token(forProvider provider: SwiftyWeibo.Provider) -> SwiftyWeibo.Token?
+    
+    /**
+     Store a token for a Provider
+     
+     - parameter token:   The `Token` to store.
+     - parameter service: The provider requesting the `Token` storage.
+     
+     - returns: Void
+     */
+    func set(_ token: SwiftyWeibo.Token?, forProvider provider: SwiftyWeibo.Provider)
+}
+
+public extension TokenStore {
+    func key(forProvider provider: SwiftyWeibo.Provider) -> String {
+        return "com.maxsey.SwiftyWeibo.\(provider.clientID)"
+    }
+}
+
+extension UserDefaults: TokenStore {
+    public func token(forProvider provider: Provider) -> Token? {
+        let key = self.key(forProvider: provider)
+        
+        guard let dictionary = dictionary(forKey: key) else {
+            return nil
+        }
+        
+        return Token(parameters: dictionary)
+    }
+    
+    public func set(_ token: Token?, forProvider provider: Provider) {
+        let key = self.key(forProvider: provider)
+        set(token?.parameters, forKey: key)
+    }
+}
+
 public struct Token {
     
     public typealias Parameters = [String: Any]

@@ -99,7 +99,7 @@ extension Provider {
                                         return
                     }
                     this.token = token
-                    UserDefaults.standard.set(token.parameters, forKey: "accessToken\(this.clientID)")
+                    this.tokenStore.set(token, forProvider: this)
                     let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
                     this.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
                 } catch {

@@ -73,6 +73,8 @@ public class Provider: ProviderType {
     
     public static let notificationQueue: OperationQueue = OperationQueue.main
     
+    public let tokenStore: TokenStore
+    
     /// Run block in main thread
     internal static func main(block: @escaping () -> Void) {
         if Thread.isMainThread {
@@ -87,19 +89,21 @@ public class Provider: ProviderType {
     /// Initializes a provider.
     public init(_ clientID: String,
                 _ clientSecret: String,
+                tokenStore: TokenStore = UserDefaults.standard,
                 trackInflights: Bool = true,
                 plugins: [String: PluginType]? = [:],
                 redirectURL: String = SwiftyWeiboRedirectURL) {
         self.clientID = clientID
         self.clientSecret = clientSecret
         self.redirectURL = URL(string: redirectURL)!
+        self.tokenStore = tokenStore
         
         if plugins?.isEmpty == false {
             self.plugins = plugins!
         }
         
-        if let token = UserDefaults.standard.dictionary(forKey: "accessToken\(clientID)") {
-            self.token = Token(parameters: token)
+        if let token = self.tokenStore.token(forProvider: self) {
+            self.token = token
             let accessTokenPlugin = AccessTokenPlugin(tokenClosure: (self.token?.accessToken)!)
             self.plugins.updateValue(accessTokenPlugin, forKey: accessTokenPlugin.pluginIdentifier)
         }
