@@ -25,7 +25,7 @@ class TabBarController: UITabBarController {
         let contact = ContactsViewController()
         let discover = DiscoverViewController()
         let profile = ProfileViewController()
-        let plus = PlusViewController()
+        let plus = UIViewController()
         
         home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Home", image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
         contact.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Contact", image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
@@ -50,16 +50,9 @@ class TabBarController: UITabBarController {
         
         didHijackHandler = {
             tabbarController, viewController, index in
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                let alertController = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
-                let takePhotoAction = UIAlertAction(title: "Take a photo", style: .default, handler: nil)
-                alertController.addAction(takePhotoAction)
-                let selectFromAlbumAction = UIAlertAction(title: "Select from album", style: .default, handler: nil)
-                alertController.addAction(selectFromAlbumAction)
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-                alertController.addAction(cancelAction)
-                tabbarController.present(alertController, animated: true, completion: nil)
+            DispatchQueue.main.async {
+                let plus = NavigationController(rootViewController: PlusViewController())
+                tabbarController.present(plus, animated: true, completion: nil)
             }
         }
         tabBar.tintColor = UIColor(white: 0.2, alpha: 1)

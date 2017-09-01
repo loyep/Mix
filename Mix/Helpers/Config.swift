@@ -50,7 +50,7 @@ class OAuthToken: Object {
         var params: [String: Any] = [
             "clientID": clientID,
             "clientSecret": clientSecret ?? "",
-            "expiresAt": expiresAt ?? NSDate(),
+            "expiresAt": expiresAt ?? NSDate() as Date,
             "accessToken": accessToken ?? ""
         ]
         if let code = self.code {

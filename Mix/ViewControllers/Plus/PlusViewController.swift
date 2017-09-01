@@ -12,6 +12,11 @@ class PlusViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        navigationController?.dismiss(animated: true, completion: nil)
     }
 
 }
