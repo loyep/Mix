@@ -22,16 +22,16 @@ open class TabBarItemMoreContentView: TabBarItemContentView {
     }
     
     public func systemMore(highlighted isHighlighted: Bool) -> UIImage? {
-        let image = UIImage.init()
+        let image = UIImage()
         let circleDiameter  = isHighlighted ? 5.0 : 4.0
         let scale = UIScreen.main.scale
         
-        UIGraphicsBeginImageContextWithOptions(CGSize.init(width: 32, height: 32), false, scale)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), false, scale)
         
         if let context = UIGraphicsGetCurrentContext() {
             context.setLineWidth(1.0)
             for index in 0...2 {
-                let tmpRect = CGRect.init(x: 5.0 + 9.0 * Double(index), y: 14.0, width: circleDiameter, height: circleDiameter)
+                let tmpRect = CGRect(x: 5.0 + 9.0 * Double(index), y: 14.0, width: circleDiameter, height: circleDiameter)
                 context.addEllipse(in: tmpRect)
                 image.draw(in: tmpRect)
             }

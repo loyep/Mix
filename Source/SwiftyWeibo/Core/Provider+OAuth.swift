@@ -93,7 +93,7 @@ extension Provider {
                     guard let token = Token(
                         parameters: ["clientID": this.clientID,
                                      "clientSecret": this.clientSecret,
-                                     "expiresAt": Date.distantFuture,
+                                     "expiresAt": Date(timeIntervalSince1970: response["expires_in"] as! TimeInterval),
                                      "accessToken": accessToken,
                                      "code": code]) else {
                                         return

@@ -12,6 +12,7 @@ class ContactsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = NSLocalizedString("Contact", comment: "")
     }
 
 }

@@ -90,7 +90,7 @@ open class TabBar: UITabBar {
     /// 缓存当前tabBarController用来判断是否存在"More"Tab
     internal weak var tabBarController: UITabBarController?
     /// 自定义'More'按钮样式，继承自TabBarItemContentView
-    open var moreContentView: TabBarItemContentView? = TabBarItemMoreContentView.init() {
+    open var moreContentView: TabBarItemContentView? = TabBarItemMoreContentView() {
         didSet { self.reload() }
     }
     
@@ -132,7 +132,7 @@ open class TabBar: UITabBar {
         var b = super.point(inside: point, with: event)
         if !b {
             for container in containers {
-                if container.point(inside: CGPoint.init(x: point.x - container.frame.origin.x, y: point.y - container.frame.origin.y), with: event) {
+                if container.point(inside: CGPoint(x: point.x - container.frame.origin.x, y: point.y - container.frame.origin.y), with: event) {
                     b = true
                 }
             }
@@ -216,7 +216,7 @@ internal extension TabBar /* Layout */ {
             let eachSpacing = itemSpacing == 0.0 ? 0.0 : itemSpacing
             
             for container in containers {
-                container.frame = CGRect.init(x: x, y: y, width: eachWidth, height: height)
+                container.frame = CGRect(x: x, y: y, width: eachWidth, height: height)
                 x += eachWidth
                 x += eachSpacing
             }
@@ -244,7 +244,7 @@ internal extension TabBar /* Actions */ {
             return
         }
         for (idx, item) in tabBarItems.enumerated() {
-            let container = TabBarItemContainer.init(self, tag: 1000 + idx)
+            let container = TabBarItemContainer(self, tag: 1000 + idx)
             self.addSubview(container)
             self.containers.append(container)
             

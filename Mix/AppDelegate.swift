@@ -98,8 +98,8 @@ extension AppDelegate {
             return false
         }
         
-        let bundleShortVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-        let bundleIdentifier = Bundle.main.bundleIdentifier!
+        let bundleShortVersion = Bundle.releaseVersionNumber!
+        let bundleIdentifier = Bundle.bundleIdentifier
         
         if realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier) == nil {
             try? realm.write {

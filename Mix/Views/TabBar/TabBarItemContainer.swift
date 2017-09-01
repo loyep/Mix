@@ -29,7 +29,7 @@ internal class TabBarItemContainer: UIControl {
         super.layoutSubviews()
         for subview in self.subviews {
             if let subview = subview as? TabBarItemContentView {
-                subview.frame = CGRect.init(x: subview.insets.left, y: subview.insets.top, width: bounds.size.width - subview.insets.left - subview.insets.right, height: bounds.size.height - subview.insets.top - subview.insets.bottom)
+                subview.frame = CGRect(x: subview.insets.left, y: subview.insets.top, width: bounds.size.width - subview.insets.left - subview.insets.right, height: bounds.size.height - subview.insets.top - subview.insets.bottom)
                 subview.updateLayout()
             }
         }
@@ -39,7 +39,7 @@ internal class TabBarItemContainer: UIControl {
         var b = super.point(inside: point, with: event)
         if !b {
             for subview in self.subviews {
-                if subview.point(inside: CGPoint.init(x: point.x - subview.frame.origin.x, y: point.y - subview.frame.origin.y), with: event) {
+                if subview.point(inside: CGPoint(x: point.x - subview.frame.origin.x, y: point.y - subview.frame.origin.y), with: event) {
                     b = true
                 }
             }

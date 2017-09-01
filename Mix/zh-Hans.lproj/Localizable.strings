@@ -5,3 +5,9 @@
   Created by Maxwell on 30/08/2017.
   Copyright © 2017 Maxsey Inc. All rights reserved.
 */
+
+"Home" = "首页";
+"Profile" = "我";
+"Discover" = "发现";
+"Contact" = "消息";
+"Settings" = "设置";

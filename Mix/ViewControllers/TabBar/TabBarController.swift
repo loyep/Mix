@@ -27,11 +27,11 @@ class TabBarController: UITabBarController {
         let profile = ProfileViewController()
         let plus = UIViewController()
         
-        home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Home", image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
-        contact.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Contact", image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
-        plus.tabBarItem = TabBarItem(PlusTabBarItemContentView(), image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig"))
-        discover.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Discover", image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
-        profile.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Profile", image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
+        home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.HomeTitleDescription, image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
+        contact.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ContactTitleDescription, image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
+        plus.tabBarItem = TabBarItem(TabBarItemPlusContentView(), image: UIImage(named: "photo_verybig2"), selectedImage: UIImage(named: "photo_verybig2"))
+        discover.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.DiscoverTitleDescription, image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
+        profile.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ProfileTitleDescription, image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
         
         let homeNav = NavigationController(rootViewController: home)
         let contactNav = NavigationController(rootViewController: contact)
@@ -55,7 +55,9 @@ class TabBarController: UITabBarController {
                 tabbarController.present(plus, animated: true, completion: nil)
             }
         }
-        tabBar.tintColor = UIColor(white: 0.2, alpha: 1)
+        
+        /// 防止子控制器push的时候hidesBottomBarWhenPushed无效
+        hidesBottomBarWhenPushed = true
     }
     
 }
@@ -169,7 +171,6 @@ extension TabBarController: TabBarDelegate {
         if let vc = viewControllers?[idx] {
             ignoreNextSelection = true
             selectedIndex = idx
-            
             delegate?.tabBarController?(self, didSelect: vc)
         }
     }

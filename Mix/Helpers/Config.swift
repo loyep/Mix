@@ -11,9 +11,6 @@ import Realm
 import RealmSwift
 import SwiftyWeibo
 
-let bundleShortVersion = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
-let bundleIdentifier = Bundle.main.bundleIdentifier!
-
 final public class Config: Object {
     
     public static let appGroupID: String = "group.Maxsey.Mix"
@@ -24,9 +21,7 @@ final public class Config: Object {
     
     dynamic var lastLoginVersion: String = "0.0.0"
     
-    dynamic var bundleIdentifier: String = ""
-    
-    dynamic var token: NSData? = nil
+    dynamic var bundleIdentifier: String = Bundle.bundleIdentifier!
     
 }
 

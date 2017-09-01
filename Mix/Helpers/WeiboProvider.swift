@@ -10,5 +10,5 @@ import Foundation
 import SwiftyWeibo
 import RealmSwift
 
-public let weibo = Provider("1522592428", "223965c7ff7d2811d2312fb2630aa3a0", tokenStore: try! Realm())
+public let weibo = Provider("1522592428", "223965c7ff7d2811d2312fb2630aa3a0", tokenStore: try! Realm(), redirectURL: "mix://weibo.com/callback")
 

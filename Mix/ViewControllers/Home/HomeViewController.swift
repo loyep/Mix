@@ -7,17 +7,42 @@
 //
 
 import UIKit
+import SwiftyWeibo
+import RealmSwift
 
 class HomeViewController: UITableViewController {
-        
+    
+    var count: Int = 0
+    var dataSource: [WeiboStatus] = [] {
+        didSet {
+            self.count = dataSource.count
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        navigationItem.title = NSLocalizedString("Home", comment: "")
+        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: 200, page: 1, feature: .all)) { [weak self] result in
+            guard let this = self else {
+                return
+            }
+            do {
+                let json = try result.dematerialize().mapJSON() as! [String: Any]
+                guard let realm = try? Realm() else {
+                    return
+                }
+                try! realm.write {
+                    let statuses: [Any] = (json["statuses"] as? [Any])!
+                    for status in statuses {
+                        realm.create(WeiboStatus.self, value: status, update: true)
+                    }
+                }
+                this.dataSource += realm.objects(WeiboStatus.self)
+                this.tableView.reloadData()
+            } catch {
+                
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {

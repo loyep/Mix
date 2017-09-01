@@ -95,13 +95,13 @@ open class TabBarItemContentView: UIView {
     }
     
     open var imageView: UIImageView = {
-        let imageView = UIImageView.init(frame: CGRect.zero)
+        let imageView = UIImageView(frame: CGRect.zero)
         imageView.backgroundColor = .clear
         return imageView
     }()
     
     open var titleLabel: UILabel = {
-        let titleLabel = UILabel.init(frame: CGRect.zero)
+        let titleLabel = UILabel(frame: CGRect.zero)
         titleLabel.backgroundColor = .clear
         titleLabel.textColor = .clear
         titleLabel.font = UIFont.systemFont(ofSize: 10.0)
@@ -145,7 +145,7 @@ open class TabBarItemContentView: UIView {
             }
         }
     }
-    open var badgeOffset: UIOffset = UIOffset.init(horizontal: 6.0, vertical: -22.0) {
+    open var badgeOffset: UIOffset = UIOffset(horizontal: 6.0, vertical: -22.0) {
         didSet {
             if badgeOffset != oldValue {
                 self.updateLayout()
@@ -186,25 +186,25 @@ open class TabBarItemContentView: UIView {
         if !imageView.isHidden && !titleLabel.isHidden {
             titleLabel.sizeToFit()
             imageView.sizeToFit()
-            titleLabel.frame = CGRect.init(x: (w - titleLabel.bounds.size.width) / 2.0,
+            titleLabel.frame = CGRect(x: (w - titleLabel.bounds.size.width) / 2.0,
                                            y: h - titleLabel.bounds.size.height - 1.0,
                                            width: titleLabel.bounds.size.width,
                                            height: titleLabel.bounds.size.height)
-            imageView.frame = CGRect.init(x: (w - imageView.bounds.size.width) / 2.0,
+            imageView.frame = CGRect(x: (w - imageView.bounds.size.width) / 2.0,
                                           y: (h - imageView.bounds.size.height) / 2.0 - 6.0,
                                           width: imageView.bounds.size.width,
                                           height: imageView.bounds.size.height)
         } else if !imageView.isHidden {
             imageView.sizeToFit()
-            imageView.center = CGPoint.init(x: w / 2.0, y: h / 2.0)
+            imageView.center = CGPoint(x: w / 2.0, y: h / 2.0)
         } else if !titleLabel.isHidden {
             titleLabel.sizeToFit()
-            titleLabel.center = CGPoint.init(x: w / 2.0, y: h / 2.0)
+            titleLabel.center = CGPoint(x: w / 2.0, y: h / 2.0)
         }
         
         if let _ = badgeView.superview {
             let size = badgeView.sizeThatFits(self.frame.size)
-            badgeView.frame = CGRect.init(origin: CGPoint.init(x: w / 2.0 + badgeOffset.horizontal, y: h / 2.0 + badgeOffset.vertical), size: size)
+            badgeView.frame = CGRect(origin: CGPoint(x: w / 2.0 + badgeOffset.horizontal, y: h / 2.0 + badgeOffset.vertical), size: size)
             badgeView.setNeedsLayout()
         }
     }
