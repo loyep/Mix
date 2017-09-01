@@ -27,11 +27,11 @@ class TabBarController: UITabBarController {
         let profile = ProfileViewController()
         let plus = PlusViewController()
         
-        home.tabBarItem = TabBarItem(title: "Home", image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
-        contact.tabBarItem = TabBarItem(title: "Contact", image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
+        home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Home", image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
+        contact.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Contact", image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
         plus.tabBarItem = TabBarItem(PlusTabBarItemContentView(), image: UIImage(named: "photo_verybig"), selectedImage: UIImage(named: "photo_verybig"))
-        discover.tabBarItem = TabBarItem(title: "Discover", image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
-        profile.tabBarItem = TabBarItem(title: "Profile", image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
+        discover.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Discover", image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
+        profile.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: "Profile", image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
         
         let homeNav = NavigationController(rootViewController: home)
         let contactNav = NavigationController(rootViewController: contact)

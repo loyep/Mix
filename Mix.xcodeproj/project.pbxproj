@@ -15,14 +15,14 @@
 		29229B5C1F569D90007059A5 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29229B5A1F569D90007059A5 /* MainInterface.storyboard */; };
 		29229B601F569D90007059A5 /* MixShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 29229B561F569D90007059A5 /* MixShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		29229B6C1F569D9D007059A5 /* MixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29229B6B1F569D9D007059A5 /* MixTests.swift */; };
+		2933F3D71F58F2040088A33C /* FeatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3D61F58F2040088A33C /* FeatureViewController.swift */; };
+		2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3D81F58F7660088A33C /* TabBarItemAnimateContentView.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
-		298ACA6C1F56A047005D2DAC /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298ACA6A1F56A047005D2DAC /* HomeViewController.xib */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
 		298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 298ACA7A1F56A0D7005D2DAC /* InfoPlist.strings */; };
 		298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 298ACA7E1F56A0FB005D2DAC /* Localizable.strings */; };
 		298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA811F56A15D005D2DAC /* ProfileViewController.swift */; };
-		298ACA841F56A15D005D2DAC /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 298ACA821F56A15D005D2DAC /* ProfileViewController.xib */; };
 		298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */; };
 		298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */; };
 		298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA8C1F56A1D8005D2DAC /* SettingsViewController.swift */; };
@@ -91,8 +91,9 @@
 		29229B691F569D9D007059A5 /* MixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B6B1F569D9D007059A5 /* MixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixTests.swift; sourceTree = "<group>"; };
 		29229B6D1F569D9E007059A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2933F3D61F58F2040088A33C /* FeatureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureViewController.swift; sourceTree = "<group>"; };
+		2933F3D81F58F7660088A33C /* TabBarItemAnimateContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemAnimateContentView.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		298ACA6A1F56A047005D2DAC /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		298ACA731F56A0AE005D2DAC /* Mix-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Mix-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -101,7 +102,6 @@
 		298ACA7D1F56A0FB005D2DAC /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		298ACA7F1F56A0FF005D2DAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		298ACA811F56A15D005D2DAC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		298ACA821F56A15D005D2DAC /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		298ACA8C1F56A1D8005D2DAC /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +185,14 @@
 			path = MixTests;
 			sourceTree = "<group>";
 		};
+		2933F3D51F58F1900088A33C /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				2933F3D61F58F2040088A33C /* FeatureViewController.swift */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
 		298ACA621F569FCB005D2DAC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,15 +205,16 @@
 		298ACA631F569FF2005D2DAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				298ACAB51F57D5A6005D2DAC /* Welcome */,
 				298ACA881F56A170005D2DAC /* Contacts */,
 				298ACA851F56A15F005D2DAC /* Discover */,
+				2933F3D51F58F1900088A33C /* Feature */,
 				298ACA681F56A01D005D2DAC /* Home */,
 				298ACA701F56A069005D2DAC /* Navigation */,
 				298ACAAC1F57AC24005D2DAC /* Plus */,
 				298ACA801F56A145005D2DAC /* Profile */,
 				298ACA8B1F56A1AC005D2DAC /* Settings */,
 				298ACA6D1F56A052005D2DAC /* TabBar */,
+				298ACAB51F57D5A6005D2DAC /* Welcome */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -247,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				298ACA691F56A047005D2DAC /* HomeViewController.swift */,
-				298ACA6A1F56A047005D2DAC /* HomeViewController.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -272,7 +280,6 @@
 			isa = PBXGroup;
 			children = (
 				298ACA811F56A15D005D2DAC /* ProfileViewController.swift */,
-				298ACA821F56A15D005D2DAC /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -305,8 +312,8 @@
 		298ACA901F56C72E005D2DAC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
+				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +328,7 @@
 				298ACAA31F57A308005D2DAC /* TabBarItemContainer.swift */,
 				298ACAA41F57A308005D2DAC /* TabBarItemContentView.swift */,
 				298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */,
+				2933F3D81F58F7660088A33C /* TabBarItemAnimateContentView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -338,7 +346,7 @@
 			children = (
 				298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */,
 			);
-			name = Welcome;
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		29CB039D1F569C4D00CF33FF = {
@@ -366,12 +374,11 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
-				CF6F25A81F5845A100329CE7 /* Persistence */,
-				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
 				298ACA651F569FFF005D2DAC /* Models */,
+				CF6F25A81F5845A100329CE7 /* Persistence */,
 				CF60C2811F56ED68004CCD5B /* Protocols */,
 				298ACA671F56A012005D2DAC /* Services */,
 				298ACA631F569FF2005D2DAC /* ViewControllers */,
@@ -382,6 +389,7 @@
 				29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */,
 				298ACA7E1F56A0FB005D2DAC /* Localizable.strings */,
 				298ACA731F56A0AE005D2DAC /* Mix-Bridging-Header.h */,
+				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 			);
 			path = Mix;
 			sourceTree = "<group>";
@@ -422,7 +430,7 @@
 			isa = PBXGroup;
 			children = (
 			);
-			name = Persistence;
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -547,13 +555,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				298ACA841F56A15D005D2DAC /* ProfileViewController.xib in Resources */,
 				298ACAB01F57ADFA005D2DAC /* Images.xcassets in Resources */,
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				298ACA8F1F56A1D8005D2DAC /* SettingsViewController.xib in Resources */,
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,
-				298ACA6C1F56A047005D2DAC /* HomeViewController.xib in Resources */,
 				298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -755,7 +761,9 @@
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				298ACA8E1F56A1D8005D2DAC /* SettingsViewController.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
+				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
+				2933F3D71F58F2040088A33C /* FeatureViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
