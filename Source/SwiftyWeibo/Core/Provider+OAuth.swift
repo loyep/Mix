@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Result
 
 public let SwiftyWeiboRedirectURL = "https://api.weibo.com/oauth2/default.html"
 
@@ -67,7 +68,7 @@ extension Provider {
         return randomString
     }
     
-    public func authorize(scope: [String] = ["all"], state: String = Provider.generateState(withLength: 20)) -> () {
+    public func authorize(scope: [String] = ["all"], state: String = Provider.generateState(withLength: 20), completion: @escaping (_ result: Result<Token, SwiftyWeiboError>) -> Void) -> () {
         guard let urlRequest = endpoint(SwiftyWeibo.OAuth2.authorize(config: self, scopes: scope, state: state)).urlRequest,
             let queryURL = urlRequest.url else {
                 return
@@ -102,9 +103,10 @@ extension Provider {
                     this.tokenStore.set(token, forProvider: this)
                     let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
                     this.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
+                    completion(.success(token))
                 } catch {
-                    let printableError = error
-                    print("error: \(printableError)")
+                    let error = SwiftyWeiboError.missingToken
+                    completion(.failure(error))
                 }
             })
         }

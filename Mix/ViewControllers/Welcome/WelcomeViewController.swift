@@ -26,6 +26,7 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         view.addSubview(weiboLoginButton)
         weiboLoginButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
@@ -40,7 +41,15 @@ class WelcomeViewController: UIViewController {
             authRequest?.redirectURI = SwiftyWeibo.SwiftyWeiboRedirectURL
             WeiboSDK.send(authRequest)
         } else {
-            weibo.authorize()
+            weibo.authorize(completion: { result in
+                switch result {
+                case .success:
+//                    this.dismiss(animated: true, completion: nil)
+                    UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
+                case .failure:
+                    print("fail")
+                }
+            })
         }
     }
     

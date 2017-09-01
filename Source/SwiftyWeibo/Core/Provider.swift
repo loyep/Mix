@@ -86,21 +86,35 @@ public class Provider: ProviderType {
         }
     }
     
+    fileprivate static func defaultPlugins() -> [String: PluginType] {
+        var plugins: [String: PluginType] = [:]
+        let logPlugin = NetworkLoggerPlugin()
+        plugins.updateValue(logPlugin, forKey: logPlugin.pluginIdentifier)
+        let networkActivityPlugin = NetworkActivityPlugin { activity in
+            switch activity {
+            case .began:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            case .ended:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
+        plugins.updateValue(networkActivityPlugin, forKey: networkActivityPlugin.pluginIdentifier)
+        return plugins
+    }
+    
     /// Initializes a provider.
     public init(_ clientID: String,
                 _ clientSecret: String,
                 tokenStore: TokenStore = UserDefaults.standard,
                 trackInflights: Bool = true,
-                plugins: [String: PluginType]? = [:],
+                plugins: [String: PluginType] = Provider.defaultPlugins(),
                 redirectURL: String = SwiftyWeiboRedirectURL) {
         self.clientID = clientID
         self.clientSecret = clientSecret
         self.redirectURL = URL(string: redirectURL)!
         self.tokenStore = tokenStore
         
-        if plugins?.isEmpty == false {
-            self.plugins = plugins!
-        }
+        self.plugins = plugins
         
         if let token = self.tokenStore.token(forProvider: self) {
             self.token = token

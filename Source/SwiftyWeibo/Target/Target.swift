@@ -16,8 +16,6 @@ public enum HomeTimeLineFeature: Int {
     case music = 4
 }
 
-//public enum Target {
-
 public enum OAuth2: TargetType {
     case authorize(config: Provider, scopes: [String], state: String)
     case accessToken(Provider, code: String)
