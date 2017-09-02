@@ -88,9 +88,16 @@ extension UITableView {
         return cell
     }
     
-    func dequeueReusableHeaderFooter<T: UITableViewHeaderFooterView>() -> T where T: Reusable {
+    func dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T where T: Reusable {
+        guard let cell = self.dequeueReusableCell(withIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
+        }
         
-        guard let view = dequeueReusableHeaderFooterView(withIdentifier: T.mix_reuseIdentifier) as? T else {
+        return cell
+    }
+    
+    func dequeueReusableHeaderFooter<T: UITableViewHeaderFooterView>() -> T where T: Reusable {
+        guard let view = self.dequeueReusableHeaderFooterView(withIdentifier: T.mix_reuseIdentifier) as? T else {
             fatalError("Could not dequeue HeaderFooter with identifier: \(T.mix_reuseIdentifier)")
         }
         

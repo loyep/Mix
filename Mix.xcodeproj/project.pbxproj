@@ -45,6 +45,8 @@
 		298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
+		CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */; };
+		CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */; };
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
@@ -96,7 +98,7 @@
 		2933F3D81F58F7660088A33C /* TabBarItemAnimateContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemAnimateContentView.swift; sourceTree = "<group>"; };
 		2933F3DC1F592F300088A33C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2933F3E51F5937770088A33C /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		2933F3EF1F595F440088A33C /* WeiboModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeiboModels.swift; path = Mix/WeiboModels.swift; sourceTree = SOURCE_ROOT; };
+		2933F3EF1F595F440088A33C /* WeiboModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboModels.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,8 @@
 		760F6BBED314353598466D2F /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
 		823B2E42537B0B69A24A9A3F /* Pods-Mix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.release.xcconfig"; sourceTree = "<group>"; };
 		BD951BDEE158C234886697E4 /* Pods_MixShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboTableViewCell.swift; sourceTree = "<group>"; };
+		CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWebImage.swift; sourceTree = "<group>"; };
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CF2A06161F5A6593000E4E8B /* Cells */,
 				298ACA9F1F57A2F2005D2DAC /* TabBar */,
 			);
 			path = Views;
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				2933F3EF1F595F440088A33C /* WeiboModels.swift */,
+				CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -426,6 +432,22 @@
 				2D28C97985A40BDEA2FE54ED /* Pods-MixTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF2A06161F5A6593000E4E8B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CF2A06171F5A659C000E4E8B /* WeiboCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CF2A06171F5A659C000E4E8B /* WeiboCell */ = {
+			isa = PBXGroup;
+			children = (
+				CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */,
+			);
+			path = WeiboCell;
 			sourceTree = "<group>";
 		};
 		CF60C2811F56ED68004CCD5B /* Protocols */ = {
@@ -769,8 +791,10 @@
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
 				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
+				CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
+				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,

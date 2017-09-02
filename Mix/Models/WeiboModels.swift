@@ -9,6 +9,20 @@
 import Foundation
 import RealmSwift
 
+class WeiboHomeLine: Object {
+    
+    @objc override static func primaryKey() -> String? {
+        return "since_id"
+    }
+    
+    dynamic var since_id = 0
+    dynamic var max_id = 0
+    dynamic var total_number = 0
+    
+    let statuses = List<WeiboStatus>()
+    
+}
+
 class WeiboStatus: Object {
     
     @objc override static func primaryKey() -> String? {
