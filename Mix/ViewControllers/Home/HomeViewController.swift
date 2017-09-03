@@ -28,36 +28,34 @@ class HomeViewController: UITableViewController {
         tableView.rowHeight = 500
         tableView.registerClassOf(WeiboTableViewCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
-        
-//        realm.objects(RealmWebImage.self)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        guard let realm = try? Realm() else {
-//            return
-//        }
-//        
-//        let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
-//        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: since_id, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
-//            guard let this = self else {
-//                return
-//            }
-//            do {
-//                let json = try result.dematerialize().mapJSON() as! [String: Any]
-//                guard let realm = try? Realm() else {
-//                    return
-//                }
-//                try! realm.write {
-//                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
-//                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
-//                    this.dataSource += homeLine.statuses
-//                    this.tableView.reloadData()
-//                }
-//            } catch {
-//                
-//            }
-//        }
+        guard let realm = try? Realm() else {
+            return
+        }
+        
+        let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
+        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: since_id, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
+            guard let this = self else {
+                return
+            }
+            do {
+                let json = try result.dematerialize().mapJSON() as! [String: Any]
+                guard let realm = try? Realm() else {
+                    return
+                }
+                try! realm.write {
+                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
+                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
+                    this.dataSource += homeLine.statuses
+                    this.tableView.reloadData()
+                }
+            } catch {
+                
+            }
+        }
     }
     
     // MARK: - Table view data source

@@ -19,7 +19,7 @@ public func realmConfig() -> Realm.Configuration {
     #endif
     var config = Realm.Configuration()
     config.fileURL = realmFileURL
-    config.schemaVersion = 13
+    config.schemaVersion = 17
     config.migrationBlock = { migration, oldSchemaVersion in
         
     }

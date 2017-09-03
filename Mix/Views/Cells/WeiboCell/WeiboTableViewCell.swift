@@ -13,7 +13,7 @@ class WeiboTableViewCell: UITableViewCell {
     
     var profileImage: UIButton = {
         let proImage = UIButton(type: .custom)
-        proImage.backgroundColor = UIColor.red
+        proImage.backgroundColor = UIColor.white
         proImage.layer.cornerRadius = 18
         proImage.layer.masksToBounds = true
         proImage.layer.borderColor = UIColor.lightGray.cgColor
@@ -28,7 +28,7 @@ class WeiboTableViewCell: UITableViewCell {
     }()
     
     lazy var textView: UITextView = {
-        let textView = UITextView()
+        let textView = WeiboTextView()
         textView.isEditable = false
         textView.dataDetectorTypes = .all
         textView.delegate = self
@@ -58,41 +58,15 @@ class WeiboTableViewCell: UITableViewCell {
     }
     
     func bindViewModel(_ model: WeiboStatus) -> () {
+        print("\(model.text.replacingFirst(matching: "(#)(\\w+)(#)", with: "$1ABC$3"))")
         name.text = model.user?.screen_name
-//        name.attributedText = try! NSAttributedString(data: model.source.data(using: .unicode)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil)
         textView.text = model.text
         
         let textSize = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
         textView.frame.size.height = textSize.height
         
         let imageUrl = (model.user?.profile_image_url)!
-        guard  let realm = try? Realm() else {
-            return
-        }
-        
-        if let webData = realm.object(ofType: RealmWebImage.self, forPrimaryKey: imageUrl)?.webCacheData {
-            profileImage.setImage(UIImage(data: webData as Data), for: .normal)
-            return
-        }
-        
-        DispatchQueue.global().async { [weak self] in
-            guard let this = self,
-                let url = URL(string: imageUrl),
-                let imageData = try? Data(contentsOf: url) else {
-                    return
-            }
-            
-            DispatchQueue.main.async { [weak this] in
-                guard let realm = try? Realm(), let this = this else {
-                    return
-                }
-                
-                try? realm.write {
-                    realm.create(RealmWebImage.self, value: ["imageUrl": imageUrl, "webCacheData": imageData, "webCacheSize": imageData.count], update: true)
-                }
-                this.profileImage.setImage(UIImage(data: imageData), for: .normal)
-            }
-        }
+        profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
     }
     
 }
@@ -108,4 +82,13 @@ extension WeiboTableViewCell: UITextViewDelegate {
         return false
     }
     
+}
+
+
+class WeiboTextView: UITextView {
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        print("\(point)")
+        return super.hitTest(point, with: event)
+    }
 }

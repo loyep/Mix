@@ -20,6 +20,13 @@
 		2933F3DE1F592F300088A33C /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3DC1F592F300088A33C /* SettingsViewController.swift */; };
 		2933F3E61F5937770088A33C /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3E51F5937770088A33C /* Strings.swift */; };
 		2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3EF1F595F440088A33C /* WeiboModels.swift */; };
+		2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F21F5BFC400088A33C /* Foundation+Ranges.swift */; };
+		2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F31F5BFC400088A33C /* MatchResult.swift */; };
+		2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F41F5BFC400088A33C /* Memo.swift */; };
+		2933F3FC1F5BFC400088A33C /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F51F5BFC400088A33C /* Options.swift */; };
+		2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F61F5BFC400088A33C /* Regex.swift */; };
+		2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */; };
+		2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F81F5BFC400088A33C /* ThreadLocal.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
@@ -99,6 +106,13 @@
 		2933F3DC1F592F300088A33C /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2933F3E51F5937770088A33C /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		2933F3EF1F595F440088A33C /* WeiboModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboModels.swift; sourceTree = "<group>"; };
+		2933F3F21F5BFC400088A33C /* Foundation+Ranges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Foundation+Ranges.swift"; sourceTree = "<group>"; };
+		2933F3F31F5BFC400088A33C /* MatchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatchResult.swift; sourceTree = "<group>"; };
+		2933F3F41F5BFC400088A33C /* Memo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		2933F3F51F5BFC400088A33C /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
+		2933F3F61F5BFC400088A33C /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
+		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -207,6 +221,21 @@
 			path = Shared;
 			sourceTree = "<group>";
 		};
+		2933F3F11F5BFC2E0088A33C /* Regex */ = {
+			isa = PBXGroup;
+			children = (
+				2933F3F21F5BFC400088A33C /* Foundation+Ranges.swift */,
+				2933F3F31F5BFC400088A33C /* MatchResult.swift */,
+				2933F3F41F5BFC400088A33C /* Memo.swift */,
+				2933F3F51F5BFC400088A33C /* Options.swift */,
+				2933F3F61F5BFC400088A33C /* Regex.swift */,
+				2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */,
+				2933F3F81F5BFC400088A33C /* ThreadLocal.swift */,
+			);
+			name = Regex;
+			path = Regex;
+			sourceTree = "<group>";
+		};
 		298ACA621F569FCB005D2DAC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,8 +274,8 @@
 		298ACA651F569FFF005D2DAC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				2933F3EF1F595F440088A33C /* WeiboModels.swift */,
 				CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */,
+				2933F3EF1F595F440088A33C /* WeiboModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,6 +283,7 @@
 		298ACA661F56A00B005D2DAC /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				2933F3F11F5BFC2E0088A33C /* Regex */,
 				298ACA971F56C831005D2DAC /* Config.swift */,
 				298ACA981F56C831005D2DAC /* RealmConfig.swift */,
 				298ACA991F56C831005D2DAC /* SafeDispatch.swift */,
@@ -774,13 +804,17 @@
 				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
+				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
+				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
 				298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */,
 				2933F3E61F5937770088A33C /* Strings.swift in Sources */,
+				2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
 				298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */,
 				298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */,
+				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
@@ -789,11 +823,14 @@
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
+				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
+				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
 				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
 				CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
+				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
 				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,

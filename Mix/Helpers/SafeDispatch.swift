@@ -19,7 +19,7 @@ open class SafeDispatch {
         DispatchQueue.main.setSpecific(key: mainQueueKey, value: mainQueueValue)
     }
     
-    open class func async(onQueue queue: DispatchQueue = DispatchQueue.main, forWork block: @escaping ()->()) {
+    open static func async(onQueue queue: DispatchQueue = DispatchQueue.main, forWork block: @escaping ()->()) {
         if queue === DispatchQueue.main {
             if DispatchQueue.getSpecific(key: sharedSafeDispatch.mainQueueKey) == sharedSafeDispatch.mainQueueValue {
                 block()

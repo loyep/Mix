@@ -80,6 +80,13 @@ class WeiboStatus: Object {
     
     /// 是否已收藏，true：是，false：否
     dynamic var favorited = false
+    
+    /// 转发微博
+    dynamic var retweeted_status: WeiboRetweetedStatus?
+}
+
+class WeiboRetweetedStatus: WeiboStatus {
+    
 }
 
 
