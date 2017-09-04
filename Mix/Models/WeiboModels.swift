@@ -30,7 +30,7 @@ class WeiboStatus: Object {
     }
     
     @objc override static func ignoredProperties() -> [String] {
-        return ["weiboAttr"]
+        return ["weiboAttr", "rowHeight", "textHeight"]
     }
     
     dynamic var id = 0
@@ -93,8 +93,12 @@ class WeiboStatus: Object {
     }()
     
     var rowHeight: CGFloat {
-        return self.weiboAttr.boundingRect(with: CGSize(width: 295, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, context: nil).height + 56.0
+        return textHeight + 56.0
     }
+    
+    lazy var textHeight: CGFloat = {
+        return self.weiboAttr.boundingRect(with: CGSize(width: 295, height: CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, context: nil).height
+    }()
 }
 
 class WeiboRetweetedStatus: WeiboStatus {

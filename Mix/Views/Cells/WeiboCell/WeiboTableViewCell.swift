@@ -60,16 +60,10 @@ class WeiboTableViewCell: UITableViewCell {
     
     func bindViewModel(_ model: WeiboStatus) -> () {
         name.text = model.user?.screen_name
-        
-//        let text = NSMutableAttributedString(string: model.text).addLinks().replaceEmotion().replaceFullText()
         let text = model.weiboAttr
         textView.attributedText = text
-        
-        let textSize = textView.sizeThatFits(CGSize(width: textView.frame.size.width, height: CGFloat(MAXFLOAT)))
-        textView.frame.size.height = textSize.height
-        
+        textView.frame.size.height = model.textHeight
         let imageUrl = (model.user?.profile_image_url)!
-        
         profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
     }
 }
