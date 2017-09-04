@@ -243,6 +243,7 @@
 				29504C931F5D413400C61C28 /* emoticons.json */,
 			);
 			name = JSON;
+			path = JSON;
 			sourceTree = "<group>";
 		};
 		298ACA621F569FCB005D2DAC /* Assets */ = {

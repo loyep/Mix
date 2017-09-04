@@ -25,7 +25,7 @@ class HomeViewController: UITableViewController {
             return
         }
         dataSource += realm.objects(WeiboStatus.self)
-        tableView.rowHeight = 500
+//        tableView.rowHeight = 500
         tableView.registerClassOf(WeiboTableViewCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
     }
@@ -69,6 +69,11 @@ class HomeViewController: UITableViewController {
         let cell: WeiboTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
         cell.bindViewModel(dataSource[indexPath.row])
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let status: WeiboStatus = dataSource[indexPath.row]
+        return status.rowHeight
     }
     
     /*
