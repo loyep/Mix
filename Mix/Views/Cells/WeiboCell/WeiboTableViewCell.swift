@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import YYText
+import YYText
 
 class WeiboTableViewCell: UITableViewCell {
     
@@ -27,15 +27,23 @@ class WeiboTableViewCell: UITableViewCell {
         return name
     }()
     
-    lazy var textView: UITextView = {
-        let textView = UITextView()
-        textView.isEditable = false
-        textView.dataDetectorTypes = .link
+    lazy var textView: YYLabel = {
+        let textView = YYLabel()
+        textView.numberOfLines = 0
+//        textView.isEditable = false
+//        textView.dataDetectorTypes = .all
         textView.font = UIFont.systemFont(ofSize: 18)
-        textView.delegate = self
-        textView.isScrollEnabled = false
-        textView.textContainer.lineFragmentPadding = 0
+//        textView.delegate = self
+//        textView.isScrollEnabled = false
+//        textView.textContainer.lineFragmentPadding = 0
         textView.textContainerInset = .zero
+        let emojParser = YYLabelLinkParser()
+//        emojParser.emoticonMapper = WeiboTableViewCell.emotions
+        textView.textParser = emojParser
+//        NSAttributedString().string.substring(with: range)
+        textView.highlightTapAction = { containerView, text, range, rect in
+            print("\(text.string)" as String)
+        }
         return textView
     }()
     
@@ -57,6 +65,21 @@ class WeiboTableViewCell: UITableViewCell {
         name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.size.width - 80, height: 18)
         textView.frame = CGRect(x: name.frame.origin.x, y: name.frame.maxY + 5, width: name.frame.size.width, height: 0)
     }
+    
+    static var emotions: [String: UIImage] = {
+        guard let url = Bundle.main.path(forResource:"emoticons", ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: url)),
+            let json = try? JSONSerialization.jsonObject(with:data, options:JSONSerialization.ReadingOptions.mutableContainers) as! [[String: String]] else {
+                return [:]
+        }
+        
+//        let mapresult = json.flatMap( { [$0["chs"]: $0["img"]] } )
+        var maps: [String: UIImage] = [:]
+        for (_, j) in json.enumerated() {
+            maps[j["chs"]!] = UIImage(named: j["img"]!)
+        }
+        return maps
+    }()
     
     func bindViewModel(_ model: WeiboStatus) -> () {
         name.text = model.user?.screen_name

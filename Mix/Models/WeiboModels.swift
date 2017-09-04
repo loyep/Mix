@@ -89,7 +89,7 @@ class WeiboStatus: Object {
     dynamic var retweeted_status: WeiboRetweetedStatus?
     
     lazy var weiboAttr: NSAttributedString = {
-        return NSMutableAttributedString(string: self.text, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)]).addLinks().replaceEmotion().replaceFullText()
+        return NSMutableAttributedString(string: self.text, attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 15)])//.addLinks().replaceEmotion().replaceFullText()
     }()
     
     var rowHeight: CGFloat {
@@ -124,16 +124,6 @@ extension Regex {
     
     static var fullTextRegex: Regex = {
         return Regex("(\\u5168\\u6587)： ([a-zA-z]+://[^\\s]*)")
-    }()
-    
-    static var fullTexts: [[String: String]] = {
-        guard let url = Bundle.main.path(forResource:"emoticons", ofType: "json"),
-            let data = try? Data(contentsOf: URL(fileURLWithPath: url)),
-            let json = try? JSONSerialization.jsonObject(with:data, options:JSONSerialization.ReadingOptions.mutableContainers) as! [[String: String]] else {
-                return []
-        }
-        
-        return json
     }()
     
     static var emotions: [[String: String]] = {
