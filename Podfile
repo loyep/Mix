@@ -13,6 +13,7 @@ target 'Mix' do
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
     pod 'SwiftyWeibo',      :path => './Source/SwiftyWeibo'
+#    pod 'YYText'
     
     target 'MixTests' do
         inherit! :search_paths

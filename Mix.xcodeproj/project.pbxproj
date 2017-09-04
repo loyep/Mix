@@ -27,6 +27,7 @@
 		2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F61F5BFC400088A33C /* Regex.swift */; };
 		2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */; };
 		2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F81F5BFC400088A33C /* ThreadLocal.swift */; };
+		29504C941F5D413400C61C28 /* emoticons.json in Resources */ = {isa = PBXBuildFile; fileRef = 29504C931F5D413400C61C28 /* emoticons.json */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
@@ -113,6 +114,7 @@
 		2933F3F61F5BFC400088A33C /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
 		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
+		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -232,13 +234,21 @@
 				2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */,
 				2933F3F81F5BFC400088A33C /* ThreadLocal.swift */,
 			);
-			name = Regex;
 			path = Regex;
+			sourceTree = "<group>";
+		};
+		29504C921F5D411F00C61C28 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				29504C931F5D413400C61C28 /* emoticons.json */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 		298ACA621F569FCB005D2DAC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				29504C921F5D411F00C61C28 /* JSON */,
 				29CB03B01F569C4D00CF33FF /* Assets.xcassets */,
 				298ACAAF1F57ADFA005D2DAC /* Images.xcassets */,
 			);
@@ -619,6 +629,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				298ACAB01F57ADFA005D2DAC /* Images.xcassets in Resources */,
+				29504C941F5D413400C61C28 /* emoticons.json in Resources */,
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,

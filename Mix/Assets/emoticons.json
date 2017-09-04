@@ -1,0 +1,632 @@
+ [
+  {
+  "cht": "[微笑]",
+  "chs": "[微笑]",
+  "img": "d_hehe"
+  },
+  {
+  "cht": "[可愛]",
+  "chs": "[可爱]",
+  "img": "d_keai"
+  },
+  {
+  "cht": "[太開心]",
+  "chs": "[太开心]",
+  "img": "d_taikaixin"
+  },
+  {
+  "cht": "[鼓掌]",
+  "chs": "[鼓掌]",
+  "img": "d_guzhang"
+  },
+  {
+  "cht": "[嘻嘻]",
+  "chs": "[嘻嘻]",
+  "img": "d_xixi"
+  },
+  {
+  "cht": "[哈哈]",
+  "chs": "[哈哈]",
+  "img": "d_haha"
+  },
+  {
+  "cht": "[笑cry]",
+  "chs": "[笑cry]",
+  "img": "d_xiaoku"
+  },
+  {
+  "cht": "[擠眼]",
+  "chs": "[挤眼]",
+  "img": "d_jiyan"
+  },
+  {
+  "cht": "[饞嘴]",
+  "chs": "[馋嘴]",
+  "img": "d_chanzui"
+  },
+  {
+  "cht": "[黑線]",
+  "chs": "[黑线]",
+  "img": "d_heixian"
+  },
+  {
+  "cht": "[汗]",
+  "chs": "[汗]",
+  "img": "d_han"
+  },
+  {
+  "cht": "[挖鼻]",
+  "chs": "[挖鼻]",
+  "img": "d_wabishi"
+  },
+  {
+  "cht": "[哼]",
+  "chs": "[哼]",
+  "img": "d_heng"
+  },
+  {
+  "cht": "[怒]",
+  "chs": "[怒]",
+  "img": "d_nu"
+  },
+  {
+  "cht": "[委屈]",
+  "chs": "[委屈]",
+  "img": "d_weiqu"
+  },
+  {
+  "cht": "[可憐]",
+  "chs": "[可怜]",
+  "img": "d_kelian"
+  },
+  {
+  "cht": "[失望]",
+  "chs": "[失望]",
+  "img": "d_shiwang"
+  },
+  {
+  "cht": "[悲傷]",
+  "chs": "[悲伤]",
+  "img": "d_beishang"
+  },
+  {
+  "cht": "[淚]",
+  "chs": "[泪]",
+  "img": "d_lei"
+  },
+  {
+  "cht": "[允悲]",
+  "chs": "[允悲]",
+  "img": "d_yunbei"
+  },
+  {
+  "cht": "[害羞]",
+  "chs": "[害羞]",
+  "img": "d_haixiu"
+  },
+  {
+  "cht": "[污]",
+  "chs": "[污]",
+  "img": "d_wu"
+  },
+  {
+  "cht": "[愛你]",
+  "chs": "[爱你]",
+  "img": "d_aini"
+  },
+  {
+  "cht": "[親親]",
+  "chs": "[亲亲]",
+  "img": "d_qinqin"
+  },
+  {
+  "cht": "[色]",
+  "chs": "[色]",
+  "img": "d_huaxin"
+  },
+  {
+  "cht": "[舔屏]",
+  "chs": "[舔屏]",
+  "img": "d_tian"
+  },
+  {
+  "cht": "[憧憬]",
+  "chs": "[憧憬]",
+  "img": "d_xingxingyan"
+  },
+  {
+  "cht": "[doge]",
+  "chs": "[doge]",
+  "img": "d_doge"
+  },
+  {
+  "cht": "[喵喵]",
+  "chs": "[喵喵]",
+  "img": "d_miao"
+  },
+  {
+  "cht": "[二哈]",
+  "chs": "[二哈]",
+  "img": "d_erha"
+  },
+  {
+  "cht": "[壞笑]",
+  "chs": "[坏笑]",
+  "img": "d_huaixiao"
+  },
+  {
+  "cht": "[阴险]",
+  "chs": "[阴险]",
+  "img": "d_yinxian"
+  },
+  {
+  "cht": "[笑而不語]",
+  "chs": "[笑而不语]",
+  "img": "d_heiheihei"
+  },
+  {
+  "cht": "[偷笑]",
+  "chs": "[偷笑]",
+  "img": "d_touxiao"
+  },
+  {
+  "cht": "[酷]",
+  "chs": "[酷]",
+  "img": "d_ku"
+  },
+  {
+  "cht": "[並不簡單]",
+  "chs": "[并不简单]",
+  "img": "d_bingbujiandan"
+  },
+  {
+  "cht": "[思考]",
+  "chs": "[思考]",
+  "img": "d_sikao"
+  },
+  {
+  "cht": "[疑問]",
+  "chs": "[疑问]",
+  "img": "d_yiwen"
+  },
+  {
+  "cht": "[費解]",
+  "chs": "[费解]",
+  "img": "d_feijie"
+  },
+  {
+  "cht": "[暈]",
+  "chs": "[晕]",
+  "img": "d_yun"
+  },
+  {
+  "cht": "[衰]",
+  "chs": "[衰]",
+  "img": "d_shuai"
+  },
+  {
+  "cht": "[骷髏]",
+  "chs": "[骷髅]",
+  "img": "d_kulou"
+  },
+  {
+  "cht": "[嘘]",
+  "chs": "[嘘]",
+  "img": "d_xu"
+  },
+  {
+  "cht": "[閉嘴]",
+  "chs": "[闭嘴]",
+  "img": "d_bizui"
+  },
+  {
+  "cht": "[傻眼]",
+  "chs": "[傻眼]",
+  "img": "d_shayan"
+  },
+  {
+  "cht": "[吃驚]",
+  "chs": "[吃惊]",
+  "img": "d_chijing"
+  },
+  {
+  "cht": "[吐]",
+  "chs": "[吐]",
+  "img": "d_tu"
+  },
+  {
+  "cht": "[感冒]",
+  "chs": "[感冒]",
+  "img": "d_ganmao"
+  },
+  {
+  "cht": "[生病]",
+  "chs": "[生病]",
+  "img": "d_shengbing"
+  },
+  {
+  "cht": "[拜拜]",
+  "chs": "[拜拜]",
+  "img": "d_baibai"
+  },
+  {
+  "cht": "[鄙視]",
+  "chs": "[鄙视]",
+  "img": "d_bishi"
+  },
+  {
+  "cht": "[白眼]",
+  "chs": "[白眼]",
+  "img": "d_landelini"
+  },
+  {
+  "cht": "[左哼哼]",
+  "chs": "[左哼哼]",
+  "img": "d_zuohengheng"
+  },
+  {
+  "cht": "[右哼哼]",
+  "chs": "[右哼哼]",
+  "img": "d_youhengheng"
+  },
+  {
+  "cht": "[抓狂]",
+  "chs": "[抓狂]",
+  "img": "d_zhuakuang"
+  },
+  {
+  "cht": "[怒罵]",
+  "chs": "[怒骂]",
+  "img": "d_numa"
+  },
+  {
+  "cht": "[打臉]",
+  "chs": "[打脸]",
+  "img": "d_dalian"
+  },
+  {
+  "cht": "[頂]",
+  "chs": "[顶]",
+  "img": "d_ding"
+  },
+  {
+  "cht": "[互粉]",
+  "chs": "[互粉]",
+  "img": "f_hufen"
+  },
+  {
+  "cht": "[錢]",
+  "chs": "[钱]",
+  "img": "d_qian"
+  },
+  {
+  "cht": "[哈欠]",
+  "chs": "[哈欠]",
+  "img": "d_dahaqi"
+  },
+  {
+  "cht": "[困]",
+  "chs": "[困]",
+  "img": "d_kun"
+  },
+  {
+  "cht": "[睡]",
+  "chs": "[睡]",
+  "img": "d_shuijiao"
+  },
+  {
+  "cht": "[抱抱]",
+  "chs": "[抱抱]",
+  "img": "d_baobao"
+  },
+  {
+  "cht": "[攤手]",
+  "chs": "[摊手]",
+  "img": "d_tanshou"
+  },
+  {
+  "cht": "[心]",
+  "chs": "[心]",
+  "img": "l_xin"
+  },
+  {
+  "cht": "[傷心]",
+  "chs": "[伤心]",
+  "img": "l_shangxin"
+  },
+  {
+  "cht": "[鮮花]",
+  "chs": "[鲜花]",
+  "img": "w_xianhua"
+  },
+  {
+  "cht": "[男孩儿]",
+  "chs": "[男孩儿]",
+  "img": "d_nanhaier"
+  },
+  {
+  "cht": "[女孩儿]",
+  "chs": "[女孩儿]",
+  "img": "d_nvhaier"
+  },
+  {
+  "cht": "[握手]",
+  "chs": "[握手]",
+  "img": "h_woshou"
+  },
+  {
+  "cht": "[作揖]",
+  "chs": "[作揖]",
+  "img": "h_zuoyi"
+  },
+  {
+  "cht": "[贊]",
+  "chs": "[赞]",
+  "img": "h_zan"
+  },
+  {
+  "cht": "[耶]",
+  "chs": "[耶]",
+  "img": "h_ye"
+  },
+  {
+  "cht": "[good]",
+  "chs": "[good]",
+  "img": "h_good"
+  },
+  {
+  "cht": "[弱]",
+  "chs": "[弱]",
+  "img": "h_ruo"
+  },
+  {
+  "cht": "[NO]",
+  "chs": "[NO]",
+  "img": "h_buyao"
+  },
+  {
+  "cht": "[ok]",
+  "chs": "[ok]",
+  "img": "h_ok"
+  },
+  {
+  "cht": "[haha]",
+  "chs": "[haha]",
+  "img": "h_haha"
+  },
+  {
+  "cht": "[來]",
+  "chs": "[来]",
+  "img": "h_lai"
+  },
+  {
+  "cht": "[拳頭]",
+  "chs": "[拳头]",
+  "img": "h_quantou"
+  },
+  {
+  "cht": "[加油]",
+  "chs": "[加油]",
+  "img": "h_jiayou"
+  },
+  {
+  "cht": "[熊貓]",
+  "chs": "[熊猫]",
+  "img": "d_xiongmao"
+  },
+  {
+  "cht": "[兔子]",
+  "chs": "[兔子]",
+  "img": "d_tuzi"
+  },
+  {
+  "cht": "[豬頭]",
+  "chs": "[猪头]",
+  "img": "d_zhutou"
+  },
+  {
+  "cht": "[草泥馬]",
+  "chs": "[草泥马]",
+  "img": "d_shenshou"
+  },
+  {
+  "cht": "[奥特曼]",
+  "chs": "[奥特曼]",
+  "img": "d_aoteman"
+  },
+  {
+  "cht": "[太陽]",
+  "chs": "[太阳]",
+  "img": "w_taiyang"
+  },
+  {
+  "cht": "[月亮]",
+  "chs": "[月亮]",
+  "img": "w_yueliang"
+  },
+  {
+  "cht": "[浮雲]",
+  "chs": "[浮云]",
+  "img": "w_fuyun"
+  },
+  {
+  "cht": "[下雨]",
+  "chs": "[下雨]",
+  "img": "w_xiayu"
+  },
+  {
+  "cht": "[沙塵暴]",
+  "chs": "[沙尘暴]",
+  "img": "w_shachenbao"
+  },
+  {
+  "cht": "[微風]",
+  "chs": "[微风]",
+  "img": "w_weifeng"
+  },
+  {
+  "cht": "[圍觀]",
+  "chs": "[围观]",
+  "img": "o_weiguan"
+  },
+  {
+  "cht": "[飛機]",
+  "chs": "[飞机]",
+  "img": "o_feiji"
+  },
+  {
+  "cht": "[照相机]",
+  "chs": "[照相机]",
+  "img": "o_zhaoxiangji"
+  },
+  {
+  "cht": "[話筒]",
+  "chs": "[话筒]",
+  "img": "o_huatong"
+  },
+  {
+  "cht": "[音樂]",
+  "chs": "[音乐]",
+  "img": "o_yinyue"
+  },
+  {
+  "cht": "[蠟燭]",
+  "chs": "[蜡烛]",
+  "img": "o_lazhu"
+  },
+  {
+  "cht": "[喜]",
+  "chs": "[喜]",
+  "img": "f_xi"
+  },
+  {
+  "cht": "[給力]",
+  "chs": "[给力]",
+  "img": "f_geili"
+  },
+  {
+  "cht": "[威武]",
+  "chs": "[威武]",
+  "img": "f_v5"
+  },
+  {
+  "cht": "[乾杯]",
+  "chs": "[干杯]",
+  "img": "o_ganbei"
+  },
+  {
+  "cht": "[蛋糕]",
+  "chs": "[蛋糕]",
+  "img": "o_dangao"
+  },
+  {
+  "cht": "[禮物]",
+  "chs": "[礼物]",
+  "img": "o_liwu"
+  },
+  {
+  "cht": "[鐘]",
+  "chs": "[钟]",
+  "img": "o_zhong"
+  },
+  {
+  "cht": "[肥皂]",
+  "chs": "[肥皂]",
+  "img": "d_feizao"
+  },
+  {
+  "cht": "[綠絲帶]",
+  "chs": "[绿丝带]",
+  "img": "o_lvsidai"
+  },
+  {
+  "cht": "[圍脖]",
+  "chs": "[围脖]",
+  "img": "o_weibo"
+  },
+  {
+  "cht": "[浪]",
+  "chs": "[浪]",
+  "img": "d_lang"
+  },
+  {
+  "cht": "[最右]",
+  "chs": "[最右]",
+  "img": "d_zuiyou"
+  },
+  {
+  "cht": "[羞嗒嗒]",
+  "chs": "[羞嗒嗒]",
+  "img": "lxh_xiudada"
+  },
+  {
+  "cht": "[好愛哦]",
+  "chs": "[好爱哦]",
+  "img": "lxh_haoaio"
+  },
+  {
+  "cht": "[偷樂]",
+  "chs": "[偷乐]",
+  "img": "lxh_toule"
+  },
+  {
+  "cht": "[贊啊]",
+  "chs": "[赞啊]",
+  "img": "lxh_zana"
+  },
+  {
+  "cht": "[笑哈哈]",
+  "chs": "[笑哈哈]",
+  "img": "lxh_xiaohaha"
+  },
+  {
+  "cht": "[好喜歡]",
+  "chs": "[好喜欢]",
+  "img": "lxh_haoxihuan"
+  },
+  {
+  "cht": "[求關注]",
+  "chs": "[求关注]",
+  "img": "lxh_qiuguanzhu"
+  },
+  {
+  "cht": "[噢耶]",
+  "chs": "[噢耶]",
+  "img": "lxh_oye"
+  },
+  {
+  "cht": "[許願]",
+  "chs": "[许愿]",
+  "img": "lxh_xuyuan"
+  },
+  {
+  "chs": "[带着微博去旅行]",
+  "cht": "[带着微博去旅行]",
+  "img": "eventtravel"
+  },
+  {
+  "chs": "[广告]",
+  "cht": "[廣告]",
+  "img": "guanggao0901"
+  },
+  {
+  "chs": "[哆啦A梦微笑]",
+  "cht": "[哆啦A梦微笑]",
+  "img": "jqmweixiao"
+  },
+  {
+  "chs": "[哆啦A梦汗]",
+  "cht": "[哆啦A夢汗]",
+  "img": "dorahan"
+  },
+  {
+  "chs": "[哆啦A梦花心]",
+  "cht": "[哆啦A夢花心]",
+  "img": "dorahaose"
+  },
+  {
+  "chs": "[哆啦A梦吃惊]",
+  "cht": "[哆啦A夢吃驚]",
+  "img": "dorachijing"
+  }
+  ]
