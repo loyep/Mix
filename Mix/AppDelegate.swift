@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import SwiftyWeibo
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -68,8 +69,24 @@ extension AppDelegate: WeiboSDKDelegate {
         Realm.Configuration.defaultConfiguration = realmConfig()
     }
     
-    func didReceiveWeiboResponse(_ response: WBBaseResponse!) {
-        print(response.userInfo)
+    func didReceiveWeiboResponse(_ wbResponse: WBBaseResponse!) {
+        guard let response = wbResponse.userInfo as? [String: Any], let accessToken = response["access_token"] as? String else {
+            return
+        }
+        
+        guard let token = SwiftyWeibo.Token(
+            parameters: ["clientID": weibo.clientID,
+                         "clientSecret": weibo.clientSecret,
+                         "expiresAt": Date(timeIntervalSinceNow: (response["expires_in"] as! NSString).doubleValue as TimeInterval),
+                         "accessToken": accessToken]) else {
+                            return
+        }
+        weibo.token = token
+        weibo.tokenStore.set(token, forProvider: weibo)
+        let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
+        weibo.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
+//        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil, userInfo: nil)
     }
     
     func didReceiveWeiboRequest(_ request: WBBaseRequest!) {

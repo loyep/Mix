@@ -17,15 +17,18 @@ class HomeViewController: UITableViewController {
         didSet {
             let count = dataSource.count
             self.count = dataSource.count
+            guard self.count > count else {
+                return
+            }
             self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
                 return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
             })), with: .top)
-            self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 300
         guard let realm = try? Realm() else {
             return

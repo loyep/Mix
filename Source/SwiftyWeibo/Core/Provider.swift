@@ -62,7 +62,7 @@ public class Provider: ProviderType {
     
     /// A list of plugins
     /// e.g. for logging, network activity indicator or credentials
-    public internal(set) var plugins: [String: PluginType] = [:]
+    public var plugins: [String: PluginType] = [:]
     
     public internal(set) var inflightRequests: [Endpoint<TargetType>: [Provider.Completion]] = [:]
     

@@ -31,6 +31,7 @@
 		2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */; };
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
+		2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF951F5EB13D00A309E5 /* MixServices.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
@@ -119,9 +120,10 @@
 		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
 		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
-		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AttributedString+Theme.swift"; path = "../Helpers/AttributedString+Theme.swift"; sourceTree = "<group>"; };
+		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Theme.swift"; sourceTree = "<group>"; };
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
+		2952BF951F5EB13D00A309E5 /* MixServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixServices.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -303,10 +305,10 @@
 			children = (
 				2933F3F11F5BFC2E0088A33C /* Regex */,
 				298ACA971F56C831005D2DAC /* Config.swift */,
+				2952BF931F5E8B0400A309E5 /* MixTheme.swift */,
 				298ACA981F56C831005D2DAC /* RealmConfig.swift */,
 				298ACA991F56C831005D2DAC /* SafeDispatch.swift */,
 				298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */,
-				2952BF931F5E8B0400A309E5 /* MixTheme.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -314,6 +316,7 @@
 		298ACA671F56A012005D2DAC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				2952BF951F5EB13D00A309E5 /* MixServices.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -377,10 +380,10 @@
 		298ACA901F56C72E005D2DAC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
-				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
-				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
 				2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */,
+				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
+				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
+				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -496,8 +499,8 @@
 		CF2A06171F5A659C000E4E8B /* WeiboCell */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */,
 				CFC09D061F5DA275002E5251 /* MixTextLinkParser.swift */,
+				CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */,
 			);
 			path = WeiboCell;
 			sourceTree = "<group>";
@@ -859,6 +862,7 @@
 				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
+				2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */,
 				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
 				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,

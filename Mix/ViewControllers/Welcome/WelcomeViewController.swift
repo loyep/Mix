@@ -16,6 +16,8 @@ fileprivate struct WelcomeViewControllerUX {
 
 class WelcomeViewController: UIViewController {
     
+    static var weiboLoginSuccessNotice = "WelcomeViewController.loginSuccess"
+    
     fileprivate lazy var weiboLoginButton: UIButton = {
         let weiboLoginButton = UIButton(type: .custom)
         weiboLoginButton.setTitle("注册", for: .normal)
@@ -33,19 +35,24 @@ class WelcomeViewController: UIViewController {
             make.centerY.equalToSuperview()
             make.size.equalTo(WelcomeViewControllerUX.WeiboLoginButtonSize)
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WelcomeViewController.updateRootController), name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil)
+    }
+    
+    @objc fileprivate func updateRootController(_ notice: Notification) {
+        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
     }
     
     @objc fileprivate func weiboLogin() -> () {
         if WeiboSDK.isCanSSOInWeiboApp() {
-            let authRequest = WBAuthorizeRequest.request() as? WBAuthorizeRequest
-            authRequest?.redirectURI = SwiftyWeibo.SwiftyWeiboRedirectURL
+            let authRequest = WBAuthorizeRequest.request() as! WBAuthorizeRequest
+            authRequest.redirectURI = weibo.redirectURL.absoluteString
             WeiboSDK.send(authRequest)
         } else {
             weibo.authorize(completion: { result in
                 switch result {
                 case .success:
-//                    this.dismiss(animated: true, completion: nil)
-                    UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
+                    NotificationCenter.default.post(name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil, userInfo: nil)
                 case .failure:
                     print("fail")
                 }
