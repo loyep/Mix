@@ -11,7 +11,7 @@ import Realm
 import RealmSwift
 import SwiftyWeibo
 
-final public class Config: Object {
+public class Config: Object {
     
     public static let appGroupID: String = "group.Maxsey.Mix"
     

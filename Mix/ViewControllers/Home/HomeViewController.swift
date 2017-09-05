@@ -15,17 +15,22 @@ class HomeViewController: UITableViewController {
     var count: Int = 0
     var dataSource: [WeiboStatus] = [] {
         didSet {
+            let count = dataSource.count
             self.count = dataSource.count
+            self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
+                return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
+            })), with: .top)
+            self.tableView.reloadData()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.estimatedRowHeight = 300
         guard let realm = try? Realm() else {
             return
         }
         dataSource += realm.objects(WeiboStatus.self)
-        //        tableView.rowHeight = 500
         tableView.registerClassOf(WeiboTableViewCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
     }
@@ -50,7 +55,6 @@ class HomeViewController: UITableViewController {
                     let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
                     homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
                     this.dataSource += homeLine.statuses
-                    this.tableView.reloadData()
                 }
             } catch {
                 
@@ -73,8 +77,11 @@ class HomeViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let status: WeiboStatus = dataSource[indexPath.row]
-        return status.rowHeight
+        HomeViewController.dequCell.bindViewModel(status)
+        return HomeViewController.dequCell.sizeThatFits(CGSize(width: UIScreen.main.bounds.size.width, height: CGFloat(MAXFLOAT))).height
     }
+    
+    static let dequCell: WeiboTableViewCell = WeiboTableViewCell(style: .default, reuseIdentifier: WeiboTableViewCell.mix_reuseIdentifier)
     
     /*
      // Override to support conditional editing of the table view.

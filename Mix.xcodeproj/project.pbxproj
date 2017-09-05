@@ -28,6 +28,9 @@
 		2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */; };
 		2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F81F5BFC400088A33C /* ThreadLocal.swift */; };
 		29504C941F5D413400C61C28 /* emoticons.json in Resources */ = {isa = PBXBuildFile; fileRef = 29504C931F5D413400C61C28 /* emoticons.json */; };
+		2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */; };
+		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
+		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
@@ -116,6 +119,9 @@
 		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
 		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
+		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "AttributedString+Theme.swift"; path = "../Helpers/AttributedString+Theme.swift"; sourceTree = "<group>"; };
+		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
+		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -300,6 +306,7 @@
 				298ACA981F56C831005D2DAC /* RealmConfig.swift */,
 				298ACA991F56C831005D2DAC /* SafeDispatch.swift */,
 				298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */,
+				2952BF931F5E8B0400A309E5 /* MixTheme.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -372,6 +379,8 @@
 			children = (
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
+				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
+				2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -824,8 +833,10 @@
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
 				298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */,
 				2933F3E61F5937770088A33C /* Strings.swift in Sources */,
+				2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */,
 				2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
+				2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
 				298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */,
@@ -845,6 +856,7 @@
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
 				CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
+				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
 				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
