@@ -28,6 +28,8 @@
 		2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */; };
 		2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F81F5BFC400088A33C /* ThreadLocal.swift */; };
 		29504C941F5D413400C61C28 /* emoticons.json in Resources */ = {isa = PBXBuildFile; fileRef = 29504C931F5D413400C61C28 /* emoticons.json */; };
+		2951D1BC1F5FC19000D06EBA /* StatusCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951D1BB1F5FC19000D06EBA /* StatusCollectionViewLayout.swift */; };
+		2951D1BE1F5FC3BE00D06EBA /* UICollectionview+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */; };
 		2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */; };
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
@@ -57,7 +59,7 @@
 		298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
-		CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */; };
+		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
 		CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */; };
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
@@ -120,6 +122,8 @@
 		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
 		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
+		2951D1BB1F5FC19000D06EBA /* StatusCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCollectionViewLayout.swift; sourceTree = "<group>"; };
+		2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionview+Mix.swift"; sourceTree = "<group>"; };
 		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Theme.swift"; sourceTree = "<group>"; };
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 		760F6BBED314353598466D2F /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
 		823B2E42537B0B69A24A9A3F /* Pods-Mix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.release.xcconfig"; sourceTree = "<group>"; };
 		BD951BDEE158C234886697E4 /* Pods_MixShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboTableViewCell.swift; sourceTree = "<group>"; };
+		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWebImage.swift; sourceTree = "<group>"; };
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
@@ -325,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				298ACA691F56A047005D2DAC /* HomeViewController.swift */,
+				2951D1BB1F5FC19000D06EBA /* StatusCollectionViewLayout.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
 				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
+				2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,7 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				CFC09D061F5DA275002E5251 /* MixTextLinkParser.swift */,
-				CF2A06181F5A6607000E4E8B /* WeiboTableViewCell.swift */,
+				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 			);
 			path = WeiboCell;
 			sourceTree = "<group>";
@@ -852,12 +858,14 @@
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
+				2951D1BC1F5FC19000D06EBA /* StatusCollectionViewLayout.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
 				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
+				2951D1BE1F5FC3BE00D06EBA /* UICollectionview+Mix.swift in Sources */,
 				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
 				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
-				CF2A06191F5A6607000E4E8B /* WeiboTableViewCell.swift in Sources */,
+				CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,

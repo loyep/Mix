@@ -34,6 +34,7 @@ class ProfileViewController: UIViewController {
     func showSettings() {
         let settings = SettingsViewController(style: .grouped)
         settings.hidesBottomBarWhenPushed = true
+//        present(NavigationController(rootViewController: settings), animated: true, completion: nil)
         navigationController?.pushViewController(settings, animated: true)
     }
     

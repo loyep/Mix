@@ -10,8 +10,16 @@ import UIKit
 import SwiftyWeibo
 import RealmSwift
 
-class HomeViewController: UITableViewController {
+class HomeViewController: UIViewController {
     
+    lazy var statusView: UICollectionView = {
+        let layout = StatusCollectionViewLayout()
+        let statusView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        statusView.delegate = self
+        statusView.dataSource = self
+        statusView.backgroundColor = .white
+        return statusView
+    }()
     var count: Int = 0
     var dataSource: [WeiboStatus] = [] {
         didSet {
@@ -22,7 +30,7 @@ class HomeViewController: UITableViewController {
             }
             
             //            if count == 0 {
-            self.tableView.reloadData()
+//            self.tableView.reloadData()
             //            } else {
             //                self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
             //                    return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
@@ -31,15 +39,17 @@ class HomeViewController: UITableViewController {
         }
     }
     
+    override func loadView() {
+        view = statusView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 300
         guard let realm = try? Realm() else {
             return
         }
         dataSource += realm.objects(WeiboStatus.self)
-        tableView.registerClassOf(WeiboTableViewCell.self)
+        statusView.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
     }
     
@@ -70,70 +80,31 @@ class HomeViewController: UITableViewController {
         }
     }
     
-    // MARK: - Table view data source
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+ 
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
+}
+
+extension HomeViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: WeiboTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.bindViewModel(self.dataSource[indexPath.row])
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let status: WeiboStatus = dataSource[indexPath.row]
-        HomeViewController.dequCell.bindViewModel(status)
-        return HomeViewController.dequCell.sizeThatFits(CGSize(width: UIScreen.main.bounds.size.width, height: CGFloat(MAXFLOAT))).height
-    }
-    
-    static let dequCell: WeiboTableViewCell = WeiboTableViewCell(style: .default, reuseIdentifier: WeiboTableViewCell.mix_reuseIdentifier)
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
+
+

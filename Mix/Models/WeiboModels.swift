@@ -92,25 +92,32 @@ class WeiboStatus: Object {
     dynamic var yyTextLayoutArchive: NSData? = nil
     
     lazy var yyTextLayout: YYTextLayout? = {
-        if let layoutArchive = self.yyTextLayoutArchive, let layout = (NSKeyedUnarchiver.unarchiveObject(with: layoutArchive as Data) as? YYTextLayout) {
-            print("archived: \(self.text)")
-            return layout
-        }
+//        if let layoutArchive = self.yyTextLayoutArchive, let layout = (NSKeyedUnarchiver.unarchiveObject(with: layoutArchive as Data) as? YYTextLayout) {
+//            print("archived: \(self.text)")
+//            return layout
+//        }
         
-        let attr = NSMutableAttributedString(string: self.text, attributes: [NSFontAttributeName: Theme.font]).addLinks().replaceEmotion().replaceFullText()
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .left
+        paragraph.lineSpacing = 16.0
+        let attr = NSMutableAttributedString(string: self.text,
+                                             attributes: [
+                                                NSFontAttributeName: Theme.font,
+                                                NSParagraphStyleAttributeName: paragraph,
+            ]).addLinks().replaceEmotion().replaceFullText()
         let layout = YYTextLayout(containerSize: CGSize(width: UIScreen.main.bounds.size.width - 80, height: CGFloat(MAXFLOAT)), text: attr)!
-        SafeDispatch.async(forWork: {
-            guard let realm = try? Realm() else {
-                return
-            }
-            
-            try? realm.write {
-                print("archiveing: \(self.text)")
-                let archiveData = NSKeyedArchiver.archivedData(withRootObject: layout) as NSData
-                self.yyTextLayoutArchive = archiveData
-            }
-        })
-        print("unarchive: \(self.text)")
+//        SafeDispatch.async(forWork: {
+//            guard let realm = try? Realm() else {
+//                return
+//            }
+//            
+//            try? realm.write {
+////                print("archiveing: \(self.text)")
+//                let archiveData = NSKeyedArchiver.archivedData(withRootObject: layout) as NSData
+//                self.yyTextLayoutArchive = archiveData
+//            }
+//        })
+//        print("unarchive: \(self.text)")
         return layout
     }()
 }
