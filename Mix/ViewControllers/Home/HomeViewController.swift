@@ -15,14 +15,19 @@ class HomeViewController: UITableViewController {
     var count: Int = 0
     var dataSource: [WeiboStatus] = [] {
         didSet {
-            let count = dataSource.count
+            let count = self.count
             self.count = dataSource.count
             guard self.count > count else {
                 return
             }
-            self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
-                return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
-            })), with: .top)
+            
+            //            if count == 0 {
+            self.tableView.reloadData()
+            //            } else {
+            //                self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
+            //                    return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
+            //                })), with: .automatic)
+            //            }
         }
     }
     
@@ -43,7 +48,7 @@ class HomeViewController: UITableViewController {
         guard let realm = try? Realm() else {
             return
         }
-        
+        return
         let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
         weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: since_id, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {

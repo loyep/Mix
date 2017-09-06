@@ -89,9 +89,28 @@ class WeiboStatus: Object {
     /// 转发微博
     dynamic var retweeted_status: WeiboRetweetedStatus?
     
+    dynamic var yyTextLayoutArchive: NSData? = nil
+    
     lazy var yyTextLayout: YYTextLayout? = {
+        if let layoutArchive = self.yyTextLayoutArchive, let layout = (NSKeyedUnarchiver.unarchiveObject(with: layoutArchive as Data) as? YYTextLayout) {
+            print("archived: \(self.text)")
+            return layout
+        }
+        
         let attr = NSMutableAttributedString(string: self.text, attributes: [NSFontAttributeName: Theme.font]).addLinks().replaceEmotion().replaceFullText()
-        let layout = YYTextLayout(containerSize: CGSize(width: UIScreen.main.bounds.size.width - 80, height: CGFloat(MAXFLOAT)), text: attr)
+        let layout = YYTextLayout(containerSize: CGSize(width: UIScreen.main.bounds.size.width - 80, height: CGFloat(MAXFLOAT)), text: attr)!
+        SafeDispatch.async(forWork: {
+            guard let realm = try? Realm() else {
+                return
+            }
+            
+            try? realm.write {
+                print("archiveing: \(self.text)")
+                let archiveData = NSKeyedArchiver.archivedData(withRootObject: layout) as NSData
+                self.yyTextLayoutArchive = archiveData
+            }
+        })
+        print("unarchive: \(self.text)")
         return layout
     }()
 }

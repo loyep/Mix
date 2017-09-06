@@ -58,6 +58,7 @@ class TabBarController: UITabBarController {
         
         /// 防止子控制器push的时候hidesBottomBarWhenPushed无效
         hidesBottomBarWhenPushed = true
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSForegroundColorAttributeName: UIColor.black], for: .normal)
     }
     
 }
