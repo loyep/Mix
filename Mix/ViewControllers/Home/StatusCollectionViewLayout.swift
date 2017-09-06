@@ -10,15 +10,11 @@ import Foundation
 
 open class StatusCollectionViewLayout: UICollectionViewFlowLayout {
     
-    open var insets: UIEdgeInsets = .zero
-    
     public override init() {
         super.init()
-        if #available(iOS 10.0, *) {
-            estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
-        } else {
-            estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width, height: 200)
-        }
+        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - 20, height: 200)
+        minimumLineSpacing = 10
+        sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
     
     required public init?(coder aDecoder: NSCoder) {

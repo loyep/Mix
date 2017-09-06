@@ -96,7 +96,10 @@ class WeiboStatus: Object {
                                                 NSFontAttributeName: Theme.font,
                                                 NSParagraphStyleAttributeName: Theme.paragraph,
             ]).addLinks().replaceEmotion().replaceFullText()
-        let layout = YYTextLayout(containerSize: CGSize(width: UIScreen.main.bounds.size.width - 80, height: CGFloat(MAXFLOAT)), text: attr)!
+        
+        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        
+        let layout = YYTextLayout(container: container, text: attr)!
         return layout
     }()
 }
