@@ -10,15 +10,26 @@ import Foundation
 
 public struct Theme {
     
-    static var font: UIFont {
-        return .regular
-    }
+    static var font: UIFont = {
+        return UIFont.regular
+    }()
     
-    static var linkColor: UIColor {
+    static var linkColor: UIColor = {
         return .blue
-    }
+    }()
     
-    static var linkHighLightColor: UIColor {
+    static var linkHighLightColor: UIColor = {
         return .gray
-    }
+    }()
+    
+    static var lineSpacing: Float = {
+        return 17.0
+    }()
+    
+    static var paragraph: NSParagraphStyle = {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = .left
+        paragraph.lineSpacing = CGFloat(Theme.lineSpacing)
+        return paragraph
+    }()
 }

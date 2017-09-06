@@ -12,15 +12,12 @@ import YYText
 internal extension NSMutableAttributedString {
     
     override func replaceFullText() -> NSMutableAttributedString {
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .left
-        paragraph.lineSpacing = 16.0
         for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
             self.addAttributes([NSForegroundColorAttributeName: Theme.linkColor,
-                                NSParagraphStyleAttributeName: paragraph,
+                                NSParagraphStyleAttributeName: Theme.paragraph,
                                 ], range: result.range)
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSParagraphStyleAttributeName: paragraph])
+                                                         NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
             self.yy_setTextHighlight(highLight, range: result.range)
         }
@@ -29,9 +26,9 @@ internal extension NSMutableAttributedString {
             let attr = NSMutableAttributedString(string: fullText.strings[0]!,
                                                  attributes: [NSFontAttributeName: Theme.font,
                                                               NSForegroundColorAttributeName: Theme.linkColor,
-                                                              NSParagraphStyleAttributeName: paragraph])
+                                                              NSParagraphStyleAttributeName: Theme.paragraph])
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSParagraphStyleAttributeName: paragraph])
+                                                         NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: fullText.strings[1]!]
             attr.yy_setTextHighlight(highLight, range: NSMakeRange(0, attr.length))
             self.replaceCharacters(in: fullText.range, with: attr)
@@ -41,15 +38,12 @@ internal extension NSMutableAttributedString {
     }
     
     override func addLinks() -> NSMutableAttributedString {
-        let paragraph = NSMutableParagraphStyle()
-        paragraph.alignment = .left
-        paragraph.lineSpacing = 16.0
         for (_, result) in Regex("(#\\w+#)|(@\\w+)").allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
             self.addAttributes([NSForegroundColorAttributeName: Theme.linkColor,
-                                NSParagraphStyleAttributeName: paragraph
+                                NSParagraphStyleAttributeName: Theme.paragraph
                 ], range: result.range)
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSParagraphStyleAttributeName: paragraph])
+                                                         NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
             self.yy_setTextHighlight(highLight, range: result.range)
         }

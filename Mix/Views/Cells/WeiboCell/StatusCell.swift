@@ -29,11 +29,7 @@ class StatusCell: UICollectionViewCell {
     
     lazy var textView: YYLabel = {
         let textView = YYLabel()
-        textView.numberOfLines = 0
         textView.isUserInteractionEnabled = true
-        textView.font = UIFont.systemFont(ofSize: 18)
-        textView.textContainerInset = .zero
-        textView.preferredMaxLayoutWidth = UIScreen.main.bounds.size.width - 80
         textView.ignoreCommonProperties = true
         textView.displaysAsynchronously = true
         textView.fadeOnAsynchronouslyDisplay = false
@@ -87,19 +83,8 @@ class StatusCell: UICollectionViewCell {
         profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
     }
     
-//    override func sizeThatFits(_ size: CGSize) -> CGSize {
-//        return CGSize(width: size.width, height: textView.frame.maxY)
-//    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-    }
-    
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        print("oldHeight: \(layoutAttributes.frame.size.height)")
-        layoutAttributes.frame.size.height = textView.frame.origin.x + (textView.textLayout?.textBoundingSize.height)!
-        print("newHeight: \(layoutAttributes.frame.size.height)")
+        layoutAttributes.frame.size.height = textView.frame.maxY
         layoutAttributes.frame.size.width = UIScreen.main.bounds.size.width
         return layoutAttributes
     }

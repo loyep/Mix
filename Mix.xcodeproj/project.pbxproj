@@ -289,6 +289,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29A6DF661F60084600370D22 /* Button */,
 				CF2A06161F5A6593000E4E8B /* Cells */,
 				298ACA9F1F57A2F2005D2DAC /* TabBar */,
 			);
@@ -423,6 +424,13 @@
 				298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		29A6DF661F60084600370D22 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Button;
 			sourceTree = "<group>";
 		};
 		29CB039D1F569C4D00CF33FF = {
