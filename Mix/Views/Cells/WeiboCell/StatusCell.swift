@@ -33,12 +33,23 @@ class StatusCell: UICollectionViewCell {
         textView.ignoreCommonProperties = true
         textView.displaysAsynchronously = true
         textView.fadeOnAsynchronouslyDisplay = false
+        textView.backgroundColor = .white
+        
+        textView.highlightTapAction = self.highlightTapAction
+        textView.highlightLongPressAction = self.highlightLongPressAction
+        return textView
+    }()
+    
+    lazy var retweetedTextView: YYLabel = {
+        let textView = YYLabel()
+        textView.isUserInteractionEnabled = true
+        textView.ignoreCommonProperties = true
+        textView.displaysAsynchronously = true
+        textView.fadeOnAsynchronouslyDisplay = false
         textView.backgroundColor = .gray
         
         textView.highlightTapAction = self.highlightTapAction
         textView.highlightLongPressAction = self.highlightLongPressAction
-        textView.textTapAction = self.textTapAction
-        textView.textLongPressAction = self.textLongPressAction
         return textView
     }()
     
@@ -48,6 +59,8 @@ class StatusCell: UICollectionViewCell {
         dateView.font = UIFont.systemFont(ofSize: 12)
         return dateView
     }()
+    
+    weak var status: WeiboStatus? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -73,42 +86,62 @@ class StatusCell: UICollectionViewCell {
         contentView.addSubview(dateView)
         contentView.addSubview(profileImage)
         contentView.addSubview(textView)
+        contentView.addSubview(retweetedTextView)
         
         profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
         name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.width - 80, height: 18)
         dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
         textView.frame.origin.y = profileImage.frame.maxY + 10
         textView.frame.size.width = UIScreen.main.bounds.width - 20
+        retweetedTextView.frame.size.width = textView.frame.width
     }
     
-    func bindViewModel(_ model: WeiboStatus) -> () {
-        name.text = model.user?.screen_name
-        if let layout = model.yyTextLayout, textView.textLayout != layout {
+    func bind(for viewModel: WeiboStatus) -> () {
+        status = viewModel
+        name.text = viewModel.user?.screen_name
+        if let layout = viewModel.yyTextLayout, textView.textLayout != layout {
             textView.textLayout = layout
             textView.frame.size.height = layout.textBoundingSize.height
         }
-        let imageUrl = (model.user?.profile_image_url)!
+        
+        retweetedTextView.frame.origin.y = textView.frame.maxY
+        if let retweeted = viewModel.retweeted_status?.yyTextLayout, retweetedTextView.textLayout != retweeted {
+            retweetedTextView.textLayout = retweeted
+            retweetedTextView.frame.size.height = retweeted.textBoundingSize.height
+        } else {
+            retweetedTextView.textLayout = nil
+            retweetedTextView.frame.size.height = 0
+        }
+        
+        let imageUrl = (viewModel.user?.profile_image_url)!
         profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
         
-        if let createdDate = model.created_at!.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy") {
-            if createdDate.isToday {
-                if createdDate.hour >= 1 {
-                    dateView.text = "\(createdDate.hour)小时前"
-                } else if createdDate.minute >= 1 {
-                    dateView.text = "\(createdDate.minute)分钟前"
+        dateView.text = "\(viewModel.createdDate ?? "") \(viewModel.sourceName)"
+    }
+    
+    override var isHighlighted: Bool {
+        willSet {
+            UIView.animate(withDuration: 0.2) {
+                if newValue {
+                    let scaleLine = max(self.frame.width, self.frame.height)
+                    let scale = (scaleLine - 6) / scaleLine
+                    self.transform = CGAffineTransform(scaleX: scale, y: scale)
                 } else {
-                    dateView.text = "刚刚"
+                    self.transform = CGAffineTransform.identity
                 }
-            } else if createdDate.isYesterday {
-                dateView.text = createdDate.string(from: "MM-dd HH:mm")
-            } else if createdDate.isThisYear {
-                dateView.text = createdDate.string(from: "yyyy-MM-dd HH:mm")
             }
         }
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.frame.size.height = textView.frame.maxY + 500
+//        if status?.yyTextLayout?.textBoundingSize.height + status?.retweeted_status?.yyTextLayout?.textBoundingSize.height + 46 {
+//        }
+        layoutAttributes.frame.size.height = ((status?.yyTextLayout?.textBoundingSize.height ?? 0) + (status?.retweeted_status?.yyTextLayout?.textBoundingSize.height ?? 0) + 56)
+//        if retweetedTextView.isHidden {
+//            layoutAttributes.frame.size.height = textView.frame.maxY + 500
+//        } else {
+//            layoutAttributes.frame.size.height = retweetedTextView.frame.maxY + 10
+//        }
         return layoutAttributes
     }
 }

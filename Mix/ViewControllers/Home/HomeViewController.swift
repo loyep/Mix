@@ -8,8 +8,7 @@
 
 import UIKit
 import SwiftyWeibo
-//import RealmSwift
-import Realm
+import RealmSwift
 
 class HomeViewController: UIViewController {
     
@@ -30,13 +29,6 @@ class HomeViewController: UIViewController {
                 return
             }
             statusView.reloadData()
-            //            if count == 0 {
-            //                self.tableView.reloadData()
-            //            } else {
-            //                self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
-            //                    return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
-            //                })), with: .automatic)
-            //            }
         }
     }
     
@@ -56,7 +48,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        RLMRealm.default()
         guard let realm = try? Realm() else {
             return
         }
@@ -73,7 +64,6 @@ class HomeViewController: UIViewController {
                     return
                 }
                 try? realm.write {
-                    
                     let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
                     homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
                     this.dataSource += homeLine.statuses
@@ -83,7 +73,6 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -95,6 +84,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
     }
+    
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -105,7 +95,7 @@ extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.bindViewModel(self.dataSource[indexPath.row])
+        cell.bind(for: dataSource[indexPath.row])
         return cell
     }
     

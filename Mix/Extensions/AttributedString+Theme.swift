@@ -12,10 +12,10 @@ import YYText
 internal extension NSMutableAttributedString {
     
     override func replaceFullText() -> NSMutableAttributedString {
-        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
+        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated() {
             self.addAttributes([NSForegroundColorAttributeName: Theme.linkColor,
                                 NSParagraphStyleAttributeName: Theme.paragraph,
-                                ], range: result.range)
+                                ], range: result.range) 
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
                                                          NSBackgroundColorAttributeName: Theme.textBackgroundColor,
                                                          NSParagraphStyleAttributeName: Theme.paragraph])

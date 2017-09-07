@@ -1,5 +1,6 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
+  - pop (1.0.10)
   - Realm (2.10.0):
     - Realm/Headers (= 2.10.0)
   - Realm/Headers (2.10.0)
@@ -15,6 +16,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - pop
   - RealmSwift
   - SnapKit
   - SwiftyWeibo (from `./Source/SwiftyWeibo`)
@@ -28,7 +30,8 @@ EXTERNAL SOURCES:
     :path: ./Source/WeiboSDK
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
@@ -37,6 +40,6 @@ SPEC CHECKSUMS:
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 43a5d73a793f5918dab3f61029cb8839e0fd6cfa
+PODFILE CHECKSUM: e0131e425d112090b19e0270cacc7a6b50640d93
 
 COCOAPODS: 1.3.1

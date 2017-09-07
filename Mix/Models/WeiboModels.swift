@@ -11,7 +11,7 @@ import RealmSwift
 import Realm
 import YYText
 
-class WeiboHomeLine: RLMObject {
+class WeiboHomeLine: Object {
     
     @objc override static func primaryKey() -> String? {
         return "since_id"
@@ -33,6 +33,7 @@ class WeiboStatus: Object {
     
     @objc override static func ignoredProperties() -> [String] {
         return ["yyTextLayout"]
+        //        return []
     }
     
     dynamic var id: Int64 = 0
@@ -90,7 +91,7 @@ class WeiboStatus: Object {
     /// 转发微博
     dynamic var retweeted_status: WeiboRetweetedStatus?
     
-    var yyTextLayout: YYTextLayout? {
+    lazy var yyTextLayout: YYTextLayout? = {
         let attr = NSMutableAttributedString(string: self.text,
                                              attributes: [
                                                 NSFontAttributeName: Theme.font,
@@ -101,6 +102,35 @@ class WeiboStatus: Object {
         
         let layout = YYTextLayout(container: container, text: attr)!
         return layout
+    }()
+}
+
+extension WeiboStatus {
+    
+    var createdDate: String? {
+        guard let createdDate = self.created_at?.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy") else {
+            return nil
+        }
+        
+        if createdDate.isToday {
+            if createdDate.hour >= 1 {
+                return "\(createdDate.hour)小时前"
+            } else if createdDate.minute >= 1 {
+                return "\(createdDate.minute)分钟前"
+            } else {
+                return "刚刚"
+            }
+        } else if createdDate.isYesterday {
+            return createdDate.string(from: "昨天 HH:mm")
+        } else if createdDate.isThisYear {
+            return createdDate.string(from: "MM-dd HH:mm")
+        } else {
+            return createdDate.string(from: "yyyy-MM-dd HH:mm")
+        }
+    }
+    
+    var sourceName: String {
+        return try! NSAttributedString(data: source.data(using: .unicode)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil).string
     }
 }
 
@@ -130,7 +160,7 @@ extension Regex {
     }()
     
     static var linkTextRegex: Regex = {
-        return Regex("([a-zA-z]+://[^\\s]*)")
+        return Regex("([https]+://[^\\s]*)")
     }()
     
     static var emotions: [[String: String]] = {
