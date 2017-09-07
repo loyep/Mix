@@ -53,8 +53,8 @@ class StatusCell: UICollectionViewCell {
         return textView
     }()
     
-    lazy var dateView: YYLabel = {
-        let dateView = YYLabel()
+    lazy var dateView: UILabel = {
+        let dateView = UILabel()
         dateView.textColor = UIColor.gray
         dateView.font = UIFont.systemFont(ofSize: 12)
         return dateView
