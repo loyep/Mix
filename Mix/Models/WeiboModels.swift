@@ -8,16 +8,17 @@
 
 import Foundation
 import RealmSwift
+import Realm
 import YYText
 
-class WeiboHomeLine: Object {
+class WeiboHomeLine: RLMObject {
     
     @objc override static func primaryKey() -> String? {
         return "since_id"
     }
     
-    dynamic var since_id = 0
-    dynamic var max_id = 0
+    dynamic var since_id: Int64 = 0
+    dynamic var max_id: Int64 = 0
     dynamic var total_number = 0
     
     let statuses = List<WeiboStatus>()
@@ -34,7 +35,7 @@ class WeiboStatus: Object {
         return ["yyTextLayout"]
     }
     
-    dynamic var id = 0
+    dynamic var id: Int64 = 0
     
     /// 微博创建时间
     dynamic var created_at: String?
@@ -89,19 +90,18 @@ class WeiboStatus: Object {
     /// 转发微博
     dynamic var retweeted_status: WeiboRetweetedStatus?
     
-    lazy var yyTextLayout: YYTextLayout? = {
-        
+    var yyTextLayout: YYTextLayout? {
         let attr = NSMutableAttributedString(string: self.text,
                                              attributes: [
                                                 NSFontAttributeName: Theme.font,
                                                 NSParagraphStyleAttributeName: Theme.paragraph,
-            ]).addLinks().replaceEmotion().replaceFullText()
+                                                ]).addLinks().replaceEmotion().replaceFullText()
         
         let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
         
         let layout = YYTextLayout(container: container, text: attr)!
         return layout
-    }()
+    }
 }
 
 class WeiboRetweetedStatus: WeiboStatus {

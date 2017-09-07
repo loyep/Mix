@@ -76,7 +76,7 @@ class StatusCell: UICollectionViewCell {
         
         profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
         name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.width - 80, height: 18)
-        dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 18, width: name.frame.width, height: 18)
+        dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
         textView.frame.origin.y = profileImage.frame.maxY + 10
         textView.frame.size.width = UIScreen.main.bounds.width - 20
     }
@@ -90,31 +90,27 @@ class StatusCell: UICollectionViewCell {
         let imageUrl = (model.user?.profile_image_url)!
         profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEE MMM dd HH:mm:ss Z yyyy"
-        if let createdDate = model.created_at,
-            let date = dateFormatter.date(from: createdDate) {
-            let hour = Int(Date().timeIntervalSince(date) / 3600)
-            switch hour {
-            case 0:
-                dateView.text = "刚刚"
-            case 1..<24:
-                dateView.text = "\(hour) 小时前"
-            case 24..<48:
-                dateFormatter.dateFormat = "昨天 HH:mm"
-                dateView.text = "\(dateFormatter.string(from: date))"
-            default:
-                dateFormatter.dateFormat = "MM-dd HH:mm"
-                dateView.text = "\(dateFormatter.string(from: date))"
+        if let createdDate = model.created_at!.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy") {
+            if createdDate.isToday {
+                if createdDate.hour >= 1 {
+                    dateView.text = "\(createdDate.hour)小时前"
+                } else if createdDate.minute >= 1 {
+                    dateView.text = "\(createdDate.minute)分钟前"
+                } else {
+                    dateView.text = "刚刚"
+                }
+            } else if createdDate.isYesterday {
+                dateView.text = createdDate.string(from: "MM-dd HH:mm")
+            } else if createdDate.isThisYear {
+                dateView.text = createdDate.string(from: "yyyy-MM-dd HH:mm")
             }
         }
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.frame.size.height = textView.frame.maxY + 10
+        layoutAttributes.frame.size.height = textView.frame.maxY + 500
         return layoutAttributes
     }
-    
 }
 
 extension StatusCell {

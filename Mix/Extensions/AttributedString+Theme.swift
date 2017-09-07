@@ -17,6 +17,7 @@ internal extension NSMutableAttributedString {
                                 NSParagraphStyleAttributeName: Theme.paragraph,
                                 ], range: result.range)
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
+                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
                                                          NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
             self.yy_setTextHighlight(highLight, range: result.range)
@@ -28,6 +29,7 @@ internal extension NSMutableAttributedString {
                                                               NSForegroundColorAttributeName: Theme.linkColor,
                                                               NSParagraphStyleAttributeName: Theme.paragraph])
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
+                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
                                                          NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: fullText.strings[1]!]
             attr.yy_setTextHighlight(highLight, range: NSMakeRange(0, attr.length))
@@ -43,6 +45,7 @@ internal extension NSMutableAttributedString {
                                 NSParagraphStyleAttributeName: Theme.paragraph
                 ], range: result.range)
             let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
+                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
                                                          NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
             self.yy_setTextHighlight(highLight, range: result.range)

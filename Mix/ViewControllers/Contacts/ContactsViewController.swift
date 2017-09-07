@@ -16,25 +16,25 @@ class ContactsViewController: UIViewController {
         navigationItem.title = NSLocalizedString("Contact", comment: "")
         
 //        let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
-        weibo.request(SwiftyWeibo.Comments.byMe(sinceId: 0, maxId: 0, count: 0, page: 1)) { [weak self] result in
-            guard let this = self else {
-                return
-            }
-            do {
-                let json = try result.dematerialize().mapJSON() as! [String: Any]
-                print("\(json)")
-//                guard let realm = try? Realm() else {
-//                    return
-//                }
-//                try! realm.write {
-//                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
-//                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
-//                    this.dataSource += homeLine.statuses
-//                }
-            } catch {
-                
-            }
-        }
+//        weibo.request(SwiftyWeibo.Comments.byMe(sinceId: 0, maxId: 0, count: 0, page: 1)) { [weak self] result in
+//            guard let this = self else {
+//                return
+//            }
+//            do {
+//                let json = try result.dematerialize().mapJSON() as! [String: Any]
+//                print("\(json)")
+////                guard let realm = try? Realm() else {
+////                    return
+////                }
+////                try! realm.write {
+////                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
+////                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
+////                    this.dataSource += homeLine.statuses
+////                }
+//            } catch {
+//                
+//            }
+//        }
     }
 
 }

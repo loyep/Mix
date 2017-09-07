@@ -8,7 +8,8 @@
 
 import UIKit
 import SwiftyWeibo
-import RealmSwift
+//import RealmSwift
+import Realm
 
 class HomeViewController: UIViewController {
     
@@ -28,9 +29,9 @@ class HomeViewController: UIViewController {
             guard self.count > count else {
                 return
             }
-            
+            statusView.reloadData()
             //            if count == 0 {
-//            self.tableView.reloadData()
+            //                self.tableView.reloadData()
             //            } else {
             //                self.tableView.insertRows(at: Array(sequence(first: IndexPath(row: 0, section: 0), next: {
             //                    return ($0.row + 1 < (self.count - count)) ? IndexPath(row: $0.row + 1, section: 0) : nil
@@ -55,11 +56,13 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        RLMRealm.default()
         guard let realm = try? Realm() else {
             return
         }
         return
-        let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
+        let since_id: Int64 = realm.objects(WeiboStatus.self).max(ofProperty: "id") ?? 0
+        //        print("\(since_id)")
         weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: since_id, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
                 return
@@ -69,7 +72,8 @@ class HomeViewController: UIViewController {
                 guard let realm = try? Realm() else {
                     return
                 }
-                try! realm.write {
+                try? realm.write {
+                    
                     let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
                     homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
                     this.dataSource += homeLine.statuses
@@ -83,7 +87,7 @@ class HomeViewController: UIViewController {
 }
 
 extension HomeViewController: UICollectionViewDelegate {
- 
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
     }

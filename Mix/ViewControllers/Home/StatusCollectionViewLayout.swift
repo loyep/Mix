@@ -12,7 +12,7 @@ open class StatusCollectionViewLayout: UICollectionViewFlowLayout {
     
     public override init() {
         super.init()
-        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - 20, height: 200)
+        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - 20, height: 400)
         minimumLineSpacing = 10
         sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }

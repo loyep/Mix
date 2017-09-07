@@ -26,6 +26,11 @@ public struct Theme {
         return 17.0
     }()
     
+//    static var NSBackgroundColorAttributeName
+    static var textBackgroundColor: UIColor = {
+        return .blue
+    }()
+    
     static var paragraph: NSParagraphStyle = {
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = .left
