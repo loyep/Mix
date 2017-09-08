@@ -36,6 +36,20 @@ class WeiboStatus: Object {
         //        return []
     }
     
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+        print("\(1)")
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    required init() {
+        super.init()
+        print("\(3)")
+    }
+    
     dynamic var id: Int64 = 0
     
     /// 微博创建时间
@@ -91,18 +105,20 @@ class WeiboStatus: Object {
     /// 转发微博
     dynamic var retweeted_status: WeiboRetweetedStatus?
     
-    lazy var yyTextLayout: YYTextLayout? = {
+    var textAttr: NSData? = nil
+    
+    var yyTextLayout: YYTextLayout? {
         let attr = NSMutableAttributedString(string: self.text,
                                              attributes: [
                                                 NSFontAttributeName: Theme.font,
                                                 NSParagraphStyleAttributeName: Theme.paragraph,
-                                                ]).addLinks().replaceEmotion().replaceFullText()
+                                                ])//.addLinks().replaceEmotion().replaceFullText()
         
         let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
         
         let layout = YYTextLayout(container: container, text: attr)!
         return layout
-    }()
+    }
 }
 
 extension WeiboStatus {

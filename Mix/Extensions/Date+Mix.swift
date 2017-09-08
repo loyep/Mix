@@ -424,11 +424,9 @@ public extension Date {
         }
     }
     
-    public func string(from dateFormat: String, dateStyle: DateFormatter.Style = .none, timeStyle: DateFormatter.Style = .none) -> String {
+    public func string(from dateFormat: String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
-        dateFormatter.timeStyle = timeStyle
-        dateFormatter.dateStyle = dateStyle
         return dateFormatter.string(from: self)
     }
     
