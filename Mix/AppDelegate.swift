@@ -65,8 +65,6 @@ extension AppDelegate: WeiboSDKDelegate {
             WeiboSDK.enableDebugMode(true)
         #endif
         WeiboSDK.registerApp("1522592428")
-        
-        //        Realm.Configuration.defaultConfiguration = realmConfig()
     }
     
     func didReceiveWeiboResponse(_ wbResponse: WBBaseResponse!) {
@@ -114,19 +112,19 @@ extension AppDelegate {
         let bundleShortVersion = Bundle.releaseVersionNumber!
         let bundleIdentifier = Bundle.bundleIdentifier!
         
-        if Realm.objc(Config.self, for: .public, of: bundleIdentifier) == nil {
-            Realm.write(for: .public, task: {
+        guard let realm = try? Realm(dbName: .public) else { return false }
+        
+        guard
+            let config = realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier),
+            config.lastLoginVersion >= bundleShortVersion
+            else
+        {
+            try? realm.write {
                 let config = Config()
                 config.bundleIdentifier = bundleIdentifier
-                Realm.add(config)
-            })
-        }
-        
-        let config: Config = Realm.objc(Config.self, for: .public, of: bundleIdentifier)!
-        guard config.lastLoginVersion >= bundleShortVersion else {
-            Realm.write(for: .public, task: {
                 config.lastLoginVersion = bundleShortVersion
-            })
+                realm.add(config, update: true)
+            }
             rootViewController = FeatureViewController()
             return true
         }

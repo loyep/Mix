@@ -67,6 +67,7 @@ extension Realm {
     ///
     /// - Parameter dbName: Realm.DBName
     convenience init(dbName: Realm.DBName) throws {
+        print("\(dbName)")
         do {
             Realm.Configuration.defaultConfiguration = Realm.Configuration().config(with: dbName)
             try self.init()
@@ -189,15 +190,18 @@ extension Realm.Configuration {
         config.fileURL = fileURL(with: dbName)
         let schemaVersion: UInt64 = 50
         config.schemaVersion = schemaVersion
-        config.migrationBlock = {
-            if $1 < 4 {
-                //                do {
-                //                    try FileManager.default.removeItem(at: Realm.Configuration.realmDirectory)
-                //                } catch let err {
-                //                    print(err)
-                //                }
-            }
+        config.migrationBlock = { migration, oldSchemaVersion in
+            
         }
+        //        config.migrationBlock = {
+        ////            if $1 < 4 {
+        //                //                do {
+        //                //                    try FileManager.default.removeItem(at: Realm.Configuration.realmDirectory)
+        //                //                } catch let err {
+        //                //                    print(err)
+        //                //                }
+        ////            }
+        //            }
         return config
     }
     

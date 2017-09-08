@@ -33,7 +33,7 @@ public class Config: Object {
     }
     
     public required init() {
-        fatalError("init() has not been implemented")
+        super.init()
     }
     
 }
