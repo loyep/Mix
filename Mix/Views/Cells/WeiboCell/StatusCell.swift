@@ -68,7 +68,7 @@ class StatusCell: UICollectionViewCell {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     func setupUI() -> () {
@@ -99,13 +99,13 @@ class StatusCell: UICollectionViewCell {
     func bind(for viewModel: WeiboStatus) -> () {
         status = viewModel
         name.text = viewModel.user?.screen_name
-        if let layout = viewModel.yyTextLayout, textView.textLayout != layout {
+        if let layout = yyTextLayout(viewModel.text), textView.textLayout != layout {
             textView.textLayout = layout
             textView.frame.size.height = layout.textBoundingSize.height
         }
         
         retweetedTextView.frame.origin.y = textView.frame.maxY
-        if let retweeted = viewModel.retweeted_status?.yyTextLayout, retweetedTextView.textLayout != retweeted {
+        if let retweeted = yyTextLayout(viewModel.retweetedStatus?.text), retweetedTextView.textLayout != retweeted {
             retweetedTextView.textLayout = retweeted
             retweetedTextView.frame.size.height = retweeted.textBoundingSize.height
         } else {
@@ -117,6 +117,22 @@ class StatusCell: UICollectionViewCell {
         profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
         
         dateView.text = "\(viewModel.createdDate ?? "") \(viewModel.sourceName)"
+    }
+    
+    
+    func yyTextLayout(_ text: String?) -> YYTextLayout? {
+        guard let text = text else {
+            return nil
+        }
+        
+        let attr = NSMutableAttributedString(string: text,
+                                             attributes: [
+                                                NSFontAttributeName: Theme.font,
+                                                NSParagraphStyleAttributeName: Theme.paragraph,
+                                                ]).addLinks().replaceEmotion().replaceFullText()
+        
+        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        return YYTextLayout(container: container, text: attr)!
     }
     
     override var isHighlighted: Bool {
@@ -134,14 +150,8 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        if status?.yyTextLayout?.textBoundingSize.height + status?.retweeted_status?.yyTextLayout?.textBoundingSize.height + 46 {
-//        }
-        layoutAttributes.frame.size.height = ((status?.yyTextLayout?.textBoundingSize.height ?? 0) + (status?.retweeted_status?.yyTextLayout?.textBoundingSize.height ?? 0) + 56)
-//        if retweetedTextView.isHidden {
-//            layoutAttributes.frame.size.height = textView.frame.maxY + 500
-//        } else {
-//            layoutAttributes.frame.size.height = retweetedTextView.frame.maxY + 10
-//        }
+        layoutAttributes.frame.size.height = ((textView.textLayout?.textBoundingSize.height ?? 0) + (retweetedTextView.textLayout?.textBoundingSize.height ?? 0) + 56)
+        self.frame.size.height = layoutAttributes.frame.height
         return layoutAttributes
     }
 }

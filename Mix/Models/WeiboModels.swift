@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 import Realm
 import YYText
+import SwiftyJSON
 
 class WeiboHomeLine: Object {
     
@@ -33,32 +34,15 @@ class WeiboStatus: Object {
     
     @objc override static func ignoredProperties() -> [String] {
         return ["yyTextLayout"]
-        //        return []
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-        print("\(1)")
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
-    }
-    
-    required init() {
-        super.init()
-        print("\(3)")
     }
     
     dynamic var id: Int64 = 0
     
     /// 微博创建时间
-    dynamic var created_at: String?
+    dynamic var createdAt: NSDate = NSDate()
     
     /// 微博信息内容
     dynamic var text: String = ""
-    
-    dynamic var source_type = 0
     
     /// 微博来源
     dynamic var source: String = ""
@@ -67,34 +51,34 @@ class WeiboStatus: Object {
     dynamic var truncated = false
     
     /// 缩略图片地址，没有时不返回此字段
-    dynamic var thumbnail_pic: String?
+    dynamic var thumbnailPic: String?
     
     /// 中等尺寸图片地址，没有时不返回此字段
-    dynamic var bmiddle_pic: String?
+    dynamic var bmiddlePic: String?
     
     /// 原始图片地址，没有时不返回此字段
-    dynamic var original_pic: String?
+    dynamic var originalPic: String?
     
     /// （暂未支持）回复ID
-    dynamic var in_reply_to_status_id: String?
+    dynamic var inReplyToStatusId: String?
     
     /// （暂未支持）回复人UID
-    dynamic var in_reply_to_user_id: String?
+    dynamic var inReplyToUserId: String?
     
     /// （暂未支持）回复人昵称
-    dynamic var in_reply_to_screen_name: String?
+    dynamic var inReplyToScreenName: String?
     
     /// 微博作者的用户信息字段
     dynamic var user: WeiboUser?
     
     /// 转发数
-    dynamic var reposts_count = 0
+    dynamic var repostsCount = 0
     
     /// 评论数
-    dynamic var comments_count = 0
+    dynamic var commentsCount = 0
     
     /// 表态数
-    dynamic var attitudes_count = 0
+    dynamic var attitudesCount = 0
     
     /// 长文本
     dynamic var isLongText = false
@@ -103,45 +87,66 @@ class WeiboStatus: Object {
     dynamic var favorited = false
     
     /// 转发微博
-    dynamic var retweeted_status: WeiboRetweetedStatus?
+    dynamic var retweetedStatus: WeiboRetweetedStatus?
     
-    var textAttr: NSData? = nil
+    required init() {
+        super.init()
+    }
     
-    var yyTextLayout: YYTextLayout? {
-        let attr = NSMutableAttributedString(string: self.text,
-                                             attributes: [
-                                                NSFontAttributeName: Theme.font,
-                                                NSParagraphStyleAttributeName: Theme.paragraph,
-                                                ])//.addLinks().replaceEmotion().replaceFullText()
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    init(_ json: JSON, isValid: Bool) {
+        super.init()
         
-        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        id = json["id"].int64Value
         
-        let layout = YYTextLayout(container: container, text: attr)!
-        return layout
+        source = (Regex(">(.+)</").firstMatch(in: json["source"].stringValue)?.captures.first ?? "")!
+        text = json["text"].stringValue
+        user = WeiboUser(json["user"], isValid: true)
+        createdAt = json["created_at"].stringValue.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy")! as NSDate
+        truncated = json["truncated"].boolValue
+        thumbnailPic = json["thumbnail_pic"].string
+        bmiddlePic = json["bmiddle_pic"].string
+        originalPic = json["original_pic"].string
+        inReplyToUserId = json["in_reply_to_user_id"].string
+        inReplyToStatusId = json["in_reply_to_status_id"].string
+        inReplyToScreenName = json["in_reply_to_screen_name"].string
+        repostsCount = json["reposts_count"].intValue
+        commentsCount = json["comments_count"].intValue
+        attitudesCount = json["attitudes_count"].intValue
+        
+        if !json["retweeted_status"].isEmpty {
+            self.retweetedStatus = WeiboRetweetedStatus(json["retweeted_status"], isValid: true)
+        }
+        favorited = json["favorited"].boolValue
     }
 }
 
 extension WeiboStatus {
     
     var createdDate: String? {
-        guard let createdDate = self.created_at?.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy") else {
-            return nil
-        }
+        let createdAt = self.createdAt as Date
         
-        if createdDate.isToday {
-            if createdDate.hour >= 1 {
-                return "\(createdDate.hour)小时前"
-            } else if createdDate.minute >= 1 {
-                return "\(createdDate.minute)分钟前"
+        if createdAt.isToday {
+            if createdAt.hour >= 1 {
+                return "\(createdAt.hour)小时前"
+            } else if createdAt.minute >= 1 {
+                return "\(createdAt.minute)分钟前"
             } else {
                 return "刚刚"
             }
-        } else if createdDate.isYesterday {
-            return createdDate.string(from: "昨天 HH:mm")
-        } else if createdDate.isThisYear {
-            return createdDate.string(from: "MM-dd HH:mm")
+        } else if createdAt.isYesterday {
+            return createdAt.string(from: "昨天 HH:mm")
+        } else if createdAt.isThisYear {
+            return createdAt.string(from: "MM-dd HH:mm")
         } else {
-            return createdDate.string(from: "yyyy-MM-dd HH:mm")
+            return createdAt.string(from: "yyyy-MM-dd HH:mm")
         }
     }
     
@@ -152,6 +157,7 @@ extension WeiboStatus {
 
 class WeiboRetweetedStatus: WeiboStatus {
     
+    
 }
 
 
@@ -161,11 +167,33 @@ class WeiboUser: Object {
         return "id"
     }
     
-    dynamic var id = 0
+    dynamic var id: Int64 = 0
     dynamic var cover_image_phone: String?
     dynamic var name: String?
     dynamic var screen_name: String?
     dynamic var profile_image_url: String?
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    init(_ json: JSON, isValid: Bool) {
+        super.init()
+        
+        id = json["id"].int64Value
+        cover_image_phone = json["cover_image_phone"].string
+        profile_image_url = json["profile_image_url"].string
+        screen_name = json["screen_name"].stringValue
+        name = json["name"].stringValue
+    }
     
 }
 

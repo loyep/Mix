@@ -59,6 +59,7 @@
 		298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB11F57B295005D2DAC /* TabBarItemPlusContentView.swift */; };
 		298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */; };
 		298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */; };
+		29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
@@ -159,6 +160,7 @@
 		298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
 		298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		298ACABC1F57F030005D2DAC /* Mix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mix.entitlements; sourceTree = "<group>"; };
+		29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift+Mix.swift"; sourceTree = "<group>"; };
 		29CB03A91F569C4D00CF33FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CB03B01F569C4D00CF33FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CB03B31F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			isa = PBXGroup;
 			children = (
 				2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */,
+				29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */,
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
 				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
@@ -702,6 +705,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyWeibo/SwiftyWeibo.framework",
 				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
@@ -713,6 +717,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyWeibo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
@@ -855,6 +860,7 @@
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
+				29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */,
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
 				298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */,
 				2933F3E61F5937770088A33C /* Strings.swift in Sources */,

@@ -9,8 +9,13 @@
 import UIKit
 import SwiftyWeibo
 import RealmSwift
+import SwiftyJSON
 
 class HomeViewController: UIViewController {
+    
+    var notificationToken: NotificationToken? = nil
+    
+    let realm: Realm = try! Realm()
     
     lazy var statusView: UICollectionView = {
         let layout = StatusCollectionViewLayout()
@@ -20,17 +25,6 @@ class HomeViewController: UIViewController {
         statusView.backgroundColor = .white
         return statusView
     }()
-    var count: Int = 0
-    var dataSource: [WeiboStatus] = [] {
-        didSet {
-            let count = self.count
-            self.count = dataSource.count
-            guard self.count > count else {
-                return
-            }
-            statusView.reloadData()
-        }
-    }
     
     override func loadView() {
         view = statusView
@@ -38,41 +32,58 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let realm = try? Realm() else {
-            return
-        }
-        dataSource += realm.objects(WeiboStatus.self)
+        
         statusView.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
+        
+        let results = realm.objects(WeiboStatus.self)
+        // Observe Realm Notifications
+        notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+            guard let statusView = self?.statusView else { return }
+            switch changes {
+            case .initial:
+                // Results are now populated and can be accessed without blocking the UI
+                statusView.reloadData()
+                break
+            case .update(_, let deletions, let insertions, let modifications):
+                // Query results have changed, so apply them to the UITableView
+                statusView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
+                statusView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0) }))
+                statusView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
+                break
+            case .error(let error):
+                // An error occurred while opening the Realm file on the background worker thread
+                fatalError("\(error)")
+                break
+            }
+        }
+        
+        notificationToken?.stop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        guard let realm = try? Realm() else {
-            return
-        }
         return
         let since_id: Int64 = realm.objects(WeiboStatus.self).max(ofProperty: "id") ?? 0
-        //        print("\(since_id)")
-        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: since_id, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
+        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
                 return
             }
             do {
-                let json = try result.dematerialize().mapJSON() as! [String: Any]
-                guard let realm = try? Realm() else {
-                    return
+                let json = JSON(data: try result.dematerialize().data)
+                this.realm.beginWrite()
+                var statuses: [WeiboStatus] = []
+                json["statuses"].arrayValue.forEach {
+                    statuses.append(WeiboStatus($0, isValid: false))
                 }
-                try? realm.write {
-                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
-                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
-                    this.dataSource += homeLine.statuses
-                }
+                this.realm.add(statuses, update: true)
             } catch {
                 
             }
         }
     }
+    
+    
 }
 
 extension HomeViewController: UICollectionViewDelegate {
@@ -90,15 +101,14 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return count
+        return realm.objects(WeiboStatus.self).count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.bind(for: dataSource[indexPath.row])
+        cell.bind(for: realm.objects(WeiboStatus.self)[indexPath.item])
         return cell
     }
-    
 }
 
 

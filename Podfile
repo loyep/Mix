@@ -10,6 +10,8 @@ target 'Mix' do
     pod 'Alamofire'
     pod 'RealmSwift'
     pod 'pop'
+    pod 'SwiftyJSON'
+#    pod ''
     
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
