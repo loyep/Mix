@@ -10,6 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 import SwiftyWeibo
+import SwiftyJSON
 
 public class Config: Object {
     
@@ -22,6 +23,18 @@ public class Config: Object {
     dynamic var lastLoginVersion: String = "0.0.0"
     
     dynamic var bundleIdentifier: String = Bundle.bundleIdentifier!
+    
+    public required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    public required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    public required init() {
+        fatalError("init() has not been implemented")
+    }
     
 }
 
@@ -67,7 +80,7 @@ extension Realm: TokenStore {
     
     public func token(forProvider provider: SwiftyWeibo.Provider) -> SwiftyWeibo.Token? {
         let key = self.key(forProvider: provider)
-        guard let realm = try? Realm(), let token: OAuthToken = realm.object(ofType: OAuthToken.self, forPrimaryKey: key) else {
+        guard let token: OAuthToken = self.object(ofType: OAuthToken.self, forPrimaryKey: key) else {
             return nil
         }
         
@@ -76,16 +89,13 @@ extension Realm: TokenStore {
     
     public func set(_ token: SwiftyWeibo.Token?, forProvider provider: SwiftyWeibo.Provider) {
         let key = self.key(forProvider: provider)
-        guard let realm = try? Realm() else {
-            return
-        }
         
-        try? realm.write {
+        try? self.write {
             if let token = token {
-                realm.create(OAuthToken.self, value: token.parameters, update: true)
+                self.create(OAuthToken.self, value: token.parameters, update: true)
             } else {
-                if let token = realm.object(ofType: OAuthToken.self, forPrimaryKey: key) {
-                    realm.delete(token)
+                if let token = self.object(ofType: OAuthToken.self, forPrimaryKey: key) {
+                    self.delete(token)
                 }
             }
         }

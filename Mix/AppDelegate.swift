@@ -66,7 +66,7 @@ extension AppDelegate: WeiboSDKDelegate {
         #endif
         WeiboSDK.registerApp("1522592428")
         
-        Realm.Configuration.defaultConfiguration = realmConfig()
+        //        Realm.Configuration.defaultConfiguration = realmConfig()
     }
     
     func didReceiveWeiboResponse(_ wbResponse: WBBaseResponse!) {
@@ -85,7 +85,7 @@ extension AppDelegate: WeiboSDKDelegate {
         weibo.tokenStore.set(token, forProvider: weibo)
         let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
         weibo.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
-//        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
+        //        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil, userInfo: nil)
     }
     
@@ -111,24 +111,22 @@ extension AppDelegate {
     }
     
     fileprivate func setupAppRoot() -> Bool {
-        guard let realm = try? Realm() else {
-            return false
-        }
-        
         let bundleShortVersion = Bundle.releaseVersionNumber!
-        let bundleIdentifier = Bundle.bundleIdentifier
+        let bundleIdentifier = Bundle.bundleIdentifier!
         
-        if realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier) == nil {
-            try? realm.write {
-                realm.create(Config.self, value: ["bundleIdentifier": bundleIdentifier], update: false)
-            }
+        if Realm.objc(Config.self, for: .public, of: bundleIdentifier) == nil {
+            Realm.write(for: .public, task: {
+                let config = Config()
+                config.bundleIdentifier = bundleIdentifier
+                Realm.add(config)
+            })
         }
         
-        let config: Config = realm.object(ofType: Config.self, forPrimaryKey: bundleIdentifier)!
+        let config: Config = Realm.objc(Config.self, for: .public, of: bundleIdentifier)!
         guard config.lastLoginVersion >= bundleShortVersion else {
-            try? realm.write {
+            Realm.write(for: .public, task: {
                 config.lastLoginVersion = bundleShortVersion
-            }
+            })
             rootViewController = FeatureViewController()
             return true
         }

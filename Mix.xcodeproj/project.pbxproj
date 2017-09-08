@@ -46,7 +46,6 @@
 		298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */; };
 		298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */; };
 		298ACA9B1F56C831005D2DAC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA971F56C831005D2DAC /* Config.swift */; };
-		298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA981F56C831005D2DAC /* RealmConfig.swift */; };
 		298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA991F56C831005D2DAC /* SafeDispatch.swift */; };
 		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
 		298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAA01F57A308005D2DAC /* TabBar.swift */; };
@@ -146,7 +145,6 @@
 		298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
 		298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Mix.swift"; sourceTree = "<group>"; };
 		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		298ACA981F56C831005D2DAC /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
 		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboProvider.swift; sourceTree = "<group>"; };
 		298ACAA01F57A308005D2DAC /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
@@ -317,7 +315,6 @@
 				2933F3F11F5BFC2E0088A33C /* Regex */,
 				298ACA971F56C831005D2DAC /* Config.swift */,
 				2952BF931F5E8B0400A309E5 /* MixTheme.swift */,
-				298ACA981F56C831005D2DAC /* RealmConfig.swift */,
 				298ACA991F56C831005D2DAC /* SafeDispatch.swift */,
 				298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */,
 			);
@@ -896,7 +893,6 @@
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
 				2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */,
 				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
-				298ACA9C1F56C831005D2DAC /* RealmConfig.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
 				2933F3D71F58F2040088A33C /* FeatureViewController.swift in Sources */,

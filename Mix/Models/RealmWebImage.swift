@@ -30,7 +30,7 @@ internal class RealmWebImageCache {
     var inflightRequests: [URL: [RealmWebImageCache.Completion]] = [:]
     
     func loadCacheImage(url: URL, completion: @escaping RealmWebImageCache.Completion) -> Void {
-        guard let realm = try? Realm() else {
+        guard let realm = try? Realm(dbName: .public) else {
             return
         }
         
@@ -66,7 +66,7 @@ internal class RealmWebImageCache {
             }
             
             DispatchQueue.main.async {
-                guard let realm = try? Realm() else {
+                guard let realm = try? Realm(dbName: .public) else {
                     networkCompletion(nil, NSError(domain: "", code: 403, userInfo: nil))
                     return
                 }
