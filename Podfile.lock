@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
+  - Kingfisher (3.12.2)
   - pop (1.0.10)
   - Realm (2.10.0):
     - Realm/Headers (= 2.10.0)
@@ -17,6 +18,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Kingfisher
   - pop
   - RealmSwift
   - SnapKit
@@ -33,6 +35,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
@@ -43,6 +46,6 @@ SPEC CHECKSUMS:
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 60cefff8f8640f800b56912c1463329b00ecc99f
+PODFILE CHECKSUM: 45ac77a2ae452b24adaea41e451ec839855eb997
 
 COCOAPODS: 1.3.1

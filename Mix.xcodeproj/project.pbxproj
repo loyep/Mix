@@ -62,11 +62,11 @@
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
-		CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */; };
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
-		CFC09D071F5DA275002E5251 /* MixTextLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC09D061F5DA275002E5251 /* MixTextLinkParser.swift */; };
+		CFD2C22D1F6393FB001E1759 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD2C22C1F6393FB001E1759 /* Settings.storyboard */; };
+		CFD2C22F1F63E338001E1759 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD2C22E1F63E338001E1759 /* Contacts.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,11 +170,11 @@
 		823B2E42537B0B69A24A9A3F /* Pods-Mix.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.release.xcconfig"; sourceTree = "<group>"; };
 		BD951BDEE158C234886697E4 /* Pods_MixShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
-		CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmWebImage.swift; sourceTree = "<group>"; };
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
-		CFC09D061F5DA275002E5251 /* MixTextLinkParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTextLinkParser.swift; sourceTree = "<group>"; };
+		CFD2C22C1F6393FB001E1759 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		CFD2C22E1F63E338001E1759 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		F960CAE0128160D952F284A6 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,6 +293,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				CFD2C2301F63E485001E1759 /* SlideView */,
 				29A6DF661F60084600370D22 /* Button */,
 				CF2A06161F5A6593000E4E8B /* Cells */,
 				298ACA9F1F57A2F2005D2DAC /* TabBar */,
@@ -303,7 +304,6 @@
 		298ACA651F569FFF005D2DAC /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A061A1F5AC034000E4E8B /* RealmWebImage.swift */,
 				2933F3EF1F595F440088A33C /* WeiboModels.swift */,
 			);
 			path = Models;
@@ -374,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */,
+				CFD2C22E1F63E338001E1759 /* Contacts.storyboard */,
 			);
 			path = Contacts;
 			sourceTree = "<group>";
@@ -382,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				2933F3DC1F592F300088A33C /* SettingsViewController.swift */,
+				CFD2C22C1F6393FB001E1759 /* Settings.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -519,7 +521,6 @@
 		CF2A06171F5A659C000E4E8B /* WeiboCell */ = {
 			isa = PBXGroup;
 			children = (
-				CFC09D061F5DA275002E5251 /* MixTextLinkParser.swift */,
 				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 			);
 			path = WeiboCell;
@@ -539,6 +540,13 @@
 			children = (
 			);
 			path = Persistence;
+			sourceTree = "<group>";
+		};
+		CFD2C2301F63E485001E1759 /* SlideView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SlideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -668,7 +676,9 @@
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,
+				CFD2C22F1F63E338001E1759 /* Contacts.storyboard in Resources */,
 				298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */,
+				CFD2C22D1F6393FB001E1759 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,6 +708,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mix/Pods-Mix-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -710,6 +721,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -892,12 +904,10 @@
 				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
 				2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */,
-				CF2A061B1F5AC034000E4E8B /* RealmWebImage.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
 				2933F3D71F58F2040088A33C /* FeatureViewController.swift in Sources */,
 				2933F3DE1F592F300088A33C /* SettingsViewController.swift in Sources */,
-				CFC09D071F5DA275002E5251 /* MixTextLinkParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

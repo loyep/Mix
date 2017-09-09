@@ -22,7 +22,7 @@ class TabBarController: UITabBarController {
         super.viewDidLoad()
         
         let home = HomeViewController()
-        let contact = ContactsViewController()
+        let contact = UIStoryboard(name: "Contacts", bundle: nil).instantiateViewController(withIdentifier: "ContactsViewController")//ContactsViewController()
         let discover = DiscoverViewController()
         let profile = ProfileViewController()
         let plus = UIViewController()

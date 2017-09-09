@@ -132,12 +132,12 @@ extension WeiboStatus {
     
     var createdDate: String? {
         let createdAt = self.createdAt as Date
-        
         if createdAt.isToday {
-            if createdAt.hour >= 1 {
-                return "\(createdAt.hour)小时前"
-            } else if createdAt.minute >= 1 {
-                return "\(createdAt.minute)分钟前"
+            let minute = Int(Date().timeIntervalSince(createdAt) / 60)
+            if minute / 60 >= 1 {
+                return "\(minute / 60)小时前"
+            } else if minute >= 1 {
+                return "\(minute)分钟前"
             } else {
                 return "刚刚"
             }

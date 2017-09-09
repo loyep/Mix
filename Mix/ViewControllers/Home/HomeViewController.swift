@@ -15,7 +15,11 @@ class HomeViewController: UIViewController {
     
     var notificationToken: NotificationToken? = nil
     
-    let realm: Realm = try! Realm()
+    let realm: Realm = try! Realm(dbName: .user)
+    
+    lazy var results: Results<WeiboStatus> = {
+        return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
+    }()
     
     lazy var statusView: UICollectionView = {
         let layout = StatusCollectionViewLayout()
@@ -36,7 +40,6 @@ class HomeViewController: UIViewController {
         statusView.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
         
-        let results = realm.objects(WeiboStatus.self)
         // Observe Realm Notifications
         notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
             guard let statusView = self?.statusView else { return }
@@ -64,27 +67,27 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         return
-        let since_id: Int64 = realm.objects(WeiboStatus.self).max(ofProperty: "id") ?? 0
+        let since_id: Int64 = results.max(ofProperty: "id") ?? 0
         weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
                 return
             }
             do {
                 let json = JSON(data: try result.dematerialize().data)
-                this.realm.beginWrite()
                 var statuses: [WeiboStatus] = []
                 json["statuses"].arrayValue.forEach {
                     statuses.append(WeiboStatus($0, isValid: false))
                 }
+                this.realm.beginWrite()
                 this.realm.add(statuses, update: true)
+                try? this.realm.commitWrite()
             } catch {
                 
             }
         }
     }
-    
-    
 }
+
 
 extension HomeViewController: UICollectionViewDelegate {
     
@@ -101,12 +104,12 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return realm.objects(WeiboStatus.self).count
+        return results.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.bind(for: realm.objects(WeiboStatus.self)[indexPath.item])
+        cell.bind(for: results[indexPath.item])
         return cell
     }
 }

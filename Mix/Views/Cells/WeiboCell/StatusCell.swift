@@ -8,6 +8,7 @@
 
 import UIKit
 import YYText
+import Kingfisher
 
 class StatusCell: UICollectionViewCell {
     
@@ -15,6 +16,7 @@ class StatusCell: UICollectionViewCell {
         let proImage = UIButton(type: .custom)
         proImage.backgroundColor = .white
         proImage.layer.cornerRadius = 18
+        proImage.layer.borderWidth = 1 / UIScreen.main.scale
         proImage.frame.size = CGSize(width: 36, height: 36)
         proImage.layer.borderColor = UIColor.lightGray.cgColor
         proImage.layer.shouldRasterize = true
@@ -114,7 +116,7 @@ class StatusCell: UICollectionViewCell {
         }
         
         let imageUrl = (viewModel.user?.profile_image_url)!
-        profileImage.mix_setImage(URL(string: imageUrl)!, placeHolder: nil, for: .normal)
+        profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal)
         
         dateView.text = "\(viewModel.createdDate ?? "") \(viewModel.sourceName)"
     }

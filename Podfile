@@ -11,7 +11,7 @@ target 'Mix' do
     pod 'RealmSwift'
     pod 'pop'
     pod 'SwiftyJSON'
-#    pod ''
+    pod 'Kingfisher'
     
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
