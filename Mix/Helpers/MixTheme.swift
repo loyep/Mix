@@ -19,11 +19,11 @@ public struct Theme {
     }()
     
     static var linkHighLightColor: UIColor = {
-        return .gray
+        return .lightGray
     }()
     
     static var lineSpacing: Float = {
-        return 17.0
+        return 16.0
     }()
     
 //    static var NSBackgroundColorAttributeName

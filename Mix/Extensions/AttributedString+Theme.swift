@@ -15,24 +15,24 @@ internal extension NSMutableAttributedString {
         for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
             
             let border = YYTextBorder(lineStyle: .single, lineWidth: 0, stroke: UIColor.orange)
-            border.cornerRadius = 18
+            border.cornerRadius = 10
+            border.lineJoin = CGLineJoin.bevel
             border.fillColor = UIColor.orange
-            border.insets = UIEdgeInsets(top: 0, left: -9, bottom: 0, right: -9)
+            border.insets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: -5)
             
             let highLight = YYTextHighlight(attributes: [
                 YYTextBackgroundBorderAttributeName: border,
                 NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
             
-            let attr = NSMutableAttributedString(string: "   ", attributes: [
-                NSFontAttributeName: Theme.font,
-                NSParagraphStyleAttributeName: Theme.paragraph,
-                ])
-            attr.append(NSAttributedString(string: "查看链接", attributes: [NSForegroundColorAttributeName: UIColor.white,
-//                                                                                NSFontAttributeName: Theme.font,
+            let attr = NSMutableAttributedString(string: "  查看链接  ", attributes: [NSForegroundColorAttributeName: UIColor.white,
+                                                                                   NSFontAttributeName: Theme.font,
                                                                                 YYTextHighlightAttributeName: highLight,
                                                                                 YYTextBackgroundBorderAttributeName: border,
-                                                                                NSParagraphStyleAttributeName: Theme.paragraph]))
+                                                                                NSParagraphStyleAttributeName: Theme.paragraph])
+            attr.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: NSRange(location: 2, length: 4))
+            attr.yy_lineBreakMode = .byWordWrapping
+            
             self.replaceCharacters(in: result.range, with: attr)
         }
         

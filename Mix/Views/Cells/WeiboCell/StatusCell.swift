@@ -50,7 +50,8 @@ class StatusCell: UICollectionViewCell {
         textView.ignoreCommonProperties = true
         textView.displaysAsynchronously = true
         textView.fadeOnAsynchronouslyDisplay = false
-        textView.backgroundColor = .gray
+//        textView.backgroundColor = .gray
+        textView.backgroundColor = UIColor(white: 0.9, alpha: 1)
         
         textView.highlightTapAction = self.highlightTapAction
         textView.highlightLongPressAction = self.highlightLongPressAction
