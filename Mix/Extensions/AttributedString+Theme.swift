@@ -12,15 +12,28 @@ import YYText
 internal extension NSMutableAttributedString {
     
     override func replaceFullText() -> NSMutableAttributedString {
-        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated() {
-            self.addAttributes([NSForegroundColorAttributeName: Theme.linkColor,
-                                NSParagraphStyleAttributeName: Theme.paragraph,
-                                ], range: result.range) 
-            let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
-                                                         NSParagraphStyleAttributeName: Theme.paragraph])
+        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
+            
+            let border = YYTextBorder(lineStyle: .single, lineWidth: 0, stroke: UIColor.orange)
+            border.cornerRadius = 18
+            border.fillColor = UIColor.orange
+            border.insets = UIEdgeInsets(top: 0, left: -9, bottom: 0, right: -9)
+            
+            let highLight = YYTextHighlight(attributes: [
+                YYTextBackgroundBorderAttributeName: border,
+                NSParagraphStyleAttributeName: Theme.paragraph])
             highLight.userInfo = [NSLinkAttributeName: result.string]
-            self.yy_setTextHighlight(highLight, range: result.range)
+            
+            let attr = NSMutableAttributedString(string: "   ", attributes: [
+                NSFontAttributeName: Theme.font,
+                NSParagraphStyleAttributeName: Theme.paragraph,
+                ])
+            attr.append(NSAttributedString(string: "查看链接", attributes: [NSForegroundColorAttributeName: UIColor.white,
+//                                                                                NSFontAttributeName: Theme.font,
+                                                                                YYTextHighlightAttributeName: highLight,
+                                                                                YYTextBackgroundBorderAttributeName: border,
+                                                                                NSParagraphStyleAttributeName: Theme.paragraph]))
+            self.replaceCharacters(in: result.range, with: attr)
         }
         
         for (_, fullText) in Regex.fullTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {

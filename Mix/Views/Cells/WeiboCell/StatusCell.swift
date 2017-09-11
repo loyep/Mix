@@ -12,6 +12,8 @@ import Kingfisher
 
 class StatusCell: UICollectionViewCell {
     
+    static let CellInset = UIEdgeInsetsMake(8, 8, 8, 8)
+    
     var profileImage: UIButton = {
         let proImage = UIButton(type: .custom)
         proImage.backgroundColor = .white
@@ -62,6 +64,8 @@ class StatusCell: UICollectionViewCell {
         return dateView
     }()
     
+    var photosView: StatusPhotoView = StatusPhotoView()
+    
     weak var status: WeiboStatus? = nil
     
     override init(frame: CGRect) {
@@ -80,7 +84,7 @@ class StatusCell: UICollectionViewCell {
         contentView.layer.masksToBounds = true
         
         self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowOffset = CGSize(width: 1, height: 1)
+        self.layer.shadowOffset = CGSize(width: 1 / UIScreen.main.scale, height: 1)
         self.layer.shadowRadius = contentView.layer.cornerRadius
         self.layer.shadowOpacity = 0.2
         
@@ -89,13 +93,16 @@ class StatusCell: UICollectionViewCell {
         contentView.addSubview(profileImage)
         contentView.addSubview(textView)
         contentView.addSubview(retweetedTextView)
+        contentView.addSubview(photosView)
         
         profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
         name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.width - 80, height: 18)
         dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
         textView.frame.origin.y = profileImage.frame.maxY + 10
-        textView.frame.size.width = UIScreen.main.bounds.width - 20
+        textView.frame.size.width = UIScreen.main.bounds.width - StatusCell.CellInset.left - StatusCell.CellInset.right
         retweetedTextView.frame.size.width = textView.frame.width
+        photosView.frame.size.width = textView.frame.width - StatusCell.CellInset.left - StatusCell.CellInset.right
+        photosView.frame.origin.x = StatusCell.CellInset.left
     }
     
     func bind(for viewModel: WeiboStatus) -> () {
@@ -106,8 +113,7 @@ class StatusCell: UICollectionViewCell {
             textView.frame.size.height = layout.textBoundingSize.height
         }
         
-        retweetedTextView.frame.origin.y = textView.frame.maxY
-        if let retweeted = yyTextLayout(viewModel.retweetedStatus?.text), retweetedTextView.textLayout != retweeted {
+        if let retweetedStatus = viewModel.retweetedStatus, let retweeted = yyTextLayout("@\(retweetedStatus.user.screen_name):\(retweetedStatus.text)"), retweetedTextView.textLayout != retweeted {
             retweetedTextView.textLayout = retweeted
             retweetedTextView.frame.size.height = retweeted.textBoundingSize.height
         } else {
@@ -115,10 +121,34 @@ class StatusCell: UICollectionViewCell {
             retweetedTextView.frame.size.height = 0
         }
         
+        photosView.frame.origin.y = textView.frame.maxY
+        photosView.photos = viewModel.picUrls
+        retweetedTextView.frame.origin.y = photosView.frame.maxY
+        
         let imageUrl = (viewModel.user?.profile_image_url)!
         profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal)
         
-        dateView.text = "\(viewModel.createdDate ?? "") \(viewModel.sourceName)"
+        dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.sourceName)"
+    }
+    
+    func createdDate(_ createdAt: Date) -> String? {
+        let createdAt = createdAt
+        if createdAt.isToday {
+            let minute = Int(Date().timeIntervalSince(createdAt) / 60)
+            if minute / 60 >= 1 {
+                return "\(minute / 60)小时前"
+            } else if minute >= 1 {
+                return "\(minute)分钟前"
+            } else {
+                return "刚刚"
+            }
+        } else if createdAt.isYesterday {
+            return createdAt.string(from: "昨天 HH:mm")
+        } else if createdAt.isThisYear {
+            return createdAt.string(from: "MM-dd HH:mm")
+        } else {
+            return createdAt.string(from: "yyyy-MM-dd HH:mm")
+        }
     }
     
     
@@ -133,7 +163,7 @@ class StatusCell: UICollectionViewCell {
                                                 NSParagraphStyleAttributeName: Theme.paragraph,
                                                 ]).addLinks().replaceEmotion().replaceFullText()
         
-        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - 20, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.right - StatusCell.CellInset.left, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
         return YYTextLayout(container: container, text: attr)!
     }
     
@@ -152,7 +182,8 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.frame.size.height = ((textView.textLayout?.textBoundingSize.height ?? 0) + (retweetedTextView.textLayout?.textBoundingSize.height ?? 0) + 56)
+        //        layoutAttributes.frame.size.height = ((textView.textLayout?.textBoundingSize.height ?? 0) + (retweetedTextView.textLayout?.textBoundingSize.height ?? 0) + 56)
+        layoutAttributes.frame.size.height = retweetedTextView.frame.maxY + StatusCell.CellInset.bottom
         self.frame.size.height = layoutAttributes.frame.height
         return layoutAttributes
     }

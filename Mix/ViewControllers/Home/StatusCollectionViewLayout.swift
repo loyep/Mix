@@ -12,9 +12,9 @@ open class StatusCollectionViewLayout: UICollectionViewFlowLayout {
     
     public override init() {
         super.init()
-        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - 20, height: 400)
-        minimumLineSpacing = 10
-        sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.left - StatusCell.CellInset.right, height: 400)
+        minimumLineSpacing = StatusCell.CellInset.top
+        sectionInset = StatusCell.CellInset
     }
     
     required public init?(coder aDecoder: NSCoder) {

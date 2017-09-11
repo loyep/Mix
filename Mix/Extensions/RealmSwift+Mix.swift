@@ -67,7 +67,6 @@ extension Realm {
     ///
     /// - Parameter dbName: Realm.DBName
     convenience init(dbName: Realm.DBName) throws {
-        let date = Date()
         do {
             let config = Realm.Configuration().config(with: dbName)
             try self.init(configuration: config)
@@ -188,7 +187,7 @@ extension Realm.Configuration {
     func config(with dbName: Realm.DBName) -> Realm.Configuration {
         var config = self
         config.fileURL = fileURL(with: dbName)
-        let schemaVersion: UInt64 = 50
+        let schemaVersion: UInt64 = 53
         config.schemaVersion = schemaVersion
         config.migrationBlock = {
             if $1 < 50 {

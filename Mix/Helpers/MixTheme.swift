@@ -15,7 +15,7 @@ public struct Theme {
     }()
     
     static var linkColor: UIColor = {
-        return .blue
+        return UIColor.orange
     }()
     
     static var linkHighLightColor: UIColor = {
@@ -28,7 +28,7 @@ public struct Theme {
     
 //    static var NSBackgroundColorAttributeName
     static var textBackgroundColor: UIColor = {
-        return .blue
+        return .lightGray
     }()
     
     static var paragraph: NSParagraphStyle = {

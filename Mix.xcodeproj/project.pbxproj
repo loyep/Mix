@@ -36,6 +36,8 @@
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
 		2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF951F5EB13D00A309E5 /* MixServices.swift */; };
+		2983F77E1F662C150081BC6C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2983F7801F662C150081BC6C /* Settings.storyboard */; };
+		2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2983F78F1F6665670081BC6C /* StatusPhotoView.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
 		298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA711F56A07C005D2DAC /* NavigationController.swift */; };
@@ -65,7 +67,6 @@
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
-		CFD2C22D1F6393FB001E1759 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD2C22C1F6393FB001E1759 /* Settings.storyboard */; };
 		CFD2C22F1F63E338001E1759 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFD2C22E1F63E338001E1759 /* Contacts.storyboard */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +133,9 @@
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
 		2952BF951F5EB13D00A309E5 /* MixServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixServices.swift; sourceTree = "<group>"; };
+		2983F78A1F6654950081BC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
+		2983F78E1F6654FA0081BC6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.strings; sourceTree = "<group>"; };
+		2983F78F1F6665670081BC6C /* StatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPhotoView.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		298ACA711F56A07C005D2DAC /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
@@ -173,7 +177,6 @@
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
-		CFD2C22C1F6393FB001E1759 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		CFD2C22E1F63E338001E1759 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
 		F960CAE0128160D952F284A6 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -383,7 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				2933F3DC1F592F300088A33C /* SettingsViewController.swift */,
-				CFD2C22C1F6393FB001E1759 /* Settings.storyboard */,
+				2983F7801F662C150081BC6C /* Settings.storyboard */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
+				2983F78F1F6665670081BC6C /* StatusPhotoView.swift */,
 			);
 			path = WeiboCell;
 			sourceTree = "<group>";
@@ -678,7 +682,7 @@
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,
 				CFD2C22F1F63E338001E1759 /* Contacts.storyboard in Resources */,
 				298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */,
-				CFD2C22D1F6393FB001E1759 /* Settings.storyboard in Resources */,
+				2983F77E1F662C150081BC6C /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,6 +888,7 @@
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
+				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
 				298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
@@ -950,6 +955,15 @@
 			);
 			name = MainInterface.storyboard;
 			path = .;
+			sourceTree = "<group>";
+		};
+		2983F7801F662C150081BC6C /* Settings.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2983F78A1F6654950081BC6C /* Base */,
+				2983F78E1F6654FA0081BC6C /* en */,
+			);
+			name = Settings.storyboard;
 			sourceTree = "<group>";
 		};
 		298ACA7A1F56A0D7005D2DAC /* InfoPlist.strings */ = {

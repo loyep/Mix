@@ -69,7 +69,7 @@ class WeiboStatus: Object {
     dynamic var inReplyToScreenName: String?
     
     /// 微博作者的用户信息字段
-    dynamic var user: WeiboUser?
+    dynamic var user: WeiboUser! = WeiboUser()
     
     /// 转发数
     dynamic var repostsCount = 0
@@ -88,6 +88,15 @@ class WeiboStatus: Object {
     
     /// 转发微博
     dynamic var retweetedStatus: WeiboRetweetedStatus?
+    
+    dynamic var picUrlsString: String = ""
+    
+    var picUrls: [String] {
+        if picUrlsString.isEmpty {
+            return []
+        }
+        return picUrlsString.components(separatedBy: "|")
+    }
     
     required init() {
         super.init()
@@ -121,6 +130,8 @@ class WeiboStatus: Object {
         commentsCount = json["comments_count"].intValue
         attitudesCount = json["attitudes_count"].intValue
         
+        picUrlsString = json["pic_urls"].arrayValue.map{ $0["thumbnail_pic"].stringValue }.joined(separator: "|")
+        
         if !json["retweeted_status"].isEmpty {
             self.retweetedStatus = WeiboRetweetedStatus(json["retweeted_status"], isValid: true)
         }
@@ -129,26 +140,6 @@ class WeiboStatus: Object {
 }
 
 extension WeiboStatus {
-    
-    var createdDate: String? {
-        let createdAt = self.createdAt as Date
-        if createdAt.isToday {
-            let minute = Int(Date().timeIntervalSince(createdAt) / 60)
-            if minute / 60 >= 1 {
-                return "\(minute / 60)小时前"
-            } else if minute >= 1 {
-                return "\(minute)分钟前"
-            } else {
-                return "刚刚"
-            }
-        } else if createdAt.isYesterday {
-            return createdAt.string(from: "昨天 HH:mm")
-        } else if createdAt.isThisYear {
-            return createdAt.string(from: "MM-dd HH:mm")
-        } else {
-            return createdAt.string(from: "yyyy-MM-dd HH:mm")
-        }
-    }
     
     var sourceName: String {
         return try! NSAttributedString(data: source.data(using: .unicode)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil).string
@@ -160,7 +151,6 @@ class WeiboRetweetedStatus: WeiboStatus {
     
 }
 
-
 class WeiboUser: Object {
     
     @objc override static func primaryKey() -> String? {
@@ -169,8 +159,8 @@ class WeiboUser: Object {
     
     dynamic var id: Int64 = 0
     dynamic var cover_image_phone: String?
-    dynamic var name: String?
-    dynamic var screen_name: String?
+    dynamic var name: String = ""
+    dynamic var screen_name: String = ""
     dynamic var profile_image_url: String?
     
     required init() {

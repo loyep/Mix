@@ -1,0 +1,45 @@
+
+/* Class = "UITableViewSection"; headerTitle = "账户"; ObjectID = "7mQ-HO-Ao9"; */
+"7mQ-HO-Ao9.headerTitle" = "Acount";
+
+/* Class = "UILabel"; text = "使用反馈"; ObjectID = "BCs-AF-z9x"; */
+"BCs-AF-z9x.text" = "Feedback";
+
+/* Class = "UILabel"; text = "刷新"; ObjectID = "BWO-uK-pmS"; */
+"BWO-uK-pmS.text" = "Refresh";
+
+/* Class = "UILabel"; text = "屏蔽"; ObjectID = "DP5-fv-OsN"; */
+"DP5-fv-OsN.text" = "屏蔽";
+
+/* Class = "UITableViewSection"; headerTitle = "高级"; ObjectID = "UTw-ZA-aZ0"; */
+"UTw-ZA-aZ0.headerTitle" = "高级";
+
+/* Class = "UILabel"; text = "统计"; ObjectID = "W7F-Bk-Bas"; */
+"W7F-Bk-Bas.text" = "统计";
+
+/* Class = "UILabel"; text = "流量模式"; ObjectID = "Y5D-BU-4sT"; */
+"Y5D-BU-4sT.text" = "流量模式";
+
+/* Class = "UILabel"; text = "About"; ObjectID = "gPv-ma-E3t"; */
+"gPv-ma-E3t.text" = "About";
+
+/* Class = "UILabel"; text = "0 MB"; ObjectID = "mbX-Ac-MIH"; */
+"mbX-Ac-MIH.text" = "0 MB";
+
+/* Class = "UILabel"; text = "缓存管理"; ObjectID = "rJ8-vU-vfw"; */
+"rJ8-vU-vfw.text" = "缓存管理";
+
+/* Class = "UILabel"; text = "常见问题"; ObjectID = "rcc-Cw-bv9"; */
+"rcc-Cw-bv9.text" = "常见问题";
+
+/* Class = "UILabel"; text = "字体"; ObjectID = "sRc-Zw-QqZ"; */
+"sRc-Zw-QqZ.text" = "Fonts";
+
+/* Class = "UITableViewSection"; headerTitle = "通用"; ObjectID = "woQ-m4-Rpf"; */
+"woQ-m4-Rpf.headerTitle" = "Common";
+
+/* Class = "UILabel"; text = "App Store 评价"; ObjectID = "xUZ-Ly-WAd"; */
+"xUZ-Ly-WAd.text" = "App Store 评价";
+
+/* Class = "UILabel"; text = "账户"; ObjectID = "ztk-V1-DEo"; */
+"ztk-V1-DEo.text" = "Account";

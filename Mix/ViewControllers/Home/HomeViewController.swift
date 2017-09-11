@@ -17,9 +17,9 @@ class HomeViewController: UIViewController {
     
     let realm: Realm = try! Realm(dbName: .user)
     
-    lazy var results: Results<WeiboStatus> = {
+    var results: Results<WeiboStatus> {
         return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
-    }()
+    }
     
     lazy var statusView: UICollectionView = {
         let layout = StatusCollectionViewLayout()
@@ -40,26 +40,27 @@ class HomeViewController: UIViewController {
         statusView.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
         
+        //        return
         // Observe Realm Notifications
-        notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
-            guard let statusView = self?.statusView else { return }
-            switch changes {
-            case .initial:
-                // Results are now populated and can be accessed without blocking the UI
-                statusView.reloadData()
-                break
-            case .update(_, let deletions, let insertions, let modifications):
-                // Query results have changed, so apply them to the UITableView
-                statusView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
-                statusView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0) }))
-                statusView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
-                break
-            case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
-                fatalError("\(error)")
-                break
-            }
-        }
+        //        notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
+        //            guard let statusView = self?.statusView else { return }
+        //            switch changes {
+        //            case .initial:
+        //                // Results are now populated and can be accessed without blocking the UI
+        //                statusView.reloadData()
+        //                break
+        //            case .update(_, let deletions, let insertions, let modifications):
+        //                // Query results have changed, so apply them to the UITableView
+        //                statusView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
+        //                statusView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0) }))
+        //                statusView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
+        //                break
+        //            case .error(let error):
+        //                // An error occurred while opening the Realm file on the background worker thread
+        //                fatalError("\(error)")
+        //                break
+        //            }
+        //        }
         
         notificationToken?.stop()
     }
