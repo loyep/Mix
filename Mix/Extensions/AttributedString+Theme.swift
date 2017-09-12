@@ -9,32 +9,51 @@
 import Foundation
 import YYText
 
-internal extension NSMutableAttributedString {
+extension NSRegularExpression {
+    
+    static let linksRegex: NSRegularExpression = try! NSRegularExpression(pattern: "([https]+://[a-zA-Z0-9./]*)", options: [])
+    
+    static let emojiRegex: NSRegularExpression = try! NSRegularExpression(pattern: "(#\\w+#)|(@\\w+)", options: [])
+    
+    static let topicRegex: NSRegularExpression = try! NSRegularExpression(pattern: "(#[^#]+#)|(@[\\u4e00-\\u9fa5a-zA-Z0-9_-]{2,30})", options: [])
+    
+    static let fullTextRegex: NSRegularExpression = try! NSRegularExpression(pattern: "", options: [])
+    
+}
+
+extension String {
+    
+    func weibStatusAttributedString() -> NSAttributedString {
+        let attr = NSMutableAttributedString(string: self)
+        
+//        for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
+//            let range = result.range
+//            guard range.location != NSNotFound, range.length > 0 else { continue }
+//            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
+//            
+//            let binding = YYTextBinding(deleteConfirm: false)
+//            let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
+//            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
+//        }
+//        
+//        for (_, result) in NSRegularExpression.linksRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
+//            let range = result.range
+//            guard range.location != NSNotFound, range.length > 0 else { continue }
+//            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
+//            
+//            let binding = YYTextBinding(deleteConfirm: false)
+//            let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
+//            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
+//        }
+        
+        return attr
+    }
+    
+}
+
+extension NSMutableAttributedString {
     
     override func replaceFullText() -> NSMutableAttributedString {
-        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
-            
-            let border = YYTextBorder(lineStyle: .single, lineWidth: 0, stroke: UIColor.orange)
-            border.cornerRadius = 10
-            border.lineJoin = CGLineJoin.bevel
-            border.fillColor = UIColor.orange
-            border.insets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: -5)
-            
-            let highLight = YYTextHighlight(attributes: [
-                YYTextBackgroundBorderAttributeName: border,
-                NSParagraphStyleAttributeName: Theme.paragraph])
-            highLight.userInfo = [NSLinkAttributeName: result.string]
-            
-            let attr = NSMutableAttributedString(string: "  查看链接  ", attributes: [NSForegroundColorAttributeName: UIColor.white,
-                                                                                   NSFontAttributeName: Theme.font,
-                                                                                YYTextHighlightAttributeName: highLight,
-                                                                                YYTextBackgroundBorderAttributeName: border,
-                                                                                NSParagraphStyleAttributeName: Theme.paragraph])
-            attr.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: NSRange(location: 2, length: 4))
-            attr.yy_lineBreakMode = .byWordWrapping
-            
-            self.replaceCharacters(in: result.range, with: attr)
-        }
         
         for (_, fullText) in Regex.fullTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {
             let attr = NSMutableAttributedString(string: fullText.strings[0]!,
@@ -48,6 +67,31 @@ internal extension NSMutableAttributedString {
             attr.yy_setTextHighlight(highLight, range: NSMakeRange(0, attr.length))
             self.replaceCharacters(in: fullText.range, with: attr)
         }
+        
+        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
+            
+            let border = YYTextBorder(lineStyle: .single, lineWidth: 0, stroke: UIColor.orange)
+            border.cornerRadius = 100
+            border.lineJoin = CGLineJoin.bevel
+            border.fillColor = UIColor.orange
+            border.insets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: -5)
+            
+            let highLight = YYTextHighlight(attributes: [
+                YYTextBackgroundBorderAttributeName: border,
+                NSParagraphStyleAttributeName: Theme.paragraph])
+            highLight.userInfo = [NSLinkAttributeName: result.string]
+            
+            let attr = NSMutableAttributedString(string: "   查看链接   ", attributes: [NSForegroundColorAttributeName: UIColor.white,
+                                                                                                  NSFontAttributeName: Theme.font,
+                                                                                                  YYTextHighlightAttributeName: highLight,
+                                                                                                  YYTextBackgroundBorderAttributeName: border,
+                                                                                                  NSParagraphStyleAttributeName: Theme.paragraph])
+            attr.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: attr.yy_rangeOfAll())
+            
+            self.replaceCharacters(in: result.range, with: attr)
+        }
+        
+        self.yy_lineBreakMode = .byWordWrapping
         
         return self
     }

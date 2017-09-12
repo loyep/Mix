@@ -47,11 +47,9 @@ class StatusPhotoView: UIView {
                 imageView.frame = CGRect(x: CGFloat(colunIndex) * (itemW + margin), y: CGFloat(rowIndex) * (itemH + margin), width: itemW, height: itemH)
             }
             
-//            let w = CGFloat(perRowItemCount) * itemW + (CGFloat(perRowItemCount) - 1) * margin
             let columnCount = ceil(Double(photos.count) / Double(perRowItemCount))
             let h = CGFloat(columnCount) * itemH + CGFloat(columnCount - 1) * margin
             
-//            frame.size.width = w
             frame.size.height = h
             
         }

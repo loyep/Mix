@@ -31,34 +31,27 @@ class StatusCell: UICollectionViewCell {
         return name
     }()
     
-    lazy var textView: YYLabel = {
+    var textView: YYLabel = {
         let textView = YYLabel()
         textView.isUserInteractionEnabled = true
         textView.ignoreCommonProperties = true
         textView.displaysAsynchronously = true
-        textView.fadeOnAsynchronouslyDisplay = false
+        textView.fadeOnAsynchronouslyDisplay = true
         textView.backgroundColor = .white
-        
-        textView.highlightTapAction = self.highlightTapAction
-        textView.highlightLongPressAction = self.highlightLongPressAction
         return textView
     }()
     
-    lazy var retweetedTextView: YYLabel = {
-        let textView = YYLabel()
-        textView.isUserInteractionEnabled = true
-        textView.ignoreCommonProperties = true
-        textView.displaysAsynchronously = true
-        textView.fadeOnAsynchronouslyDisplay = false
-//        textView.backgroundColor = .gray
-        textView.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        
-        textView.highlightTapAction = self.highlightTapAction
-        textView.highlightLongPressAction = self.highlightLongPressAction
-        return textView
+    var retweetedTextView: YYLabel = {
+        let retweetedTextView = YYLabel()
+        retweetedTextView.isUserInteractionEnabled = true
+        retweetedTextView.ignoreCommonProperties = true
+        retweetedTextView.displaysAsynchronously = true
+        retweetedTextView.fadeOnAsynchronouslyDisplay = true
+        retweetedTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        return retweetedTextView
     }()
     
-    lazy var dateView: UILabel = {
+    var dateView: UILabel = {
         let dateView = UILabel()
         dateView.textColor = UIColor.gray
         dateView.font = UIFont.systemFont(ofSize: 12)
@@ -66,8 +59,6 @@ class StatusCell: UICollectionViewCell {
     }()
     
     var photosView: StatusPhotoView = StatusPhotoView()
-    
-    weak var status: WeiboStatus? = nil
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -96,6 +87,12 @@ class StatusCell: UICollectionViewCell {
         contentView.addSubview(retweetedTextView)
         contentView.addSubview(photosView)
         
+        textView.highlightTapAction = self.highlightTapAction
+        textView.highlightLongPressAction = self.highlightLongPressAction
+        
+        retweetedTextView.highlightTapAction = self.highlightTapAction
+        retweetedTextView.highlightLongPressAction = self.highlightLongPressAction
+        
         profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
         name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.width - 80, height: 18)
         dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
@@ -107,7 +104,6 @@ class StatusCell: UICollectionViewCell {
     }
     
     func bind(for viewModel: WeiboStatus) -> () {
-        status = viewModel
         name.text = viewModel.user?.screen_name
         if let layout = yyTextLayout(viewModel.text), textView.textLayout != layout {
             textView.textLayout = layout
@@ -126,8 +122,8 @@ class StatusCell: UICollectionViewCell {
         photosView.photos = viewModel.picUrls
         retweetedTextView.frame.origin.y = photosView.frame.maxY
         
-        let imageUrl = (viewModel.user?.profile_image_url)!
-        profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal)
+//        let imageUrl = (viewModel.user?.profile_image_url)!
+//        profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal)
         
         dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.sourceName)"
     }
@@ -158,14 +154,9 @@ class StatusCell: UICollectionViewCell {
             return nil
         }
         
-        let attr = NSMutableAttributedString(string: text,
-                                             attributes: [
-                                                NSFontAttributeName: Theme.font,
-                                                NSParagraphStyleAttributeName: Theme.paragraph,
-                                                ]).addLinks().replaceEmotion().replaceFullText()
-        
+        let textAttr = text.weibStatusAttributedString()        
         let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.right - StatusCell.CellInset.left, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-        return YYTextLayout(container: container, text: attr)!
+        return YYTextLayout(container: container, text: textAttr)!
     }
     
     override var isHighlighted: Bool {
@@ -183,7 +174,6 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        //        layoutAttributes.frame.size.height = ((textView.textLayout?.textBoundingSize.height ?? 0) + (retweetedTextView.textLayout?.textBoundingSize.height ?? 0) + 56)
         layoutAttributes.frame.size.height = retweetedTextView.frame.maxY + StatusCell.CellInset.bottom
         self.frame.size.height = layoutAttributes.frame.height
         return layoutAttributes
@@ -218,7 +208,3 @@ extension StatusCell {
         print("\(highLight.userInfo?[NSLinkAttributeName]! ?? "")")
     }
 }
-
-
-
-
