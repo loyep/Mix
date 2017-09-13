@@ -33,3 +33,10 @@ extension UICollectionReusableView: Reusable {
         return String(describing: self)
     }
 }
+
+extension UIViewController: Reusable {
+
+    static var mix_reuseIdentifier: String {
+        return String(describing: self)
+    }
+}

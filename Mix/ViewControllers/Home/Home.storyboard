@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lTZ-3E-YBz">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="Ma8-zu-wn5">
+            <objects>
+                <viewController restorationIdentifier="HomeViewController" storyboardIdentifier="HomeViewController" id="lTZ-3E-YBz" customClass="HomeViewController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YDN-Bh-A0p"/>
+                        <viewControllerLayoutGuide type="bottom" id="ftf-Yt-DmM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YAB-YJ-to4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YYx-Az-b9H">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewLayout key="collectionViewLayout" id="Nib-dB-K7Z" customClass="StatusCollectionViewLayout" customModule="Mix" customModuleProvider="target"/>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lTZ-3E-YBz" id="cv4-mh-CjT"/>
+                                    <outlet property="delegate" destination="lTZ-3E-YBz" id="r4x-VG-9Kn"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YYx-Az-b9H" firstAttribute="top" secondItem="YAB-YJ-to4" secondAttribute="top" id="23E-m0-FuY"/>
+                            <constraint firstItem="YYx-Az-b9H" firstAttribute="leading" secondItem="YAB-YJ-to4" secondAttribute="leading" id="M5v-iy-Q97"/>
+                            <constraint firstItem="YYx-Az-b9H" firstAttribute="trailing" secondItem="YAB-YJ-to4" secondAttribute="trailing" id="aAi-VI-a3d"/>
+                            <constraint firstItem="YYx-Az-b9H" firstAttribute="bottom" secondItem="YAB-YJ-to4" secondAttribute="bottom" id="bnb-Cm-vXl"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="statusView" destination="YYx-Az-b9H" id="hLY-gL-REc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LbK-Ze-4bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-144" y="196"/>
+        </scene>
+    </scenes>
+</document>

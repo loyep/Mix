@@ -10,33 +10,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    lazy var settingsButton: UIButton = {
-        let settings = UIButton(type: .custom)
-        settings.addTarget(self, action: #selector(ProfileViewController.showSettings), for: .touchUpInside)
-        settings.setAttributedTitle(NSAttributedString(string: NSLocalizedString("Settings", comment: ""),
-                                                       attributes: [
-                                                        NSForegroundColorAttributeName: UIColor.black
-            ]), for: .normal)
-        settings.setAttributedTitle(NSAttributedString(string: NSLocalizedString("Settings", comment: ""),
-                                                       attributes: [
-                                                        NSForegroundColorAttributeName: UIColor.orange
-            ]), for: .highlighted)
-        settings.sizeToFit()
-        return settings
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Profile", comment: "")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
     }
     
-    func showSettings() {
-//        let settings = SettingsViewController()
-        let settings = UIStoryboard(name: "Settings", bundle: nil).instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
+    @IBAction func showSettings(_ sender: UIBarButtonItem) {
+        let settings = Storyboard.settings.scene()
         settings.hidesBottomBarWhenPushed = true
-//        present(NavigationController(rootViewController: settings), animated: true, completion: nil)
         navigationController?.pushViewController(settings, animated: true)
     }
-    
 }

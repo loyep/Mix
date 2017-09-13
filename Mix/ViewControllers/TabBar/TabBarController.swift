@@ -21,10 +21,10 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = HomeViewController()
-        let contact = UIStoryboard(name: "Contacts", bundle: nil).instantiateViewController(withIdentifier: "ContactsViewController")//ContactsViewController()
-        let discover = DiscoverViewController()
-        let profile = ProfileViewController()
+        let home = Storyboard.home.scene()
+        let contact = Storyboard.contacts.scene()
+        let discover = Storyboard.discover.scene()
+        let profile = Storyboard.profile.scene()
         let plus = UIViewController()
         
         home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.HomeTitleDescription, image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))

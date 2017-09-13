@@ -26,16 +26,16 @@ extension String {
     func weibStatusAttributedString() -> NSAttributedString {
         let attr = NSMutableAttributedString(string: self)
         
-//        for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
-//            let range = result.range
-//            guard range.location != NSNotFound, range.length > 0 else { continue }
-//            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
-//            
-//            let binding = YYTextBinding(deleteConfirm: false)
-//            let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
-//            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
-//        }
-//        
+        for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
+            let range = result.range
+            guard range.location != NSNotFound, range.length > 0 else { continue }
+            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
+            
+            let binding = YYTextBinding(deleteConfirm: false)
+            let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
+            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
+        }
+//
 //        for (_, result) in NSRegularExpression.linksRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
 //            let range = result.range
 //            guard range.location != NSNotFound, range.length > 0 else { continue }

@@ -13,25 +13,14 @@ import SwiftyJSON
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet fileprivate weak var statusView: UICollectionView!
+    
     var notificationToken: NotificationToken? = nil
     
     let realm: Realm = try! Realm(dbName: "userName")
     
     var results: Results<WeiboStatus> {
         return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
-    }
-    
-    lazy var statusView: UICollectionView = {
-        let layout = StatusCollectionViewLayout()
-        let statusView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        statusView.delegate = self
-        statusView.dataSource = self
-        statusView.backgroundColor = .white
-        return statusView
-    }()
-    
-    override func loadView() {
-        view = statusView
     }
     
     override func viewDidLoad() {
@@ -115,4 +104,14 @@ extension HomeViewController: UICollectionViewDataSource {
     }
 }
 
+class StatusCollectionViewLayout: UICollectionViewFlowLayout {
+
+    override func prepare() {
+        super.prepare()
+        estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.left - StatusCell.CellInset.right, height: 400)
+        minimumLineSpacing = StatusCell.CellInset.top
+        itemSize = estimatedItemSize
+        sectionInset = StatusCell.CellInset
+    }
+}
 

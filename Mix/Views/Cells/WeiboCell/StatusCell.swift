@@ -2,13 +2,13 @@
 //  WeiboTableViewCell.swift
 //  Mix
 //
-//  Created by Maxwell on 2017/9/2.
-//  Copyright © 2017年 Maxsey Inc. All rights reserved.
+//  Created by Maxwell on 13/09/2017.
+//  Copyright © 2017 Maxsey Inc. All rights reserved.
 //
 
 import UIKit
-import YYText
 import Kingfisher
+import YYText
 
 class StatusCell: UICollectionViewCell {
     
@@ -26,30 +26,11 @@ class StatusCell: UICollectionViewCell {
         return proImage
     }()
     
-    var name: UILabel = {
-        let name = UILabel()
-        return name
-    }()
+    var name = UILabel()
     
-    var textView: YYLabel = {
-        let textView = YYLabel()
-        textView.isUserInteractionEnabled = true
-        textView.ignoreCommonProperties = true
-        textView.displaysAsynchronously = true
-        textView.fadeOnAsynchronouslyDisplay = true
-        textView.backgroundColor = .white
-        return textView
-    }()
+    var textView = StatusTextLabel()
     
-    var retweetedTextView: YYLabel = {
-        let retweetedTextView = YYLabel()
-        retweetedTextView.isUserInteractionEnabled = true
-        retweetedTextView.ignoreCommonProperties = true
-        retweetedTextView.displaysAsynchronously = true
-        retweetedTextView.fadeOnAsynchronouslyDisplay = true
-        retweetedTextView.backgroundColor = UIColor(white: 0.9, alpha: 1)
-        return retweetedTextView
-    }()
+    var retweetedTextView = StatusTextLabel()
     
     var dateView: UILabel = {
         let dateView = UILabel()
@@ -58,7 +39,7 @@ class StatusCell: UICollectionViewCell {
         return dateView
     }()
     
-    var photosView: StatusPhotoView = StatusPhotoView()
+    var photosView = StatusPhotoView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -105,25 +86,14 @@ class StatusCell: UICollectionViewCell {
     
     func bind(for viewModel: WeiboStatus) -> () {
         name.text = viewModel.user?.screen_name
-        if let layout = yyTextLayout(viewModel.text), textView.textLayout != layout {
-            textView.textLayout = layout
-            textView.frame.size.height = layout.textBoundingSize.height
-        }
         
-        if let retweetedStatus = viewModel.retweetedStatus, let retweeted = yyTextLayout("@\(retweetedStatus.user.screen_name):\(retweetedStatus.text)"), retweetedTextView.textLayout != retweeted {
-            retweetedTextView.textLayout = retweeted
-            retweetedTextView.frame.size.height = retweeted.textBoundingSize.height
-        } else {
-            retweetedTextView.textLayout = nil
-            retweetedTextView.frame.size.height = 0
-        }
+        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url!)!, for: .normal)
+        textView.text = viewModel.text
+        retweetedTextView.text = viewModel.retweetedStatus?.text
         
         photosView.frame.origin.y = textView.frame.maxY
         photosView.photos = viewModel.picUrls
         retweetedTextView.frame.origin.y = photosView.frame.maxY
-        
-//        let imageUrl = (viewModel.user?.profile_image_url)!
-//        profileImage.kf.setImage(with: URL(string: imageUrl), for: .normal)
         
         dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.sourceName)"
     }
@@ -146,17 +116,6 @@ class StatusCell: UICollectionViewCell {
         } else {
             return createdAt.string(from: "yyyy-MM-dd HH:mm")
         }
-    }
-    
-    
-    func yyTextLayout(_ text: String?) -> YYTextLayout? {
-        guard let text = text else {
-            return nil
-        }
-        
-        let textAttr = text.weibStatusAttributedString()        
-        let container = YYTextContainer(size: CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.right - StatusCell.CellInset.left, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
-        return YYTextLayout(container: container, text: textAttr)!
     }
     
     override var isHighlighted: Bool {

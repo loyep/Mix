@@ -22,6 +22,9 @@ class NavigationController: UINavigationController {
             interactivePopGestureRecognizer?.isEnabled = false
         }
         
+        if viewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
         super.pushViewController(viewController, animated: animated)
     }
     
