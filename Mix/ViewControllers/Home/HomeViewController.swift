@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     
     var notificationToken: NotificationToken? = nil
     
-    let realm: Realm = try! Realm(dbName: .user)
+    let realm: Realm = try! Realm(dbName: "userName")
     
     var results: Results<WeiboStatus> {
         return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)

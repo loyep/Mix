@@ -8,6 +8,13 @@
 
 import RealmSwift
 
+public enum RealmError: Swift.Error {
+    
+    /// Realm Object Not Exist
+    case realmObjectNotExist
+    
+}
+
 extension RealmCollection {
     
     /// filter and return Array.Type
@@ -53,7 +60,6 @@ extension Array {
         
         let list = List<T>()
         forEach {
-            
             transform($0).flatMap { list.append($0) }
         }
         return list
@@ -67,128 +73,156 @@ extension Realm {
     ///
     /// - Parameter dbName: Realm.DBName
     convenience init(dbName: Realm.DBName) throws {
-        do {
-            let config = Realm.Configuration().config(with: dbName)
-            try self.init(configuration: config)
-        } catch let error {
-            throw error
-        }
+        try self.init(configuration: Realm.Configuration().config(with: dbName))
     }
     
-    struct DBName {
+    struct DBName: RawRepresentable, ExpressibleByStringLiteral {
+        
+        static let `public`: DBName = "public"
         
         var rawValue: String
         
-        init(_ rawValue: String) {
+        init?(rawValue: String) {
             self.rawValue = rawValue
         }
         
-        static var user: Realm.DBName {
-            // TODO: WaitUserName
-            return  Realm.DBName("userName")
+        init(stringLiteral value: String) {
+            self.rawValue = value
         }
-        static let `public` = Realm.DBName("public")
+        
+        init(unicodeScalarLiteral value: String) {
+            self.rawValue = value
+        }
+        
+        init(extendedGraphemeClusterLiteral value: String) {
+            self.rawValue = value
+        }
     }
     
-    static func write(for db: Realm.DBName = .user, task: () -> Void) {
-        let realm = try? Realm(dbName: db)
-        try? realm?.write {
-            task()
-        }
+    static func write(for db: Realm.DBName, task: () -> Void) throws {
+        
+        let realm = try Realm(dbName: db)
+        try realm.write(task)
     }
     
-    @discardableResult
     static func update<T: RealmSwift.Object, K>(
         _ type: T.Type,
-        for db: Realm.DBName = .user,
+        for db: Realm.DBName,
         of primaryKey: K,
         task: (T) -> Void)
-        -> T?
+        throws
     {
-        
-        let realm = try? Realm(dbName: db)
-        let objc = realm?.object(ofType: type, forPrimaryKey: primaryKey)
+        let realm = try Realm(dbName: db)
+        let objc = realm.object(ofType: type, forPrimaryKey: primaryKey)
         
         if let objc = objc {
-            try? realm?.write {
-                task(objc)
-            }
-            return objc
+            try realm.write { task(objc) }
+        } else {
+            throw RealmError.realmObjectNotExist
         }
-        return nil
     }
     
-    @discardableResult
     static func update<T: RealmSwift.Object>(
         _ type: T.Type,
-        for db: Realm.DBName = .user,
-        task: (T) -> Void) -> [T]?
+        for db: Realm.DBName,
+        task: (T) -> Void) throws
     {
-        let realm = try? Realm(dbName: db)
-        let s = realm?.objects(type)
-        
-        try? realm?.write {
-            s?.forEach(task)
-        }
-        return s?.mapArr()
+        let realm = try Realm(dbName: db)
+        let s = realm.objects(type)
+        try realm.write { s.forEach(task) }
     }
     
     static func add(
         _ objc: RealmSwift.Object,
-        for db: Realm.DBName = .user,
-        update: Bool = true)
+        for db: Realm.DBName,
+        update: Bool = true) throws
     {
-        let realm = try? Realm(dbName: db)
-        try? realm?.write {
-            realm?.add(objc, update: update)
+        let realm = try Realm(dbName: db)
+        try realm.write {
+            realm.add(objc, update: update)
         }
     }
     
     static func add<S: Sequence>(
         _ objcs: S,
-        for db: Realm.DBName = .user,
-        update: Bool = true)
+        for db: Realm.DBName,
+        update: Bool = true) throws
         where S.Iterator.Element: RealmSwift.Object
     {
         
-        let realm = try? Realm(dbName: db)
-        
-        try? realm?.write {
-            realm?.add(objcs, update: update)
+        let realm = try Realm(dbName: db)
+        try realm.write {
+            realm.add(objcs, update: update)
         }
     }
     
     static func objcs<T: RealmSwift.Object>(
         _ type: T.Type,
-        for db: Realm.DBName = .user)
-        -> RealmSwift.Results<T>?
+        for db: Realm.DBName)
+        throws -> RealmSwift.Results<T>
     {
-        return try? Realm(dbName: db).objects(type)
+        return try Realm(dbName: db).objects(type)
     }
     
     static func objc<T: RealmSwift.Object, K>(
         _ type: T.Type,
-        for db: Realm.DBName = .user,
+        for db: Realm.DBName,
         of primaryKey: K)
-        -> T?
+        throws -> T?
     {
-        
-        if
-            let realm = try? Realm(dbName: db),
-            let objc = realm.object(ofType: type, forPrimaryKey: primaryKey) {
+        let realm = try Realm(dbName: db)
+        if let objc = realm.object(ofType: type, forPrimaryKey: primaryKey) {
             return objc
         }
         return nil
+    }
+    
+    static func deleteAll(for db: DBName) throws {
+        
+        let realm = try Realm(dbName: db)
+        try realm.write { realm.deleteAll() }
+    }
+    
+    static func delete<T: RealmSwift.Object>(
+        _ objc: T,
+        for db: DBName) throws {
+        
+        let realm = try Realm(dbName: db)
+        try realm.write { realm.delete(objc) }
+    }
+    
+    static func delete<S: Sequence>(
+        _ objcs: S,
+        for db: DBName) throws
+        where S.Iterator.Element:
+        RealmSwift.Object
+    {
+        
+        let realm = try Realm(dbName: db)
+        try realm.write { realm.delete(objcs) }
+    }
+    
+    static func delete<T: RealmSwift.Object>(
+        _ type: T.Type,
+        for db: DBName) throws
+    {
+        let realm = try Realm(dbName: db)
+        let objcs = realm.objects(type)
+        try realm.write { realm.delete(objcs) }
     }
 }
 
 extension Realm.Configuration {
     
+    static let realmDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Config.appGroupID)!
+    
+    static let RealmVersion: UInt64 = 52
+    
     func config(with dbName: Realm.DBName) -> Realm.Configuration {
+        
         var config = self
         config.fileURL = fileURL(with: dbName)
-        let schemaVersion: UInt64 = 53
-        config.schemaVersion = schemaVersion
+        config.schemaVersion = Realm.Configuration.RealmVersion
         config.migrationBlock = {
             if $1 < 50 {
                 do {
@@ -198,17 +232,18 @@ extension Realm.Configuration {
                 }
             }
         }
+        
         return config
     }
     
     func fileURL(with dbName: Realm.DBName) -> URL? {
         
-        try? FileManager.default.createDirectory(at: Realm.Configuration.realmDirectory, withIntermediateDirectories: true, attributes: nil)
+        let realmDirectory = Realm.Configuration.realmDirectory.appendingPathComponent("Realm")
         
-        return Realm.Configuration.realmDirectory.appendingPathComponent(dbName.rawValue).appendingPathExtension("realm")
+        try? FileManager.default.createDirectory(at: realmDirectory, withIntermediateDirectories: true, attributes: nil)
+        
+        return realmDirectory.appendingPathComponent(dbName.rawValue).appendingPathExtension("realm")
     }
-    
-    static let realmDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Config.appGroupID)!.appendingPathComponent("db.realm")
 }
 
 
