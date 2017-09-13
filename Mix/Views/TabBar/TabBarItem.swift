@@ -10,10 +10,10 @@ import UIKit
 
 /// TabBarItem继承自UITabBarItem，目的是为TabBarItemContentView提供UITabBarItem属性的设置。
 @available(iOS 8.0, *)
-class TabBarItem: UITabBarItem {
+open class TabBarItem: UITabBarItem {
     
     /// Customize content view
-    @objc open var contentView: TabBarItemContentView?// = TabBarItemContentView()
+    @objc open var contentView: TabBarItemContentView? = TabBarItemContentView()
     
     // MARK: UIBarItem properties
     @objc open override var title: String? // default is nil
@@ -76,8 +76,9 @@ class TabBarItem: UITabBarItem {
         self.contentView = contentView
         self.setTitle(title, image: image, selectedImage: selectedImage, tag: tag)
     }
+    
     public required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     open func setTitle(_ title: String? = nil, image: UIImage? = nil, selectedImage: UIImage? = nil, tag: Int = 0) {

@@ -8,8 +8,15 @@
 
 import UIKit
 
-class DiscoverViewController: UIViewController {
+class DiscoverNavigationController: NavigationController {
+    
+    @IBOutlet weak var discoverTabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.DiscoverTitleDescription, image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
 
+}
+
+class DiscoverViewController: UIViewController {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Discover", comment: "")

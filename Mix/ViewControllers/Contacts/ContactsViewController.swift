@@ -10,7 +10,9 @@ import UIKit
 import SwiftyWeibo
 
 class ContactsViewController: UIViewController {
-
+    
+    @IBOutlet weak var contactsTabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ContactTitleDescription, image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Contact", comment: "")

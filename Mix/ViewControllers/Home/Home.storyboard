@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="lTZ-3E-YBz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pgi-6s-WVy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,6 +8,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="3by-PI-A93">
+            <objects>
+                <navigationController id="pgi-6s-WVy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lG6-H0-dMf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lTZ-3E-YBz" kind="relationship" relationship="rootViewController" id="Zl5-6j-WYC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TBK-D7-lax" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-887" y="196"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="Ma8-zu-wn5">
             <objects>
@@ -39,9 +55,12 @@
                             <constraint firstItem="YYx-Az-b9H" firstAttribute="bottom" secondItem="YAB-YJ-to4" secondAttribute="bottom" id="bnb-Cm-vXl"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" id="lGN-ag-aKl"/>
+                    <navigationItem key="navigationItem" id="0qt-GH-4a1"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="statusView" destination="YYx-Az-b9H" id="hLY-gL-REc"/>
+                        <outlet property="statusView" destination="YYx-Az-b9H" id="7CC-7M-cms"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LbK-Ze-4bf" userLabel="First Responder" sceneMemberID="firstResponder"/>

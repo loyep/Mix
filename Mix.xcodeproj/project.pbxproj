@@ -35,7 +35,6 @@
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
 		2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF951F5EB13D00A309E5 /* MixServices.swift */; };
-		2983F77E1F662C150081BC6C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2983F7801F662C150081BC6C /* Settings.storyboard */; };
 		2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2983F78F1F6665670081BC6C /* StatusPhotoView.swift */; };
 		298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA691F56A047005D2DAC /* HomeViewController.swift */; };
 		298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA6E1F56A062005D2DAC /* TabBarController.swift */; };
@@ -66,6 +65,10 @@
 		29B5F7F01F69114800BDE23D /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B5F7EF1F69114800BDE23D /* Discover.storyboard */; };
 		29B5F7F21F69119600BDE23D /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B5F7F11F69119600BDE23D /* Profile.storyboard */; };
 		29B5F7F41F691A4800BDE23D /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B5F7F31F691A4800BDE23D /* Contacts.storyboard */; };
+		29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7F61F691C2C00BDE23D /* BaseViewController.swift */; };
+		29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7F81F691F7900BDE23D /* AccountViewController.swift */; };
+		29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */; };
+		29B5F7FE1F69257300BDE23D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29B5F7FD1F69257300BDE23D /* Main.storyboard */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
@@ -136,8 +139,6 @@
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
 		2952BF951F5EB13D00A309E5 /* MixServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixServices.swift; sourceTree = "<group>"; };
-		2983F78A1F6654950081BC6C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Settings.storyboard; sourceTree = "<group>"; };
-		2983F78E1F6654FA0081BC6C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Settings.storyboard; sourceTree = "<group>"; };
 		2983F78F1F6665670081BC6C /* StatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPhotoView.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -172,6 +173,10 @@
 		29B5F7EF1F69114800BDE23D /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		29B5F7F11F69119600BDE23D /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		29B5F7F31F691A4800BDE23D /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
+		29B5F7F61F691C2C00BDE23D /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		29B5F7F81F691F7900BDE23D /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountTableViewCell.swift; sourceTree = "<group>"; };
+		29B5F7FD1F69257300BDE23D /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		29CB03A91F569C4D00CF33FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29CB03B01F569C4D00CF33FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CB03B31F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -287,6 +292,7 @@
 		298ACA631F569FF2005D2DAC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				29B5F7F51F691C1700BDE23D /* Base */,
 				298ACA881F56A170005D2DAC /* Contacts */,
 				298ACA851F56A15F005D2DAC /* Discover */,
 				2933F3D51F58F1900088A33C /* Feature */,
@@ -396,7 +402,7 @@
 		298ACA8B1F56A1AC005D2DAC /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				2983F7801F662C150081BC6C /* Settings.storyboard */,
+				29B5F7F81F691F7900BDE23D /* AccountViewController.swift */,
 				2933F3DC1F592F300088A33C /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -465,6 +471,15 @@
 			path = WeiboStatus;
 			sourceTree = "<group>";
 		};
+		29B5F7F51F691C1700BDE23D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				29B5F7F61F691C2C00BDE23D /* BaseViewController.swift */,
+			);
+			name = Base;
+			path = Base;
+			sourceTree = "<group>";
+		};
 		29CB039D1F569C4D00CF33FF = {
 			isa = PBXGroup;
 			children = (
@@ -505,6 +520,7 @@
 				298ACA7A1F56A0D7005D2DAC /* InfoPlist.strings */,
 				29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */,
 				298ACA7E1F56A0FB005D2DAC /* Localizable.strings */,
+				29B5F7FD1F69257300BDE23D /* Main.storyboard */,
 				298ACA731F56A0AE005D2DAC /* Mix-Bridging-Header.h */,
 				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 			);
@@ -538,6 +554,7 @@
 			isa = PBXGroup;
 			children = (
 				CF2A06171F5A659C000E4E8B /* WeiboCell */,
+				29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -700,12 +717,12 @@
 				29504C941F5D413400C61C28 /* emoticons.json in Resources */,
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				29B5F7EC1F68FF4500BDE23D /* Home.storyboard in Resources */,
+				29B5F7FE1F69257300BDE23D /* Main.storyboard in Resources */,
 				29B5F7F41F691A4800BDE23D /* Contacts.storyboard in Resources */,
 				298ACA7C1F56A0FB005D2DAC /* Localizable.strings in Resources */,
 				29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */,
 				29B5F7F01F69114800BDE23D /* Discover.storyboard in Resources */,
 				298ACA781F56A0D7005D2DAC /* InfoPlist.strings in Resources */,
-				2983F77E1F662C150081BC6C /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -893,6 +910,7 @@
 				298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */,
 				298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */,
 				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
+				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
@@ -919,6 +937,8 @@
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
+				29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */,
+				29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */,
 				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
 				2951D1BE1F5FC3BE00D06EBA /* UICollectionview+Mix.swift in Sources */,
 				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
@@ -978,16 +998,6 @@
 				29229B5B1F569D90007059A5 /* Base */,
 			);
 			name = MainInterface.storyboard;
-			path = .;
-			sourceTree = "<group>";
-		};
-		2983F7801F662C150081BC6C /* Settings.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2983F78A1F6654950081BC6C /* Base */,
-				2983F78E1F6654FA0081BC6C /* en */,
-			);
-			name = Settings.storyboard;
 			path = .;
 			sourceTree = "<group>";
 		};

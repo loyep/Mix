@@ -13,11 +13,11 @@ import SwiftyWeibo
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    var window: UIWindow? =  {
-        var appWindow = UIWindow(frame: UIScreen.main.bounds)
-        appWindow.backgroundColor = UIColor.white
-        return appWindow
-    }()
+    var window: UIWindow? = UIWindow(frame: UIScreen.main.bounds) {
+        didSet {
+            window?.backgroundColor = UIColor.white
+        }
+    }
     
     var rootViewController: UIViewController!
     
@@ -53,6 +53,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         
+    }
+    
+    func application(_ application: UIApplication, shouldSaveApplicationState coder: NSCoder) -> Bool {
+        return true
+    }
+    
+    func application(_ application: UIApplication, shouldRestoreApplicationState coder: NSCoder) -> Bool {
+        return true
     }
     
 }
@@ -134,7 +142,7 @@ extension AppDelegate {
             return true
         }
         
-        rootViewController = TabBarController()
+        rootViewController = Storyboard.main.scene()//TabBarController()
         return true
     }
     

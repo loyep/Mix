@@ -8,6 +8,14 @@
 
 import UIKit
 
+class TabBarPlusItem: TabBarItem {
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.contentView = TabBarItemPlusContentView()
+    }
+}
+
 class TabBarItemPlusContentView: TabBarItemContentView {
     
     override init(frame: CGRect) {

@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Profile", comment: "")
@@ -20,4 +21,10 @@ class ProfileViewController: UIViewController {
         settings.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(settings, animated: true)
     }
+}
+
+class ProfileNavigationController: NavigationController {
+    
+    @IBOutlet weak var profileTabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ProfileTitleDescription, image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
+    
 }

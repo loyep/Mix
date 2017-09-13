@@ -21,24 +21,20 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let home = Storyboard.home.scene()
-        let contact = Storyboard.contacts.scene()
-        let discover = Storyboard.discover.scene()
-        let profile = Storyboard.profile.scene()
-        let plus = UIViewController()
-        
-        home.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.HomeTitleDescription, image: UIImage(named: "tabbar_home"), selectedImage: UIImage(named: "tabbar_home_selected"))
-        contact.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ContactTitleDescription, image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
-        plus.tabBarItem = TabBarItem(TabBarItemPlusContentView(), image: UIImage(named: "photo_verybig2"), selectedImage: UIImage(named: "photo_verybig2"))
-        discover.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.DiscoverTitleDescription, image: UIImage(named: "tabbar_discover"), selectedImage: UIImage(named: "tabbar_discover_selected"))
-        profile.tabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ProfileTitleDescription, image: UIImage(named: "tabbar_profile"), selectedImage: UIImage(named: "tabbar_profile_selected"))
-        
-        let homeNav = NavigationController(rootViewController: home)
-        let contactNav = NavigationController(rootViewController: contact)
-        let discoverNav = NavigationController(rootViewController: discover)
-        let profileNav = NavigationController(rootViewController: profile)
-        
-        viewControllers = [homeNav, contactNav, plus, discoverNav, profileNav]
+        //        self.restorationIdentifier = "TabBarController"
+        //        let home = Storyboard.home.scene()
+        //        let contact = Storyboard.contacts.scene()
+        //        let discover = Storyboard.discover.scene()
+        //        let profile = Storyboard.profile.scene()
+        //        let plus = UIViewController()
+        //
+        //        let homeNav = NavigationController(rootViewController: home)
+        //        let contactNav = NavigationController(rootViewController: contact)
+        //        let discoverNav = NavigationController(rootViewController: discover)
+        ////        let profileNav = NavigationController(rootViewController: profile)
+        //        let profileNav = profile
+        //
+        //        viewControllers = [homeNav, contactNav, plus, discoverNav, profileNav]
         
         shouldHijackHandler = {
             tabbarController, viewController, index in
@@ -58,6 +54,16 @@ class TabBarController: UITabBarController {
         
         /// 防止子控制器push的时候hidesBottomBarWhenPushed无效
         hidesBottomBarWhenPushed = true
+    }
+    
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        coder.encode(Int(self.selectedIndex), forKey: "selectedIndex")
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        self.selectedIndex = Int(coder.decodeInt32(forKey: "selectedIndex"))
     }
     
 }
