@@ -21,21 +21,6 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //        self.restorationIdentifier = "TabBarController"
-        //        let home = Storyboard.home.scene()
-        //        let contact = Storyboard.contacts.scene()
-        //        let discover = Storyboard.discover.scene()
-        //        let profile = Storyboard.profile.scene()
-        //        let plus = UIViewController()
-        //
-        //        let homeNav = NavigationController(rootViewController: home)
-        //        let contactNav = NavigationController(rootViewController: contact)
-        //        let discoverNav = NavigationController(rootViewController: discover)
-        ////        let profileNav = NavigationController(rootViewController: profile)
-        //        let profileNav = profile
-        //
-        //        viewControllers = [homeNav, contactNav, plus, discoverNav, profileNav]
-        
         shouldHijackHandler = {
             tabbarController, viewController, index in
             if index == 2 {
@@ -51,9 +36,6 @@ class TabBarController: UITabBarController {
                 tabbarController.present(plus, animated: true, completion: nil)
             }
         }
-        
-        /// 防止子控制器push的时候hidesBottomBarWhenPushed无效
-        hidesBottomBarWhenPushed = true
     }
     
     override func encodeRestorableState(with coder: NSCoder) {

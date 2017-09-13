@@ -142,7 +142,7 @@ extension AppDelegate {
             return true
         }
         
-        rootViewController = Storyboard.main.scene()//TabBarController()
+        rootViewController = Storyboard.main.scene()
         return true
     }
     
