@@ -63,6 +63,9 @@
 		298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB11F57B295005D2DAC /* TabBarItemPlusContentView.swift */; };
 		298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */; };
 		298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */; };
+		29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */; };
+		29A271791F6A85B0003D8C1E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271781F6A85AF003D8C1E /* CollectionViewController.swift */; };
+		29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2717A1F6A85DA003D8C1E /* TableViewController.swift */; };
 		29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */; };
 		29B5F7E91F68E3E800BDE23D /* StatusTextLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7E81F68E3E800BDE23D /* StatusTextLabel.swift */; };
 		29B5F7EE1F69076400BDE23D /* UIStoryBoard+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */; };
@@ -140,20 +143,13 @@
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
 		2952BF951F5EB13D00A309E5 /* MixServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixServices.swift; sourceTree = "<group>"; };
 		2972CA871F6A533F00D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Profile.storyboard; sourceTree = "<group>"; };
-		2972CA8F1F6A53FE00D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/MainInterface.strings"; sourceTree = "<group>"; };
-		2972CA901F6A53FE00D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		2972CA911F6A53FF00D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		2972CA931F6A540600D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		2972CA9C1F6A542A00D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2972CAA51F6A546500D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
-		2972CAA81F6A546800D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Discover.strings"; sourceTree = "<group>"; };
-		2972CAAA1F6A546B00D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Discover.strings"; sourceTree = "<group>"; };
+		2972CAA81F6A546800D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Discover.storyboard"; sourceTree = "<group>"; };
 		2972CAAC1F6A547100D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contacts.storyboard; sourceTree = "<group>"; };
-		2972CAAF1F6A547300D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Contacts.strings"; sourceTree = "<group>"; };
-		2972CAB11F6A547500D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Contacts.strings"; sourceTree = "<group>"; };
-		2972CAB31F6A54BA00D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.strings"; sourceTree = "<group>"; };
-		2972CAB51F6A5B8300D05C9A /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Profile.strings"; sourceTree = "<group>"; };
-		2972CAB71F6A5BD400D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Profile.strings"; sourceTree = "<group>"; };
+		2972CAAF1F6A547300D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Contacts.storyboard"; sourceTree = "<group>"; };
+		2972CAB31F6A54BA00D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.storyboard"; sourceTree = "<group>"; };
 		2983F78F1F6665670081BC6C /* StatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPhotoView.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		298ACA6E1F56A062005D2DAC /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -181,6 +177,10 @@
 		298ACAB31F57B328005D2DAC /* TabBarItemMoreContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarItemMoreContentView.swift; sourceTree = "<group>"; };
 		298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		298ACABC1F57F030005D2DAC /* Mix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mix.entitlements; sourceTree = "<group>"; };
+		29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Mix.swift"; sourceTree = "<group>"; };
+		29A271781F6A85AF003D8C1E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		29A2717A1F6A85DA003D8C1E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		29A59B731F6A9C1000D7B879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Profile.strings"; sourceTree = "<group>"; };
 		29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift+Mix.swift"; sourceTree = "<group>"; };
 		29B5F7E81F68E3E800BDE23D /* StatusTextLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTextLabel.swift; sourceTree = "<group>"; };
 		29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Mix.swift"; sourceTree = "<group>"; };
@@ -424,6 +424,7 @@
 				29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */,
 				2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */,
 				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
+				29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */,
 				29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */,
 				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
 				2947EF431F6108860077652C /* WeiboTextAttributedString.swift */,
@@ -484,6 +485,8 @@
 			isa = PBXGroup;
 			children = (
 				29B5F7F61F691C2C00BDE23D /* BaseViewController.swift */,
+				29A271781F6A85AF003D8C1E /* CollectionViewController.swift */,
+				29A2717A1F6A85DA003D8C1E /* TableViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -690,7 +693,6 @@
 				en,
 				Base,
 				"zh-Hans",
-				"zh-Hant",
 			);
 			mainGroup = 29CB039D1F569C4D00CF33FF;
 			productRefGroup = 29CB03A71F569C4D00CF33FF /* Products */;
@@ -904,6 +906,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29A271791F6A85B0003D8C1E /* CollectionViewController.swift in Sources */,
 				298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */,
 				298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */,
 				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
@@ -928,8 +931,10 @@
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
+				29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
 				298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */,
+				29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
@@ -993,7 +998,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				29229B5B1F569D90007059A5 /* Base */,
-				2972CA8F1F6A53FE00D05C9A /* zh-Hant */,
 				2972CAB31F6A54BA00D05C9A /* zh-Hans */,
 			);
 			name = MainInterface.storyboard;
@@ -1004,10 +1008,10 @@
 			isa = PBXVariantGroup;
 			children = (
 				2972CA871F6A533F00D05C9A /* Base */,
-				2972CAB51F6A5B8300D05C9A /* zh-Hant */,
-				2972CAB71F6A5BD400D05C9A /* zh-Hans */,
+				29A59B731F6A9C1000D7B879 /* zh-Hans */,
 			);
 			name = Profile.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2972CA941F6A540600D05C9A /* Home.storyboard */ = {
@@ -1016,6 +1020,7 @@
 				2972CA931F6A540600D05C9A /* Base */,
 			);
 			name = Home.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2972CA9D1F6A542A00D05C9A /* Main.storyboard */ = {
@@ -1024,6 +1029,7 @@
 				2972CA9C1F6A542A00D05C9A /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2972CAA61F6A546500D05C9A /* Discover.storyboard */ = {
@@ -1031,9 +1037,9 @@
 			children = (
 				2972CAA51F6A546500D05C9A /* Base */,
 				2972CAA81F6A546800D05C9A /* zh-Hans */,
-				2972CAAA1F6A546B00D05C9A /* zh-Hant */,
 			);
 			name = Discover.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		2972CAAD1F6A547100D05C9A /* Contacts.storyboard */ = {
@@ -1041,9 +1047,9 @@
 			children = (
 				2972CAAC1F6A547100D05C9A /* Base */,
 				2972CAAF1F6A547300D05C9A /* zh-Hans */,
-				2972CAB11F6A547500D05C9A /* zh-Hant */,
 			);
 			name = Contacts.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		298ACA7A1F56A0D7005D2DAC /* InfoPlist.strings */ = {
@@ -1051,7 +1057,6 @@
 			children = (
 				298ACA791F56A0D7005D2DAC /* Base */,
 				298ACA7B1F56A0F4005D2DAC /* zh-Hans */,
-				2972CA901F6A53FE00D05C9A /* zh-Hant */,
 			);
 			name = InfoPlist.strings;
 			path = .;
@@ -1062,7 +1067,6 @@
 			children = (
 				298ACA7F1F56A0FF005D2DAC /* Base */,
 				298ACA7D1F56A0FB005D2DAC /* zh-Hans */,
-				2972CA911F6A53FF00D05C9A /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			path = .;

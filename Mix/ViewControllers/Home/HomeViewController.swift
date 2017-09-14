@@ -11,9 +11,7 @@ import SwiftyWeibo
 import RealmSwift
 import SwiftyJSON
 
-class HomeViewController: UIViewController {
-    
-    @IBOutlet fileprivate weak var statusView: UICollectionView!
+class HomeViewController: CollectionViewController {
     
     var notificationToken: NotificationToken? = nil
     
@@ -26,7 +24,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statusView.registerClassOf(StatusCell.self)
+        collectionView?.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
         
         //        return
@@ -56,7 +54,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        return
+        return
         let since_id: Int64 = results.max(ofProperty: "id") ?? 0
         weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
@@ -79,7 +77,7 @@ class HomeViewController: UIViewController {
 }
 
 
-extension HomeViewController: UICollectionViewDelegate {
+extension HomeViewController {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
@@ -91,13 +89,13 @@ extension HomeViewController: UICollectionViewDelegate {
     
 }
 
-extension HomeViewController: UICollectionViewDataSource {
+extension HomeViewController {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         cell.bind(for: results[indexPath.item])
         return cell

@@ -75,10 +75,10 @@ class StatusCell: UICollectionViewCell {
         retweetedTextView.highlightLongPressAction = self.highlightLongPressAction
         
         profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
-        name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.main.bounds.width - 80, height: 18)
+        name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.width - 80, height: 18)
         dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
         textView.frame.origin.y = profileImage.frame.maxY + 10
-        textView.frame.size.width = UIScreen.main.bounds.width - StatusCell.CellInset.left - StatusCell.CellInset.right
+        textView.frame.size.width = UIScreen.width - StatusCell.CellInset.left - StatusCell.CellInset.right
         retweetedTextView.frame.size.width = textView.frame.width
         photosView.frame.size.width = textView.frame.width - StatusCell.CellInset.left - StatusCell.CellInset.right
         photosView.frame.origin.x = StatusCell.CellInset.left
@@ -91,6 +91,7 @@ class StatusCell: UICollectionViewCell {
         textView.text = viewModel.text
         retweetedTextView.text = viewModel.retweetedStatus?.text
         
+        photosView.frame.size.width = UIScreen.width - (StatusCell.CellInset.left + StatusCell.CellInset.right) * 2
         photosView.frame.origin.y = textView.frame.maxY
         photosView.photos = viewModel.picUrls
         retweetedTextView.frame.origin.y = photosView.frame.maxY

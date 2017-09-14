@@ -8,24 +8,24 @@
 
 import UIKit
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
 
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    override func encodeRestorableState(with coder: NSCoder) {
+    override open func encodeRestorableState(with coder: NSCoder) {
         super.encodeRestorableState(with: coder)
     }
     
-    override func decodeRestorableState(with coder: NSCoder) {
+    override open func decodeRestorableState(with coder: NSCoder) {
         super.decodeRestorableState(with: coder)
     }
 

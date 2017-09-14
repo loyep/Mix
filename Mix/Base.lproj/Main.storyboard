@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="-1282" y="963"/>
         </scene>
-        <!--Plus-->
+        <!--View Controller-->
         <scene sceneID="Wua-EZ-0qf">
             <objects>
                 <viewController id="FUs-Tz-zBy" sceneMemberID="viewController">
@@ -109,7 +109,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Plus" id="sVR-xt-Lfq" customClass="TabBarPlusItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="" springLoaded="YES" id="sVR-xt-Lfq" customClass="TabBarPlusItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="photo_verybig2"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="photo_verybig2"/>

@@ -11,3 +11,18 @@
 "Discover" = "Discover";
 "Contacts" = "Contacts";
 "Settings" = "Settings";
+
+"title.about" = "关于";
+"title.feedback" = "使用反馈";
+"title.account" = "账户";
+"settings.account.details" = " ";
+"title.advance" = "高级";
+"title.common" = "通用";
+"title.shield" = "屏蔽";
+"title.statistics" = "统计";
+"title.rateInAppStore" = "App Store 评价";
+"title.refresh" = "刷新";
+"settings.cache.details" = "0 MB";
+"title.display" = "显示";
+"title.cache" = "缓存设置";
+"title.traffic" = "流量设置";
