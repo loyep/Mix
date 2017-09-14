@@ -67,8 +67,10 @@ class StatusPhotoView: UIView {
     }
     
     func setupUI() -> () {
+        backgroundColor = .white
         for i in 0..<9 {
             let image = UIImageView()
+            image.backgroundColor = .white
             image.tag = i
             addSubview(image)
             image.isUserInteractionEnabled = true
