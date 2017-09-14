@@ -146,9 +146,7 @@
 		2972CA931F6A540600D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		2972CA9C1F6A542A00D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2972CAA51F6A546500D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Discover.storyboard; sourceTree = "<group>"; };
-		2972CAA81F6A546800D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Discover.storyboard"; sourceTree = "<group>"; };
 		2972CAAC1F6A547100D05C9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Contacts.storyboard; sourceTree = "<group>"; };
-		2972CAAF1F6A547300D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Contacts.storyboard"; sourceTree = "<group>"; };
 		2972CAB31F6A54BA00D05C9A /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/MainInterface.storyboard"; sourceTree = "<group>"; };
 		2983F78F1F6665670081BC6C /* StatusPhotoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusPhotoView.swift; sourceTree = "<group>"; };
 		298ACA691F56A047005D2DAC /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -1036,7 +1034,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2972CAA51F6A546500D05C9A /* Base */,
-				2972CAA81F6A546800D05C9A /* zh-Hans */,
 			);
 			name = Discover.storyboard;
 			path = .;
@@ -1046,7 +1043,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				2972CAAC1F6A547100D05C9A /* Base */,
-				2972CAAF1F6A547300D05C9A /* zh-Hans */,
 			);
 			name = Contacts.storyboard;
 			path = .;

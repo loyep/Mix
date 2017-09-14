@@ -125,11 +125,11 @@
         <scene sceneID="4Kx-zZ-NRy">
             <objects>
                 <navigationController id="Kmm-Ky-gp0" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" selectedImage="tabbar_discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_discover"/>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_discover_selected"/>
                             <userDefinedRuntimeAttribute type="string" keyPath="title" value="Discover"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_discover_selected"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vkf-DL-4G0">
