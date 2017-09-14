@@ -26,6 +26,39 @@ class WeiboHomeLine: Object {
     
 }
 
+class WeiboFavorites: Object {
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+    @objc dynamic var id: Int64 = 0
+    
+    @objc dynamic var status: WeiboStatus! = WeiboStatus()
+    
+    @objc dynamic var favoritedTime: NSDate = NSDate()
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    init(_ json: JSON) {
+        super.init()
+        
+        status = WeiboStatus(json["status"])
+        id = status.id
+        favoritedTime = json["favorited_time"].stringValue.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy")! as NSDate
+    }
+}
+
 class WeiboStatus: Object {
     
     override static func primaryKey() -> String? {
@@ -110,7 +143,7 @@ class WeiboStatus: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    init(_ json: JSON, isValid: Bool) {
+    init(_ json: JSON) {
         super.init()
         
         id = json["id"].int64Value
@@ -133,7 +166,7 @@ class WeiboStatus: Object {
         picUrlsString = json["pic_urls"].arrayValue.map{ $0["thumbnail_pic"].stringValue }.joined(separator: "|")
         
         if !json["retweeted_status"].isEmpty {
-            self.retweetedStatus = WeiboRetweetedStatus(json["retweeted_status"], isValid: true)
+            self.retweetedStatus = WeiboRetweetedStatus(json["retweeted_status"])
         }
         favorited = json["favorited"].boolValue
     }

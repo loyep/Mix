@@ -54,7 +54,7 @@ extension Provider {
     }
     
     /// Generate state code
-    static func generateState(withLength len: Int) -> String {
+    public static func generateState(withLength len: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let length = UInt32(letters.characters.count)
         

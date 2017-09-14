@@ -72,7 +72,7 @@ class StatusPhotoView: UIView {
             image.tag = i
             addSubview(image)
             image.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer(target: self, action: #selector(StatusPhotoView.imageTapGesture))
+            let tap = UITapGestureRecognizer(target: self, action: #selector(StatusPhotoView.imageTapGesture(_:)))
             image.addGestureRecognizer(tap)
             imageViews.append(image)
         }
@@ -94,8 +94,11 @@ class StatusPhotoView: UIView {
         }
     }
     
-    @objc func imageTapGesture() {
-        
+    @objc func imageTapGesture(_ sender: UIGestureRecognizer) {
+        guard let imageView = sender.view as? UIImageView else {
+            return
+        }
+        print("tag: \(imageView.tag), url: \(photos[imageView.tag])")
     }
     
 }

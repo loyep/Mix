@@ -86,7 +86,7 @@ public class Provider: ProviderType {
         }
     }
     
-    fileprivate static func defaultPlugins() -> [String: PluginType] {
+    public static func defaultPlugins() -> [String: PluginType] {
         var plugins: [String: PluginType] = [:]
         let logPlugin = NetworkLoggerPlugin()
         plugins.updateValue(logPlugin, forKey: logPlugin.pluginIdentifier)

@@ -56,7 +56,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        return
+//        return
         let since_id: Int64 = results.max(ofProperty: "id") ?? 0
         weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
@@ -66,7 +66,7 @@ class HomeViewController: UIViewController {
                 let json = JSON(data: try result.dematerialize().data)
                 var statuses: [WeiboStatus] = []
                 json["statuses"].arrayValue.forEach {
-                    statuses.append(WeiboStatus($0, isValid: false))
+                    statuses.append(WeiboStatus($0))
                 }
                 this.realm.beginWrite()
                 this.realm.add(statuses, update: true)

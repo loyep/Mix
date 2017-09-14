@@ -292,9 +292,8 @@
 		298ACA621F569FCB005D2DAC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				29A271721F6A62AC003D8C1E /* Images */,
 				29504C921F5D411F00C61C28 /* JSON */,
-				29CB03B01F569C4D00CF33FF /* Assets.xcassets */,
-				298ACAAF1F57ADFA005D2DAC /* Images.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -461,6 +460,15 @@
 				298ACAB61F57D681005D2DAC /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		29A271721F6A62AC003D8C1E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				29CB03B01F569C4D00CF33FF /* Assets.xcassets */,
+				298ACAAF1F57ADFA005D2DAC /* Images.xcassets */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		29B5F7EA1F68F90100BDE23D /* WeiboStatus */ = {

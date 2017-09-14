@@ -9,13 +9,15 @@
 public extension Statuses {
     
     public var baseURL: URL {
-        return URL(string: "https://api.weibo.com/2/statuses")!
+        return URL(string: "https://api.weibo.com/2")!
     }
     
     public var path: String {
         switch self {
         case .homeTimeline:
-            return "/home_timeline.json"
+            return "/statuses/home_timeline.json"
+        case .favorites:
+            return "/favorites.json"
         }
     }
     
@@ -30,6 +32,11 @@ public extension Statuses {
                 "count": count ?? 0,
                 "page": page,
                 "feature": (feature ?? .all).rawValue
+                ], encoding: URLEncoding.default)
+        case .favorites(let count, let page):
+            return .requestParameters(parameters: [
+                "count": count ?? 50,
+                "page": (page == 0 ? 1 : page) ,
                 ], encoding: URLEncoding.default)
         }
     }

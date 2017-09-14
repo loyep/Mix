@@ -1,6 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
-  - Kingfisher (3.12.2)
+  - Kingfisher (3.13.0)
   - pop (1.0.10)
   - Realm (2.10.0):
     - Realm/Headers (= 2.10.0)
@@ -35,7 +35,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Kingfisher: 320626678acadfcf47008b3c6841cd882050737b
+  Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
   pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
