@@ -222,6 +222,7 @@ extension Realm.Configuration {
         
         var config = self
         config.fileURL = fileURL(with: dbName)
+        print("realmPath: \(config.fileURL!.absoluteString)")
         config.schemaVersion = Realm.Configuration.RealmVersion
         config.migrationBlock = {
             if $1 < 50 {

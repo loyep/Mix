@@ -19,9 +19,9 @@ class HomeViewController: UIViewController {
     
     let realm: Realm = try! Realm(dbName: "userName")
     
-    var results: Results<WeiboStatus> {
+    lazy var results: Results<WeiboStatus> = {
         return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
-    }
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,15 +50,15 @@ class HomeViewController: UIViewController {
         //                break
         //            }
         //        }
-        
-        notificationToken?.stop()
+        //
+        //        notificationToken?.stop()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         return
         let since_id: Int64 = results.max(ofProperty: "id") ?? 0
-        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 200: 20), page: 1, feature: .all)) { [weak self] result in
+        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 5), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
                 return
             }
@@ -88,7 +88,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
     }
-
+    
 }
 
 extension HomeViewController: UICollectionViewDataSource {
@@ -105,7 +105,7 @@ extension HomeViewController: UICollectionViewDataSource {
 }
 
 class StatusCollectionViewLayout: UICollectionViewFlowLayout {
-
+    
     override func prepare() {
         super.prepare()
         estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width - StatusCell.CellInset.left - StatusCell.CellInset.right, height: 400)

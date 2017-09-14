@@ -63,23 +63,23 @@ extension UITableView {
 
 extension UITableView {
     
-    func registerClassOf<T: UITableViewCell>(_: T.Type) where T: Reusable {
+    func registerClassOf<T: UITableViewCell>(_: T.Type) {
         
         register(T.self, forCellReuseIdentifier: T.mix_reuseIdentifier)
     }
     
-    func registerNibOf<T: UITableViewCell>(_: T.Type) where T: Reusable, T: NibLoadable {
+    func registerNibOf<T: UITableViewCell>(_: T.Type) {
         
         let nib = UINib(nibName: T.mix_nibName, bundle: nil)
         register(nib, forCellReuseIdentifier: T.mix_reuseIdentifier)
     }
     
-    func registerHeaderFooterClassOf<T: UITableViewHeaderFooterView>(_: T.Type) where T: Reusable {
+    func registerHeaderFooterClassOf<T: UITableViewHeaderFooterView>(_: T.Type) {
         
         register(T.self, forHeaderFooterViewReuseIdentifier: T.mix_reuseIdentifier)
     }
     
-    func dequeueReusableCell<T: UITableViewCell>() -> T where T: Reusable {
+    func dequeueReusableCell<T: UITableViewCell>() -> T {
         
         guard let cell = self.dequeueReusableCell(withIdentifier: T.mix_reuseIdentifier) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
@@ -88,7 +88,7 @@ extension UITableView {
         return cell
     }
     
-    func dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T where T: Reusable {
+    func dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T {
         guard let cell = self.dequeueReusableCell(withIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
         }
@@ -96,7 +96,7 @@ extension UITableView {
         return cell
     }
     
-    func dequeueReusableHeaderFooter<T: UITableViewHeaderFooterView>() -> T where T: Reusable {
+    func dequeueReusableHeaderFooter<T: UITableViewHeaderFooterView>() -> T {
         guard let view = self.dequeueReusableHeaderFooterView(withIdentifier: T.mix_reuseIdentifier) as? T else {
             fatalError("Could not dequeue HeaderFooter with identifier: \(T.mix_reuseIdentifier)")
         }

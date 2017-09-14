@@ -87,7 +87,7 @@ class StatusCell: UICollectionViewCell {
     func bind(for viewModel: WeiboStatus) -> () {
         name.text = viewModel.user?.screen_name
         
-        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url!)!, for: .normal)
+        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url ?? ""), for: .normal)
         textView.text = viewModel.text
         retweetedTextView.text = viewModel.retweetedStatus?.text
         
@@ -95,7 +95,7 @@ class StatusCell: UICollectionViewCell {
         photosView.photos = viewModel.picUrls
         retweetedTextView.frame.origin.y = photosView.frame.maxY
         
-        dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.sourceName)"
+        dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.source)"
     }
     
     func createdDate(_ createdAt: Date) -> String? {
@@ -157,13 +157,13 @@ extension StatusCell {
     
     /// When user tap the highlight range of text, this action will be called.
     func highlightTapAction(containerView: UIView, text: NSAttributedString, range: NSRange, rect: CGRect) -> Void {
-        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
-        print("\(highLight.userInfo?[NSLinkAttributeName]! ?? "")")
+//        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
+//        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
     }
     
     /// When user long press the highlight range of text, this action will be called.
     func highlightLongPressAction(containerView: UIView, text: NSAttributedString, range: NSRange, rect: CGRect) -> Void {
-        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
-        print("\(highLight.userInfo?[NSLinkAttributeName]! ?? "")")
+//        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
+//        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
     }
 }

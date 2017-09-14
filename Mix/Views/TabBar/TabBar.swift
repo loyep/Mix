@@ -28,8 +28,6 @@ public enum TabBarItemPositioning : Int {
     case fillIncludeSeparator
 }
 
-
-
 /// 对UITabBarDelegate进行扩展，以支持UITabBarControllerDelegate的相关方法桥接
 internal protocol TabBarDelegate: NSObjectProtocol {
     
@@ -57,8 +55,6 @@ internal protocol TabBarDelegate: NSObjectProtocol {
     /// - Returns: Void
     func tabBar(_ tabBar: UITabBar, didHijack item: UITabBarItem)
 }
-
-
 
 /// TabBar是高度自定义的UITabBar子类，通过添加UIControl的方式实现自定义tabBarItem的效果。目前支持tabBar的大部分属性的设置，例如delegate,items,selectedImge,itemPositioning,itemWidth,itemSpacing等，以后会更加细致的优化tabBar原有属性的设置效果。
 open class TabBar: UITabBar {
@@ -237,7 +233,7 @@ internal extension TabBar /* Actions */ {
         containers.removeAll()
     }
     
-    internal func reload() {
+    @objc internal func reload() {
         removeAll()
         guard let tabBarItems = self.items else {
             TabBarController.printError("empty items")
@@ -249,7 +245,7 @@ internal extension TabBar /* Actions */ {
             self.containers.append(container)
             
             if let item = item as? TabBarItem {
-                container.addSubview(item.contentView!)
+                container.addSubview(item.contentView)
             }
             if self.isMoreItem(idx), let moreContentView = moreContentView {
                 container.addSubview(moreContentView)
@@ -273,7 +269,7 @@ internal extension TabBar /* Actions */ {
         }
         
         if let item = item as? TabBarItem {
-            item.contentView?.highlight(animated: true, completion: nil)
+            item.contentView.highlight(animated: true, completion: nil)
         } else if self.isMoreItem(newIndex) {
             moreContentView?.highlight(animated: true, completion: nil)
         }
@@ -293,7 +289,7 @@ internal extension TabBar /* Actions */ {
         }
         
         if let item = item as? TabBarItem {
-            item.contentView?.dehighlight(animated: true, completion: nil)
+            item.contentView.dehighlight(animated: true, completion: nil)
         } else if self.isMoreItem(newIndex) {
             moreContentView?.dehighlight(animated: true, completion: nil)
         }
@@ -321,8 +317,8 @@ internal extension TabBar /* Actions */ {
             customDelegate?.tabBar(self, didHijack: item)
             if animated {
                 if let item = item as? TabBarItem {
-                    item.contentView?.select(animated: animated, completion: {
-                        item.contentView?.deselect(animated: false, completion: nil)
+                    item.contentView.select(animated: animated, completion: {
+                        item.contentView.deselect(animated: false, completion: nil)
                     })
                 } else if self.isMoreItem(newIndex) {
                     moreContentView?.select(animated: animated, completion: {
@@ -336,20 +332,20 @@ internal extension TabBar /* Actions */ {
         if currentIndex != newIndex {
             if currentIndex != -1 && currentIndex < items?.count ?? 0{
                 if let currentItem = items?[currentIndex] as? TabBarItem {
-                    currentItem.contentView?.deselect(animated: animated, completion: nil)
+                    currentItem.contentView.deselect(animated: animated, completion: nil)
                 } else if self.isMoreItem(currentIndex) {
                     moreContentView?.deselect(animated: animated, completion: nil)
                 }
             }
             if let item = item as? TabBarItem {
-                item.contentView?.select(animated: animated, completion: nil)
+                item.contentView.select(animated: animated, completion: nil)
             } else if self.isMoreItem(newIndex) {
                 moreContentView?.select(animated: animated, completion: nil)
             }
             delegate?.tabBar?(self, didSelect: item)
         } else if currentIndex == newIndex {
             if let item = item as? TabBarItem {
-                item.contentView?.reselect(animated: animated, completion: nil)
+                item.contentView.reselect(animated: animated, completion: nil)
             } else if self.isMoreItem(newIndex) {
                 moreContentView?.reselect(animated: animated, completion: nil)
             }

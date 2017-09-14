@@ -14,13 +14,13 @@ import SwiftyJSON
 
 class WeiboHomeLine: Object {
     
-    @objc override static func primaryKey() -> String? {
+    override static func primaryKey() -> String? {
         return "since_id"
     }
     
-    dynamic var since_id: Int64 = 0
-    dynamic var max_id: Int64 = 0
-    dynamic var total_number = 0
+    @objc dynamic var since_id: Int64 = 0
+    @objc dynamic var max_id: Int64 = 0
+    @objc dynamic var total_number = 0
     
     let statuses = List<WeiboStatus>()
     
@@ -28,68 +28,68 @@ class WeiboHomeLine: Object {
 
 class WeiboStatus: Object {
     
-    @objc override static func primaryKey() -> String? {
+    override static func primaryKey() -> String? {
         return "id"
     }
     
-    @objc override static func ignoredProperties() -> [String] {
+    override static func ignoredProperties() -> [String] {
         return ["yyTextLayout"]
     }
     
-    dynamic var id: Int64 = 0
+    @objc dynamic var id: Int64 = 0
     
     /// 微博创建时间
-    dynamic var createdAt: NSDate = NSDate()
+    @objc dynamic var createdAt: NSDate = NSDate()
     
     /// 微博信息内容
-    dynamic var text: String = ""
+    @objc dynamic var text: String = ""
     
     /// 微博来源
-    dynamic var source: String = ""
+    @objc dynamic var source: String = ""
     
     /// 是否被截断，true：是，false：否
-    dynamic var truncated = false
+    @objc dynamic var truncated = false
     
     /// 缩略图片地址，没有时不返回此字段
-    dynamic var thumbnailPic: String?
+    @objc dynamic var thumbnailPic: String?
     
     /// 中等尺寸图片地址，没有时不返回此字段
-    dynamic var bmiddlePic: String?
+    @objc dynamic var bmiddlePic: String?
     
     /// 原始图片地址，没有时不返回此字段
-    dynamic var originalPic: String?
+    @objc dynamic var originalPic: String?
     
     /// （暂未支持）回复ID
-    dynamic var inReplyToStatusId: String?
+    @objc dynamic var inReplyToStatusId: String?
     
     /// （暂未支持）回复人UID
-    dynamic var inReplyToUserId: String?
+    @objc dynamic var inReplyToUserId: String?
     
     /// （暂未支持）回复人昵称
-    dynamic var inReplyToScreenName: String?
+    @objc dynamic var inReplyToScreenName: String?
     
     /// 微博作者的用户信息字段
-    dynamic var user: WeiboUser! = WeiboUser()
+    @objc dynamic var user: WeiboUser! = WeiboUser()
     
     /// 转发数
-    dynamic var repostsCount = 0
+    @objc dynamic var repostsCount = 0
     
     /// 评论数
-    dynamic var commentsCount = 0
+    @objc dynamic var commentsCount = 0
     
     /// 表态数
-    dynamic var attitudesCount = 0
+    @objc dynamic var attitudesCount = 0
     
     /// 长文本
-    dynamic var isLongText = false
+    @objc dynamic var isLongText = false
     
     /// 是否已收藏，true：是，false：否
-    dynamic var favorited = false
+    @objc dynamic var favorited = false
     
     /// 转发微博
-    dynamic var retweetedStatus: WeiboRetweetedStatus?
+    @objc dynamic var retweetedStatus: WeiboRetweetedStatus?
     
-    dynamic var picUrlsString: String = ""
+    @objc dynamic var picUrlsString: String = ""
     
     var picUrls: [String] {
         if picUrlsString.isEmpty {
@@ -139,13 +139,6 @@ class WeiboStatus: Object {
     }
 }
 
-extension WeiboStatus {
-    
-    var sourceName: String {
-        return try! NSAttributedString(data: source.data(using: .unicode)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType], documentAttributes: nil).string
-    }
-}
-
 class WeiboRetweetedStatus: WeiboStatus {
     
     
@@ -153,15 +146,15 @@ class WeiboRetweetedStatus: WeiboStatus {
 
 class WeiboUser: Object {
     
-    @objc override static func primaryKey() -> String? {
+    override static func primaryKey() -> String? {
         return "id"
     }
     
-    dynamic var id: Int64 = 0
-    dynamic var cover_image_phone: String?
-    dynamic var name: String = ""
-    dynamic var screen_name: String = ""
-    dynamic var profile_image_url: String?
+    @objc dynamic var id: Int64 = 0
+    @objc dynamic var cover_image_phone: String?
+    @objc dynamic var name: String = ""
+    @objc dynamic var screen_name: String = ""
+    @objc dynamic var profile_image_url: String?
     
     required init() {
         super.init()

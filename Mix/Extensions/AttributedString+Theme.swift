@@ -29,11 +29,11 @@ extension String {
         for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
             let range = result.range
             guard range.location != NSNotFound, range.length > 0 else { continue }
-            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
+            if (attr.attribute(NSAttributedStringKey(rawValue: YYTextBindingAttributeName), at: range.location, effectiveRange: nil) != nil) { continue }
             
             let binding = YYTextBinding(deleteConfirm: false)
             let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
-            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
+            attr.addAttributes([NSAttributedStringKey(rawValue: YYTextBindingAttributeName): binding, NSAttributedStringKey(rawValue: YYTextHighlightAttributeName): highLight, NSAttributedStringKey.foregroundColor: Theme.linkColor], range: range)
         }
 //
 //        for (_, result) in NSRegularExpression.linksRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
@@ -57,13 +57,13 @@ extension NSMutableAttributedString {
         
         for (_, fullText) in Regex.fullTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {
             let attr = NSMutableAttributedString(string: fullText.strings[0]!,
-                                                 attributes: [NSFontAttributeName: Theme.font,
-                                                              NSForegroundColorAttributeName: Theme.linkColor,
-                                                              NSParagraphStyleAttributeName: Theme.paragraph])
-            let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
-                                                         NSParagraphStyleAttributeName: Theme.paragraph])
-            highLight.userInfo = [NSLinkAttributeName: fullText.strings[1]!]
+                                                 attributes: [NSAttributedStringKey.font: Theme.font,
+                                                              NSAttributedStringKey.foregroundColor: Theme.linkColor,
+                                                              NSAttributedStringKey.paragraphStyle: Theme.paragraph])
+            let highLight = YYTextHighlight(attributes: [NSAttributedStringKey.foregroundColor.rawValue: Theme.linkHighLightColor,
+                                                         NSAttributedStringKey.backgroundColor.rawValue: Theme.textBackgroundColor,
+                                                         NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
+            highLight.userInfo = [NSAttributedStringKey.link: fullText.strings[1]!]
             attr.yy_setTextHighlight(highLight, range: NSMakeRange(0, attr.length))
             self.replaceCharacters(in: fullText.range, with: attr)
         }
@@ -78,14 +78,14 @@ extension NSMutableAttributedString {
             
             let highLight = YYTextHighlight(attributes: [
                 YYTextBackgroundBorderAttributeName: border,
-                NSParagraphStyleAttributeName: Theme.paragraph])
-            highLight.userInfo = [NSLinkAttributeName: result.string]
+                NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
+            highLight.userInfo = [NSAttributedStringKey.link: result.string]
             
-            let attr = NSMutableAttributedString(string: "   查看链接   ", attributes: [NSForegroundColorAttributeName: UIColor.white,
-                                                                                                  NSFontAttributeName: Theme.font,
-                                                                                                  YYTextHighlightAttributeName: highLight,
-                                                                                                  YYTextBackgroundBorderAttributeName: border,
-                                                                                                  NSParagraphStyleAttributeName: Theme.paragraph])
+            let attr = NSMutableAttributedString(string: "   查看链接   ", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
+                                                                                                  NSAttributedStringKey.font: Theme.font,
+                                                                                                  NSAttributedStringKey(rawValue: YYTextHighlightAttributeName): highLight,
+                                                                                                  NSAttributedStringKey(rawValue: YYTextBackgroundBorderAttributeName): border,
+                                                                                                  NSAttributedStringKey.paragraphStyle: Theme.paragraph])
             attr.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: attr.yy_rangeOfAll())
             
             self.replaceCharacters(in: result.range, with: attr)
@@ -98,19 +98,19 @@ extension NSMutableAttributedString {
     
     override func addLinks() -> NSMutableAttributedString {
         for (_, result) in Regex("(#\\w+#)|(@\\w+)").allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
-            self.addAttributes([NSForegroundColorAttributeName: Theme.linkColor,
-                                NSParagraphStyleAttributeName: Theme.paragraph
+            self.addAttributes([NSAttributedStringKey.foregroundColor: Theme.linkColor,
+                                NSAttributedStringKey.paragraphStyle: Theme.paragraph
                 ], range: result.range)
-            let highLight = YYTextHighlight(attributes: [NSForegroundColorAttributeName: Theme.linkHighLightColor,
-                                                         NSBackgroundColorAttributeName: Theme.textBackgroundColor,
-                                                         NSParagraphStyleAttributeName: Theme.paragraph])
-            highLight.userInfo = [NSLinkAttributeName: result.string]
+            let highLight = YYTextHighlight(attributes: [NSAttributedStringKey.foregroundColor.rawValue: Theme.linkHighLightColor,
+                                                         NSAttributedStringKey.backgroundColor.rawValue: Theme.textBackgroundColor,
+                                                         NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
+            highLight.userInfo = [NSAttributedStringKey.link: result.string]
             self.yy_setTextHighlight(highLight, range: result.range)
         }
         return self
     }
     
-    override func replaceEmotion() -> NSMutableAttributedString {
+    @objc override func replaceEmotion() -> NSMutableAttributedString {
         //        for (_, emotion) in self.string.emotionMatchs().enumerated().reversed() {
         //            if let emotionImage = Regex.emotions.filter({ $0["cht"] == emotion.string }).first?["img"] {
         //                let attach = NSTextAttachment()
@@ -188,20 +188,20 @@ extension String {
 
 extension NSAttributedString {
     
-    func replaceFullText() -> NSAttributedString {
+    @objc func replaceFullText() -> NSAttributedString {
         let attr = NSMutableAttributedString(attributedString: self)
         for (_, fullText) in Regex.fullTextRegex.allMatches(in: attr.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {
-            attr.replaceCharacters(in: fullText.range, with: NSAttributedString(string: fullText.strings[0]!, attributes: [NSLinkAttributeName: fullText.strings[1]!]))
+            attr.replaceCharacters(in: fullText.range, with: NSAttributedString(string: fullText.strings[0]!, attributes: [NSAttributedStringKey.link: fullText.strings[1]!]))
         }
         return attr
     }
     
-    func addLinks() -> NSAttributedString {
+    @objc func addLinks() -> NSAttributedString {
         let attr = NSMutableAttributedString(attributedString: self)
         return attr.addLinks()
     }
     
-    func replaceEmotion() -> NSAttributedString {
+    @objc func replaceEmotion() -> NSAttributedString {
         let attr = NSMutableAttributedString(attributedString: self)
         for (_, emotion) in attr.string.emotionMatchs().enumerated().reversed() {
             if let emotionImage = Regex.emotions.filter({ $0["cht"] == emotion.string }).first?["img"] {

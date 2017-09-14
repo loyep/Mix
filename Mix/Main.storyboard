@@ -108,11 +108,11 @@
             </objects>
             <point key="canvasLocation" x="-1282" y="473"/>
         </scene>
-        <!--Profile-->
+        <!--Navigation Controller-->
         <scene sceneID="6xj-kD-VMA">
             <objects>
                 <navigationController id="9FY-AM-bgh" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" id="AYG-wH-nvo" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="" id="AYG-wH-nvo" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_profile"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_profile_selected"/>
@@ -156,11 +156,11 @@
             </objects>
             <point key="canvasLocation" x="-625" y="474"/>
         </scene>
-        <!--Discover-->
+        <!--Navigation Controller-->
         <scene sceneID="4Kx-zZ-NRy">
             <objects>
                 <navigationController id="Kmm-Ky-gp0" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Discover" selectedImage="tabbar_discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="tabbar_discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_discover"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_discover_selected"/>

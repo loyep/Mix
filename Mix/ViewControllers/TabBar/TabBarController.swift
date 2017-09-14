@@ -47,7 +47,6 @@ class TabBarController: UITabBarController {
         super.decodeRestorableState(with: coder)
         self.selectedIndex = Int(coder.decodeInt32(forKey: "selectedIndex"))
     }
-    
 }
 
 extension TabBarController {

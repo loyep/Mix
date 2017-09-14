@@ -13,57 +13,57 @@ import UIKit
 open class TabBarItem: UITabBarItem {
     
     /// Customize content view
-    @objc open var contentView: TabBarItemContentView? = TabBarItemContentView()
+    @IBInspectable open var contentView: TabBarItemContentView = TabBarItemContentView()
     
     // MARK: UIBarItem properties
-    @objc open override var title: String? // default is nil
+    @IBInspectable open override var title: String? // default is nil
         {
         didSet {
-            self.contentView?.title = title
+            self.contentView.title = title
         }
     }
     
-    open override var image: UIImage? // default is nil
+    @IBInspectable open override var image: UIImage? // default is nil
         {
         didSet {
-            self.contentView?.image = image
+            self.contentView.image = image
         }
     }
     
     // MARK: UITabBarItem properties
-    open override var selectedImage: UIImage? // default is nil
+    @IBInspectable open override var selectedImage: UIImage? // default is nil
         {
         didSet {
-            self.contentView?.selectedImage = selectedImage
+            self.contentView.selectedImage = selectedImage
         }
     }
     
-    open override var badgeValue: String? // default is nil
+    @IBInspectable open override var badgeValue: String? // default is nil
         {
         get {
-            return contentView?.badgeValue
+            return contentView.badgeValue
         }
         set(newValue) {
-            contentView?.badgeValue = newValue
+            contentView.badgeValue = newValue
         }
     }
     
     /// Override UITabBarItem.badgeColor, make it available for iOS8.0 and later.
     /// If this item displays a badge, this color will be used for the badge's background. If set to nil, the default background color will be used instead.
     @available(iOS 8.0, *)
-    open override var badgeColor: UIColor? {
+    @IBInspectable open override var badgeColor: UIColor? {
         get {
-            return contentView?.badgeColor
+            return contentView.badgeColor
         }
         set(newValue) {
-            contentView?.badgeColor = newValue
+            contentView.badgeColor = newValue
         }
     }
     
-    open override var tag: Int // default is 0
+    @IBInspectable open override var tag: Int // default is 0
         {
         didSet {
-            self.contentView?.tag = tag
+            self.contentView.tag = tag
         }
     }
     

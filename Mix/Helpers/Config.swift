@@ -16,13 +16,13 @@ public class Config: Object {
     
     public static let appGroupID: String = "group.Maxsey.Mix"
     
-    @objc override public class func primaryKey() -> String? {
+    override public class func primaryKey() -> String? {
         return "bundleIdentifier"
     }
     
-    dynamic var lastLoginVersion: String = "0.0.0"
+    @objc dynamic var lastLoginVersion: String = "0.0.0"
     
-    dynamic var bundleIdentifier: String = Bundle.bundleIdentifier!
+    @objc dynamic var bundleIdentifier: String = Bundle.bundleIdentifier!
     
     public required init(value: Any, schema: RLMSchema) {
         super.init(value: value, schema: schema)
@@ -40,19 +40,19 @@ public class Config: Object {
 
 class OAuthToken: Object {
     
-    @objc override public class func primaryKey() -> String? {
+    override public class func primaryKey() -> String? {
         return "clientID"
     }
     
-    dynamic var clientID: String = ""
+    @objc dynamic var clientID: String = ""
     
-    dynamic var clientSecret: String? = nil
+    @objc dynamic var clientSecret: String? = nil
     
-    dynamic var code: String? = nil
+    @objc dynamic var code: String? = nil
     
-    dynamic var expiresAt: NSDate? = nil
+    @objc dynamic var expiresAt: NSDate? = nil
     
-    dynamic var accessToken: String? = nil
+    @objc dynamic var accessToken: String? = nil
     
     fileprivate var parameters: SwiftyWeibo.Token.Parameters {
         var params: [String: Any] = [
