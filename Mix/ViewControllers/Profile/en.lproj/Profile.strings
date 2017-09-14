@@ -1,0 +1,54 @@
+
+/* Class = "UILabel"; text = "账户"; ObjectID = "1tC-xl-AOC"; */
+"1tC-xl-AOC.text" = "Account";
+
+/* Class = "UILabel"; text = "关于"; ObjectID = "3cV-he-lOQ"; */
+"3cV-he-lOQ.text" = "About";
+
+/* Class = "UITableViewSection"; headerTitle = "账户"; ObjectID = "BDJ-rU-p3Y"; */
+"BDJ-rU-p3Y.headerTitle" = "账户";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "HGL-PH-8HV"; */
+"HGL-PH-8HV.title" = "Profile";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "JXD-2j-rwY"; */
+"JXD-2j-rwY.text" = "Detail";
+
+/* Class = "UITableViewSection"; headerTitle = "高级"; ObjectID = "Lp2-zv-rSq"; */
+"Lp2-zv-rSq.headerTitle" = "高级";
+
+/* Class = "UITableViewSection"; headerTitle = "通用"; ObjectID = "NAA-TG-90k"; */
+"NAA-TG-90k.headerTitle" = "通用";
+
+/* Class = "UILabel"; text = "使用反馈"; ObjectID = "RnL-eG-eQA"; */
+"RnL-eG-eQA.text" = "使用反馈";
+
+/* Class = "UILabel"; text = "屏蔽"; ObjectID = "XQB-jK-TVI"; */
+"XQB-jK-TVI.text" = "屏蔽";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "YvU-mC-UsP"; */
+"YvU-mC-UsP.title" = "Settings";
+
+/* Class = "UILabel"; text = "统计"; ObjectID = "aOG-8Y-dNg"; */
+"aOG-8Y-dNg.text" = "统计";
+
+/* Class = "UILabel"; text = "App Store 评价"; ObjectID = "bh9-TM-cVT"; */
+"bh9-TM-cVT.text" = "App Store 评价";
+
+/* Class = "UILabel"; text = "刷新"; ObjectID = "gWa-fT-1gQ"; */
+"gWa-fT-1gQ.text" = "刷新";
+
+/* Class = "UILabel"; text = "常见问题"; ObjectID = "ilS-JB-Y5Y"; */
+"ilS-JB-Y5Y.text" = "常见问题";
+
+/* Class = "UILabel"; text = "0 MB"; ObjectID = "mB2-6k-awl"; */
+"mB2-6k-awl.text" = "0 MB";
+
+/* Class = "UILabel"; text = "字体"; ObjectID = "nyy-l0-L0O"; */
+"nyy-l0-L0O.text" = "字体";
+
+/* Class = "UILabel"; text = "缓存管理"; ObjectID = "wrz-jC-hye"; */
+"wrz-jC-hye.text" = "缓存管理";
+
+/* Class = "UILabel"; text = "流量模式"; ObjectID = "zgs-zL-gaX"; */
+"zgs-zL-gaX.text" = "流量模式";

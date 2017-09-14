@@ -58,7 +58,7 @@ class HomeViewController: UIViewController {
         super.viewDidAppear(animated)
         return
         let since_id: Int64 = results.max(ofProperty: "id") ?? 0
-        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 5), page: 1, feature: .all)) { [weak self] result in
+        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 20), page: 1, feature: .all)) { [weak self] result in
             guard let this = self else {
                 return
             }
