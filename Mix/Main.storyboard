@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rop-TI-TSP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rop-TI-TSP">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -41,7 +42,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eb0-Wz-1GX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -63,28 +64,6 @@
             </objects>
             <point key="canvasLocation" x="-1924" y="963"/>
         </scene>
-        <!--ContactsViewController-->
-        <scene sceneID="Y2U-5M-ac0">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Contacts" referencedIdentifier="ContactsViewController" id="288-Il-lW7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LeN-j6-kup"/>
-                    <navigationItem key="navigationItem" id="KCM-pz-Puo"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="H0U-E1-LEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1282" y="963"/>
-        </scene>
-        <!--DiscoverViewController-->
-        <scene sceneID="fzg-iZ-Zxt">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DiscoverViewController" id="xSv-B3-H3z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="90g-th-2CS"/>
-                    <navigationItem key="navigationItem" id="3zW-7d-Aqw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zoL-tO-Bub" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="22" y="963"/>
-        </scene>
         <!--Contacts-->
         <scene sceneID="arY-Y2-Yfx">
             <objects>
@@ -97,7 +76,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fMc-g2-0FQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -108,30 +87,18 @@
             </objects>
             <point key="canvasLocation" x="-1282" y="473"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6xj-kD-VMA">
+        <!--ContactsViewController-->
+        <scene sceneID="Y2U-5M-ac0">
             <objects>
-                <navigationController id="9FY-AM-bgh" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="AYG-wH-nvo" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_profile"/>
-                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_profile_selected"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Profile" localized="YES"/>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dq5-JW-Dlp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="zgh-rm-7XV" kind="relationship" relationship="rootViewController" id="ZD1-tr-nTO"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qk8-vw-y6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Contacts" referencedIdentifier="ContactsViewController" id="288-Il-lW7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="LeN-j6-kup"/>
+                    <navigationItem key="navigationItem" id="KCM-pz-Puo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H0U-E1-LEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668" y="473"/>
+            <point key="canvasLocation" x="-1282" y="963"/>
         </scene>
-        <!--View Controller-->
+        <!--Plus-->
         <scene sceneID="Wua-EZ-0qf">
             <objects>
                 <viewController id="FUs-Tz-zBy" sceneMemberID="viewController">
@@ -144,7 +111,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="sVR-xt-Lfq" customClass="TabBarPlusItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Plus" id="sVR-xt-Lfq" customClass="TabBarPlusItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="photo_verybig2"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="photo_verybig2"/>
@@ -156,11 +123,11 @@
             </objects>
             <point key="canvasLocation" x="-625" y="474"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Discover-->
         <scene sceneID="4Kx-zZ-NRy">
             <objects>
                 <navigationController id="Kmm-Ky-gp0" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="tabbar_discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
+                    <tabBarItem key="tabBarItem" title="Discover" selectedImage="tabbar_discover" id="oGM-gs-5H1" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_discover"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_discover_selected"/>
@@ -168,7 +135,7 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vkf-DL-4G0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -178,6 +145,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apm-zK-mXX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="22" y="473"/>
+        </scene>
+        <!--DiscoverViewController-->
+        <scene sceneID="fzg-iZ-Zxt">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DiscoverViewController" id="xSv-B3-H3z" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="90g-th-2CS"/>
+                    <navigationItem key="navigationItem" id="3zW-7d-Aqw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zoL-tO-Bub" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="22" y="963"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="6xj-kD-VMA">
+            <objects>
+                <navigationController id="9FY-AM-bgh" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" id="AYG-wH-nvo" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_profile"/>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_profile_selected"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Profile" localized="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dq5-JW-Dlp">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zgh-rm-7XV" kind="relationship" relationship="rootViewController" id="ZD1-tr-nTO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qk8-vw-y6J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="668" y="473"/>
         </scene>
         <!--ProfileViewController-->
         <scene sceneID="Tos-6c-uel">
@@ -193,13 +194,13 @@
     </scenes>
     <resources>
         <image name="photo_verybig2" width="46" height="46"/>
-        <image name="tabbar_discover" width="16" height="16"/>
-        <image name="tabbar_discover_selected" width="16" height="16"/>
-        <image name="tabbar_home" width="16" height="16"/>
-        <image name="tabbar_home_selected" width="16" height="16"/>
-        <image name="tabbar_message" width="16" height="16"/>
-        <image name="tabbar_message_selected" width="16" height="16"/>
-        <image name="tabbar_profile" width="16" height="16"/>
-        <image name="tabbar_profile_selected" width="16" height="16"/>
+        <image name="tabbar_discover" width="30" height="30"/>
+        <image name="tabbar_discover_selected" width="30" height="30"/>
+        <image name="tabbar_home" width="30" height="30"/>
+        <image name="tabbar_home_selected" width="30" height="30"/>
+        <image name="tabbar_message" width="30" height="30"/>
+        <image name="tabbar_message_selected" width="30" height="30"/>
+        <image name="tabbar_profile" width="30" height="30"/>
+        <image name="tabbar_profile_selected" width="30" height="30"/>
     </resources>
 </document>
