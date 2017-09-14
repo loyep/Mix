@@ -38,7 +38,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_home"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_home_selected"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Home" localized="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Home"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eb0-Wz-1GX">
@@ -57,7 +57,6 @@
         <scene sceneID="U75-YC-5IO">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeViewController" id="Qzm-xW-PG3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Qcn-Ud-c1i"/>
                     <navigationItem key="navigationItem" id="8z7-h9-Ywg"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erA-5x-stb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -72,7 +71,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_message"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_message_selected"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Contacts" localized="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Contacts"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fMc-g2-0FQ">
@@ -91,7 +90,6 @@
         <scene sceneID="Y2U-5M-ac0">
             <objects>
                 <viewControllerPlaceholder storyboardName="Contacts" referencedIdentifier="ContactsViewController" id="288-Il-lW7" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="LeN-j6-kup"/>
                     <navigationItem key="navigationItem" id="KCM-pz-Puo"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H0U-E1-LEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -131,7 +129,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_discover"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_discover_selected"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Discover" localized="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Discover"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vkf-DL-4G0">
@@ -150,7 +148,6 @@
         <scene sceneID="fzg-iZ-Zxt">
             <objects>
                 <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="DiscoverViewController" id="xSv-B3-H3z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="90g-th-2CS"/>
                     <navigationItem key="navigationItem" id="3zW-7d-Aqw"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoL-tO-Bub" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -165,7 +162,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_profile"/>
                             <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="tabbar_profile_selected"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Profile" localized="YES"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Profile"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dq5-JW-Dlp">
@@ -184,7 +181,6 @@
         <scene sceneID="Tos-6c-uel">
             <objects>
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileViewController" id="zgh-rm-7XV" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Q4J-Ti-NCh"/>
                     <navigationItem key="navigationItem" id="c3c-2W-gi1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CI-4q-EnB" userLabel="First Responder" sceneMemberID="firstResponder"/>

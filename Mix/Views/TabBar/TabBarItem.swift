@@ -19,7 +19,11 @@ open class TabBarItem: UITabBarItem {
     @IBInspectable open override var title: String? // default is nil
         {
         didSet {
-            self.contentView.title = title
+            guard let title = title else {
+                contentView.title = nil
+                return
+            }
+            self.contentView.title = NSLocalizedString(title, comment: "")
         }
     }
     

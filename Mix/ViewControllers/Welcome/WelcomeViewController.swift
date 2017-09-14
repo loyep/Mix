@@ -40,7 +40,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @objc fileprivate func updateRootController(_ notice: Notification) {
-        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
+        UIApplication.shared.keyWindow?.rootViewController = Storyboard.main.scene()
     }
     
     @objc fileprivate func weiboLogin() -> () {
