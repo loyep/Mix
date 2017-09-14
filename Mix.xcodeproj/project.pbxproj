@@ -310,9 +310,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				29A6DF661F60084600370D22 /* Button */,
 				CF2A06161F5A6593000E4E8B /* Cells */,
-				CFD2C2301F63E485001E1759 /* SlideView */,
 				298ACA9F1F57A2F2005D2DAC /* TabBar */,
 				29B5F7EA1F68F90100BDE23D /* WeiboStatus */,
 			);
@@ -455,13 +453,6 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
-		29A6DF661F60084600370D22 /* Button */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Button;
-			sourceTree = "<group>";
-		};
 		29B5F7EA1F68F90100BDE23D /* WeiboStatus */ = {
 			isa = PBXGroup;
 			children = (
@@ -508,7 +499,6 @@
 				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
 				298ACA651F569FFF005D2DAC /* Models */,
-				CF6F25A81F5845A100329CE7 /* Persistence */,
 				CF60C2811F56ED68004CCD5B /* Protocols */,
 				298ACA671F56A012005D2DAC /* Services */,
 				2933F3E41F5937610088A33C /* Shared */,
@@ -573,20 +563,6 @@
 				CF60C2831F56ED7F004CCD5B /* Reusable.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		CF6F25A81F5845A100329CE7 /* Persistence */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistence;
-			sourceTree = "<group>";
-		};
-		CFD2C2301F63E485001E1759 /* SlideView */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = SlideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
