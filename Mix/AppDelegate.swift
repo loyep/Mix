@@ -9,6 +9,7 @@
 import UIKit
 import RealmSwift
 import SwiftyWeibo
+import SwiftTheme
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

@@ -10,6 +10,5 @@
 #define Mix_Bridging_Header_h
 
 #import <WeiboSDK/WeiboSDK.h>
-#import <pop/POP.h>
 
 #endif /* Mix_Bridging_Header_h */

@@ -25,8 +25,9 @@ extension NSRegularExpression {
 
 extension String {
     
-    func weibStatusAttributedString() -> NSAttributedString {
+    func weibStatusAttributedString(_ tintColor: UIColor) -> NSAttributedString {
         let attr = NSMutableAttributedString(string: self)
+        attr.yy_setColor(tintColor, range: attr.yy_rangeOfAll())
         
         for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
             let range = result.range

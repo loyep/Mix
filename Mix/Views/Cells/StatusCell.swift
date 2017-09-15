@@ -9,6 +9,7 @@
 import UIKit
 import Kingfisher
 import YYText
+import SwiftTheme
 
 class StatusCell: UICollectionViewCell {
     
@@ -52,7 +53,7 @@ class StatusCell: UICollectionViewCell {
     
     func setupUI() -> () {
         
-        contentView.backgroundColor = UIColor.white
+        contentView.theme_backgroundColor = globalViewBackgroundColorPicker
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         
@@ -67,6 +68,13 @@ class StatusCell: UICollectionViewCell {
         contentView.addSubview(textView)
         contentView.addSubview(retweetedTextView)
         contentView.addSubview(photosView)
+        
+        photosView.theme_backgroundColor = globalViewBackgroundColorPicker
+        textView.theme_backgroundColor = globalViewBackgroundColorPicker
+        retweetedTextView.theme_backgroundColor = globalViewBackgroundColorPicker
+        textView.theme_tintColor = globalViewTintColorPicker
+        retweetedTextView.theme_tintColor = globalViewTintColorPicker
+        name.theme_textColor = globalViewTintColorPicker
         
         textView.highlightTapAction = self.highlightTapAction
         textView.highlightLongPressAction = self.highlightLongPressAction

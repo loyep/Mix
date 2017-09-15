@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (4.5.1)
   - Kingfisher (3.13.0)
-  - pop (1.0.10)
   - Realm (2.10.0):
     - Realm/Headers (= 2.10.0)
   - Realm/Headers (2.10.0)
@@ -9,6 +8,7 @@ PODS:
     - Realm (= 2.10.0)
   - Result (3.2.3)
   - SnapKit (3.2.0)
+  - SwiftTheme (0.3.3)
   - SwiftyJSON (3.1.4)
   - SwiftyWeibo (1.0.0):
     - Alamofire
@@ -19,9 +19,9 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Kingfisher
-  - pop
   - RealmSwift
   - SnapKit
+  - SwiftTheme
   - SwiftyJSON
   - SwiftyWeibo (from `./Source/SwiftyWeibo`)
   - WeiboSDK (from `./Source/WeiboSDK`)
@@ -36,16 +36,16 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
-  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
   Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
   RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftTheme: 85f84747a48749b5b3df7c3e96fc0b1d45677d30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyWeibo: 3d3d0b7ae8ed978578620800860f6e7f6fe2c81a
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 45ac77a2ae452b24adaea41e451ec839855eb997
+PODFILE CHECKSUM: 8cc6e6e1c5564c013107d579666413a01283027d
 
 COCOAPODS: 1.3.1

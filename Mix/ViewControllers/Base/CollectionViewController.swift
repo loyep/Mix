@@ -24,6 +24,7 @@ open class CollectionViewController: BaseViewController {
     
     override open func viewDidLoad() {
         super.viewDidLoad()
+        collectionView?.theme_backgroundColor = globalViewBackgroundColorPicker
         collectionView?.alwaysBounceVertical = true
         collectionView?.registerClassOf(UICollectionViewCell.self)
     }

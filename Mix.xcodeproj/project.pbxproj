@@ -72,6 +72,7 @@
 		29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7F61F691C2C00BDE23D /* BaseViewController.swift */; };
 		29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7F81F691F7900BDE23D /* AccountViewController.swift */; };
 		29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */; };
+		29F77B131F6BBA1300C59674 /* CALayer+MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */; };
 		549A28F982E9DAF9AD4EEE95 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 638D337FC1225EADF738DD80 /* Pods_Mix.framework */; };
 		B3A0B69AACCF85A759C94860 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD951BDEE158C234886697E4 /* Pods_MixShare.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
@@ -189,6 +190,7 @@
 		29CB03B01F569C4D00CF33FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		29CB03B31F569C4D00CF33FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29CB03B51F569C4D00CF33FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+MixTheme.swift"; sourceTree = "<group>"; };
 		2D28C97985A40BDEA2FE54ED /* Pods-MixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.release.xcconfig"; sourceTree = "<group>"; };
 		449B9DED058BEACE117270CA /* Pods-MixShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.release.xcconfig"; sourceTree = "<group>"; };
 		638D337FC1225EADF738DD80 /* Pods_Mix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -514,6 +516,7 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				29F77B111F6BA96800C59674 /* Theme */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA901F56C72E005D2DAC /* Extensions */,
 				298ACA661F56A00B005D2DAC /* Helpers */,
@@ -533,6 +536,14 @@
 				298ACABC1F57F030005D2DAC /* Mix.entitlements */,
 			);
 			path = Mix;
+			sourceTree = "<group>";
+		};
+		29F77B111F6BA96800C59674 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 		78F3A8362C8E971A315F8DA9 /* Frameworks */ = {
@@ -746,10 +757,10 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyWeibo/SwiftyWeibo.framework",
 				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -759,10 +770,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyWeibo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -908,6 +919,7 @@
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
 				298ACAA61F57A308005D2DAC /* TabBar.swift in Sources */,
 				2933F3E61F5937770088A33C /* Strings.swift in Sources */,
+				29F77B131F6BBA1300C59674 /* CALayer+MixTheme.swift in Sources */,
 				29B5F7EE1F69076400BDE23D /* UIStoryBoard+Mix.swift in Sources */,
 				2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */,
 				2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */,

@@ -25,6 +25,18 @@ class StatusTextLabel: YYLabel {
         }
     }
     
+    override var tintColor: UIColor! {
+        didSet {
+            if let textLayout = textLayout {
+                let textAttr = NSMutableAttributedString(attributedString: textLayout.text)
+                textAttr.yy_setColor(tintColor, range: textAttr.yy_rangeOfAll())
+                let container = YYTextContainer(size: CGSize(width: frame.width, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
+                let layout = YYTextLayout(container: container, text: textAttr)!
+                self.textLayout = layout
+            }
+        }
+    }
+    
     override var textLayout: YYTextLayout? {
         willSet {
             if let textLayout = newValue {
@@ -48,7 +60,7 @@ class StatusTextLabel: YYLabel {
     }
     
     func yyTextLayout(_ text: String) -> YYTextLayout {
-        let textAttr = text.weibStatusAttributedString()
+        let textAttr = text.weibStatusAttributedString(tintColor)
         let container = YYTextContainer(size: CGSize(width: frame.width, height: CGFloat(MAXFLOAT)), insets: UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8))
         return YYTextLayout(container: container, text: textAttr)!
     }
