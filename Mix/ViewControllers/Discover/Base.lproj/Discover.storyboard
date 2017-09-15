@@ -66,7 +66,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="collectionView" destination="g8P-hZ-v5d" id="F8S-7q-DgO"/>
+                        <outlet property="collectionView" destination="g8P-hZ-v5d" id="Knn-6H-xSr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYQ-7F-4Em" userLabel="First Responder" sceneMemberID="firstResponder"/>

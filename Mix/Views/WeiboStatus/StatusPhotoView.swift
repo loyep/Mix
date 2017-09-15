@@ -71,6 +71,7 @@ class StatusPhotoView: UIView {
         for i in 0..<9 {
             let image = UIImageView()
             image.backgroundColor = .white
+            image.contentMode = .redraw
             image.tag = i
             addSubview(image)
             image.isUserInteractionEnabled = true

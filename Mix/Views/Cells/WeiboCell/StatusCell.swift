@@ -89,12 +89,17 @@ class StatusCell: UICollectionViewCell {
         
         profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url ?? ""), for: .normal)
         textView.text = viewModel.text
-        retweetedTextView.text = viewModel.retweetedStatus?.text
-        
         photosView.frame.size.width = UIScreen.width - (StatusCell.CellInset.left + StatusCell.CellInset.right) * 2
-        photosView.frame.origin.y = textView.frame.maxY
-        photosView.photos = viewModel.picUrls
-        retweetedTextView.frame.origin.y = photosView.frame.maxY
+        if let retweetedStatus = viewModel.retweetedStatus {
+            retweetedTextView.text = retweetedStatus.text
+            retweetedTextView.frame.origin.y = textView.frame.maxY
+            photosView.frame.origin.y = retweetedTextView.frame.maxY
+            photosView.photos = retweetedStatus.picUrls
+        } else {
+            retweetedTextView.text = nil
+            photosView.frame.origin.y = textView.frame.maxY
+            photosView.photos = viewModel.picUrls
+        }
         
         dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.source)"
     }
@@ -134,7 +139,7 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.frame.size.height = retweetedTextView.frame.maxY + StatusCell.CellInset.bottom
+        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
         self.frame.size.height = layoutAttributes.frame.height
         return layoutAttributes
     }

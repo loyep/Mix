@@ -26,7 +26,6 @@ class HomeViewController: CollectionViewController {
         
         collectionView?.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
-        
         //        return
         // Observe Realm Notifications
         //        notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in

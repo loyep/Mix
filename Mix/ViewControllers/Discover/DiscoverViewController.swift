@@ -11,9 +11,7 @@ import RealmSwift
 import SwiftyWeibo
 import SwiftyJSON
 
-class DiscoverViewController: BaseViewController {
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+class DiscoverViewController: CollectionViewController {
     
     let realm: Realm = try! Realm(dbName: "userName")
     
@@ -23,7 +21,7 @@ class DiscoverViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.registerClassOf(StatusCell.self)
+        collectionView?.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Discover", comment: "")
     }
     
@@ -50,7 +48,7 @@ class DiscoverViewController: BaseViewController {
     }
 }
 
-extension DiscoverViewController: UICollectionViewDelegate {
+extension DiscoverViewController {
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
@@ -62,13 +60,13 @@ extension DiscoverViewController: UICollectionViewDelegate {
     
 }
 
-extension DiscoverViewController: UICollectionViewDataSource {
+extension DiscoverViewController {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return results.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         let favorite = results[indexPath.row]
         cell.bind(for: favorite.status)
