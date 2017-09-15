@@ -178,7 +178,7 @@
 		29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Mix.swift"; sourceTree = "<group>"; };
 		29A271781F6A85AF003D8C1E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		29A2717A1F6A85DA003D8C1E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		29A59B731F6A9C1000D7B879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Profile.strings"; sourceTree = "<group>"; };
+		29A59B731F6A9C1000D7B879 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Profile.storyboard"; sourceTree = "<group>"; };
 		29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RealmSwift+Mix.swift"; sourceTree = "<group>"; };
 		29B5F7E81F68E3E800BDE23D /* StatusTextLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTextLabel.swift; sourceTree = "<group>"; };
 		29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryBoard+Mix.swift"; sourceTree = "<group>"; };
@@ -561,8 +561,8 @@
 		CF2A06161F5A6593000E4E8B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 				29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */,
+				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1122,7 +1122,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsey.Mix.MixShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1136,7 +1136,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.maxsey.Mix.MixShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -1150,7 +1150,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mix.app/Mix";
 			};
 			name = Debug;
@@ -1165,7 +1165,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mix.app/Mix";
 			};
 			name = Release;

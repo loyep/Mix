@@ -47,7 +47,7 @@ class StatusPhotoView: UIView {
             let rowIndex = i / perRowItemCount
             let imageView = imageViews[i]
             imageView.isHidden = false
-            imageView.kf.setImage(with: URL(string: item))
+            imageView.kf.setImage(with: URL(string: item), placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
             imageView.frame = CGRect(x: CGFloat(colunIndex) * (itemW + margin), y: CGFloat(rowIndex) * (itemH + margin), width: itemW, height: itemH)
         }
         
