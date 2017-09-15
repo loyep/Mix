@@ -39,6 +39,7 @@ public enum Common: TargetType {
 public enum Statuses: TargetType {
     case homeTimeline(sinceId: Int64?, maxId: Int64?, count: Int?, page: Int, feature: HomeTimeLineFeature?)
     case favorites(count: Int?, page: Int)
+    case emotions
 }
 
 public enum CommentAuthor: Int {

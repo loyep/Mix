@@ -19,10 +19,60 @@ class WeiboHomeLine: Object {
     }
     
     @objc dynamic var since_id: Int64 = 0
+    
     @objc dynamic var max_id: Int64 = 0
+    
     @objc dynamic var total_number = 0
     
     let statuses = List<WeiboStatus>()
+    
+}
+
+class WeiboEmotion: Object {
+    
+    override static func primaryKey() -> String? {
+        return "phrase"
+    }
+    
+    @objc dynamic var phrase: String = ""
+    
+    @objc dynamic var emotionType: String = "face"
+    
+    @objc dynamic var icon: String = ""
+    
+    @objc dynamic var url: String = ""
+    
+    @objc dynamic var hot: Bool = false
+    
+    @objc dynamic var common: Bool = false
+    
+    @objc dynamic var category: String?
+    
+    @objc dynamic var picid: String?
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    init(_ json: JSON) {
+        super.init()
+        phrase = json["phrase"].stringValue
+        icon = json["icon"].stringValue
+        url = json["url"].stringValue
+        hot = json["hot"].boolValue
+        common = json["common"].boolValue
+        category = json["category"].string
+        picid = json["picid"].string
+        emotionType = json["type"].stringValue
+    }
     
 }
 

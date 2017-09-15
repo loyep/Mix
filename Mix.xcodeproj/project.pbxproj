@@ -561,18 +561,10 @@
 		CF2A06161F5A6593000E4E8B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				CF2A06171F5A659C000E4E8B /* WeiboCell */,
+				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 				29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		CF2A06171F5A659C000E4E8B /* WeiboCell */ = {
-			isa = PBXGroup;
-			children = (
-				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
-			);
-			path = WeiboCell;
 			sourceTree = "<group>";
 		};
 		CF60C2811F56ED68004CCD5B /* Protocols */ = {

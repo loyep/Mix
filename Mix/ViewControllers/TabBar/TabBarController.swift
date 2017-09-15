@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import RealmSwift
+import SwiftyJSON
+import SwiftyWeibo
 
 class TabBarController: UITabBarController {
     
@@ -35,6 +38,21 @@ class TabBarController: UITabBarController {
                 let plus = NavigationController(rootViewController: PlusViewController())
                 tabbarController.present(plus, animated: true, completion: nil)
             }
+        }
+        
+        guard let count = try? Realm.objcs(WeiboEmotion.self, for: "userName").count, count == 0 else {
+            return
+        }
+        
+        weibo.request(SwiftyWeibo.Statuses.emotions) { result in
+            do {
+                let json = JSON(data: try result.dematerialize().data)
+                var emotions: [WeiboEmotion] = []
+                json.array?.forEach {
+                    emotions.append(WeiboEmotion($0))
+                }
+                try? Realm.add(emotions, for: "userName")
+            } catch {}
         }
     }
     

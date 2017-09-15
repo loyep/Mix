@@ -18,6 +18,8 @@ public extension Statuses {
             return "/statuses/home_timeline.json"
         case .favorites:
             return "/favorites.json"
+        case .emotions:
+            return "/emotions.json"
         }
     }
     
@@ -38,6 +40,8 @@ public extension Statuses {
                 "count": count ?? 50,
                 "page": (page == 0 ? 1 : page) ,
                 ], encoding: URLEncoding.default)
+        case .emotions:
+            return .requestPlain
         }
     }
 }
