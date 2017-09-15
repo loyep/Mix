@@ -41,6 +41,7 @@ extension String {
         if let realm = try? Realm(dbName: .public) {
             let attrString = attr.string
             let attStr = attrString as NSString
+            let fontSize = CGSize(width: Theme.font.pointSize, height: Theme.font.pointSize)
             for (_, result) in NSRegularExpression.emotionRegex.matches(in: attrString, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated().reversed() {
                 let range = result.range
                 guard range.location != NSNotFound, range.length > 0 else { continue }
@@ -48,9 +49,9 @@ extension String {
                 
                 guard let url = realm.object(ofType: WeiboEmotion.self, forPrimaryKey: attStr.substring(with: range))?.icon, let URL = URL(string: url) else { continue }
                 let image = UIImageView()
-                image.bounds.size = CGSize(width: 16, height: 16)
-                image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode], progressBlock: nil, completionHandler: nil)
-                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: CGSize(width: 16, height: 16), alignTo: Theme.font, alignment: .center)
+                image.bounds.size = fontSize
+                image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: fontSize, alignTo: Theme.font, alignment: .center)
                 attr.replaceCharacters(in: range, with: attach)
             }
         }

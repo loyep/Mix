@@ -9,14 +9,14 @@ target 'Mix' do
     pod 'SnapKit'
     pod 'Alamofire'
     pod 'RealmSwift'
-    pod 'pop'
+#    pod 'pop'
     pod 'SwiftyJSON'
     pod 'Kingfisher'
+    pod 'YYText'
     
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
     pod 'SwiftyWeibo',      :path => './Source/SwiftyWeibo'
-    pod 'YYText'
     
     target 'MixTests' do
         inherit! :search_paths
