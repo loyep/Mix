@@ -8,6 +8,8 @@
 
 import Foundation
 import YYText
+import Kingfisher
+import RealmSwift
 
 extension NSRegularExpression {
     
@@ -17,7 +19,7 @@ extension NSRegularExpression {
     
     static let topicRegex: NSRegularExpression = try! NSRegularExpression(pattern: "(#[^#]+#)|(@[\\u4e00-\\u9fa5a-zA-Z0-9_-]{2,30})", options: [])
     
-    static let fullTextRegex: NSRegularExpression = try! NSRegularExpression(pattern: "", options: [])
+    static let emotionRegex: NSRegularExpression = try! NSRegularExpression(pattern: "(\\[+[a-zA-Z0-9\\u2e80-\\u9fff]{0,20}+\\])", options: [])
     
 }
 
@@ -35,107 +37,28 @@ extension String {
             let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
             attr.addAttributes([NSAttributedStringKey(rawValue: YYTextBindingAttributeName): binding, NSAttributedStringKey(rawValue: YYTextHighlightAttributeName): highLight, NSAttributedStringKey.foregroundColor: Theme.linkColor], range: range)
         }
-//
-//        for (_, result) in NSRegularExpression.linksRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
-//            let range = result.range
-//            guard range.location != NSNotFound, range.length > 0 else { continue }
-//            if (attr.attribute(YYTextBindingAttributeName, at: range.location, effectiveRange: nil) != nil) { continue }
-//            
-//            let binding = YYTextBinding(deleteConfirm: false)
-//            let highLight = YYTextHighlight(backgroundColor: Theme.linkHighLightColor)
-//            attr.addAttributes([YYTextBindingAttributeName: binding, YYTextHighlightAttributeName: highLight, NSForegroundColorAttributeName: Theme.linkColor], range: range)
-//        }
         
+        if let realm = try? Realm(dbName: .public) {
+            let attrString = attr.string
+            let attStr = attrString as NSString
+            for (_, result) in NSRegularExpression.emotionRegex.matches(in: attrString, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated().reversed() {
+                let range = result.range
+                guard range.location != NSNotFound, range.length > 0 else { continue }
+                if (attr.attribute(NSAttributedStringKey(rawValue: YYTextBindingAttributeName), at: range.location, effectiveRange: nil) != nil) { continue }
+                
+                guard let url = realm.object(ofType: WeiboEmotion.self, forPrimaryKey: attStr.substring(with: range))?.icon, let URL = URL(string: url) else { continue }
+                let image = UIImageView()
+                image.bounds.size = CGSize(width: 16, height: 16)
+                image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode], progressBlock: nil, completionHandler: nil)
+                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: CGSize(width: 16, height: 16), alignTo: Theme.font, alignment: .center)
+                attr.replaceCharacters(in: range, with: attach)
+            }
+        }
         return attr
-    }
-    
-}
-
-extension NSMutableAttributedString {
-    
-    override func replaceFullText() -> NSMutableAttributedString {
-        
-        for (_, fullText) in Regex.fullTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {
-            let attr = NSMutableAttributedString(string: fullText.strings[0]!,
-                                                 attributes: [NSAttributedStringKey.font: Theme.font,
-                                                              NSAttributedStringKey.foregroundColor: Theme.linkColor,
-                                                              NSAttributedStringKey.paragraphStyle: Theme.paragraph])
-            let highLight = YYTextHighlight(attributes: [NSAttributedStringKey.foregroundColor.rawValue: Theme.linkHighLightColor,
-                                                         NSAttributedStringKey.backgroundColor.rawValue: Theme.textBackgroundColor,
-                                                         NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
-            highLight.userInfo = [NSAttributedStringKey.link: fullText.strings[1]!]
-            attr.yy_setTextHighlight(highLight, range: NSMakeRange(0, attr.length))
-            self.replaceCharacters(in: fullText.range, with: attr)
-        }
-        
-        for (_, result) in Regex.linkTextRegex.allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
-            
-            let border = YYTextBorder(lineStyle: .single, lineWidth: 0, stroke: UIColor.orange)
-            border.cornerRadius = 100
-            border.lineJoin = CGLineJoin.bevel
-            border.fillColor = UIColor.orange
-            border.insets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: -5)
-            
-            let highLight = YYTextHighlight(attributes: [
-                YYTextBackgroundBorderAttributeName: border,
-                NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
-            highLight.userInfo = [NSAttributedStringKey.link: result.string]
-            
-            let attr = NSMutableAttributedString(string: "   查看链接   ", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white,
-                                                                                                  NSAttributedStringKey.font: Theme.font,
-                                                                                                  NSAttributedStringKey(rawValue: YYTextHighlightAttributeName): highLight,
-                                                                                                  NSAttributedStringKey(rawValue: YYTextBackgroundBorderAttributeName): border,
-                                                                                                  NSAttributedStringKey.paragraphStyle: Theme.paragraph])
-            attr.yy_setTextBinding(YYTextBinding(deleteConfirm: false), range: attr.yy_rangeOfAll())
-            
-            self.replaceCharacters(in: result.range, with: attr)
-        }
-        
-        self.yy_lineBreakMode = .byWordWrapping
-        
-        return self
-    }
-    
-    override func addLinks() -> NSMutableAttributedString {
-        for (_, result) in Regex("(#\\w+#)|(@\\w+)").allMatches(in: self.string).map( { (range: $0.matchResult.range, string: $0.matchedString) } ).enumerated().reversed() {
-            self.addAttributes([NSAttributedStringKey.foregroundColor: Theme.linkColor,
-                                NSAttributedStringKey.paragraphStyle: Theme.paragraph
-                ], range: result.range)
-            let highLight = YYTextHighlight(attributes: [NSAttributedStringKey.foregroundColor.rawValue: Theme.linkHighLightColor,
-                                                         NSAttributedStringKey.backgroundColor.rawValue: Theme.textBackgroundColor,
-                                                         NSAttributedStringKey.paragraphStyle.rawValue: Theme.paragraph])
-            highLight.userInfo = [NSAttributedStringKey.link: result.string]
-            self.yy_setTextHighlight(highLight, range: result.range)
-        }
-        return self
-    }
-    
-    @objc override func replaceEmotion() -> NSMutableAttributedString {
-        //        for (_, emotion) in self.string.emotionMatchs().enumerated().reversed() {
-        //            if let emotionImage = Regex.emotions.filter({ $0["cht"] == emotion.string }).first?["img"] {
-        //                let attach = NSTextAttachment()
-        //                attach.image = UIImage(named: "\(emotionImage)")
-        //                attach.bounds = CGRect(x: 0, y: 0, width: 16, height: 16)
-        //                self.replaceCharacters(in: emotion.range, with: NSAttributedString(attachment: attach))
-        //            }
-        //        }
-        return self
     }
 }
 
 extension String {
-    
-    fileprivate func emotionMatchs() -> [(range: NSRange, string: String)] {
-        return Regex.emotionRegex
-            .allMatches(in: self)
-            .map { (range: $0.matchResult.range, string: $0.matchedString) }
-    }
-    
-    fileprivate func fullTextMatchs() -> [(range: NSRange, string: String, strings: [String?])] {
-        return Regex.fullTextRegex
-            .allMatches(in: self)
-            .map { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) }
-    }
     
     fileprivate var unicode: String {
         var scalars = ""
@@ -183,34 +106,5 @@ extension String {
         }
         
         return escaped
-    }
-}
-
-extension NSAttributedString {
-    
-    @objc func replaceFullText() -> NSAttributedString {
-        let attr = NSMutableAttributedString(attributedString: self)
-        for (_, fullText) in Regex.fullTextRegex.allMatches(in: attr.string).map( { (range: $0.matchResult.range, string: $0.matchedString, strings: $0.captures ) } ).enumerated().reversed() {
-            attr.replaceCharacters(in: fullText.range, with: NSAttributedString(string: fullText.strings[0]!, attributes: [NSAttributedStringKey.link: fullText.strings[1]!]))
-        }
-        return attr
-    }
-    
-    @objc func addLinks() -> NSAttributedString {
-        let attr = NSMutableAttributedString(attributedString: self)
-        return attr.addLinks()
-    }
-    
-    @objc func replaceEmotion() -> NSAttributedString {
-        let attr = NSMutableAttributedString(attributedString: self)
-        for (_, emotion) in attr.string.emotionMatchs().enumerated().reversed() {
-            if let emotionImage = Regex.emotions.filter({ $0["cht"] == emotion.string }).first?["img"] {
-                let attach = NSTextAttachment()
-                attach.image = UIImage(named: "\(emotionImage)")
-                attach.bounds = CGRect(x: 0, y: 0, width: 16, height: 16)
-                attr.replaceCharacters(in: emotion.range, with: NSAttributedString(attachment: attach))
-            }
-        }
-        return attr
     }
 }

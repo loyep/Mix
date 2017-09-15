@@ -40,7 +40,7 @@ class TabBarController: UITabBarController {
             }
         }
         
-        guard let count = try? Realm.objcs(WeiboEmotion.self, for: "userName").count, count == 0 else {
+        guard let count = try? Realm.objcs(WeiboEmotion.self, for: .public).count, count == 0 else {
             return
         }
         
@@ -51,7 +51,7 @@ class TabBarController: UITabBarController {
                 json.array?.forEach {
                     emotions.append(WeiboEmotion($0))
                 }
-                try? Realm.add(emotions, for: "userName")
+                try? Realm.add(emotions, for: .public)
             } catch {}
         }
     }
