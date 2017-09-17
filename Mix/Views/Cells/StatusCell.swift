@@ -53,7 +53,8 @@ class StatusCell: UICollectionViewCell {
     
     func setupUI() -> () {
         
-        contentView.theme_backgroundColor = globalViewBackgroundColorPicker
+//        contentView.theme_backgroundColor = globalViewBackgroundColorPicker
+        contentView.backgroundColor = UIColor(white: 1, alpha: 1)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
         

@@ -68,6 +68,7 @@ class HomeViewController: CollectionViewController {
                 this.realm.beginWrite()
                 this.realm.add(statuses, update: true)
                 try? this.realm.commitWrite()
+                this.collectionView?.reloadData()
             } catch {
                 
             }

@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import YYText
-import Kingfisher
+import YYKit
 import RealmSwift
 
 extension NSRegularExpression {
@@ -52,7 +51,7 @@ extension String {
                 let image = UIImageView()
                 image.bounds.size = fontSize
                 image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
-                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: fontSize, alignTo: Theme.font, alignment: .center)
+                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: CGSize(width: fontSize.width + 4, height: fontSize.height), alignTo: Theme.font, alignment: .center)
                 attr.replaceCharacters(in: range, with: attach)
             }
         }

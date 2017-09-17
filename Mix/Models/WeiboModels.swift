@@ -9,7 +9,6 @@
 import Foundation
 import RealmSwift
 import Realm
-import YYText
 import SwiftyJSON
 
 class WeiboHomeLine: Object {

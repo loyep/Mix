@@ -8,9 +8,9 @@
 
 import SwiftTheme
 
-let globalViewBackgroundColorPicker = ThemeColorPicker.pickerWithColors(["#000", "#FFF"])
+let globalViewBackgroundColorPicker = ThemeColorPicker.pickerWithColors(["#FFF", "#FFF"])
 
-let globalViewTintColorPicker = ThemeColorPicker.pickerWithColors(["#FFF", "#000"])
+let globalViewTintColorPicker = ThemeColorPicker.pickerWithColors(["#000", "#000"])
 
 //public extension CALayer {
 //    fileprivate struct AssociatedKeys {

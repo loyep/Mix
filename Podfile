@@ -6,13 +6,12 @@ target 'Mix' do
     use_frameworks!
     
     # Pods for Mix
-    pod 'SnapKit'
+#    pod 'SnapKit'
     pod 'Alamofire'
     pod 'RealmSwift'
-#    pod 'pop'
+
     pod 'SwiftyJSON'
-    pod 'Kingfisher'
-    pod 'YYText'
+    pod 'YYKit'
     pod 'SwiftTheme'
 
     # Privarte podspec

@@ -79,6 +79,7 @@
 		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
 		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
+		CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -201,6 +202,7 @@
 		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
 		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
+		CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboStatusLayout.swift; sourceTree = "<group>"; };
 		F960CAE0128160D952F284A6 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -477,6 +479,7 @@
 			children = (
 				2983F78F1F6665670081BC6C /* StatusPhotoView.swift */,
 				29B5F7E81F68E3E800BDE23D /* StatusTextLabel.swift */,
+				CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */,
 			);
 			path = WeiboStatus;
 			sourceTree = "<group>";
@@ -752,28 +755,24 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Mix/Pods-Mix-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyWeibo/SwiftyWeibo.framework",
-				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
+				"${BUILT_PRODUCTS_DIR}/YYKit/YYKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyWeibo.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -930,6 +929,7 @@
 				298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */,
 				298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */,
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
+				CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
