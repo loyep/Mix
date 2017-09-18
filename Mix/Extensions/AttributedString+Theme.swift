@@ -26,9 +26,9 @@ extension String {
     
     func weibStatusAttributedString(_ tintColor: UIColor) -> NSAttributedString {
         let attr = NSMutableAttributedString(string: self)
-        attr.yy_setColor(tintColor, range: attr.yy_rangeOfAll())
+        attr.setColor(tintColor, range: attr.rangeOfAll())
         
-        for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated() {
+        for (_, result) in NSRegularExpression.topicRegex.matches(in: attr.string, options: .withoutAnchoringBounds, range: attr.rangeOfAll()).enumerated() {
             let range = result.range
             guard range.location != NSNotFound, range.length > 0 else { continue }
             if (attr.attribute(NSAttributedStringKey(rawValue: YYTextBindingAttributeName), at: range.location, effectiveRange: nil) != nil) { continue }
@@ -42,7 +42,7 @@ extension String {
             let attrString = attr.string
             let attStr = attrString as NSString
             let fontSize = CGSize(width: Theme.font.pointSize, height: Theme.font.pointSize)
-            for (_, result) in NSRegularExpression.emotionRegex.matches(in: attrString, options: .withoutAnchoringBounds, range: attr.yy_rangeOfAll()).enumerated().reversed() {
+            for (_, result) in NSRegularExpression.emotionRegex.matches(in: attrString, options: .withoutAnchoringBounds, range: attr.rangeOfAll()).enumerated().reversed() {
                 let range = result.range
                 guard range.location != NSNotFound, range.length > 0 else { continue }
                 if (attr.attribute(NSAttributedStringKey(rawValue: YYTextBindingAttributeName), at: range.location, effectiveRange: nil) != nil) { continue }
@@ -50,8 +50,8 @@ extension String {
                 guard let url = realm.object(ofType: WeiboEmotion.self, forPrimaryKey: attStr.substring(with: range))?.icon, let URL = URL(string: url) else { continue }
                 let image = UIImageView()
                 image.bounds.size = fontSize
-                image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
-                let attach = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: CGSize(width: fontSize.width + 4, height: fontSize.height), alignTo: Theme.font, alignment: .center)
+//                image.kf.setImage(with: URL, placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+                let attach = NSMutableAttributedString.attachmentString(withContent: image, contentMode: .center, attachmentSize: CGSize(width: fontSize.width + 4, height: fontSize.height), alignTo: Theme.font, alignment: .center)
                 attr.replaceCharacters(in: range, with: attach)
             }
         }

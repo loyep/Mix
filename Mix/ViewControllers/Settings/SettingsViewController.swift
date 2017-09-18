@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import Kingfisher
 
 class SettingsViewController: UITableViewController {
     
@@ -26,9 +25,9 @@ class SettingsViewController: UITableViewController {
             navigationItem.rightBarButtonItem = UIBarButtonItem(title: "关闭", style: .done, target: self, action: #selector(SettingsViewController.closeSettings))
         }
         
-        KingfisherManager.shared.cache.calculateDiskCacheSize {
-            self.cacheLabel.text = String(format: "%.2f MB", (Float($0/1024)/1024))
-        }
+//        KingfisherManager.shared.cache.calculateDiskCacheSize {
+//            self.cacheLabel.text = String(format: "%.2f MB", (Float($0/1024)/1024))
+//        }
     }
     
     @objc fileprivate func closeSettings() -> () {

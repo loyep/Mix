@@ -77,7 +77,6 @@ extension UICollectionView {
     }
     
     func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
-        
         guard let cell = self.dequeueReusableCell(withReuseIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
             fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
         }

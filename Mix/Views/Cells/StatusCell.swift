@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
-import YYText
 import SwiftTheme
 
 class StatusCell: UICollectionViewCell {
@@ -52,8 +50,6 @@ class StatusCell: UICollectionViewCell {
     }
     
     func setupUI() -> () {
-        
-//        contentView.theme_backgroundColor = globalViewBackgroundColorPicker
         contentView.backgroundColor = UIColor(white: 1, alpha: 1)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
@@ -96,7 +92,7 @@ class StatusCell: UICollectionViewCell {
     func bind(for viewModel: WeiboStatus) -> () {
         name.text = viewModel.user?.screen_name
         
-        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url ?? ""), for: .normal)
+//        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url ?? ""), for: .normal)
         textView.text = viewModel.text
         photosView.frame.size.width = UIScreen.width - (StatusCell.CellInset.left + StatusCell.CellInset.right) * 2
         if let retweetedStatus = viewModel.retweetedStatus {
@@ -111,6 +107,7 @@ class StatusCell: UICollectionViewCell {
         }
         
         dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.source)"
+        frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
     }
     
     func createdDate(_ createdAt: Date) -> String? {
@@ -148,8 +145,9 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
-        self.frame.size.height = layoutAttributes.frame.height
+//        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
+//        self.frame.size.height = frame.height
+        layoutAttributes.frame.size.height = frame.height
         return layoutAttributes
     }
 }

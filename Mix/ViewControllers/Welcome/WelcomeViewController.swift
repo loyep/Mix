@@ -29,11 +29,11 @@ class WelcomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         view.addSubview(weiboLoginButton)
-        weiboLoginButton.snp.makeConstraints { make in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.size.equalTo(WelcomeViewControllerUX.WeiboLoginButtonSize)
-        }
+//        weiboLoginButton.snp.makeConstraints { make in
+//            make.centerX.equalToSuperview()
+//            make.centerY.equalToSuperview()
+//            make.size.equalTo(WelcomeViewControllerUX.WeiboLoginButtonSize)
+//        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(WelcomeViewController.updateRootController), name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil)
     }

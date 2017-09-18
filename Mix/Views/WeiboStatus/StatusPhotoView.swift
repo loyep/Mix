@@ -7,10 +7,73 @@
 //
 
 import UIKit
+import YYKit
+
+fileprivate class StatusPhotoControl: UIView {
+    var image: UIImage? {
+        didSet {
+            layer.contents = image?.cgImage
+        }
+    }
+    var point: CGPoint = .zero
+    var timer: Timer?
+    var longPressDetected: Bool = false
+    var tapTouch: ((StatusPhotoControl, YYGestureRecognizerState, Set<UITouch>, UIEvent?) -> Void)?
+    var longPress: ((StatusPhotoControl, CGPoint) -> Void)?
+    
+    deinit {
+        endTimer()
+    }
+    
+    func startTimer() {
+        timer?.invalidate()
+        timer = Timer(timeInterval: 0.5, target: self, selector: #selector(StatusPhotoControl.timerFire), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer!, forMode: .commonModes)
+    }
+    
+    @objc func timerFire() {
+        touchesCancelled(Set(), with: nil)
+        longPressDetected = true
+        longPress?(self, point)
+        endTimer()
+    }
+    
+    func endTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        longPressDetected = false
+        tapTouch?(self, .began, touches, event)
+        if longPress != nil {
+            point = touches.first?.location(in: self) ?? .zero
+            startTimer()
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if longPressDetected { return }
+        tapTouch?(self, .moved, touches, event)
+        endTimer()
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if longPressDetected { return }
+        tapTouch?(self, .ended, touches, event)
+        endTimer()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if longPressDetected { return }
+        tapTouch?(self, .cancelled, touches, event)
+        endTimer()
+    }
+}
 
 class StatusPhotoView: UIView {
     
-    fileprivate var imageViews: [UIImageView] = []
+    fileprivate var imageViews: [StatusPhotoControl] = []
     
     public var photos: [String] = [] {
         didSet {
@@ -47,7 +110,46 @@ class StatusPhotoView: UIView {
             let rowIndex = i / perRowItemCount
             let imageView = imageViews[i]
             imageView.isHidden = false
-            imageView.kf.setImage(with: URL(string: item), placeholder: nil, options: [.backgroundDecode, .cacheOriginalImage], progressBlock: nil, completionHandler: nil)
+            imageView.layer.setImageWith(URL(string: item), placeholder: nil, options: .avoidSetImage, completion: { [weak imageView] (image, url, from, stage, error) in
+                guard let imageView = imageView else { return }
+                if image != nil, stage == .finished {
+                    let imageSize = image!.size
+                    let scale = (imageSize.height / imageSize.width) / (imageView.height / imageView.width)
+                    if scale < 0.99 || scale.isNaN {
+                        imageView.contentMode = .scaleAspectFill
+                        imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+                    } else {
+                        imageView.contentMode = .scaleToFill
+                        imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: imageSize.width / imageSize.height)
+                    }
+                    
+                    imageView.image = image
+//                    if from != YYWebImageFromMemoryCacheFast {
+//                        let
+//                    }
+                }
+//                if (!imageView) return;
+//                if (image && stage == YYWebImageStageFinished) {
+//                    int width = pic.bmiddle.width;
+//                    int height = pic.bmiddle.height;
+//                    CGFloat scale = (height / width) / (imageView.height / imageView.width);
+//                    if (scale < 0.99 || isnan(scale)) { // 宽图把左右两边裁掉
+//                        imageView.contentMode = UIViewContentModeScaleAspectFill;
+//                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
+//                    } else { // 高图只保留顶部
+//                        imageView.contentMode = UIViewContentModeScaleToFill;
+//                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
+//                    }
+//                    ((YYControl *)imageView).image = image;
+//                    if (from != YYWebImageFromMemoryCacheFast) {
+//                        CATransition *transition = [CATransition animation];
+//                        transition.duration = 0.15;
+//                        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+//                        transition.type = kCATransitionFade;
+//                        [imageView.layer addAnimation:transition forKey:@"contents"];
+//                    }
+//                }
+            })
             imageView.frame = CGRect(x: CGFloat(colunIndex) * (itemW + margin), y: CGFloat(rowIndex) * (itemH + margin), width: itemW, height: itemH)
         }
         
@@ -69,18 +171,29 @@ class StatusPhotoView: UIView {
     func setupUI() -> () {
         backgroundColor = .white
         for i in 0..<9 {
-            let image = UIImageView()
+            let image = StatusPhotoControl()
+            image.size = CGSize(width: 100, height: 100)
+            image.layer.masksToBounds = true
+            image.isExclusiveTouch = true
             image.backgroundColor = .white
             image.contentMode = .redraw
             image.tag = i
             addSubview(image)
-            image.isUserInteractionEnabled = true
-            let tap = UITapGestureRecognizer(target: self, action: #selector(StatusPhotoView.imageTapGesture(_:)))
-            image.addGestureRecognizer(tap)
+            
+            let badge = UIImageView()
+            badge.isUserInteractionEnabled = false
+            badge.contentMode = .scaleAspectFit
+            badge.size = CGSize(width: 28, height: 18)
+            badge.autoresizingMask = [.flexibleTopMargin, .flexibleLeftMargin]
+            badge.right = image.width
+            badge.bottom = image.height
+            badge.isHidden = true
+            image.addSubview(badge)
+            
             imageViews.append(image)
         }
     }
-
+    
     func itemWidthForPhotosCount(_ phototsCount: Int) -> CGFloat {
         if phototsCount == 1 {
             return 120
