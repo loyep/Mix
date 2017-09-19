@@ -9,34 +9,37 @@
 import UIKit
 import SwiftyWeibo
 
-class ContactsViewController: UIViewController {
+class ContactsViewController: CollectionViewController {
     
-    @IBOutlet weak var contactsTabBarItem = TabBarItem(TabBarItemAnimateContentView(), title: Strings.ContactTitleDescription, image: UIImage(named: "tabbar_message"), selectedImage: UIImage(named: "tabbar_message_selected"))
+    open override var collectionView: UICollectionView? {
+        didSet {
+            if collectionView == nil { return }
+            collectionView!.alwaysBounceVertical = true
+            view.addSubview(collectionView!)
+            collectionView!.snp.makeConstraints {
+                $0.left.top.bottom.right.equalTo(view)
+            }
+        }
+    }
+    
+    override func loadView() {
+        super.loadView()
+        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView?.registerClassOf(UICollectionViewCell.self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Contact", comment: "")
-        
-//        let since_id: Int = realm.objects(WeiboHomeLine.self).max(ofProperty: "max_id") ?? 0
-//        weibo.request(SwiftyWeibo.Comments.byMe(sinceId: 0, maxId: 0, count: 0, page: 1)) { [weak self] result in
-//            guard let this = self else {
-//                return
-//            }
-//            do {
-//                let json = try result.dematerialize().mapJSON() as! [String: Any]
-//                print("\(json)")
-////                guard let realm = try? Realm() else {
-////                    return
-////                }
-////                try! realm.write {
-////                    let homeLine = realm.create(WeiboHomeLine.self, value: json, update: true)
-////                    homeLine.max_id = homeLine.statuses.max(ofProperty: "id") ?? 0
-////                    this.dataSource += homeLine.statuses
-////                }
-//            } catch {
-//                
-//            }
-//        }
     }
+    
+}
 
+extension ContactsViewController {
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        return cell
+    }
+    
 }

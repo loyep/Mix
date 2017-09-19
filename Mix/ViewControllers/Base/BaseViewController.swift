@@ -28,5 +28,21 @@ open class BaseViewController: UIViewController {
     override open func decodeRestorableState(with coder: NSCoder) {
         super.decodeRestorableState(with: coder)
     }
+    
+    override open var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
+    }
 
+}
+
+extension BaseViewController: UIViewControllerPreviewingDelegate {
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        return nil
+    }
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+    }
+    
 }

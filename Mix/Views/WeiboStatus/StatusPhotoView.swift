@@ -124,9 +124,6 @@ class StatusPhotoView: UIView {
                     }
                     
                     imageView.image = image
-//                    if from != YYWebImageFromMemoryCacheFast {
-//                        let
-//                    }
                 }
 //                if (!imageView) return;
 //                if (image && stage == YYWebImageStageFinished) {

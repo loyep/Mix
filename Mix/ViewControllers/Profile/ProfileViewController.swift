@@ -14,9 +14,4 @@ class ProfileViewController: TableViewController {
         super.viewDidLoad()
         navigationItem.title = NSLocalizedString("Profile", comment: "")
     }
-    
-    @IBAction func showSettings(_ sender: UIBarButtonItem) {
-        let settings = Storyboard.settings.scene()
-        navigationController?.pushViewController(settings, animated: true)
-    }
 }

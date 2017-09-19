@@ -19,11 +19,8 @@ open class TabBarItem: UITabBarItem {
     @IBInspectable open override var title: String? // default is nil
         {
         didSet {
-            guard let title = title else {
-                contentView.title = nil
-                return
-            }
-            self.contentView.title = NSLocalizedString(title, comment: "")
+            if title == nil { return contentView.title = nil }
+            self.contentView.title = NSLocalizedString(title!, comment: "")
         }
     }
     
@@ -42,8 +39,8 @@ open class TabBarItem: UITabBarItem {
         }
     }
     
-    @IBInspectable open override var badgeValue: String? // default is nil
-        {
+    // default is nil
+    @IBInspectable open override var badgeValue: String? {
         get {
             return contentView.badgeValue
         }
@@ -64,8 +61,8 @@ open class TabBarItem: UITabBarItem {
         }
     }
     
-    @IBInspectable open override var tag: Int // default is 0
-        {
+    // default is 0
+    @IBInspectable open override var tag: Int {
         didSet {
             self.contentView.tag = tag
         }

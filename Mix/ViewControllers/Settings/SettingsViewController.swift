@@ -12,10 +12,6 @@ import RealmSwift
 class SettingsViewController: UITableViewController {
     
     @IBOutlet weak var cacheLabel: UILabel!
-    override func loadView() {
-        super.loadView()
-        tableView.registerClassOf(UITableViewCell.self)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +28,10 @@ class SettingsViewController: UITableViewController {
     
     @objc fileprivate func closeSettings() -> () {
         navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return UIInterfaceOrientationMask.portrait
     }
     
 }

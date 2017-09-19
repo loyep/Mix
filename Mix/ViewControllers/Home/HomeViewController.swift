@@ -97,7 +97,8 @@ extension HomeViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        cell.bind(for: results[indexPath.item])
+        cell.bind(for: results[indexPath.item], delegate: self)
+        registerForPreviewing(with: self, sourceView: cell)
         return cell
     }
 }

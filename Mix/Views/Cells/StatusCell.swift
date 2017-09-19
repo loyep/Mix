@@ -8,22 +8,26 @@
 
 import UIKit
 import SwiftTheme
+import YYKit
 
 class StatusCell: UICollectionViewCell {
     
     static let CellInset = UIEdgeInsetsMake(8, 8, 8, 8)
     
-    var profileImage: UIButton = {
-        let proImage = UIButton(type: .custom)
-        proImage.backgroundColor = .white
-        proImage.layer.cornerRadius = 18
-        proImage.layer.borderWidth = 1 / UIScreen.main.scale
-        proImage.frame.size = CGSize(width: 36, height: 36)
-        proImage.layer.borderColor = UIColor.lightGray.cgColor
-        proImage.layer.shouldRasterize = true
-        proImage.layer.masksToBounds = true
-        return proImage
-    }()
+    weak var previewDelegate: UIViewControllerPreviewingDelegate? = nil
+    
+    //    var profileImage: UIButton = {
+    //        let proImage = UIButton(type: .custom)
+    //        proImage.backgroundColor = .white
+    //        proImage.contentMode = .scaleAspectFill
+    //        proImage.layer.cornerRadius = 18
+    //        proImage.layer.borderWidth = 1 / UIScreen.main.scale
+    //        proImage.frame.size = CGSize(width: 36, height: 36)
+    //        proImage.layer.borderColor = UIColor.lightGray.cgColor
+    //        proImage.layer.masksToBounds = true
+    //        return proImage
+    //    }()
+    var profileImage: UIImageView = UIImageView()
     
     var name = UILabel()
     
@@ -87,12 +91,22 @@ class StatusCell: UICollectionViewCell {
         retweetedTextView.frame.size.width = textView.frame.width
         photosView.frame.size.width = textView.frame.width - StatusCell.CellInset.left - StatusCell.CellInset.right
         photosView.frame.origin.x = StatusCell.CellInset.left
+        
+        profileImage.layer.borderWidth = 1 / UIScreen.main.scale
+        profileImage.layer.cornerRadius = profileImage.width / 2
+        profileImage.layer.borderColor = UIColor.lightGray.cgColor
     }
     
-    func bind(for viewModel: WeiboStatus) -> () {
+    func bind(for viewModel: WeiboStatus, delegate: UIViewControllerPreviewingDelegate? = nil) -> () {
+        previewDelegate = delegate
         name.text = viewModel.user?.screen_name
         
-//        profileImage.kf.setImage(with: URL(string: viewModel.user.profile_image_url ?? ""), for: .normal)
+        if let profileImageUrl = URL(string: viewModel.user.profile_image_url ?? "") {
+            profileImage.layer.setImageWith(profileImageUrl, placeholder: nil, options: .avoidSetImage, completion: { [weak profileImage] (image, url, from, stage, error) in
+                guard let profileImage = profileImage else { return }
+                profileImage.image = image?.byRoundCornerRadius(profileImage.width / 2)
+            })
+        }
         textView.text = viewModel.text
         photosView.frame.size.width = UIScreen.width - (StatusCell.CellInset.left + StatusCell.CellInset.right) * 2
         if let retweetedStatus = viewModel.retweetedStatus {
@@ -145,8 +159,8 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-//        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
-//        self.frame.size.height = frame.height
+        //        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
+        //        self.frame.size.height = frame.height
         layoutAttributes.frame.size.height = frame.height
         return layoutAttributes
     }
@@ -170,13 +184,13 @@ extension StatusCell {
     
     /// When user tap the highlight range of text, this action will be called.
     func highlightTapAction(containerView: UIView, text: NSAttributedString, range: NSRange, rect: CGRect) -> Void {
-//        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
-//        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
+        //        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
+        //        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
     }
     
     /// When user long press the highlight range of text, this action will be called.
     func highlightLongPressAction(containerView: UIView, text: NSAttributedString, range: NSRange, rect: CGRect) -> Void {
-//        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
-//        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
+        //        let highLight = (text.attributes(at: NSMaxRange(range) - 1, effectiveRange: nil)["YYTextHighlight"] as! YYTextHighlight)
+        //        print("\(highLight.userInfo?[NSAttributedStringKey.link]! ?? "")")
     }
 }

@@ -47,6 +47,10 @@ class NavigationController: UINavigationController {
     func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
         interactivePopGestureRecognizer?.isEnabled = true
     }
+    
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return topViewController!.supportedInterfaceOrientations
+    }
 }
 
 extension NavigationController: UIGestureRecognizerDelegate {
