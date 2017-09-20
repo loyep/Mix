@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		120C725F16602327E8BE45C3 /* Pods_MixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E34CD3015DBB9B1DDB004B7 /* Pods_MixTests.framework */; };
+		29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */; };
+		29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A671F72097A00A75DCE /* SwipeTableView.swift */; };
+		29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -120,6 +123,9 @@
 /* Begin PBXFileReference section */
 		0E34CD3015DBB9B1DDB004B7 /* Pods_MixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BADA44A43664E14116E3C67 /* Pods-MixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.debug.xcconfig"; sourceTree = "<group>"; };
+		29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewCell.swift; sourceTree = "<group>"; };
+		29108A671F72097A00A75DCE /* SwipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
+		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +248,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29108A661F72081200A75DCE /* SwipeTableView */ = {
+			isa = PBXGroup;
+			children = (
+				29108A671F72097A00A75DCE /* SwipeTableView.swift */,
+				29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */,
+			);
+			path = SwipeTableView;
+			sourceTree = "<group>";
+		};
 		29229B571F569D90007059A5 /* MixShare */ = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +344,7 @@
 		298ACA641F569FF8005D2DAC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				29108A661F72081200A75DCE /* SwipeTableView */,
 				29BDFFE41F70BFC400D4CBA8 /* Base */,
 				CF2A06161F5A6593000E4E8B /* Cells */,
 				298ACA9F1F57A2F2005D2DAC /* TabBar */,
@@ -596,6 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				29B5F7FB1F69209800BDE23D /* AccountTableViewCell.swift */,
+				29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */,
 				CF2A06181F5A6607000E4E8B /* StatusCell.swift */,
 			);
 			path = Cells;
@@ -935,6 +952,7 @@
 				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
 				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
+				29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */,
 				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
 				29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */,
@@ -946,6 +964,7 @@
 				2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */,
 				2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
+				29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */,
 				2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
@@ -953,6 +972,7 @@
 				298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */,
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */,
+				29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,

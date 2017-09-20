@@ -16,6 +16,7 @@ class ContactsViewController: CollectionViewController {
             if collectionView == nil { return }
             collectionView!.alwaysBounceVertical = true
             view.addSubview(collectionView!)
+            collectionView?.registerClassOf(BaseStatusesViewCell.self)
             collectionView!.snp.makeConstraints {
                 $0.left.top.bottom.right.equalTo(view)
             }
@@ -38,7 +39,7 @@ class ContactsViewController: CollectionViewController {
 extension ContactsViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: BaseStatusesViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
         return cell
     }
     
