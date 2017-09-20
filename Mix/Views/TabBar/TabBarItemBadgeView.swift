@@ -28,7 +28,7 @@ open class TabBarItemBadgeView: UIView {
     /// Badge value, supprot nil, "", "1", "someText". Hidden when nil. Show Little dot style when "".
     open var badgeValue: String? {
         didSet {
-            badgeLabel.text = badgeValue
+            badgeLabel?.text = badgeValue
         }
     }
     
@@ -40,8 +40,8 @@ open class TabBarItemBadgeView: UIView {
     }()
     
     /// 显示badgeValue的Label
-    open var badgeLabel: UILabel = {
-        let badgeLabel = UILabel(frame: CGRect.zero)
+    open var badgeLabel: UILabel? = {
+        let badgeLabel = UILabel()
         badgeLabel.backgroundColor = .clear
         badgeLabel.textColor = .white
         badgeLabel.font = UIFont.systemFont(ofSize: 13.0)
@@ -53,7 +53,7 @@ open class TabBarItemBadgeView: UIView {
     public override init(frame: CGRect) {
         super.init(frame: frame)
         self.addSubview(imageView)
-        self.addSubview(badgeLabel)
+        self.addSubview(badgeLabel!)
         self.imageView.backgroundColor = badgeColor
     }
     public required init?(coder aDecoder: NSCoder) {
@@ -67,12 +67,12 @@ open class TabBarItemBadgeView: UIView {
         super.layoutSubviews()
         guard let badgeValue = badgeValue else {
             imageView.isHidden = true
-            badgeLabel.isHidden = true
+            badgeLabel?.isHidden = true
             return
         }
         
         imageView.isHidden = false
-        badgeLabel.isHidden = false
+        badgeLabel?.isHidden = false
         
         if badgeValue == "" {
             imageView.frame = CGRect(origin: CGPoint(x: (bounds.size.width - 8.0) / 2.0, y: (bounds.size.height - 8.0) / 2.0), size: CGSize(width: 8.0, height: 8.0))
@@ -80,8 +80,8 @@ open class TabBarItemBadgeView: UIView {
             imageView.frame = bounds
         }
         imageView.layer.cornerRadius = imageView.bounds.size.height / 2.0
-        badgeLabel.sizeToFit()
-        badgeLabel.center = imageView.center
+        badgeLabel?.sizeToFit()
+        badgeLabel?.center = imageView.center
     }
     
     /*
@@ -92,8 +92,8 @@ open class TabBarItemBadgeView: UIView {
         guard let _ = badgeValue else {
             return CGSize(width: 18.0, height: 18.0)
         }
-        let textSize = badgeLabel.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
-        return CGSize(width: max(18.0, textSize.width + 10.0), height: 18.0)
+        let textSize = badgeLabel?.sizeThatFits(CGSize(width: CGFloat.greatestFiniteMagnitude, height: CGFloat.greatestFiniteMagnitude))
+        return CGSize(width: max(18.0, textSize!.width + 10.0), height: 18.0)
     }
     
 }

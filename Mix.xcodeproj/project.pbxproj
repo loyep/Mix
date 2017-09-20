@@ -11,6 +11,7 @@
 		29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */; };
 		29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A671F72097A00A75DCE /* SwipeTableView.swift */; };
 		29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */; };
+		29108A6C1F72617200A75DCE /* STCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A6B1F72617200A75DCE /* STCollectionView.swift */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -126,6 +127,7 @@
 		29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewCell.swift; sourceTree = "<group>"; };
 		29108A671F72097A00A75DCE /* SwipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
+		29108A6B1F72617200A75DCE /* STCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCollectionView.swift; sourceTree = "<group>"; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			children = (
 				29108A671F72097A00A75DCE /* SwipeTableView.swift */,
 				29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */,
+				29108A6B1F72617200A75DCE /* STCollectionView.swift */,
 			);
 			path = SwipeTableView;
 			sourceTree = "<group>";
@@ -984,6 +987,7 @@
 				298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
+				29108A6C1F72617200A75DCE /* STCollectionView.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
 				29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */,
 				29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */,

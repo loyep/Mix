@@ -8,13 +8,13 @@
 
 import UIKit
 
-public protocol SwipeTableViewDataSource: NSObjectProtocol {
+@objc public protocol SwipeTableViewDataSource: NSObjectProtocol {
     
     @available(iOS 8.0, *)
-    func swipeTableView(_ swipeTableView: SwipeTableView, viewForItemAt index: Int, reusingView: UIScrollView) -> UIScrollView
+    @objc func swipeTableView(_ swipeTableView: SwipeTableView, viewForItemAt index: Int, reusingView: UIScrollView) -> UIScrollView
     
     @available(iOS 8.0, *)
-    func numberOfSections(in swipeTableView: SwipeTableView) -> Int
+    @objc func numberOfSections(in swipeTableView: SwipeTableView) -> Int
 }
 
 @objc public protocol SwipeTableViewDelegate: NSObjectProtocol {
@@ -30,6 +30,12 @@ public protocol SwipeTableViewDataSource: NSObjectProtocol {
     
     @available(iOS 8.0, *)
     @objc optional func swipeTableViewDidEndDragging(_ swipeTableView: SwipeTableView, willDecelerate decelerate: Bool)
+    
+    @available(iOS 8.0, *)
+    @objc optional func swipeTableViewWillBeginDecelerating(_ swipeTableView: SwipeTableView)
+    
+    @available(iOS 8.0, *)
+    @objc optional func swipeTableViewDidEndDecelerating(_ swipeTableView: SwipeTableView)
     
     @available(iOS 8.0, *)
     @objc optional func swipeTableViewDidEndScrollingAnimation(_ swipeTableView: SwipeTableView)
@@ -50,24 +56,11 @@ public protocol SwipeTableViewDataSource: NSObjectProtocol {
 
 open class SwipeTableView: UIView, UIScrollViewDelegate {
     
-    public weak var delegate: SwipeTableViewDelegate?
+    @IBOutlet public weak var delegate: SwipeTableViewDelegate?
     
-    public weak var dataSource: SwipeTableViewDataSource?
+    @IBOutlet public weak var dataSource: SwipeTableViewDataSource?
     
-    open fileprivate(set) var contentView: UICollectionView = UICollectionView(frame: .zero) {
-        willSet {
-            if contentView == newValue { return }
-            contentView.collectionViewLayout = self.layout
-            contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-            contentView.showsHorizontalScrollIndicator = false
-            contentView.isPagingEnabled = true
-            contentView.scrollsToTop = false
-            contentView.delegate = self
-            contentView.dataSource = self
-            contentView.registerClassOf(UICollectionViewCell.self)
-            if #available(iOS 10.0, *) { contentView.isPrefetchingEnabled = false }
-        }
-    }
+    open var contentView: UICollectionView?
     
     lazy fileprivate var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -103,7 +96,7 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     open var alwaysBounceHorizontal: Bool = true {
         didSet {
-            contentView.alwaysBounceHorizontal = alwaysBounceHorizontal
+            contentView?.alwaysBounceHorizontal = alwaysBounceHorizontal
         }
     }
     
@@ -142,23 +135,32 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     fileprivate var contentOffsetKVODisabled: Bool = false
     
-    fileprivate struct SwipeTableRuntimeKey {
-//        UnsafeMutableRawPointer
-        static let swipeTableViewItemContentOffsetContextKey = UnsafeRawPointer(bitPattern: "swipeTableViewItemContentOffsetContextKey".hashValue)
-        //        static let swipeTableViewItemTopInsetKey = UnsafeRawPointer(bitPattern: "swipeTableViewItemTopInsetKey".hashValue)
-        
-    }
-    
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        let autoAdjustInsetsView = UIScrollView()
-        autoAdjustInsetsView.scrollsToTop = false
-        addSubview(autoAdjustInsetsView)
-        addSubview(contentView)
+        setupUI()
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupUI()
+    }
+    
+    func setupUI() {
+        contentView = UICollectionView(frame: bounds, collectionViewLayout: layout)
+        contentView?.delegate = self
+        contentView?.dataSource = self
+        contentView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView?.showsHorizontalScrollIndicator = false
+        contentView?.isPagingEnabled = true
+        contentView?.scrollsToTop = false
+        contentView?.backgroundColor = .white
+        contentView?.registerClassOf(UICollectionViewCell.self)
+        if #available(iOS 10.0, *) { contentView?.isPrefetchingEnabled = false }
+        
+        let autoAdjustInsetsView = UIScrollView()
+        autoAdjustInsetsView.scrollsToTop = false
+        addSubview(autoAdjustInsetsView)
+        addSubview(contentView!)
     }
     
     open func reloadData() {
@@ -171,7 +173,7 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView.frame = self.bounds
+        self.contentView?.frame = self.bounds
         self.layout.itemSize = self.bounds.size
         //        self.swipeHeaderBarScrollDisabled &= nil == _swipeHeaderView;
         self.swipeHeaderBar?.frame.origin.y = swipeHeaderView?.frame.maxY ?? 0
@@ -257,11 +259,80 @@ extension SwipeTableView: UICollectionViewDataSource {
     
     open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "contentOffset" {
+            if contentOffsetKVODisabled { return }
+            if swipeHeaderBarScrollDisabled == false {
+                let newOffsetY = (change![NSKeyValueChangeKey.newKey] as? CGPoint ?? .zero).y
+                let topMarginOffset = swipeHeaderTopInset + barInset
+                // stick the bar
+                if newOffsetY < -topMarginOffset {
+                    if let swipeHeaderBar = swipeHeaderBar {
+                        swipeHeaderBar.frame.origin.y  = -newOffsetY - (swipeHeaderBar.height)
+                        swipeHeaderView?.frame.origin.y = (swipeHeaderBar.frame.origin.y) - (swipeHeaderView?.height)!
+                    } else {
+                        swipeHeaderView?.frame.origin.y = -newOffsetY - (swipeHeaderView?.height)!
+                    }
+                } else {
+                    swipeHeaderBar?.frame.origin.y  = topMarginOffset - (swipeHeaderBar?.height)!
+                    // 'fmax' is used to fix the bug below iOS8.3 : the position of the bar will not correct when the swipeHeaderView is outside of the screen.
+                    swipeHeaderView?.frame.origin.y = fmax(-(newOffsetY + barInset), 0) - (swipeHeaderView?.height)!
+                }
+            }
             
+            /*
+             * 在自适应contentSize的状态下，itemView初始化后（初始化会导致contentOffset变化，此时又可能会做相邻itemView自适应处理），contentOffset变化受影响，这里做处理保证contentOffset准确
+             */
+            if isAdjustingcontentSize {
+                // 当前scrollview所对应的index
+                var index = currentItemIndex
+                if let object = object as? UIScrollView, object != currentItemView {
+                    index = shouldVisibleItemIndex
+                }
+                
+                if let scrollView = object as? UIScrollView, let offsetObj = contentOffsetQuene[index] {
+                    let contentOffsetY = scrollView.contentOffset.y
+                    let requireOffset = offsetObj
+                    // round 之后，解决像素影响问题
+                    if round(contentOffsetY) != round(requireOffset.y) {
+                        scrollView.contentOffset.y = round(requireOffset.y)
+                    }
+                }
+            }
         } else if keyPath == "contentSize" {
-            
+            // adjust contentSize
+            if shouldAdjustContentSize {
+                // 当前scrollview所对应的index
+                if let scrollView = object as? UIScrollView {
+                    var index = currentItemIndex
+                    if scrollView != currentItemView {
+                        index = shouldVisibleItemIndex
+                    }
+                    let contentSizeH = scrollView.contentSize.height
+                    var minRequireSize = contentMinSizeQuene[index] ?? .zero //[_contentMinSizeQuene[@(index)] CGSizeValue]
+                    let minRequireSizeH = round(minRequireSize.height)
+                    if contentSizeH < minRequireSizeH {
+                        isAdjustingcontentSize = true
+                        minRequireSize.height = minRequireSizeH
+                        if let scrollView = scrollView as? STCollectionView {
+                            scrollView.minRequireContentSize = minRequireSize
+                        } else {
+                            scrollView.contentSize = minRequireSize
+                        }
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0, execute: {
+                            self.isAdjustingcontentSize = false
+                        })
+                    }
+                }
+                
+            }
         } else if keyPath == "panGestureRecognizer.state" {
-            
+            if let state = change![NSKeyValueChangeKey.newKey] as? UIGestureRecognizerState {
+                switch (state) {
+                case .began:
+                    contentOffsetQuene.removeValue(forKey: currentItemIndex)
+                default:
+                    break
+                }
+            }
         }
     }
     
@@ -269,6 +340,25 @@ extension SwipeTableView: UICollectionViewDataSource {
 
 extension SwipeTableView: UICollectionViewDelegate {
     
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate?.swipeTableViewDidScroll?(self)
+    }
+    
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        delegate?.swipeTableViewWillBeginDragging?(self)
+    }
+    
+    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        delegate?.swipeTableViewDidEndDragging?(self, willDecelerate: decelerate)
+    }
+    
+    public func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
+        delegate?.swipeTableViewWillBeginDecelerating?(self)
+    }
+    
+    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        delegate?.swipeTableViewDidEndDecelerating?(self)
+    }
 }
 
 public extension UIScrollView {

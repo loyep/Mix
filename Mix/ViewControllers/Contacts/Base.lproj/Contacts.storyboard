@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-714" y="17"/>
         </scene>
-        <!--Contacts View Controller-->
+        <!--Data Source-->
         <scene sceneID="fEn-Bn-Pg8">
             <objects>
                 <viewController storyboardIdentifier="ContactsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RKB-2b-SK0" customClass="ContactsViewController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,23 @@
                     <view key="view" contentMode="scaleToFill" id="SEE-GY-b0A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wD4-np-LXQ" customClass="SwipeTableView" customModule="Mix" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="RKB-2b-SK0" id="W52-0a-m2s"/>
+                                    <outlet property="delegate" destination="RKB-2b-SK0" id="Wd8-PZ-hDi"/>
+                                </connections>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wD4-np-LXQ" firstAttribute="bottom" secondItem="SEE-GY-b0A" secondAttribute="bottom" id="9Tc-7b-5h4"/>
+                            <constraint firstItem="wD4-np-LXQ" firstAttribute="top" secondItem="SEE-GY-b0A" secondAttribute="top" id="DuP-bQ-EWt"/>
+                            <constraint firstItem="wD4-np-LXQ" firstAttribute="trailing" secondItem="SEE-GY-b0A" secondAttribute="trailing" id="TJ0-gG-Dxe"/>
+                            <constraint firstItem="wD4-np-LXQ" firstAttribute="leading" secondItem="SEE-GY-b0A" secondAttribute="leading" id="zBO-Zo-evb"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="0og-uD-nft"/>
                     <navigationItem key="navigationItem" id="WiR-2i-YcB">
@@ -51,10 +67,13 @@
                         </segmentedControl>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="swipeTableView" destination="wD4-np-LXQ" id="omA-VN-8cL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iZF-UV-tol" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="41" y="17"/>
+            <point key="canvasLocation" x="46" y="9"/>
         </scene>
     </scenes>
 </document>

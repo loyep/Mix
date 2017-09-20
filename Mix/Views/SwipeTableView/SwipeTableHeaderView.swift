@@ -7,40 +7,6 @@
 //
 
 import UIKit
-//@class STHeaderView;
-//@protocol STHeaderViewDelegate <NSObject>
-//
-//- (CGPoint)minHeaderViewFrameOrgin;
-//- (CGPoint)maxHeaderViewFrameOrgin;
-//
-//@optional
-//- (void)headerViewDidFrameChanged:(STHeaderView *)headerView;
-//- (void)headerView:(STHeaderView *)headerView didPan:(UIPanGestureRecognizer *)pan;
-//- (void)headerView:(STHeaderView *)headerView didPanGestureRecognizerStateChanged:(UIPanGestureRecognizer *)pan;
-//
-//@end
-//
-//
-///**
-// 采用 UIKitDynamics 实现自定的 swipeHeaderView
-//
-// 只有当`SwipeTableView`的 swipeHeaderView 是`STHeaderView`或其子类的实例,拖拽`SwipeTableView`的 swipeHeaderView才能 同时滚动`SwipeTableView`的 currentItemView.
-// */
-//NS_CLASS_AVAILABLE_IOS(7_0) @interface STHeaderView : UIView
-//
-//@property (nonatomic, readonly, strong) UIPanGestureRecognizer * panGestureRecognizer;
-//@property (nonatomic, weak) id<STHeaderViewDelegate> delegate;
-//@property (nonatomic, readonly, getter=isTracking)     BOOL tracking;
-//@property (nonatomic, readonly, getter=isDragging)     BOOL dragging;
-//@property (nonatomic, readonly, getter=isDecelerating) BOOL decelerating;
-//
-///**
-// *  结束视图的 惯性减速 & 弹性回弹 等效果
-// */
-//- (void)endDecelerating;
-//
-//@end
-
 
 @objc public protocol SwipeTableHeaderViewDelegate: NSObjectProtocol {
     
@@ -56,7 +22,7 @@ import UIKit
 }
 
 open class SwipeTableHeaderView: UIView {
-
+    
     public weak var delegate: SwipeTableHeaderViewDelegate?
     
     public fileprivate(set) var isTracking: Bool = false
@@ -64,6 +30,55 @@ open class SwipeTableHeaderView: UIView {
     public fileprivate(set) var isDragging: Bool = false
     
     public fileprivate(set) var isDecelerating: Bool = false
+    
+    lazy var animator: UIDynamicAnimator? = {
+        let animator = UIDynamicAnimator(referenceView: self)
+        animator.delegate = self;
+        return animator
+    }()
+    
+    var decelerationBehavior: UIDynamicItemBehavior?
+    
+    var springBehavior: UIAttachmentBehavior?
+    
+    fileprivate var dynamicItem: STDynamicItem = STDynamicItem()
+    
+    var newFrame: CGRect {
+        set(newValue) {
+            frame = newValue
+            let minFrameOrgin = self.minFrameOrgin();
+            let maxFrameOrgin = self.maxFrameOrgin();
+
+            let outsideFrameMinimum = frame.origin.y < minFrameOrgin.y;
+            let outsideFrameMaximum = frame.origin.y > maxFrameOrgin.y;
+
+            if (outsideFrameMinimum || outsideFrameMaximum),
+                decelerationBehavior != nil, springBehavior == nil {
+
+                var target = frame.origin;
+                if (outsideFrameMinimum) {
+                    target.x = fmax(target.x, minFrameOrgin.x);
+                    target.y = fmax(target.y, minFrameOrgin.y);
+                } else if (outsideFrameMaximum) {
+                    target.x = fmin(target.x, maxFrameOrgin.x);
+                    target.y = fmin(target.y, maxFrameOrgin.y);
+                }
+
+                springBehavior = UIAttachmentBehavior(item: dynamicItem, attachedToAnchor: target)
+                // Has to be equal to zero, because otherwise the frame wouldn't exactly match the target's position.
+                springBehavior!.length = 0;
+                // These two values were chosen by trial and error.
+                springBehavior!.damping = 1;
+                springBehavior!.frequency = 2;
+
+                animator?.addBehavior(springBehavior!)
+            }
+            delegate?.headerViewDidFrameChanged?(self)
+        }
+        get {
+            return frame
+        }
+    }
     
     public lazy fileprivate(set) var panGestureRecognizer: UIPanGestureRecognizer = {
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(SwipeTableHeaderView.handlePanGesture(_:)))
@@ -81,11 +96,110 @@ open class SwipeTableHeaderView: UIView {
     }
     
     @objc func handlePanGesture(_ pan: UIPanGestureRecognizer) {
-        
+        switch pan.state {
+        case .began:
+            endDecelerating()
+            isTracking = true
+        case .changed:
+            isTracking = true
+            isDragging = true
+            var frame = self.frame
+            let translation = pan.translation(in: superview)
+            let newFrameOrginY = frame.origin.y + translation.y
+            let minFrameOrgin = self.minFrameOrgin()
+            let maxFrameOrgin = self.maxFrameOrgin()
+            
+            let minFrameOrginY = minFrameOrgin.y
+            let maxFrameOrginY = maxFrameOrgin.y;
+            
+            let constrainedOrignY = fmax(minFrameOrginY, fmin(newFrameOrginY, maxFrameOrginY))
+            let rubberBandedRate  = rubberBandRate(newFrameOrginY - constrainedOrignY)
+            
+            frame.origin.y += translation.y * rubberBandedRate
+            newFrame = frame
+            
+            pan.setTranslation(CGPoint(x: translation.x, y: 0), in: superview)
+        case .ended:
+            isTracking = false
+            isDragging = false
+            var velocity = pan.velocity(in: self)
+            velocity.x = 0
+            dynamicItem.center = frame.origin
+            decelerationBehavior = UIDynamicItemBehavior(items: [dynamicItem])
+            decelerationBehavior!.addLinearVelocity(velocity, for: dynamicItem)
+            decelerationBehavior!.resistance = 2
+            decelerationBehavior!.action = {
+                self.frame.origin.y = self.dynamicItem.center.y
+            }
+            animator?.addBehavior(decelerationBehavior!)
+        default:
+            isTracking = false
+            isDragging = false
+        }
+        delegate?.headerView?(self, didPan: pan)
+    }
+    
+    func rubberBandRate(_ offset: CGFloat) -> CGFloat {
+        let constant = 0.15
+        let dimension = 10.0
+        let startRate = 0.85
+        // 计算拖动视图translation的增量比率，起始值为startRate（此时offset为0）；随着frame超出的距离offset的增大，增量比率减小
+        let result = dimension * startRate / (dimension + constant * fabs(Double(offset)))
+        return CGFloat(result);
+    }
+    
+    func minFrameOrgin() -> CGPoint {
+        return delegate?.minHeaderViewFrameOrgin() ?? .zero
+    }
+    
+    func maxFrameOrgin() -> CGPoint {
+        return delegate?.maxHeaderViewFrameOrgin() ?? .zero
+    }
+    
+    func endDecelerating() {
+        animator?.removeAllBehaviors()
+        decelerationBehavior = nil
+        springBehavior = nil
+    }
+    
+    open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let view = super.hitTest(point, with: event)
+        endDecelerating()
+        if bounds.contains(point), isDecelerating {
+            return self
+        }
+        return view
     }
     
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "state" {
+            delegate?.headerView?(self, didPanGestureRecognizerStateChanged: panGestureRecognizer)
+        }
+    }
 }
+
+extension SwipeTableHeaderView: UIDynamicAnimatorDelegate {
+    public func dynamicAnimatorDidPause(_ animator: UIDynamicAnimator) {
+        isDecelerating = false
+    }
+    
+    public func dynamicAnimatorWillResume(_ animator: UIDynamicAnimator) {
+        isDecelerating = true
+    }
+}
+
+fileprivate class STDynamicItem: NSObject, UIDynamicItem {
+    var center: CGPoint = .zero
+    var bounds: CGRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+    var transform: CGAffineTransform = .identity
+    
+    override init() {
+        super.init()
+    }
+    
+}
+

@@ -27,14 +27,14 @@ open class TabBarItemContentView: UIView {
     /// 文字颜色
     open var textColor = UIColor(white: 0.2, alpha: 1.0) {
         didSet {
-            if !selected { titleLabel.textColor = textColor }
+            if !selected { nameLabel.textColor = textColor }
         }
     }
     
     /// 高亮时文字颜色
     open var highlightTextColor = UIColor(white: 0.2, alpha: 1.0) {
         didSet {
-            if selected { titleLabel.textColor = highlightIconColor }
+            if selected { nameLabel.textColor = highlightIconColor }
         }
     }
     
@@ -68,7 +68,7 @@ open class TabBarItemContentView: UIView {
     
     open var title: String? {
         didSet {
-            self.titleLabel.text = title
+            self.nameLabel.text = title
             self.updateLayout()
         }
     }
@@ -100,13 +100,13 @@ open class TabBarItemContentView: UIView {
         return imageView
     }()
     
-    open var titleLabel: UILabel = {
-        let titleLabel = UILabel(frame: CGRect.zero)
-        titleLabel.backgroundColor = .clear
-        titleLabel.textColor = .clear
-        titleLabel.font = UIFont.systemFont(ofSize: 10.0)
-        titleLabel.textAlignment = .center
-        return titleLabel
+    lazy open var nameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.backgroundColor = .clear
+        nameLabel.textColor = .clear
+        nameLabel.font = UIFont.systemFont(ofSize: 10.0)
+        nameLabel.textAlignment = .center
+        return nameLabel
     }()
     
     
@@ -159,9 +159,9 @@ open class TabBarItemContentView: UIView {
         self.isUserInteractionEnabled = false
         
         addSubview(imageView)
-        addSubview(titleLabel)
+        addSubview(nameLabel)
         
-        titleLabel.textColor = textColor
+        nameLabel.textColor = textColor
         imageView.tintColor = iconColor
         backgroundColor = backdropColor
     }
@@ -173,7 +173,7 @@ open class TabBarItemContentView: UIView {
     open func updateDisplay() {
         imageView.image = (selected ? (selectedImage ?? image) : image)?.withRenderingMode(renderingMode)
         imageView.tintColor = selected ? highlightIconColor : iconColor
-        titleLabel.textColor = selected ? highlightTextColor : textColor
+        nameLabel.textColor = selected ? highlightTextColor : textColor
         backgroundColor = selected ? highlightBackdropColor : backdropColor
     }
     
@@ -181,15 +181,15 @@ open class TabBarItemContentView: UIView {
         let w = self.bounds.size.width
         let h = self.bounds.size.height
         imageView.isHidden = (imageView.image == nil)
-        titleLabel.isHidden = (titleLabel.text == nil)
+        nameLabel.isHidden = (nameLabel.text == nil)
         
-        if !imageView.isHidden && !titleLabel.isHidden {
-            titleLabel.sizeToFit()
+        if !imageView.isHidden && !nameLabel.isHidden {
+            nameLabel.sizeToFit()
             imageView.sizeToFit()
-            titleLabel.frame = CGRect(x: (w - titleLabel.bounds.size.width) / 2.0,
-                                           y: h - titleLabel.bounds.size.height - 1.0,
-                                           width: titleLabel.bounds.size.width,
-                                           height: titleLabel.bounds.size.height)
+            nameLabel.frame = CGRect(x: (w - nameLabel.bounds.size.width) / 2.0,
+                                           y: h - nameLabel.bounds.size.height - 1.0,
+                                           width: nameLabel.bounds.size.width,
+                                           height: nameLabel.bounds.size.height)
             imageView.frame = CGRect(x: (w - imageView.bounds.size.width) / 2.0,
                                           y: (h - imageView.bounds.size.height) / 2.0 - 6.0,
                                           width: imageView.bounds.size.width,
@@ -197,9 +197,9 @@ open class TabBarItemContentView: UIView {
         } else if !imageView.isHidden {
             imageView.sizeToFit()
             imageView.center = CGPoint(x: w / 2.0, y: h / 2.0)
-        } else if !titleLabel.isHidden {
-            titleLabel.sizeToFit()
-            titleLabel.center = CGPoint(x: w / 2.0, y: h / 2.0)
+        } else if !nameLabel.isHidden {
+            nameLabel.sizeToFit()
+            nameLabel.center = CGPoint(x: w / 2.0, y: h / 2.0)
         }
         
         if let _ = badgeView.superview {

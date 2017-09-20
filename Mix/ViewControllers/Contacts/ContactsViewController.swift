@@ -9,25 +9,11 @@
 import UIKit
 import SwiftyWeibo
 
-class ContactsViewController: CollectionViewController {
+class ContactsViewController: BaseViewController {
     
-    open override var collectionView: UICollectionView? {
-        didSet {
-            if collectionView == nil { return }
-            collectionView!.alwaysBounceVertical = true
-            view.addSubview(collectionView!)
-            collectionView?.registerClassOf(BaseStatusesViewCell.self)
-            collectionView!.snp.makeConstraints {
-                $0.left.top.bottom.right.equalTo(view)
-            }
-        }
-    }
+    @IBOutlet weak var swipeTableView: SwipeTableView!
     
-    override func loadView() {
-        super.loadView()
-        self.collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView?.registerClassOf(UICollectionViewCell.self)
-    }
+    var scroll: UIScrollView = UIScrollView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +22,20 @@ class ContactsViewController: CollectionViewController {
     
 }
 
-extension ContactsViewController {
+extension ContactsViewController: SwipeTableViewDelegate {
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: BaseStatusesViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
-        return cell
+    
+}
+
+extension ContactsViewController: SwipeTableViewDataSource {
+    
+    
+    func numberOfSections(in swipeTableView: SwipeTableView) -> Int {
+        return 2
+    }
+    
+    func swipeTableView(_ swipeTableView: SwipeTableView, viewForItemAt index: Int, reusingView: UIScrollView) -> UIScrollView {
+        return scroll
     }
     
 }
