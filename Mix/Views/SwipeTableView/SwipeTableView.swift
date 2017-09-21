@@ -54,13 +54,13 @@ import UIKit
 }
 
 
-open class SwipeTableView: UIView, UIScrollViewDelegate {
+@IBDesignable open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     @IBOutlet public weak var delegate: SwipeTableViewDelegate?
     
     @IBOutlet public weak var dataSource: SwipeTableViewDataSource?
     
-    open var contentView: UICollectionView?
+    public var contentView: UICollectionView = .init(frame: .zero, collectionViewLayout: .init())
     
     lazy fileprivate var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -96,7 +96,7 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     open var alwaysBounceHorizontal: Bool = true {
         didSet {
-            contentView?.alwaysBounceHorizontal = alwaysBounceHorizontal
+            contentView.alwaysBounceHorizontal = alwaysBounceHorizontal
         }
     }
     
@@ -146,21 +146,21 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     }
     
     func setupUI() {
-        contentView = UICollectionView(frame: bounds, collectionViewLayout: layout)
-        contentView?.delegate = self
-        contentView?.dataSource = self
-        contentView?.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        contentView?.showsHorizontalScrollIndicator = false
-        contentView?.isPagingEnabled = true
-        contentView?.scrollsToTop = false
-        contentView?.backgroundColor = .white
-        contentView?.registerClassOf(UICollectionViewCell.self)
-        if #available(iOS 10.0, *) { contentView?.isPrefetchingEnabled = false }
+        contentView.collectionViewLayout = layout
+        contentView.delegate = self
+        contentView.dataSource = self
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        contentView.showsHorizontalScrollIndicator = false
+        contentView.isPagingEnabled = true
+        contentView.scrollsToTop = false
+        contentView.backgroundColor = .white
+        contentView.registerClassOf(UICollectionViewCell.self)
+        if #available(iOS 10.0, *) { contentView.isPrefetchingEnabled = false }
         
         let autoAdjustInsetsView = UIScrollView()
         autoAdjustInsetsView.scrollsToTop = false
         addSubview(autoAdjustInsetsView)
-        addSubview(contentView!)
+        addSubview(contentView)
     }
     
     open func reloadData() {
@@ -173,7 +173,7 @@ open class SwipeTableView: UIView, UIScrollViewDelegate {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView?.frame = self.bounds
+        self.contentView.frame = self.bounds
         self.layout.itemSize = self.bounds.size
         //        self.swipeHeaderBarScrollDisabled &= nil == _swipeHeaderView;
         self.swipeHeaderBar?.frame.origin.y = swipeHeaderView?.frame.maxY ?? 0

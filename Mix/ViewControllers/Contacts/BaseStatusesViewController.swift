@@ -11,6 +11,15 @@ import SnapKit
 
 class BaseStatusesViewController: CollectionViewController {
     
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: .init())
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
