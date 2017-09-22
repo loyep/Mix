@@ -14,6 +14,7 @@ target 'Mix' do
     pod 'YYKit'
     pod 'SwiftTheme'
     pod 'RxSwift'
+    pod 'RxCocoa'
 
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
