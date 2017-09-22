@@ -1,12 +1,13 @@
 PODS:
   - Alamofire (4.5.1)
-  - Realm (2.10.0):
-    - Realm/Headers (= 2.10.0)
-  - Realm/Headers (2.10.0)
-  - RealmSwift (2.10.0):
-    - Realm (= 2.10.0)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
   - Result (3.2.3)
-  - SnapKit (3.2.0)
+  - RxSwift (3.6.1)
+  - SnapKit (4.0.0)
   - SwiftTheme (0.3.3)
   - SwiftyJSON (3.1.4)
   - SwiftyWeibo (1.0.0):
@@ -20,6 +21,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - RealmSwift
+  - RxSwift
   - SnapKit
   - SwiftTheme
   - SwiftyJSON
@@ -35,16 +37,17 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
-  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftTheme: 85f84747a48749b5b3df7c3e96fc0b1d45677d30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyWeibo: 3d3d0b7ae8ed978578620800860f6e7f6fe2c81a
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 61ab83a21d73b27f10ae48a1974dd13d26966fc5
+PODFILE CHECKSUM: 150593feeb50dd357b43f0890a87f5fec9fa1650
 
 COCOAPODS: 1.3.1

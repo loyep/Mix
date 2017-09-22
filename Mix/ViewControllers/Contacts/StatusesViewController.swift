@@ -10,7 +10,6 @@ import UIKit
 
 class StatusesViewController: BaseStatusesViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = .red

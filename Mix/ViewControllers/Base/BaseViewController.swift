@@ -10,15 +10,16 @@ import UIKit
 
 open class BaseViewController: UIViewController {
 
+    open override func loadView() {
+        super.loadView()
+    }
+    
     override open func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override open func encodeRestorableState(with coder: NSCoder) {

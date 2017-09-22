@@ -99,8 +99,8 @@ extension Realm {
         }
     }
     
-    static func write(for db: Realm.DBName, task: () -> Void) throws {
-        
+    static func write(for db: Realm.DBName, task: @escaping () -> Void) throws
+    {
         let realm = try Realm(dbName: db)
         try realm.write(task)
     }

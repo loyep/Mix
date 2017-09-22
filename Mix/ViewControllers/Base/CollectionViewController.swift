@@ -12,6 +12,25 @@ open class CollectionViewController: BaseViewController {
     
     @IBOutlet open var collectionView: UICollectionView?
     
+    open fileprivate(set) var collectionViewLayout: UICollectionViewLayout = .init()
+    
+    var clearsSelectionOnViewWillAppear: Bool = true
+    
+    public convenience init(collectionViewLayout layout: UICollectionViewLayout) {
+        self.init(nibName: nil, bundle: nil)
+        collectionViewLayout = layout
+    }
+    
+    open override func loadView() {
+        super.loadView()
+        loadCollectionView()
+    }
+    
+    fileprivate func loadCollectionView() {
+        guard collectionView == nil else { return }
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+    }
+    
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -19,8 +38,6 @@ open class CollectionViewController: BaseViewController {
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    var clearsSelectionOnViewWillAppear: Bool = true
     
     override open func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +49,7 @@ open class CollectionViewController: BaseViewController {
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if clearsSelectionOnViewWillAppear,
+            collectionView?.allowsSelection ?? false,
             let selectedItems = collectionView?.indexPathsForSelectedItems,
             selectedItems.count > 0 {
             let allowsSelection = collectionView!.allowsSelection

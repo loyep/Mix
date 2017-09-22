@@ -70,6 +70,7 @@
 		298B55D61F712021006C8DAA /* StatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D51F712021006C8DAA /* StatusesViewController.swift */; };
 		298B55D81F712069006C8DAA /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D71F712069006C8DAA /* CommentsViewController.swift */; };
 		298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D91F712150006C8DAA /* BaseStatusesViewController.swift */; };
+		299906B81F75108E00D15B83 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299906B71F75108E00D15B83 /* ViewModelType.swift */; };
 		29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */; };
 		29A271791F6A85B0003D8C1E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271781F6A85AF003D8C1E /* CollectionViewController.swift */; };
 		29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2717A1F6A85DA003D8C1E /* TableViewController.swift */; };
@@ -193,6 +194,7 @@
 		298B55D51F712021006C8DAA /* StatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesViewController.swift; sourceTree = "<group>"; };
 		298B55D71F712069006C8DAA /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		298B55D91F712150006C8DAA /* BaseStatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewController.swift; sourceTree = "<group>"; };
+		299906B71F75108E00D15B83 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Mix.swift"; sourceTree = "<group>"; };
 		29A271781F6A85AF003D8C1E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		29A2717A1F6A85DA003D8C1E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -496,6 +498,14 @@
 			path = Welcome;
 			sourceTree = "<group>";
 		};
+		299906B61F75107D00D15B83 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				299906B71F75108E00D15B83 /* ViewModelType.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		29A271721F6A62AC003D8C1E /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +568,7 @@
 		29CB03A81F569C4D00CF33FF /* Mix */ = {
 			isa = PBXGroup;
 			children = (
+				299906B61F75107D00D15B83 /* ViewModels */,
 				29F77B111F6BA96800C59674 /* Theme */,
 				298ACA621F569FCB005D2DAC /* Assets */,
 				298ACA901F56C72E005D2DAC /* Extensions */,
@@ -798,6 +809,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -810,6 +822,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -976,6 +989,7 @@
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */,
 				29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */,
+				299906B81F75108E00D15B83 /* ViewModelType.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
