@@ -655,6 +655,7 @@
 				29229B641F569D90007059A5 /* Embed App Extensions */,
 				0707EC17A5CBE904967E75B1 /* [CP] Embed Pods Frameworks */,
 				A9045BA73A5D2C5CC2205767 /* [CP] Copy Pods Resources */,
+				292154171F7650E800D80A8E /* Run Update Build Script */,
 			);
 			buildRules = (
 			);
@@ -675,6 +676,7 @@
 				29229B531F569D90007059A5 /* Frameworks */,
 				29229B541F569D90007059A5 /* Resources */,
 				8DDEA7450AD2E0236A5BE7FC /* [CP] Copy Pods Resources */,
+				292154181F76514E00D80A8E /* Run Update Build Script */,
 			);
 			buildRules = (
 			);
@@ -866,6 +868,34 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixTests/Pods-MixTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		292154171F7650E800D80A8E /* Run Update Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Update Build Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\n\nfi";
+		};
+		292154181F76514E00D80A8E /* Run Update Build Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Update Build Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\n\nfi";
 		};
 		8DDEA7450AD2E0236A5BE7FC /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
