@@ -8,8 +8,10 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController {
-
+open class BaseViewController: UIViewController, ViewControllerType {
+    
+    open var viewModel: ViewModelType = BaseViewModel()
+    
     open override func loadView() {
         super.loadView()
     }

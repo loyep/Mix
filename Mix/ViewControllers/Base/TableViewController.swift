@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class TableViewController: BaseViewController {
+open class TableViewController: UIViewController, TableViewControllerType {
     
     @IBOutlet open var tableView: UITableView?
     

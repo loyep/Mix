@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CollectionViewController: BaseViewController {
+open class CollectionViewController: UIViewController, CollectionViewControllerType {
     
     @IBOutlet open var collectionView: UICollectionView?
     
