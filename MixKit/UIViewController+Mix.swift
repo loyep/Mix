@@ -8,17 +8,17 @@
 
 import UIKit.UIViewController
 
-//public struct MixViewModel<Base> {
-//    /// Base object to extend.
-//    public let base: Base
-//
-//    /// Creates extensions with base object.
-//    ///
-//    /// - parameter base: Base object.
-//    public init(_ base: Base) {
-//        self.base = base
-//    }
-//}
+public struct MixViewModel<Base> {
+    /// Base object to extend.
+    public let base: Base
+
+    /// Creates extensions with base object.
+    ///
+    /// - parameter base: Base object.
+    public init(_ base: Base) {
+        self.base = base
+    }
+}
 
 /// A type that has MixCompatible extensions.
 public protocol MixViewController{
@@ -26,24 +26,24 @@ public protocol MixViewController{
     associatedtype ViewModelType
     
     /// MixReusable extensions.
-    static var mix: MixTarget<ViewModelType>.Type { get }
+    static var mix: MixViewModel<ViewModelType>.Type { get }
     
     /// MixCompatible extensions.
-    var mix: MixTarget<ViewModelType> { get }
+    var mix: MixViewModel<ViewModelType> { get }
 }
 
 public extension MixViewController {
     /// MixCompatible extensions.
-    public static var mix: MixTarget<Self>.Type {
+    public static var mix: MixViewModel<Self>.Type {
         get {
-            return MixTarget<Self>.self
+            return MixViewModel<Self>.self
         }
     }
     
     /// MixCompatible extensions.
-    public var mix: MixTarget<Self> {
+    public var mix: MixViewModel<Self> {
         get {
-            return MixTarget(self)
+            return MixViewModel(self)
         }
     }
 }
