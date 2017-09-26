@@ -6,6 +6,9 @@ PODS:
   - RealmSwift (2.10.1):
     - Realm (= 2.10.1)
   - Result (3.2.3)
+  - RxCocoa (4.0.0-beta.0):
+    - RxSwift (~> 4.0.0-beta.0)
+  - RxSwift (4.0.0-beta.0)
   - SnapKit (4.0.0)
   - SwiftTheme (0.3.3)
   - SwiftyJSON (3.1.4)
@@ -20,6 +23,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - RealmSwift
+  - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
+  - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
   - SnapKit
   - SwiftTheme
   - SwiftyJSON
@@ -28,16 +33,32 @@ DEPENDENCIES:
   - YYKit
 
 EXTERNAL SOURCES:
+  RxCocoa:
+    :branch: rxswift4.0-swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :branch: rxswift4.0-swift4.0
+    :git: https://github.com/ReactiveX/RxSwift.git
   SwiftyWeibo:
     :path: ./Source/SwiftyWeibo
   WeiboSDK:
     :path: ./Source/WeiboSDK
+
+CHECKOUT OPTIONS:
+  RxCocoa:
+    :commit: 7d344f6ca02683f6a52e61839ae0e01ecd4981eb
+    :git: https://github.com/ReactiveX/RxSwift.git
+  RxSwift:
+    :commit: 7d344f6ca02683f6a52e61839ae0e01ecd4981eb
+    :git: https://github.com/ReactiveX/RxSwift.git
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
+  RxCocoa: f2dff5e6b6a40f842867ec5915f449e1c3af563a
+  RxSwift: cafebeafadc860ca27a2f3fb3760a8bb8663f6ef
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftTheme: 85f84747a48749b5b3df7c3e96fc0b1d45677d30
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
@@ -45,6 +66,6 @@ SPEC CHECKSUMS:
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: c87bd717ce363a1b349f839aa13397a6cb49226e
+PODFILE CHECKSUM: e9c38e2571188f9cc7d415e0f2cc9fecf3a24cbb
 
 COCOAPODS: 1.3.1

@@ -32,15 +32,13 @@ public protocol MixCompatible {
     var mix: MixTarget<CompatibleType> { get set }
 }
 
-extension MixCompatible {
+public extension MixCompatible {
     /// MixCompatible extensions.
     public static var mix: MixTarget<Self>.Type {
         get {
             return MixTarget<Self>.self
         }
-        set {
-            
-        }
+        set { }
     }
     
     /// MixCompatible extensions.
@@ -48,9 +46,7 @@ extension MixCompatible {
         get {
             return MixTarget(self)
         }
-        set {
-            
-        }
+        set { }
     }
 }
 

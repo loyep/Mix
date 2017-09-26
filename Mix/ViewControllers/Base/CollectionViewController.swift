@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MixKit
 
 open class CollectionViewController: UIViewController {
     

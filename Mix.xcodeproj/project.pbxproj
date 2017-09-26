@@ -21,6 +21,10 @@
 		2921543B1F7A054800D80A8E /* MixKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2921542B1F7A054800D80A8E /* MixKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2921543E1F7A054800D80A8E /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; };
 		2921543F1F7A054800D80A8E /* MixKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		292154471F7A4D3C00D80A8E /* ReusableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */; };
+		292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF411F60E8B70077652C /* Date+Mix.swift */; };
+		292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* MixTarget.swift */; };
+		2921544B1F7A4DF600D80A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2921544A1F7A4DF500D80A8E /* UIKit.framework */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -40,9 +44,6 @@
 		2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F61F5BFC400088A33C /* Regex.swift */; };
 		2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */; };
 		2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2933F3F81F5BFC400088A33C /* ThreadLocal.swift */; };
-		2947EF421F60E8B70077652C /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF411F60E8B70077652C /* Date+Mix.swift */; };
-		2947EF441F6108860077652C /* WeiboTextAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF431F6108860077652C /* WeiboTextAttributedString.swift */; };
-		29504C941F5D413400C61C28 /* emoticons.json in Resources */ = {isa = PBXBuildFile; fileRef = 29504C931F5D413400C61C28 /* emoticons.json */; };
 		2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */; };
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
@@ -61,7 +62,6 @@
 		298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA811F56A15D005D2DAC /* ProfileViewController.swift */; };
 		298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */; };
 		298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */; };
-		298ACA921F56C73D005D2DAC /* ReusableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */; };
 		298ACA9B1F56C831005D2DAC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA971F56C831005D2DAC /* Config.swift */; };
 		298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA991F56C831005D2DAC /* SafeDispatch.swift */; };
 		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
@@ -92,11 +92,9 @@
 		29F77B131F6BBA1300C59674 /* CALayer+MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */; };
 		A97AE6D2ADC2E77254660ED5 /* Pods_MixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC167CEEB21AF4C1EF6FFB0 /* Pods_MixTests.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
-		CF60C2841F56ED7F004CCD5B /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* MixTarget.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
 		CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */; };
 		E60F4A22F99DD2ED0009FCE2 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378631AE83468B87D5A1F235 /* Pods_Mix.framework */; };
-		FC917C91E993BC1F5BADF5C4 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1E6D8B4F3028EC9B5A4F1 /* Pods_MixShare.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,7 +161,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		15AB0816F764CD8089C100EA /* Pods-MixShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.release.xcconfig"; sourceTree = "<group>"; };
 		29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewCell.swift; sourceTree = "<group>"; };
 		29108A671F72097A00A75DCE /* SwipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
@@ -179,6 +176,7 @@
 		292154311F7A054800D80A8E /* MixKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		292154381F7A054800D80A8E /* MixKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixKitTests.swift; sourceTree = "<group>"; };
 		2921543A1F7A054800D80A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2921544A1F7A4DF500D80A8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -200,8 +198,6 @@
 		2933F3F71F5BFC400088A33C /* String+ReplaceMatching.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+ReplaceMatching.swift"; sourceTree = "<group>"; };
 		2933F3F81F5BFC400088A33C /* ThreadLocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThreadLocal.swift; sourceTree = "<group>"; };
 		2947EF411F60E8B70077652C /* Date+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Mix.swift"; sourceTree = "<group>"; };
-		2947EF431F6108860077652C /* WeiboTextAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboTextAttributedString.swift; sourceTree = "<group>"; };
-		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
 		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Theme.swift"; sourceTree = "<group>"; };
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
@@ -264,7 +260,6 @@
 		378631AE83468B87D5A1F235 /* Pods_Mix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D12AAA5A05464EC181D1A0 /* Pods-MixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.release.xcconfig"; sourceTree = "<group>"; };
 		B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
-		B9A7E1F808238FC1FE96E5C9 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		CF60C2821F56ED7F004CCD5B /* MixTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTarget.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
@@ -278,6 +273,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2921544B1F7A4DF600D80A8E /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,7 +298,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC917C91E993BC1F5BADF5C4 /* Pods_MixShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +315,7 @@
 		048B1B1332F6C0454C1D1707 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2921544A1F7A4DF500D80A8E /* UIKit.framework */,
 				378631AE83468B87D5A1F235 /* Pods_Mix.framework */,
 				F2A1E6D8B4F3028EC9B5A4F1 /* Pods_MixShare.framework */,
 				2DC167CEEB21AF4C1EF6FFB0 /* Pods_MixTests.framework */,
@@ -332,8 +328,6 @@
 			children = (
 				B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */,
 				2B24E7A2901B54986ADA792B /* Pods-Mix.release.xcconfig */,
-				B9A7E1F808238FC1FE96E5C9 /* Pods-MixShare.debug.xcconfig */,
-				15AB0816F764CD8089C100EA /* Pods-MixShare.release.xcconfig */,
 				E5063885D84365985433CF9A /* Pods-MixTests.debug.xcconfig */,
 				88D12AAA5A05464EC181D1A0 /* Pods-MixTests.release.xcconfig */,
 			);
@@ -364,8 +358,11 @@
 		2921542A1F7A054800D80A8E /* MixKit */ = {
 			isa = PBXGroup;
 			children = (
-				2921542B1F7A054800D80A8E /* MixKit.h */,
+				2947EF411F60E8B70077652C /* Date+Mix.swift */,
 				2921542C1F7A054800D80A8E /* Info.plist */,
+				2921542B1F7A054800D80A8E /* MixKit.h */,
+				CF60C2821F56ED7F004CCD5B /* MixTarget.swift */,
+				298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */,
 			);
 			path = MixKit;
 			sourceTree = "<group>";
@@ -373,8 +370,8 @@
 		292154371F7A054800D80A8E /* MixKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				292154381F7A054800D80A8E /* MixKitTests.swift */,
 				2921543A1F7A054800D80A8E /* Info.plist */,
+				292154381F7A054800D80A8E /* MixKitTests.swift */,
 			);
 			path = MixKitTests;
 			sourceTree = "<group>";
@@ -431,7 +428,6 @@
 		29504C921F5D411F00C61C28 /* JSON */ = {
 			isa = PBXGroup;
 			children = (
-				29504C931F5D413400C61C28 /* emoticons.json */,
 			);
 			path = JSON;
 			sourceTree = "<group>";
@@ -572,13 +568,10 @@
 			children = (
 				2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */,
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
-				2947EF411F60E8B70077652C /* Date+Mix.swift */,
 				29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */,
 				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
 				29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */,
 				29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */,
-				298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */,
-				2947EF431F6108860077652C /* WeiboTextAttributedString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -664,10 +657,10 @@
 		29CB039D1F569C4D00CF33FF = {
 			isa = PBXGroup;
 			children = (
-				2921542A1F7A054800D80A8E /* MixKit */,
-				292154371F7A054800D80A8E /* MixKitTests */,
 				048B1B1332F6C0454C1D1707 /* Frameworks */,
 				29CB03A81F569C4D00CF33FF /* Mix */,
+				2921542A1F7A054800D80A8E /* MixKit */,
+				292154371F7A054800D80A8E /* MixKitTests */,
 				29229B571F569D90007059A5 /* MixShare */,
 				29229B6A1F569D9D007059A5 /* MixTests */,
 				25F002201F7C50B637D36720 /* Pods */,
@@ -734,7 +727,6 @@
 		CF60C2811F56ED68004CCD5B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF60C2821F56ED7F004CCD5B /* MixTarget.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -819,12 +811,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29229B611F569D90007059A5 /* Build configuration list for PBXNativeTarget "MixShare" */;
 			buildPhases = (
-				4DED06E7B8C4C0F89A019EB3 /* [CP] Check Pods Manifest.lock */,
 				29229B521F569D90007059A5 /* Sources */,
 				29229B531F569D90007059A5 /* Frameworks */,
 				29229B541F569D90007059A5 /* Resources */,
 				292154181F76514E00D80A8E /* Run Update Build Script */,
-				48C7E035B32505B8143B207E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -945,7 +935,6 @@
 			files = (
 				298ACAB01F57ADFA005D2DAC /* Images.xcassets in Resources */,
 				2972CA861F6A533F00D05C9A /* Profile.storyboard in Resources */,
-				29504C941F5D413400C61C28 /* emoticons.json in Resources */,
 				29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */,
 				2972CA921F6A540600D05C9A /* Home.storyboard in Resources */,
 				2972CA9B1F6A542A00D05C9A /* Main.storyboard in Resources */,
@@ -1021,39 +1010,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\n\nfi";
 		};
-		48C7E035B32505B8143B207E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixShare/Pods-MixShare-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4DED06E7B8C4C0F89A019EB3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MixShare-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		5F01E055EB018BF0258C4240 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1098,6 +1054,8 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftTheme/SwiftTheme.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -1110,6 +1068,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftTheme.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -1161,6 +1121,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */,
+				292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */,
+				292154471F7A4D3C00D80A8E /* ReusableView+Mix.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,7 +1148,6 @@
 				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */,
-				CF60C2841F56ED7F004CCD5B /* MixTarget.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
 				29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */,
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
@@ -1211,7 +1173,6 @@
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
 				29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
-				298ACA921F56C73D005D2DAC /* ReusableView+Mix.swift in Sources */,
 				29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */,
@@ -1224,11 +1185,9 @@
 				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
 				292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */,
 				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
-				2947EF421F60E8B70077652C /* Date+Mix.swift in Sources */,
 				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
 				CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */,
-				2947EF441F6108860077652C /* WeiboTextAttributedString.swift in Sources */,
 				292154211F78AFE700D80A8E /* BaseViewModel.swift in Sources */,
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
@@ -1397,7 +1356,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MixKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1425,7 +1384,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = MixKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1440,7 +1399,7 @@
 		292154421F7A054800D80A8E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1461,7 +1420,7 @@
 		292154431F7A054800D80A8E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1523,7 +1482,6 @@
 		};
 		29229B621F569D90007059A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9A7E1F808238FC1FE96E5C9 /* Pods-MixShare.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = MixShare/Info.plist;
@@ -1537,7 +1495,6 @@
 		};
 		29229B631F569D90007059A5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 15AB0816F764CD8089C100EA /* Pods-MixShare.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = MixShare/Info.plist;

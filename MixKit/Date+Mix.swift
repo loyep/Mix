@@ -123,7 +123,7 @@ public extension DateComponents {
 
 public extension Date {
     
-    ///
+    /// isToday
     public var isToday: Bool {
         return Calendar.current.isDateInToday(self)
     }
