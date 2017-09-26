@@ -43,7 +43,6 @@
 		2947EF421F60E8B70077652C /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF411F60E8B70077652C /* Date+Mix.swift */; };
 		2947EF441F6108860077652C /* WeiboTextAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF431F6108860077652C /* WeiboTextAttributedString.swift */; };
 		29504C941F5D413400C61C28 /* emoticons.json in Resources */ = {isa = PBXBuildFile; fileRef = 29504C931F5D413400C61C28 /* emoticons.json */; };
-		2951D1BE1F5FC3BE00D06EBA /* UICollectionview+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */; };
 		2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */; };
 		2952BF921F5E820100A309E5 /* UIFont+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF911F5E820100A309E5 /* UIFont+Mix.swift */; };
 		2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2952BF931F5E8B0400A309E5 /* MixTheme.swift */; };
@@ -62,7 +61,7 @@
 		298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA811F56A15D005D2DAC /* ProfileViewController.swift */; };
 		298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */; };
 		298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */; };
-		298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */; };
+		298ACA921F56C73D005D2DAC /* ReusableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */; };
 		298ACA9B1F56C831005D2DAC /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA971F56C831005D2DAC /* Config.swift */; };
 		298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA991F56C831005D2DAC /* SafeDispatch.swift */; };
 		298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */; };
@@ -93,7 +92,7 @@
 		29F77B131F6BBA1300C59674 /* CALayer+MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */; };
 		A97AE6D2ADC2E77254660ED5 /* Pods_MixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC167CEEB21AF4C1EF6FFB0 /* Pods_MixTests.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
-		CF60C2841F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* Reusable.swift */; };
+		CF60C2841F56ED7F004CCD5B /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* MixTarget.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
 		CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */; };
 		E60F4A22F99DD2ED0009FCE2 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378631AE83468B87D5A1F235 /* Pods_Mix.framework */; };
@@ -203,7 +202,6 @@
 		2947EF411F60E8B70077652C /* Date+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Mix.swift"; sourceTree = "<group>"; };
 		2947EF431F6108860077652C /* WeiboTextAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboTextAttributedString.swift; sourceTree = "<group>"; };
 		29504C931F5D413400C61C28 /* emoticons.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoticons.json; sourceTree = "<group>"; };
-		2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionview+Mix.swift"; sourceTree = "<group>"; };
 		2952BF8F1F5E7ED000A309E5 /* AttributedString+Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AttributedString+Theme.swift"; sourceTree = "<group>"; };
 		2952BF911F5E820100A309E5 /* UIFont+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Mix.swift"; sourceTree = "<group>"; };
 		2952BF931F5E8B0400A309E5 /* MixTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTheme.swift; sourceTree = "<group>"; };
@@ -226,7 +224,7 @@
 		298ACA811F56A15D005D2DAC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Mix.swift"; sourceTree = "<group>"; };
+		298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableView+Mix.swift"; sourceTree = "<group>"; };
 		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
 		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboProvider.swift; sourceTree = "<group>"; };
@@ -268,7 +266,7 @@
 		B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
 		B9A7E1F808238FC1FE96E5C9 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
-		CF60C2821F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		CF60C2821F56ED7F004CCD5B /* MixTarget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixTarget.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
 		CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboStatusLayout.swift; sourceTree = "<group>"; };
 		E5063885D84365985433CF9A /* Pods-MixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -576,11 +574,10 @@
 				CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */,
 				2947EF411F60E8B70077652C /* Date+Mix.swift */,
 				29AB19E21F62A3E7008E503C /* RealmSwift+Mix.swift */,
-				2951D1BD1F5FC3BE00D06EBA /* UICollectionview+Mix.swift */,
 				2952BF911F5E820100A309E5 /* UIFont+Mix.swift */,
 				29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */,
 				29B5F7ED1F69076400BDE23D /* UIStoryBoard+Mix.swift */,
-				298ACA911F56C73D005D2DAC /* UITableView+Mix.swift */,
+				298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */,
 				2947EF431F6108860077652C /* WeiboTextAttributedString.swift */,
 			);
 			path = Extensions;
@@ -737,7 +734,7 @@
 		CF60C2811F56ED68004CCD5B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF60C2821F56ED7F004CCD5B /* Reusable.swift */,
+				CF60C2821F56ED7F004CCD5B /* MixTarget.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1188,7 +1185,7 @@
 				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */,
-				CF60C2841F56ED7F004CCD5B /* Reusable.swift in Sources */,
+				CF60C2841F56ED7F004CCD5B /* MixTarget.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
 				29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */,
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
@@ -1214,7 +1211,7 @@
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
 				29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
-				298ACA921F56C73D005D2DAC /* UITableView+Mix.swift in Sources */,
+				298ACA921F56C73D005D2DAC /* ReusableView+Mix.swift in Sources */,
 				29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */,
@@ -1225,7 +1222,6 @@
 				29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */,
 				29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */,
 				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
-				2951D1BE1F5FC3BE00D06EBA /* UICollectionview+Mix.swift in Sources */,
 				292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */,
 				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
 				2947EF421F60E8B70077652C /* Date+Mix.swift in Sources */,
