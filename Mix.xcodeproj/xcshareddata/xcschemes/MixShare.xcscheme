@@ -54,6 +54,16 @@
                ReferencedContainer = "container:Mix.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "292154301F7A054800D80A8E"
+               BuildableName = "MixKitTests.xctest"
+               BlueprintName = "MixKitTests"
+               ReferencedContainer = "container:Mix.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

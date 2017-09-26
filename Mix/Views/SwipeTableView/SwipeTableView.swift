@@ -154,7 +154,7 @@ import UIKit
         contentView.isPagingEnabled = true
         contentView.scrollsToTop = false
         contentView.backgroundColor = .white
-        contentView.registerClassOf(UICollectionViewCell.self)
+        contentView.mix.registerClassOf(UICollectionViewCell.self)
         if #available(iOS 10.0, *) { contentView.isPrefetchingEnabled = false }
         
         let autoAdjustInsetsView = UIScrollView()
@@ -196,7 +196,7 @@ extension SwipeTableView: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: UICollectionViewCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: UICollectionViewCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
         guard var subView = cell.scrollView else {
             return cell
         }

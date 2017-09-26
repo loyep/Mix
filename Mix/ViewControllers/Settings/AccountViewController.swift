@@ -14,7 +14,7 @@ class AccountViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        accountList.registerClassOf(AccountTableViewCell.self)
+        accountList.mix.registerClassOf(AccountTableViewCell.self)
     }
     
 }
@@ -30,7 +30,7 @@ extension AccountViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: AccountTableViewCell = tableView.dequeueReusableCell(indexPath: indexPath)
+        let cell: AccountTableViewCell = tableView.mix.dequeueReusableCell(indexPath: indexPath)
         return cell
     }
 }

@@ -8,35 +8,76 @@
 
 import UIKit
 
-protocol Reusable: class {
+public struct MixTarget<Base> {
+    /// Base object to extend.
+    public let base: Base
     
-    static var mix_reuseIdentifier: String { get }
+    /// Creates extensions with base object.
+    ///
+    /// - parameter base: Base object.
+    public init(_ base: Base) {
+        self.base = base
+    }
 }
 
-extension UITableViewCell: Reusable {
+/// A type that has MixReusable extensions.
+public protocol MixReusable {
+    /// Extended type
+    associatedtype ReusableType
     
-    static var mix_reuseIdentifier: String {
+    /// MixReusable extensions.
+    static var mix: MixTarget<ReusableType>.Type { get set }
+    
+    /// MixReusable extensions.
+    var mix: MixTarget<ReusableType> { get set }
+}
+
+extension MixReusable {
+    /// MixReusable extensions.
+    public static var mix: MixTarget<Self>.Type {
+        get {
+            return MixTarget<Self>.self
+        }
+        set {
+            
+        }
+    }
+    
+    /// MixReusable extensions.
+    public var mix: MixTarget<Self> {
+        get {
+            return MixTarget(self)
+        }
+        set {
+            
+        }
+    }
+}
+
+/// Extend NSObject with `mix` proxy.
+extension NSObject: MixReusable { }
+
+extension MixTarget where Base: UITableViewCell {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
-extension UITableViewHeaderFooterView: Reusable {
-    
-    static var mix_reuseIdentifier: String {
+extension MixTarget where Base: UITableViewHeaderFooterView {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
-extension UICollectionReusableView: Reusable {
-    
-    static var mix_reuseIdentifier: String {
+extension MixTarget where Base: UICollectionReusableView {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
-extension UIViewController: Reusable {
-
-    static var mix_reuseIdentifier: String {
+extension MixTarget where Base: UIViewController {
+    static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
+

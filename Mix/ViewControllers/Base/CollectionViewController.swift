@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CollectionViewController: UIViewController, CollectionViewControllerType {
+open class CollectionViewController: UIViewController {
     
     @IBOutlet open var collectionView: UICollectionView?
     
@@ -43,7 +43,7 @@ open class CollectionViewController: UIViewController, CollectionViewControllerT
         super.viewDidLoad()
         collectionView?.theme_backgroundColor = globalViewBackgroundColorPicker
         collectionView?.alwaysBounceVertical = true
-        collectionView?.registerClassOf(UICollectionViewCell.self)
+        collectionView?.mix.registerClassOf(UICollectionViewCell.self)
     }
     
     override open func viewWillAppear(_ animated: Bool) {
@@ -70,6 +70,17 @@ extension CollectionViewController: UICollectionViewDelegate {
     
 }
 
+extension CollectionViewController: UIViewControllerPreviewingDelegate {
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        return nil
+    }
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+    }
+}
+
 extension CollectionViewController: UICollectionViewDataSource {
     
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -77,6 +88,6 @@ extension CollectionViewController: UICollectionViewDataSource {
     }
     
     open func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        return collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
     }
 }

@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UITableView {
+extension MixTarget where Base: UITableView {
     
-    enum WayToUpdate {
+    enum TableWayToUpdate {
         
         case none
         case reloadData
@@ -61,44 +61,44 @@ extension UITableView {
     }
 }
 
-extension UITableView {
+extension MixTarget where Base: UITableView {
     
     func registerClassOf<T: UITableViewCell>(_: T.Type) {
         
-        register(T.self, forCellReuseIdentifier: T.mix_reuseIdentifier)
+        base.register(T.self, forCellReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func registerNibOf<T: UITableViewCell>(_: T.Type) {
         
-        let nib = UINib(nibName: T.mix_nibName, bundle: nil)
-        register(nib, forCellReuseIdentifier: T.mix_reuseIdentifier)
+        let nib = UINib(nibName: T.mix.reuseIdentifier, bundle: nil)
+        base.register(nib, forCellReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func registerHeaderFooterClassOf<T: UITableViewHeaderFooterView>(_: T.Type) {
         
-        register(T.self, forHeaderFooterViewReuseIdentifier: T.mix_reuseIdentifier)
+        base.register(T.self, forHeaderFooterViewReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func dequeueReusableCell<T: UITableViewCell>() -> T {
         
-        guard let cell = self.dequeueReusableCell(withIdentifier: T.mix_reuseIdentifier) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
+        guard let cell = base.dequeueReusableCell(withIdentifier: T.mix.reuseIdentifier) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.mix.reuseIdentifier)")
         }
         
         return cell
     }
     
     func dequeueReusableCell<T: UITableViewCell>(indexPath: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
+        guard let cell = base.dequeueReusableCell(withIdentifier: T.mix.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.mix.reuseIdentifier)")
         }
         
         return cell
     }
     
     func dequeueReusableHeaderFooter<T: UITableViewHeaderFooterView>() -> T {
-        guard let view = self.dequeueReusableHeaderFooterView(withIdentifier: T.mix_reuseIdentifier) as? T else {
-            fatalError("Could not dequeue HeaderFooter with identifier: \(T.mix_reuseIdentifier)")
+        guard let view = base.dequeueReusableHeaderFooterView(withIdentifier: T.mix.reuseIdentifier) as? T else {
+            fatalError("Could not dequeue HeaderFooter with identifier: \(T.mix.reuseIdentifier)")
         }
         
         return view

@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class BaseViewController: UIViewController, ViewControllerType {
+open class BaseViewController: UIViewController {
     
     open var viewModel: ViewModelType = BaseViewModel()
     

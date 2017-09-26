@@ -24,7 +24,7 @@ class HomeViewController: CollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.registerClassOf(StatusCell.self)
+        collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
         //        return
         // Observe Realm Notifications
@@ -96,7 +96,7 @@ extension HomeViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
         cell.bind(for: results[indexPath.item], delegate: self)
         registerForPreviewing(with: self, sourceView: cell)
         return cell

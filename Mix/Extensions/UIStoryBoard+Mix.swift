@@ -18,8 +18,8 @@ enum Storyboard: String {
     case settings = "Settings"
     
     func scene<T: UIViewController>() -> T {
-        guard let vc = UIStoryboard(name: self.rawValue, bundle: nil).instantiateViewController(withIdentifier: T.mix_reuseIdentifier) as? T else {
-            fatalError("cannot load viewController with sbName: \(self.rawValue), id: \(T.mix_reuseIdentifier)")
+        guard let vc = UIStoryboard(name: self.rawValue, bundle: nil).instantiateViewController(withIdentifier: T.mix.reuseIdentifier) as? T else {
+            fatalError("cannot load viewController with sbName: \(self.rawValue), id: \(T.mix.reuseIdentifier)")
         }
         return vc
     }

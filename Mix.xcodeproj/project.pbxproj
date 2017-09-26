@@ -16,6 +16,11 @@
 		2921541F1F78AFA300D80A8E /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2921541E1F78AFA300D80A8E /* CollectionViewModel.swift */; };
 		292154211F78AFE700D80A8E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154201F78AFE700D80A8E /* BaseViewModel.swift */; };
 		292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154221F78B01500D80A8E /* ViewControllerType.swift */; };
+		292154321F7A054800D80A8E /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; };
+		292154391F7A054800D80A8E /* MixKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154381F7A054800D80A8E /* MixKitTests.swift */; };
+		2921543B1F7A054800D80A8E /* MixKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2921542B1F7A054800D80A8E /* MixKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2921543E1F7A054800D80A8E /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; };
+		2921543F1F7A054800D80A8E /* MixKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -88,8 +93,7 @@
 		29F77B131F6BBA1300C59674 /* CALayer+MixTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F77B121F6BBA1300C59674 /* CALayer+MixTheme.swift */; };
 		A97AE6D2ADC2E77254660ED5 /* Pods_MixTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC167CEEB21AF4C1EF6FFB0 /* Pods_MixTests.framework */; };
 		CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2A06181F5A6607000E4E8B /* StatusCell.swift */; };
-		CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */; };
-		CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2831F56ED7F004CCD5B /* Reusable.swift */; };
+		CF60C2841F56ED7F004CCD5B /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* Reusable.swift */; };
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
 		CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */; };
 		E60F4A22F99DD2ED0009FCE2 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378631AE83468B87D5A1F235 /* Pods_Mix.framework */; };
@@ -97,6 +101,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		292154331F7A054800D80A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29CB039E1F569C4D00CF33FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 292154281F7A054700D80A8E;
+			remoteInfo = MixKit;
+		};
+		292154351F7A054800D80A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29CB039E1F569C4D00CF33FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 29229B441F569D40007059A5;
+			remoteInfo = Mix;
+		};
+		2921543C1F7A054800D80A8E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29CB039E1F569C4D00CF33FF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 292154281F7A054700D80A8E;
+			remoteInfo = MixKit;
+		};
 		29229B5E1F569D90007059A5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29CB039E1F569C4D00CF33FF /* Project object */;
@@ -114,6 +139,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		292154451F7A054800D80A8E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2921543F1F7A054800D80A8E /* MixKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29229B641F569D90007059A5 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -138,6 +174,12 @@
 		2921541E1F78AFA300D80A8E /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		292154201F78AFE700D80A8E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		292154221F78B01500D80A8E /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
+		292154291F7A054700D80A8E /* MixKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MixKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2921542B1F7A054800D80A8E /* MixKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixKit.h; sourceTree = "<group>"; };
+		2921542C1F7A054800D80A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		292154311F7A054800D80A8E /* MixKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		292154381F7A054800D80A8E /* MixKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixKitTests.swift; sourceTree = "<group>"; };
+		2921543A1F7A054800D80A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -226,8 +268,7 @@
 		B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
 		B9A7E1F808238FC1FE96E5C9 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
-		CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibLoadable.swift; sourceTree = "<group>"; };
-		CF60C2831F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		CF60C2821F56ED7F004CCD5B /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
 		CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboStatusLayout.swift; sourceTree = "<group>"; };
 		E5063885D84365985433CF9A /* Pods-MixTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -235,10 +276,26 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		292154251F7A054700D80A8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2921542E1F7A054800D80A8E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292154321F7A054800D80A8E /* MixKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29229B481F569D40007059A5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2921543E1F7A054800D80A8E /* MixKit.framework in Frameworks */,
 				E60F4A22F99DD2ED0009FCE2 /* Pods_Mix.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,6 +361,24 @@
 				299906B71F75108E00D15B83 /* ViewModelType.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		2921542A1F7A054800D80A8E /* MixKit */ = {
+			isa = PBXGroup;
+			children = (
+				2921542B1F7A054800D80A8E /* MixKit.h */,
+				2921542C1F7A054800D80A8E /* Info.plist */,
+			);
+			path = MixKit;
+			sourceTree = "<group>";
+		};
+		292154371F7A054800D80A8E /* MixKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				292154381F7A054800D80A8E /* MixKitTests.swift */,
+				2921543A1F7A054800D80A8E /* Info.plist */,
+			);
+			path = MixKitTests;
 			sourceTree = "<group>";
 		};
 		29229B571F569D90007059A5 /* MixShare */ = {
@@ -592,6 +667,8 @@
 		29CB039D1F569C4D00CF33FF = {
 			isa = PBXGroup;
 			children = (
+				2921542A1F7A054800D80A8E /* MixKit */,
+				292154371F7A054800D80A8E /* MixKitTests */,
 				048B1B1332F6C0454C1D1707 /* Frameworks */,
 				29CB03A81F569C4D00CF33FF /* Mix */,
 				29229B571F569D90007059A5 /* MixShare */,
@@ -607,6 +684,8 @@
 				29229B501F569D40007059A5 /* Mix.app */,
 				29229B561F569D90007059A5 /* MixShare.appex */,
 				29229B691F569D9D007059A5 /* MixTests.xctest */,
+				292154291F7A054700D80A8E /* MixKit.framework */,
+				292154311F7A054800D80A8E /* MixKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -658,15 +737,62 @@
 		CF60C2811F56ED68004CCD5B /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CF60C2821F56ED7F004CCD5B /* NibLoadable.swift */,
-				CF60C2831F56ED7F004CCD5B /* Reusable.swift */,
+				CF60C2821F56ED7F004CCD5B /* Reusable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		292154261F7A054700D80A8E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2921543B1F7A054800D80A8E /* MixKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		292154281F7A054700D80A8E /* MixKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292154441F7A054800D80A8E /* Build configuration list for PBXNativeTarget "MixKit" */;
+			buildPhases = (
+				292154241F7A054700D80A8E /* Sources */,
+				292154251F7A054700D80A8E /* Frameworks */,
+				292154261F7A054700D80A8E /* Headers */,
+				292154271F7A054700D80A8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MixKit;
+			productName = MixKit;
+			productReference = 292154291F7A054700D80A8E /* MixKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		292154301F7A054800D80A8E /* MixKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 292154461F7A054800D80A8E /* Build configuration list for PBXNativeTarget "MixKitTests" */;
+			buildPhases = (
+				2921542D1F7A054800D80A8E /* Sources */,
+				2921542E1F7A054800D80A8E /* Frameworks */,
+				2921542F1F7A054800D80A8E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				292154341F7A054800D80A8E /* PBXTargetDependency */,
+				292154361F7A054800D80A8E /* PBXTargetDependency */,
+			);
+			name = MixKitTests;
+			productName = MixKitTests;
+			productReference = 292154311F7A054800D80A8E /* MixKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		29229B441F569D40007059A5 /* Mix */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29229B4D1F569D40007059A5 /* Build configuration list for PBXNativeTarget "Mix" */;
@@ -679,11 +805,13 @@
 				292154171F7650E800D80A8E /* Run Update Build Script */,
 				BBF15A62FEDC4CDA90C5AC55 /* [CP] Embed Pods Frameworks */,
 				9C5CDFBB2D5ECF6A088B689F /* [CP] Copy Pods Resources */,
+				292154451F7A054800D80A8E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				29229B5F1F569D90007059A5 /* PBXTargetDependency */,
+				2921543D1F7A054800D80A8E /* PBXTargetDependency */,
 			);
 			name = Mix;
 			productName = Mix;
@@ -737,10 +865,21 @@
 		29CB039E1F569C4D00CF33FF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Maxsey Inc.";
 				TargetAttributes = {
+					292154281F7A054700D80A8E = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 2F3H7A9G57;
+						ProvisioningStyle = Automatic;
+					};
+					292154301F7A054800D80A8E = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 2F3H7A9G57;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 29229B441F569D40007059A5;
+					};
 					29229B441F569D40007059A5 = {
 						DevelopmentTeam = 2F3H7A9G57;
 						LastSwiftMigration = 0900;
@@ -782,11 +921,27 @@
 				29229B441F569D40007059A5 /* Mix */,
 				29229B551F569D90007059A5 /* MixShare */,
 				29229B681F569D9D007059A5 /* MixTests */,
+				292154281F7A054700D80A8E /* MixKit */,
+				292154301F7A054800D80A8E /* MixKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		292154271F7A054700D80A8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2921542F1F7A054800D80A8E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29229B491F569D40007059A5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1005,6 +1160,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		292154241F7A054700D80A8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2921542D1F7A054800D80A8E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292154391F7A054800D80A8E /* MixKitTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		29229B451F569D40007059A5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1018,7 +1188,7 @@
 				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */,
-				CF60C2841F56ED7F004CCD5B /* NibLoadable.swift in Sources */,
+				CF60C2841F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				2933F3FF1F5BFC400088A33C /* ThreadLocal.swift in Sources */,
 				29AB19E31F62A3E7008E503C /* RealmSwift+Mix.swift in Sources */,
 				2933F3FD1F5BFC400088A33C /* Regex.swift in Sources */,
@@ -1067,7 +1237,6 @@
 				298ACAAA1F57A308005D2DAC /* TabBarItemContentView.swift in Sources */,
 				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
 				298B55D81F712069006C8DAA /* CommentsViewController.swift in Sources */,
-				CF60C2851F56ED7F004CCD5B /* Reusable.swift in Sources */,
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
 				2921541D1F78ADC400D80A8E /* TableViewModel.swift in Sources */,
 				2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */,
@@ -1100,6 +1269,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		292154341F7A054800D80A8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 292154281F7A054700D80A8E /* MixKit */;
+			targetProxy = 292154331F7A054800D80A8E /* PBXContainerItemProxy */;
+		};
+		292154361F7A054800D80A8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 29229B441F569D40007059A5 /* Mix */;
+			targetProxy = 292154351F7A054800D80A8E /* PBXContainerItemProxy */;
+		};
+		2921543D1F7A054800D80A8E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 292154281F7A054700D80A8E /* MixKit */;
+			targetProxy = 2921543C1F7A054800D80A8E /* PBXContainerItemProxy */;
+		};
 		29229B5F1F569D90007059A5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 29229B551F569D90007059A5 /* MixShare */;
@@ -1201,6 +1385,104 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		292154401F7A054800D80A8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2F3H7A9G57;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MixKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		292154411F7A054800D80A8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 2F3H7A9G57;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MixKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		292154421F7A054800D80A8E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F3H7A9G57;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MixKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mix.app/Mix";
+			};
+			name = Debug;
+		};
+		292154431F7A054800D80A8E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F3H7A9G57;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MixKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Maxsey.MixKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mix.app/Mix";
+			};
+			name = Release;
+		};
 		29229B4E1F569D40007059A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */;
@@ -1208,6 +1490,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = Mix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1228,6 +1511,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = Mix/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1411,6 +1695,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		292154441F7A054800D80A8E /* Build configuration list for PBXNativeTarget "MixKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				292154401F7A054800D80A8E /* Debug */,
+				292154411F7A054800D80A8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		292154461F7A054800D80A8E /* Build configuration list for PBXNativeTarget "MixKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				292154421F7A054800D80A8E /* Debug */,
+				292154431F7A054800D80A8E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		29229B4D1F569D40007059A5 /* Build configuration list for PBXNativeTarget "Mix" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

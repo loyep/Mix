@@ -8,19 +8,30 @@
 
 import UIKit
 
-open class TableViewController: UIViewController, TableViewControllerType {
+open class TableViewController: UIViewController {
     
     @IBOutlet open var tableView: UITableView?
     
     override open func viewDidLoad() {
         super.viewDidLoad()
-        tableView?.registerClassOf(UITableViewCell.self)
+        tableView?.mix.registerClassOf(UITableViewCell.self)
     }
 
     override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+}
+
+extension TableViewController: UIViewControllerPreviewingDelegate {
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        return nil
+    }
+    
+    public func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+    }
 }
 
 extension TableViewController: UITableViewDelegate {
@@ -35,6 +46,6 @@ extension TableViewController: UITableViewDataSource {
     }
     
     open func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell()
+        return tableView.mix.dequeueReusableCell()
     }
 }

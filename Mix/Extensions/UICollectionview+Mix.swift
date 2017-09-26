@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UICollectionView {
+extension MixTarget where Base: UICollectionView {
     
-    enum WayToUpdate {
+    enum CollectionWayToUpdate {
         
         case none
         case reloadData
@@ -52,33 +52,33 @@ extension UICollectionView {
     }
 }
 
-extension UICollectionView {
+extension MixTarget where Base: UICollectionView {
     
     func registerClassOf<T: UICollectionViewCell>(_: T.Type) {
         
-        register(T.self, forCellWithReuseIdentifier: T.mix_reuseIdentifier)
+        base.register(T.self, forCellWithReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func registerNibOf<T: UICollectionViewCell>(_: T.Type) {
         
-        let nib = UINib(nibName: T.mix_nibName, bundle: nil)
-        register(nib, forCellWithReuseIdentifier: T.mix_reuseIdentifier)
+        let nib = UINib(nibName: T.mix.reuseIdentifier, bundle: nil)
+        base.register(nib, forCellWithReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func registerHeaderNibOf<T: UICollectionReusableView>(_: T.Type) {
         
-        let nib = UINib(nibName: T.mix_nibName, bundle: nil)
-        register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.mix_reuseIdentifier)
+        let nib = UINib(nibName: T.mix.reuseIdentifier, bundle: nil)
+        base.register(nib, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func registerFooterClassOf<T: UICollectionReusableView>(_: T.Type) {
         
-        register(T.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: T.mix_reuseIdentifier)
+        base.register(T.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: T.mix.reuseIdentifier)
     }
     
     func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = self.dequeueReusableCell(withReuseIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.mix_reuseIdentifier)")
+        guard let cell = base.dequeueReusableCell(withReuseIdentifier: T.mix.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.mix.reuseIdentifier)")
         }
         
         return cell
@@ -86,8 +86,8 @@ extension UICollectionView {
     
     func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, forIndexPath indexPath: IndexPath) -> T {
         
-        guard let view = self.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: T.mix_reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue supplementary view with identifier: \(T.mix_reuseIdentifier), kind: \(kind)")
+        guard let view = base.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: T.mix.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue supplementary view with identifier: \(T.mix.reuseIdentifier), kind: \(kind)")
         }
         
         return view

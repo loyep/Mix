@@ -21,7 +21,7 @@ class DiscoverViewController: CollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView?.registerClassOf(StatusCell.self)
+        collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Discover", comment: "")
     }
     
@@ -67,7 +67,7 @@ extension DiscoverViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: StatusCell = collectionView.dequeueReusableCell(forIndexPath: indexPath)
+        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
         let favorite = results[indexPath.row]
         cell.bind(for: favorite.status)
         return cell

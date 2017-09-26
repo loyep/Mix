@@ -8,19 +8,23 @@
 
 import Foundation
 
-public protocol ViewControllerType: NSObjectProtocol {
+//public protocol ViewControllerType: NSObjectProtocol {
+//    
+//}
+//
+//public protocol TableViewControllerType: ViewControllerType {
+//    
+//}
+//
+//public protocol CollectionViewControllerType: ViewControllerType {
+//    
+//}
+//
+//public protocol WebViewControllerType: ViewControllerType {
+//    
+//}
+//
+//public extension ViewControllerType: BaseViewController {
+//    
+//}
 
-    func `init`(_ viewModel: ViewModelType)
-}
-
-public protocol TableViewControllerType: ViewControllerType {
-    
-}
-
-public protocol CollectionViewControllerType: ViewControllerType {
-    
-}
-
-public protocol WebViewControllerType: ViewControllerType {
-    
-}
