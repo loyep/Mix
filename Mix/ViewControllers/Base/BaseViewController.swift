@@ -10,7 +10,7 @@ import UIKit
 
 open class BaseViewController: UIViewController {
     
-    open var viewModel: ViewModelType = BaseViewModel()
+    open var viewModel = BaseViewModel()
     
     open override func loadView() {
         super.loadView()

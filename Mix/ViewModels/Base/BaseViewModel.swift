@@ -7,11 +7,8 @@
 //
 
 import Foundation
+import MixKit
 
-open class BaseViewModel: ViewModelType {
-    
-    init() {
-        
-    }
+open class BaseViewModel: NSObject {
     
 }

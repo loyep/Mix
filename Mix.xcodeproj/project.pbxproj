@@ -12,8 +12,6 @@
 		29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */; };
 		29108A6C1F72617200A75DCE /* STCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A6B1F72617200A75DCE /* STCollectionView.swift */; };
 		2921541A1F789BB900D80A8E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154191F789BB900D80A8E /* WebViewController.swift */; };
-		2921541D1F78ADC400D80A8E /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2921541C1F78ADC400D80A8E /* TableViewModel.swift */; };
-		2921541F1F78AFA300D80A8E /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2921541E1F78AFA300D80A8E /* CollectionViewModel.swift */; };
 		292154211F78AFE700D80A8E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154201F78AFE700D80A8E /* BaseViewModel.swift */; };
 		292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154221F78B01500D80A8E /* ViewControllerType.swift */; };
 		292154321F7A054800D80A8E /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; };
@@ -25,6 +23,8 @@
 		292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF411F60E8B70077652C /* Date+Mix.swift */; };
 		292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* MixTarget.swift */; };
 		2921544B1F7A4DF600D80A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2921544A1F7A4DF500D80A8E /* UIKit.framework */; };
+		292154501F7A619C00D80A8E /* MixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2921544F1F7A619C00D80A8E /* MixViewModel.swift */; };
+		292154521F7A6D9200D80A8E /* UIViewController+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -78,7 +78,6 @@
 		298B55D61F712021006C8DAA /* StatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D51F712021006C8DAA /* StatusesViewController.swift */; };
 		298B55D81F712069006C8DAA /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D71F712069006C8DAA /* CommentsViewController.swift */; };
 		298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298B55D91F712150006C8DAA /* BaseStatusesViewController.swift */; };
-		299906B81F75108E00D15B83 /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299906B71F75108E00D15B83 /* ViewModelType.swift */; };
 		29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */; };
 		29A271791F6A85B0003D8C1E /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A271781F6A85AF003D8C1E /* CollectionViewController.swift */; };
 		29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A2717A1F6A85DA003D8C1E /* TableViewController.swift */; };
@@ -166,8 +165,6 @@
 		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
 		29108A6B1F72617200A75DCE /* STCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCollectionView.swift; sourceTree = "<group>"; };
 		292154191F789BB900D80A8E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		2921541C1F78ADC400D80A8E /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
-		2921541E1F78AFA300D80A8E /* CollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewModel.swift; sourceTree = "<group>"; };
 		292154201F78AFE700D80A8E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		292154221F78B01500D80A8E /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
 		292154291F7A054700D80A8E /* MixKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MixKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,6 +174,8 @@
 		292154381F7A054800D80A8E /* MixKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixKitTests.swift; sourceTree = "<group>"; };
 		2921543A1F7A054800D80A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2921544A1F7A4DF500D80A8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2921544F1F7A619C00D80A8E /* MixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModel.swift; sourceTree = "<group>"; };
+		292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Mix.swift"; sourceTree = "<group>"; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -239,7 +238,6 @@
 		298B55D51F712021006C8DAA /* StatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusesViewController.swift; sourceTree = "<group>"; };
 		298B55D71F712069006C8DAA /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		298B55D91F712150006C8DAA /* BaseStatusesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewController.swift; sourceTree = "<group>"; };
-		299906B71F75108E00D15B83 /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		29A271761F6A7EB7003D8C1E /* UIScreen+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Mix.swift"; sourceTree = "<group>"; };
 		29A271781F6A85AF003D8C1E /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		29A2717A1F6A85DA003D8C1E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
@@ -348,9 +346,6 @@
 			isa = PBXGroup;
 			children = (
 				292154201F78AFE700D80A8E /* BaseViewModel.swift */,
-				2921541E1F78AFA300D80A8E /* CollectionViewModel.swift */,
-				2921541C1F78ADC400D80A8E /* TableViewModel.swift */,
-				299906B71F75108E00D15B83 /* ViewModelType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -362,7 +357,9 @@
 				2921542C1F7A054800D80A8E /* Info.plist */,
 				2921542B1F7A054800D80A8E /* MixKit.h */,
 				CF60C2821F56ED7F004CCD5B /* MixTarget.swift */,
+				2921544F1F7A619C00D80A8E /* MixViewModel.swift */,
 				298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */,
+				292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */,
 			);
 			path = MixKit;
 			sourceTree = "<group>";
@@ -1121,9 +1118,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				292154521F7A6D9200D80A8E /* UIViewController+Mix.swift in Sources */,
 				292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */,
 				292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */,
 				292154471F7A4D3C00D80A8E /* ReusableView+Mix.swift in Sources */,
+				292154501F7A619C00D80A8E /* MixViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1144,7 +1143,6 @@
 				298ACA831F56A15D005D2DAC /* ProfileViewController.swift in Sources */,
 				298ACAB41F57B328005D2DAC /* TabBarItemMoreContentView.swift in Sources */,
 				298ACAA81F57A308005D2DAC /* TabBarItemBadgeView.swift in Sources */,
-				2921541F1F78AFA300D80A8E /* CollectionViewModel.swift in Sources */,
 				29B5F7FC1F69209800BDE23D /* AccountTableViewCell.swift in Sources */,
 				298ACA871F56A16E005D2DAC /* DiscoverViewController.swift in Sources */,
 				29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */,
@@ -1167,7 +1165,6 @@
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */,
 				29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */,
-				299906B81F75108E00D15B83 /* ViewModelType.swift in Sources */,
 				298ACA8A1F56A1AA005D2DAC /* ContactsViewController.swift in Sources */,
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
@@ -1193,7 +1190,6 @@
 				2952BF941F5E8B0400A309E5 /* MixTheme.swift in Sources */,
 				298B55D81F712069006C8DAA /* CommentsViewController.swift in Sources */,
 				2933F3FB1F5BFC400088A33C /* Memo.swift in Sources */,
-				2921541D1F78ADC400D80A8E /* TableViewModel.swift in Sources */,
 				2952BF961F5EB13D00A309E5 /* MixServices.swift in Sources */,
 				29B5F7E91F68E3E800BDE23D /* StatusTextLabel.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,

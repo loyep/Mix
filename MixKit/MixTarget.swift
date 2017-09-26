@@ -26,10 +26,10 @@ public protocol MixCompatible {
     associatedtype CompatibleType
     
     /// MixReusable extensions.
-    static var mix: MixTarget<CompatibleType>.Type { get set }
+    static var mix: MixTarget<CompatibleType>.Type { get }
     
     /// MixCompatible extensions.
-    var mix: MixTarget<CompatibleType> { get set }
+    var mix: MixTarget<CompatibleType> { get }
 }
 
 public extension MixCompatible {
@@ -38,7 +38,6 @@ public extension MixCompatible {
         get {
             return MixTarget<Self>.self
         }
-        set { }
     }
     
     /// MixCompatible extensions.
@@ -46,7 +45,6 @@ public extension MixCompatible {
         get {
             return MixTarget(self)
         }
-        set { }
     }
 }
 
