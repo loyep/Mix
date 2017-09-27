@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 #if os(iOS) || os(tvOS)
 import UIKit
     public typealias MappingContext = Any

@@ -10,10 +10,7 @@ import Foundation
 import RxSwift
 import RealmSwift
 
-/**
- `RealmObserver` retains target realm object until it receives a .Completed or .Error event
- or the observer is being deinitialized
- */
+/// retains target realm object until it receives a .Completed or .Error event or the observer is being deinitialized
 class RealmObserver<E>: ObserverType {
     var realm: Realm?
     var configuration: Realm.Configuration?
@@ -30,9 +27,9 @@ class RealmObserver<E>: ObserverType {
         self.binding = binding
     }
     
-    /**
-     Binds next element
-     */
+    /// Binds next element
+    ///
+    /// - Parameter event: event
     func on(_ event: Event<E>) {
         switch event {
         case .next(let element):
@@ -60,11 +57,9 @@ class RealmObserver<E>: ObserverType {
         }
     }
     
-    /**
-     Erases the type of observer
-     
-     - returns: AnyObserver, type erased observer
-     */
+    /// Erases the type of observer
+    ///
+    /// - Returns: AnyObserver, type erased observer
     func asObserver() -> AnyObserver<E> {
         return AnyObserver(eventHandler: on)
     }

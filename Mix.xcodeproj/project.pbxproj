@@ -275,6 +275,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		29057F421F7BC33700A93803 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		29108A661F72081200A75DCE /* SwipeTableView */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +610,7 @@
 				CF60C2811F56ED68004CCD5B /* Protocols */,
 				298ACA671F56A012005D2DAC /* Services */,
 				2933F3E41F5937610088A33C /* Shared */,
+				29057F421F7BC33700A93803 /* Store */,
 				29F77B111F6BA96800C59674 /* Theme */,
 				298ACA631F569FF2005D2DAC /* ViewControllers */,
 				299906B61F75107D00D15B83 /* ViewModels */,
