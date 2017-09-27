@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.5.1)
+  - MixKit (1.0.0):
+    - RealmSwift
+    - RxSwift
   - Realm (2.10.1):
     - Realm/Headers (= 2.10.1)
   - Realm/Headers (2.10.1)
@@ -22,6 +25,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - MixKit (from `./Source/MixKit`)
   - RealmSwift
   - RxCocoa (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
   - RxSwift (from `https://github.com/ReactiveX/RxSwift.git`, branch `rxswift4.0-swift4.0`)
@@ -33,6 +37,8 @@ DEPENDENCIES:
   - YYKit
 
 EXTERNAL SOURCES:
+  MixKit:
+    :path: ./Source/MixKit
   RxCocoa:
     :branch: rxswift4.0-swift4.0
     :git: https://github.com/ReactiveX/RxSwift.git
@@ -54,6 +60,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  MixKit: d074b2bd18ddc9c6325a485d3ea77a7ad09c57e9
   Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
   RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
@@ -66,6 +73,6 @@ SPEC CHECKSUMS:
   WeiboSDK: 780f9592dc302af6607ce795665100d48b55e664
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: e9c38e2571188f9cc7d415e0f2cc9fecf3a24cbb
+PODFILE CHECKSUM: 169fc23c0acea7ecc4e6fd26f7633ab2ec06dff8
 
 COCOAPODS: 1.3.1
