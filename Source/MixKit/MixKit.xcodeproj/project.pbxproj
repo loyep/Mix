@@ -24,6 +24,8 @@
 		29057F2F1F7B7EB700A93803 /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F221F7B7EB700A93803 /* MixTarget.swift */; };
 		29057F321F7B7F2300A93803 /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F311F7B7F2300A93803 /* Date+Mix.swift */; };
 		29057F341F7B806100A93803 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F331F7B806100A93803 /* UIApplication.swift */; };
+		29057F391F7B91B900A93803 /* MixRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F381F7B91B900A93803 /* MixRouter.swift */; };
+		29057F3D1F7B9AC800A93803 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F3C1F7B9AC800A93803 /* URLConvertible.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,8 @@
 		29057F221F7B7EB700A93803 /* MixTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixTarget.swift; sourceTree = "<group>"; };
 		29057F311F7B7F2300A93803 /* Date+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Mix.swift"; sourceTree = "<group>"; };
 		29057F331F7B806100A93803 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		29057F381F7B91B900A93803 /* MixRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixRouter.swift; sourceTree = "<group>"; };
+		29057F3C1F7B9AC800A93803 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		29057EFC1F7B782000A93803 /* MixKit */ = {
 			isa = PBXGroup;
 			children = (
+				29057F371F7B8E7A00A93803 /* URLNavigator */,
 				29057F151F7B7E9800A93803 /* Util */,
 				29057F1B1F7B7EB500A93803 /* AlertService.swift */,
 				29057F181F7B7EB400A93803 /* Application.swift */,
@@ -134,6 +139,15 @@
 				29057F331F7B806100A93803 /* UIApplication.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		29057F371F7B8E7A00A93803 /* URLNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				29057F381F7B91B900A93803 /* MixRouter.swift */,
+				29057F3C1F7B9AC800A93803 /* URLConvertible.swift */,
+			);
+			path = URLNavigator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +272,11 @@
 				29057F321F7B7F2300A93803 /* Date+Mix.swift in Sources */,
 				29057F231F7B7EB700A93803 /* BaseService.swift in Sources */,
 				29057F2F1F7B7EB700A93803 /* MixTarget.swift in Sources */,
+				29057F391F7B91B900A93803 /* MixRouter.swift in Sources */,
 				29057F281F7B7EB700A93803 /* AlertService.swift in Sources */,
 				29057F2D1F7B7EB700A93803 /* ServiceProvider.swift in Sources */,
 				29057F271F7B7EB700A93803 /* UIViewController.swift in Sources */,
+				29057F3D1F7B9AC800A93803 /* URLConvertible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,22 +10,11 @@ import UIKit
 
 public extension Mix where Base: UIApplication {
     
-    public static func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-        if let nav = base as? UINavigationController {
-            return topViewController(base: nav.visibleViewController)
-        }
-        
-        if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
-            return topViewController(base: selected)
-        }
-        
-        if let presented = base?.presentedViewController {
-            return topViewController(base: presented)
-        }
-        return base
+    public static func topViewController(of viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        return UIViewController.mix.topViewController(of: viewController)
     }
     
-    public func topViewController() -> UIViewController? {
-        return UIApplication.mix.topViewController(base: base.keyWindow?.rootViewController)
+    public var topViewController: UIViewController? {
+        return UIViewController.mix.topViewController(of: base.keyWindow?.rootViewController)
     }
 }
