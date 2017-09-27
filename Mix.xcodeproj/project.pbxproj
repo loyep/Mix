@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		29057ED51F7B34D900A93803 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057ED41F7B34D900A93803 /* UIViewController.swift */; };
+		29057ED71F7B445200A93803 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057ED61F7B445200A93803 /* UIApplication.swift */; };
 		29108A651F72060100A75DCE /* BaseStatusesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */; };
 		29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A671F72097A00A75DCE /* SwipeTableView.swift */; };
 		29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */; };
@@ -19,12 +21,10 @@
 		2921543B1F7A054800D80A8E /* MixKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2921542B1F7A054800D80A8E /* MixKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2921543E1F7A054800D80A8E /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; };
 		2921543F1F7A054800D80A8E /* MixKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 292154291F7A054700D80A8E /* MixKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		292154471F7A4D3C00D80A8E /* ReusableView+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */; };
+		292154471F7A4D3C00D80A8E /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 298ACA911F56C73D005D2DAC /* ReusableView.swift */; };
 		292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2947EF411F60E8B70077652C /* Date+Mix.swift */; };
 		292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF60C2821F56ED7F004CCD5B /* MixTarget.swift */; };
 		2921544B1F7A4DF600D80A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2921544A1F7A4DF500D80A8E /* UIKit.framework */; };
-		292154501F7A619C00D80A8E /* MixViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2921544F1F7A619C00D80A8E /* MixViewModel.swift */; };
-		292154521F7A6D9200D80A8E /* UIViewController+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */; };
 		29229B471F569D40007059A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB03A91F569C4D00CF33FF /* AppDelegate.swift */; };
 		29229B4A1F569D40007059A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B21F569C4D00CF33FF /* LaunchScreen.storyboard */; };
 		29229B4B1F569D40007059A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29CB03B01F569C4D00CF33FF /* Assets.xcassets */; };
@@ -160,6 +160,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		29057ED41F7B34D900A93803 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		29057ED61F7B445200A93803 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		29108A641F72060100A75DCE /* BaseStatusesViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseStatusesViewCell.swift; sourceTree = "<group>"; };
 		29108A671F72097A00A75DCE /* SwipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
@@ -174,8 +176,6 @@
 		292154381F7A054800D80A8E /* MixKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixKitTests.swift; sourceTree = "<group>"; };
 		2921543A1F7A054800D80A8E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2921544A1F7A4DF500D80A8E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		2921544F1F7A619C00D80A8E /* MixViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixViewModel.swift; sourceTree = "<group>"; };
-		292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Mix.swift"; sourceTree = "<group>"; };
 		29229B501F569D40007059A5 /* Mix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B561F569D90007059A5 /* MixShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MixShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		29229B581F569D90007059A5 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -219,7 +219,7 @@
 		298ACA811F56A15D005D2DAC /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		298ACA861F56A16E005D2DAC /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		298ACA891F56A1AA005D2DAC /* ContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactsViewController.swift; sourceTree = "<group>"; };
-		298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ReusableView+Mix.swift"; sourceTree = "<group>"; };
+		298ACA911F56C73D005D2DAC /* ReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		298ACA971F56C831005D2DAC /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		298ACA991F56C831005D2DAC /* SafeDispatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafeDispatch.swift; sourceTree = "<group>"; };
 		298ACA9A1F56C831005D2DAC /* WeiboProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboProvider.swift; sourceTree = "<group>"; };
@@ -357,9 +357,9 @@
 				2921542C1F7A054800D80A8E /* Info.plist */,
 				2921542B1F7A054800D80A8E /* MixKit.h */,
 				CF60C2821F56ED7F004CCD5B /* MixTarget.swift */,
-				2921544F1F7A619C00D80A8E /* MixViewModel.swift */,
-				298ACA911F56C73D005D2DAC /* ReusableView+Mix.swift */,
-				292154511F7A6D9200D80A8E /* UIViewController+Mix.swift */,
+				298ACA911F56C73D005D2DAC /* ReusableView.swift */,
+				29057ED41F7B34D900A93803 /* UIViewController.swift */,
+				29057ED61F7B445200A93803 /* UIApplication.swift */,
 			);
 			path = MixKit;
 			sourceTree = "<group>";
@@ -1118,11 +1118,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292154521F7A6D9200D80A8E /* UIViewController+Mix.swift in Sources */,
 				292154491F7A4D9500D80A8E /* MixTarget.swift in Sources */,
 				292154481F7A4D6300D80A8E /* Date+Mix.swift in Sources */,
-				292154471F7A4D3C00D80A8E /* ReusableView+Mix.swift in Sources */,
-				292154501F7A619C00D80A8E /* MixViewModel.swift in Sources */,
+				29057ED51F7B34D900A93803 /* UIViewController.swift in Sources */,
+				29057ED71F7B445200A93803 /* UIApplication.swift in Sources */,
+				292154471F7A4D3C00D80A8E /* ReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

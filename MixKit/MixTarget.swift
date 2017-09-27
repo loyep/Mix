@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct MixTarget<Base> {
+public struct Mix<Base> {
     /// Base object to extend.
     public let base: Base
     
@@ -26,28 +26,27 @@ public protocol MixCompatible {
     associatedtype CompatibleType
     
     /// MixReusable extensions.
-    static var mix: MixTarget<CompatibleType>.Type { get }
+    static var mix: Mix<CompatibleType>.Type { get }
     
     /// MixCompatible extensions.
-    var mix: MixTarget<CompatibleType> { get }
+    var mix: Mix<CompatibleType> { get }
 }
 
 public extension MixCompatible {
     /// MixCompatible extensions.
-    public static var mix: MixTarget<Self>.Type {
+    public static var mix: Mix<Self>.Type {
         get {
-            return MixTarget<Self>.self
+            return Mix<Self>.self
         }
     }
     
     /// MixCompatible extensions.
-    public var mix: MixTarget<Self> {
+    public var mix: Mix<Self> {
         get {
-            return MixTarget(self)
+            return Mix(self)
         }
     }
 }
 
 /// Extend NSObject with `mix` proxy.
 extension NSObject: MixCompatible { }
-

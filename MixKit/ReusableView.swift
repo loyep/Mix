@@ -9,74 +9,35 @@
 import UIKit
 
 // MARK: - UITableViewCell
-public extension MixTarget where Base: UITableViewCell {
+public extension Mix where Base: UITableViewCell {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 // MARK: - UITableViewHeaderFooterView
-public extension MixTarget where Base: UITableViewHeaderFooterView {
+public extension Mix where Base: UITableViewHeaderFooterView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 // MARK: - UICollectionReusableView
-public extension MixTarget where Base: UICollectionReusableView {
+public extension Mix where Base: UICollectionReusableView {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 // MARK: - UIViewController
-public extension MixTarget where Base: UIViewController {
+public extension Mix where Base: UIViewController {
     static var reuseIdentifier: String {
         return String(describing: self)
     }
 }
 
 // MARK: - UITableView
-public extension MixTarget where Base: UITableView {
-    
-//    enum TableWayToUpdate {
-//        
-//        case none
-//        case reloadData
-//        case reloadIndexPaths([IndexPath])
-//        case insert([IndexPath])
-//        
-//        var needsLabor: Bool {
-//            switch self {
-//            case .none:
-//                return false
-//            case .reloadData, .reloadIndexPaths, .insert:
-//                return true
-//            }
-//        }
-//        
-//        public func performWithTableView(_ tableView: UITableView) {
-//            switch self {
-//            case .none:
-//                print("tableView WayToUpdate: None")
-//            case .reloadData:
-//                print("tableView WayToUpdate: ReloadData")
-//                SafeDispatch.async {
-//                    tableView.reloadData()
-//                }
-//            case .reloadIndexPaths(let indexPaths):
-//                print("tableView WayToUpdate: ReloadIndexPaths")
-//                SafeDispatch.async {
-//                    tableView.reloadRows(at: indexPaths, with: .none)
-//                }
-//            case .insert(let indexPaths):
-//                print("tableView WayToUpdate: Insert")
-//                SafeDispatch.async {
-//                    tableView.insertRows(at: indexPaths, with: .none)
-//                }
-//            }
-//        }
-//    }
+public extension Mix where Base: UITableView {
     
     public func registerClassOf<T: UITableViewCell>(_: T.Type) {
         base.register(T.self, forCellReuseIdentifier: T.mix.reuseIdentifier)
@@ -114,40 +75,7 @@ public extension MixTarget where Base: UITableView {
 }
 
 // MARK: - UICollectionView
-public extension MixTarget where Base: UICollectionView {
-    
-//    enum CollectionWayToUpdate {
-//
-//        case none
-//        case reloadData
-//        case insert([IndexPath])
-//
-//        var needsLabor: Bool {
-//            switch self {
-//            case .none:
-//                return false
-//            case .reloadData, .insert:
-//                return true
-//            }
-//        }
-//
-//        public func performWithCollectionView(_ collectionView: UICollectionView) {
-//            switch self {
-//            case .none:
-//                print("collectionView WayToUpdate: None")
-//            case .reloadData:
-//                print("collectionView WayToUpdate: ReloadData")
-//                SafeDispatch.async {
-//                    collectionView.reloadData()
-//                }
-//            case .insert(let indexPaths):
-//                print("collectionView WayToUpdate: Insert")
-//                SafeDispatch.async {
-//                    collectionView.insertItems(at: indexPaths)
-//                }
-//            }
-//        }
-//    }
+public extension Mix where Base: UICollectionView {
     
     public func registerClassOf<T: UICollectionViewCell>(_: T.Type) {
         base.register(T.self, forCellWithReuseIdentifier: T.mix.reuseIdentifier)

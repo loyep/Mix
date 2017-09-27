@@ -25,6 +25,7 @@ open class CollectionViewController: UIViewController {
     open override func loadView() {
         super.loadView()
         loadCollectionView()
+        self.mix.bind()
     }
     
     fileprivate func loadCollectionView() {
