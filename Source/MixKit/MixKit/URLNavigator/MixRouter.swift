@@ -34,8 +34,8 @@ import UIKit
         let mappingContext: MappingContext?
     }
     
-    internal class MixURLRouter {
-        static let `default` = MixURLRouter()
+    internal class URLRouter {
+        static let `default` = URLRouter()
         
         internal var scheme: String? {
             didSet {
@@ -52,24 +52,28 @@ import UIKit
     
     public extension Mix where Base: UIApplication {
         
-        private static var router: MixURLRouter {
-            return MixURLRouter.default
+        private static var router: URLRouter {
+            return URLRouter.default
+        }
+        
+        private static var matcher: URLMatcher {
+            return URLMatcher.default
         }
         
         // MARK: URL Mapping
         public static func map(_ urlPattern: URLConvertible, _ navigable: URLNavigable.Type, context: MappingContext? = nil) {
-            let URLString = URLMatcher.default.normalized(urlPattern, scheme: router.scheme).urlStringValue
+            let URLString = matcher.normalized(urlPattern, scheme: router.scheme).urlStringValue
             router.urlMap[URLString] = URLMapItem(navigable: navigable, mappingContext: context)
         }
         
         public static func map(_ urlPattern: URLConvertible, _ handler: @escaping URLOpenHandler) {
-            let URLString = URLMatcher.default.normalized(urlPattern, scheme: router.scheme).urlStringValue
+            let URLString = matcher.normalized(urlPattern, scheme: router.scheme).urlStringValue
             router.urlOpenHandlers[URLString] = handler
         }
         
         public static func viewController(for url: URLConvertible, context: NavigationContext? = nil) -> UIViewController? {
-            if let urlMatchComponents = URLMatcher.default.match(url, scheme: router.scheme, from: Array(router.urlMap.keys)) {
-                guard let item = MixURLRouter.default.urlMap[urlMatchComponents.pattern] else { return nil }
+            if let urlMatchComponents = matcher.match(url, scheme: router.scheme, from: Array(router.urlMap.keys)) {
+                guard let item = router.urlMap[urlMatchComponents.pattern] else { return nil }
                 let navigation = Navigation(
                     url: url,
                     values: urlMatchComponents.values,
@@ -147,8 +151,8 @@ import UIKit
         // MARK: Opening URL
         @discardableResult
         public static func open(_ url: URLConvertible) -> Bool {
-            let urlOpenHandlersKeys = Array(MixURLRouter.default.urlOpenHandlers.keys)
-            if let urlMatchComponents = URLMatcher.default.match(url, scheme: router.scheme, from: urlOpenHandlersKeys) {
+            let urlOpenHandlersKeys = Array(router.urlOpenHandlers.keys)
+            if let urlMatchComponents = matcher.match(url, scheme: router.scheme, from: urlOpenHandlersKeys) {
                 let handler = router.urlOpenHandlers[urlMatchComponents.pattern]
                 if handler?(url, urlMatchComponents.values) == true {
                     return true
