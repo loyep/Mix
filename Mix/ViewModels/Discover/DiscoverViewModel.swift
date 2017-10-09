@@ -19,7 +19,7 @@ class DiscoverViewModel: NSObject {
         return self.realm.objects(WeiboFavorites.self).sorted(byKeyPath: "favoritedTime", ascending: false)
     }()
     
-    func data(for indexPath: IndexPath) -> WeiboFavorites? {
+    func data(for indexPath: IndexPath) -> WeiboFavorites {
         return results[indexPath.row]
     }
     

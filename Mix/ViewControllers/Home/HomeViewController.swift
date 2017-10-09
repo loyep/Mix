@@ -31,7 +31,7 @@ class HomeViewController: CollectionViewController, StoryboardView {
                 }
             }.disposed(by: disposeBag)
         
-        reactor.action.
+//        reactor.action.
     }
     
 }

@@ -39,9 +39,8 @@ extension DiscoverViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
-        if let status = viewModel.data(for: indexPath)?.status {
-            cell.bind(for: status, delegate: self)
-        }
+        let status = viewModel.data(for: indexPath).status!
+        cell.bind(for: status, delegate: self)
         registerForPreviewing(with: self, sourceView: cell)
         return cell
     }
