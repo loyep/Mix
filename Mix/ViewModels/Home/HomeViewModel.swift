@@ -40,9 +40,5 @@ final class HomeViewModel: Reactor {
             return Observable.just(Mutation.reload)
         }
     }
-    
-    func data(for indexPath: IndexPath) -> WeiboStatus? {
-        return results[indexPath.item]
-    }
 }
 
