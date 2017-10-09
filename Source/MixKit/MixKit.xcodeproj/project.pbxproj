@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		29057F041F7B782000A93803 /* MixKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29057EFA1F7B782000A93803 /* MixKit.framework */; };
 		29057F091F7B782000A93803 /* MixKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F081F7B782000A93803 /* MixKitTests.swift */; };
-		29057F0B1F7B782000A93803 /* MixKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 29057EFD1F7B782000A93803 /* MixKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		29057F231F7B7EB700A93803 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F161F7B7EB400A93803 /* BaseService.swift */; };
 		29057F241F7B7EB700A93803 /* UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F171F7B7EB400A93803 /* UITableViewDataSource.swift */; };
 		29057F251F7B7EB700A93803 /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F181F7B7EB400A93803 /* Application.swift */; };
@@ -26,6 +25,7 @@
 		29057F341F7B806100A93803 /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F331F7B806100A93803 /* UIApplication.swift */; };
 		29057F391F7B91B900A93803 /* MixRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F381F7B91B900A93803 /* MixRouter.swift */; };
 		29057F3D1F7B9AC800A93803 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29057F3C1F7B9AC800A93803 /* URLConvertible.swift */; };
+		2912DF691F8B42BB006A7A93 /* NSObject+MixKitRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF671F8B42BB006A7A93 /* NSObject+MixKitRuntime.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		29057EFA1F7B782000A93803 /* MixKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MixKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		29057EFD1F7B782000A93803 /* MixKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixKit.h; sourceTree = "<group>"; };
 		29057EFE1F7B782000A93803 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29057F031F7B782000A93803 /* MixKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MixKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		29057F081F7B782000A93803 /* MixKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixKitTests.swift; sourceTree = "<group>"; };
@@ -61,6 +60,8 @@
 		29057F331F7B806100A93803 /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		29057F381F7B91B900A93803 /* MixRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixRouter.swift; sourceTree = "<group>"; };
 		29057F3C1F7B9AC800A93803 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		2912DF671F8B42BB006A7A93 /* NSObject+MixKitRuntime.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MixKitRuntime.m"; sourceTree = "<group>"; };
+		2912DF6A1F8B4558006A7A93 /* MixKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MixKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +104,7 @@
 		29057EFC1F7B782000A93803 /* MixKit */ = {
 			isa = PBXGroup;
 			children = (
+				2912DF651F8B4280006A7A93 /* Runtime */,
 				29057F3F1F7BAB9000A93803 /* Realm */,
 				29057F371F7B8E7A00A93803 /* URLNavigator */,
 				29057F151F7B7E9800A93803 /* Util */,
@@ -111,7 +113,6 @@
 				29057F161F7B7EB400A93803 /* BaseService.swift */,
 				29057EFE1F7B782000A93803 /* Info.plist */,
 				29057F1E1F7B7EB600A93803 /* MixContext.swift */,
-				29057EFD1F7B782000A93803 /* MixKit.h */,
 				29057F221F7B7EB700A93803 /* Mix.swift */,
 				29057F1D1F7B7EB600A93803 /* ReusableView.swift */,
 				29057F201F7B7EB600A93803 /* ServiceProvider.swift */,
@@ -158,6 +159,15 @@
 			path = Realm;
 			sourceTree = "<group>";
 		};
+		2912DF651F8B4280006A7A93 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				2912DF6A1F8B4558006A7A93 /* MixKit.h */,
+				2912DF671F8B42BB006A7A93 /* NSObject+MixKitRuntime.m */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -165,7 +175,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29057F0B1F7B782000A93803 /* MixKit.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +286,7 @@
 				29057F2C1F7B7EB700A93803 /* UserDefaultsKey.swift in Sources */,
 				29057F2A1F7B7EB700A93803 /* ReusableView.swift in Sources */,
 				29057F241F7B7EB700A93803 /* UITableViewDataSource.swift in Sources */,
+				2912DF691F8B42BB006A7A93 /* NSObject+MixKitRuntime.m in Sources */,
 				29057F321F7B7F2300A93803 /* Date+Mix.swift in Sources */,
 				29057F231F7B7EB700A93803 /* BaseService.swift in Sources */,
 				29057F2F1F7B7EB700A93803 /* Mix.swift in Sources */,

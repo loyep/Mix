@@ -11,6 +11,17 @@
 		29108A681F72097A00A75DCE /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A671F72097A00A75DCE /* SwipeTableView.swift */; };
 		29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */; };
 		29108A6C1F72617200A75DCE /* STCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29108A6B1F72617200A75DCE /* STCollectionView.swift */; };
+		2912DF6D1F8B6506006A7A93 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF6C1F8B6506006A7A93 /* HomeViewModel.swift */; };
+		2912DF701F8B6714006A7A93 /* DiscoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF6F1F8B6714006A7A93 /* DiscoverViewModel.swift */; };
+		2912DF731F8B69AC006A7A93 /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF721F8B69AC006A7A93 /* TabBarViewModel.swift */; };
+		2912DF751F8B69F6006A7A93 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF741F8B69F6006A7A93 /* MainController.swift */; };
+		2912DF771F8B6B02006A7A93 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF761F8B6B02006A7A93 /* Store.swift */; };
+		2912DF791F8B7462006A7A93 /* ViewType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF781F8B7462006A7A93 /* ViewType.swift */; };
+		2912DF7B1F8B7491006A7A93 /* StoreType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF7A1F8B7491006A7A93 /* StoreType.swift */; };
+		2912DF7D1F8B74DA006A7A93 /* Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF7C1F8B74DA006A7A93 /* Reactor.swift */; };
+		2912DF7F1F8B7510006A7A93 /* ActionSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF7E1F8B750F006A7A93 /* ActionSubject.swift */; };
+		2912DF811F8B7517006A7A93 /* Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF801F8B7516006A7A93 /* Stub.swift */; };
+		2912DF831F8B7C84006A7A93 /* RealmSwift+RxMix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2912DF821F8B7C84006A7A93 /* RealmSwift+RxMix.swift */; };
 		2921541A1F789BB900D80A8E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154191F789BB900D80A8E /* WebViewController.swift */; };
 		292154211F78AFE700D80A8E /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154201F78AFE700D80A8E /* BaseViewModel.swift */; };
 		292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292154221F78B01500D80A8E /* ViewControllerType.swift */; };
@@ -83,6 +94,7 @@
 		CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */; };
 		CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */; };
 		E60F4A22F99DD2ED0009FCE2 /* Pods_Mix.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378631AE83468B87D5A1F235 /* Pods_Mix.framework */; };
+		F6F20D9D2A89039DEC12D0A9 /* Pods_MixShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2A1E6D8B4F3028EC9B5A4F1 /* Pods_MixShare.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +145,17 @@
 		29108A671F72097A00A75DCE /* SwipeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		29108A691F721B6B00A75DCE /* SwipeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTableHeaderView.swift; sourceTree = "<group>"; };
 		29108A6B1F72617200A75DCE /* STCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCollectionView.swift; sourceTree = "<group>"; };
+		2912DF6C1F8B6506006A7A93 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2912DF6F1F8B6714006A7A93 /* DiscoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewModel.swift; sourceTree = "<group>"; };
+		2912DF721F8B69AC006A7A93 /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
+		2912DF741F8B69F6006A7A93 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		2912DF761F8B6B02006A7A93 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
+		2912DF781F8B7462006A7A93 /* ViewType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewType.swift; sourceTree = "<group>"; };
+		2912DF7A1F8B7491006A7A93 /* StoreType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreType.swift; sourceTree = "<group>"; };
+		2912DF7C1F8B74DA006A7A93 /* Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reactor.swift; sourceTree = "<group>"; };
+		2912DF7E1F8B750F006A7A93 /* ActionSubject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSubject.swift; sourceTree = "<group>"; };
+		2912DF801F8B7516006A7A93 /* Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stub.swift; sourceTree = "<group>"; };
+		2912DF821F8B7C84006A7A93 /* RealmSwift+RxMix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealmSwift+RxMix.swift"; sourceTree = "<group>"; };
 		292154191F789BB900D80A8E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		292154201F78AFE700D80A8E /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		292154221F78B01500D80A8E /* ViewControllerType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerType.swift; sourceTree = "<group>"; };
@@ -216,7 +239,9 @@
 		2DC167CEEB21AF4C1EF6FFB0 /* Pods_MixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		378631AE83468B87D5A1F235 /* Pods_Mix.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mix.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D12AAA5A05464EC181D1A0 /* Pods-MixTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixTests/Pods-MixTests.release.xcconfig"; sourceTree = "<group>"; };
+		9093CB7028BD5D3293DBBB77 /* Pods-MixShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.release.xcconfig"; sourceTree = "<group>"; };
 		B466D9BFADA227AFF1F9AACE /* Pods-Mix.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mix.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mix/Pods-Mix.debug.xcconfig"; sourceTree = "<group>"; };
+		C7FB201D586FE9ED43200C07 /* Pods-MixShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MixShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MixShare/Pods-MixShare.debug.xcconfig"; sourceTree = "<group>"; };
 		CF2A06181F5A6607000E4E8B /* StatusCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusCell.swift; sourceTree = "<group>"; };
 		CF6F25A61F5844D700329CE7 /* Bundle+Mix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Mix.swift"; sourceTree = "<group>"; };
 		CFB2EF1D1F6D3DC1007100A1 /* WeiboStatusLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeiboStatusLayout.swift; sourceTree = "<group>"; };
@@ -237,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6F20D9D2A89039DEC12D0A9 /* Pods_MixShare.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +297,8 @@
 				2B24E7A2901B54986ADA792B /* Pods-Mix.release.xcconfig */,
 				E5063885D84365985433CF9A /* Pods-MixTests.debug.xcconfig */,
 				88D12AAA5A05464EC181D1A0 /* Pods-MixTests.release.xcconfig */,
+				C7FB201D586FE9ED43200C07 /* Pods-MixShare.debug.xcconfig */,
+				9093CB7028BD5D3293DBBB77 /* Pods-MixShare.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -278,6 +306,7 @@
 		29057F421F7BC33700A93803 /* Store */ = {
 			isa = PBXGroup;
 			children = (
+				2912DF761F8B6B02006A7A93 /* Store.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -290,6 +319,30 @@
 				29108A671F72097A00A75DCE /* SwipeTableView.swift */,
 			);
 			path = SwipeTableView;
+			sourceTree = "<group>";
+		};
+		2912DF6B1F8B649E006A7A93 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2912DF6C1F8B6506006A7A93 /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2912DF6E1F8B6705006A7A93 /* Discover */ = {
+			isa = PBXGroup;
+			children = (
+				2912DF6F1F8B6714006A7A93 /* DiscoverViewModel.swift */,
+			);
+			path = Discover;
+			sourceTree = "<group>";
+		};
+		2912DF711F8B699F006A7A93 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				2912DF721F8B69AC006A7A93 /* TabBarViewModel.swift */,
+			);
+			path = TabBar;
 			sourceTree = "<group>";
 		};
 		2921541B1F78ADAB00D80A8E /* Base */ = {
@@ -435,6 +488,7 @@
 		298ACA6D1F56A052005D2DAC /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
+				2912DF741F8B69F6006A7A93 /* MainController.swift */,
 				298ACA6E1F56A062005D2DAC /* TabBarController.swift */,
 			);
 			path = TabBar;
@@ -535,6 +589,9 @@
 			isa = PBXGroup;
 			children = (
 				2921541B1F78ADAB00D80A8E /* Base */,
+				2912DF6E1F8B6705006A7A93 /* Discover */,
+				2912DF6B1F8B649E006A7A93 /* Home */,
+				2912DF711F8B699F006A7A93 /* TabBar */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -566,6 +623,12 @@
 				29A2717A1F6A85DA003D8C1E /* TableViewController.swift */,
 				292154221F78B01500D80A8E /* ViewControllerType.swift */,
 				292154191F789BB900D80A8E /* WebViewController.swift */,
+				2912DF781F8B7462006A7A93 /* ViewType.swift */,
+				2912DF7A1F8B7491006A7A93 /* StoreType.swift */,
+				2912DF7C1F8B74DA006A7A93 /* Reactor.swift */,
+				2912DF7E1F8B750F006A7A93 /* ActionSubject.swift */,
+				2912DF801F8B7516006A7A93 /* Stub.swift */,
+				2912DF821F8B7C84006A7A93 /* RealmSwift+RxMix.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -683,10 +746,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 29229B611F569D90007059A5 /* Build configuration list for PBXNativeTarget "MixShare" */;
 			buildPhases = (
+				3DA7B97283246751498580F3 /* [CP] Check Pods Manifest.lock */,
 				29229B521F569D90007059A5 /* Sources */,
 				29229B531F569D90007059A5 /* Frameworks */,
 				29229B541F569D90007059A5 /* Resources */,
 				292154181F76514E00D80A8E /* Run Update Build Script */,
+				8B3F5AD44114B5668143291E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -855,6 +920,24 @@
 			shellPath = /bin/sh;
 			shellScript = "if [ $CONFIGURATION == Release ]; then\necho \"Bumping build number...\"\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\n\n#increment the build number (ie 115 to 116)\nbuildnum=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${plist}\")\nif [[ \"${buildnum}\" == \"\" ]]; then\necho \"No build number in $plist\"\nexit 2\nfi\n\nbuildnum=$(expr $buildnum + 1)\n/usr/libexec/Plistbuddy -c \"Set CFBundleVersion $buildnum\" \"${plist}\"\necho \"Bumped build number to $buildnum\"\n\nelse\necho $CONFIGURATION \" build - Not bumping build number.\"\n\nfi";
 		};
+		3DA7B97283246751498580F3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MixShare-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5F01E055EB018BF0258C4240 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -868,6 +951,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixTests/Pods-MixTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8B3F5AD44114B5668143291E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MixShare/Pods-MixShare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9C5CDFBB2D5ECF6A088B689F /* [CP] Copy Pods Resources */ = {
@@ -987,10 +1085,13 @@
 				2933F3FA1F5BFC400088A33C /* MatchResult.swift in Sources */,
 				298ACA6F1F56A062005D2DAC /* TabBarController.swift in Sources */,
 				29108A6A1F721B6B00A75DCE /* SwipeTableHeaderView.swift in Sources */,
+				2912DF731F8B69AC006A7A93 /* TabBarViewModel.swift in Sources */,
+				2912DF771F8B6B02006A7A93 /* Store.swift in Sources */,
 				2952BF901F5E7ED000A309E5 /* AttributedString+Theme.swift in Sources */,
 				298ACA9B1F56C831005D2DAC /* Config.swift in Sources */,
 				298ACA721F56A07C005D2DAC /* NavigationController.swift in Sources */,
 				298ACAB71F57D681005D2DAC /* WelcomeViewController.swift in Sources */,
+				2912DF751F8B69F6006A7A93 /* MainController.swift in Sources */,
 				298ACAB21F57B296005D2DAC /* TabBarItemPlusContentView.swift in Sources */,
 				2933F3FC1F5BFC400088A33C /* Options.swift in Sources */,
 				CFB2EF1E1F6D3DC1007100A1 /* WeiboStatusLayout.swift in Sources */,
@@ -999,19 +1100,24 @@
 				298ACAA71F57A308005D2DAC /* TabBarItem.swift in Sources */,
 				2983F7901F6665670081BC6C /* StatusPhotoView.swift in Sources */,
 				29A271771F6A7EB7003D8C1E /* UIScreen+Mix.swift in Sources */,
+				2912DF7F1F8B7510006A7A93 /* ActionSubject.swift in Sources */,
 				2933F3F01F595F440088A33C /* WeiboModels.swift in Sources */,
 				29A2717B1F6A85DA003D8C1E /* TableViewController.swift in Sources */,
 				29229B471F569D40007059A5 /* AppDelegate.swift in Sources */,
 				298B55DA1F712150006C8DAA /* BaseStatusesViewController.swift in Sources */,
 				298ACA6B1F56A047005D2DAC /* HomeViewController.swift in Sources */,
 				298ACAAE1F57AC37005D2DAC /* PlusViewController.swift in Sources */,
+				2912DF811F8B7517006A7A93 /* Stub.swift in Sources */,
+				2912DF831F8B7C84006A7A93 /* RealmSwift+RxMix.swift in Sources */,
 				29108A6C1F72617200A75DCE /* STCollectionView.swift in Sources */,
 				298ACA9D1F56C831005D2DAC /* SafeDispatch.swift in Sources */,
 				29B5F7F71F691C2C00BDE23D /* BaseViewController.swift in Sources */,
 				29B5F7F91F691F7900BDE23D /* AccountViewController.swift in Sources */,
 				2933F3F91F5BFC400088A33C /* Foundation+Ranges.swift in Sources */,
 				292154231F78B01500D80A8E /* ViewControllerType.swift in Sources */,
+				2912DF7B1F8B7491006A7A93 /* StoreType.swift in Sources */,
 				2933F3FE1F5BFC400088A33C /* String+ReplaceMatching.swift in Sources */,
+				2912DF7D1F8B74DA006A7A93 /* Reactor.swift in Sources */,
 				CF6F25A71F5844D700329CE7 /* Bundle+Mix.swift in Sources */,
 				298ACAA91F57A308005D2DAC /* TabBarItemContainer.swift in Sources */,
 				CF2A06191F5A6607000E4E8B /* StatusCell.swift in Sources */,
@@ -1024,8 +1130,11 @@
 				29B5F7E91F68E3E800BDE23D /* StatusTextLabel.swift in Sources */,
 				2933F3D91F58F7660088A33C /* TabBarItemAnimateContentView.swift in Sources */,
 				298ACA9E1F56C831005D2DAC /* WeiboProvider.swift in Sources */,
+				2912DF6D1F8B6506006A7A93 /* HomeViewModel.swift in Sources */,
+				2912DF791F8B7462006A7A93 /* ViewType.swift in Sources */,
 				2933F3D71F58F2040088A33C /* FeatureViewController.swift in Sources */,
 				29BDFFE61F70BFF400D4CBA8 /* Label.swift in Sources */,
+				2912DF701F8B6714006A7A93 /* DiscoverViewModel.swift in Sources */,
 				2921541A1F789BB900D80A8E /* WebViewController.swift in Sources */,
 				2933F3DE1F592F300088A33C /* SettingsViewController.swift in Sources */,
 			);
@@ -1157,6 +1266,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
@@ -1178,6 +1288,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_ENTITLEMENTS = Mix/Mix.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
@@ -1195,6 +1306,7 @@
 		};
 		29229B621F569D90007059A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7FB201D586FE9ED43200C07 /* Pods-MixShare.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = MixShare/Info.plist;
@@ -1208,6 +1320,7 @@
 		};
 		29229B631F569D90007059A5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9093CB7028BD5D3293DBBB77 /* Pods-MixShare.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = 2F3H7A9G57;
 				INFOPLIST_FILE = MixShare/Info.plist;

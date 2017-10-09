@@ -7,73 +7,33 @@
 //
 
 import UIKit
-import SwiftyWeibo
-import RealmSwift
-import SwiftyJSON
+import RxSwift
+import RxCocoa
 
-class HomeViewController: CollectionViewController {
+class HomeViewController: CollectionViewController, StoryboardView {
     
-    var notificationToken: NotificationToken? = nil
-    
-    let realm: Realm = try! Realm(dbName: "userName")
-    
-    lazy var results: Results<WeiboStatus> = {
-        return self.realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
-    }()
+    var disposeBag = DisposeBag()
+    var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
-        //        return
-        // Observe Realm Notifications
-        //        notificationToken = results.addNotificationBlock { [weak self] (changes: RealmCollectionChange) in
-        //            guard let statusView = self?.statusView else { return }
-        //            switch changes {
-        //            case .initial:
-        //                // Results are now populated and can be accessed without blocking the UI
-        //                statusView.reloadData()
-        //                break
-        //            case .update(_, let deletions, let insertions, let modifications):
-        //                // Query results have changed, so apply them to the UITableView
-        //                statusView.insertItems(at: insertions.map({ IndexPath(row: $0, section: 0) }))
-        //                statusView.deleteItems(at: deletions.map({ IndexPath(row: $0, section: 0) }))
-        //                statusView.reloadItems(at: modifications.map({ IndexPath(row: $0, section: 0) }))
-        //                break
-        //            case .error(let error):
-        //                // An error occurred while opening the Realm file on the background worker thread
-        //                fatalError("\(error)")
-        //                break
-        //            }
-        //        }
-        //
-        //        notificationToken?.stop()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        return
-        let since_id: Int64 = results.max(ofProperty: "id") ?? 0
-        weibo.request(SwiftyWeibo.Statuses.homeTimeline(sinceId: 0, maxId: 0, count: (since_id == 0 ? 5: 20), page: 1, feature: .all)) { [weak self] result in
-            guard let this = self else {
-                return
-            }
-            do {
-                let json = JSON(data: try result.dematerialize().data)
-                var statuses: [WeiboStatus] = []
-                json["statuses"].arrayValue.forEach {
-                    statuses.append(WeiboStatus($0))
+    func bind(reactor: HomeViewModel) {
+        
+        reactor.state.map { $0.statuses }
+            .bind(to: collectionView!.rx.items(cellIdentifier: StatusCell.mix.reuseIdentifier)) { indexPath, status, cell in
+                if let cell = cell as? StatusCell {
+                    cell.bind(for: status)
                 }
-                this.realm.beginWrite()
-                this.realm.add(statuses, update: true)
-                try? this.realm.commitWrite()
-                this.collectionView?.reloadData()
-            } catch {
-                
-            }
-        }
+            }.disposed(by: disposeBag)
+        
+        reactor.action.
     }
+    
 }
 
 
@@ -91,16 +51,18 @@ extension HomeViewController {
 
 extension HomeViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return results.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
-        cell.bind(for: results[indexPath.item], delegate: self)
-        registerForPreviewing(with: self, sourceView: cell)
-        return cell
-    }
+    //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return viewModel.results.count
+    //    }
+    //
+    //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
+    //        if let status = viewModel.data(for: indexPath) {
+    //            cell.bind(for: status, delegate: self)
+    //        }
+    //        registerForPreviewing(with: self, sourceView: cell)
+    //        return cell
+    //    }
 }
 
 class StatusCollectionViewLayout: UICollectionViewFlowLayout {

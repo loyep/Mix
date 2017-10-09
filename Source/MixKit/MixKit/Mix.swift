@@ -87,14 +87,14 @@ extension MixCompatible where Self: AnyObject {
 }
 
 /// Extend NSObject with `mix` proxy.
-extension NSObject: MixCompatible {}
-extension CGPoint: MixCompatible {}
 extension CGRect: MixCompatible {}
 extension CGSize: MixCompatible {}
+extension CGPoint: MixCompatible {}
 extension CGVector: MixCompatible {}
+extension NSObject: MixCompatible {}
 
 #if os(iOS) || os(tvOS)
-    extension UIEdgeInsets: MixCompatible {}
     extension UIOffset: MixCompatible {}
     extension UIRectEdge: MixCompatible {}
+    extension UIEdgeInsets: MixCompatible {}
 #endif

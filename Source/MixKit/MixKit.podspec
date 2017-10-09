@@ -11,5 +11,5 @@ Pod::Spec.new do |s|
   s.framework = ["UIKit", "Foundation"]
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
-  s.source_files = 'MixKit/**/*.swift'
+  s.source_files = 'MixKit/**/*.{swift,h,m}'
 end

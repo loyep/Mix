@@ -7,44 +7,15 @@
 //
 
 import UIKit
-import RealmSwift
-import SwiftyWeibo
-import SwiftyJSON
 
 class DiscoverViewController: CollectionViewController {
     
-    let realm: Realm = try! Realm(dbName: "userName")
-    
-    lazy var results: Results<WeiboFavorites> = {
-        return self.realm.objects(WeiboFavorites.self).sorted(byKeyPath: "favoritedTime", ascending: false)
-    }()
+    var viewModel = DiscoverViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Discover", comment: "")
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        return
-//        weibo.request(SwiftyWeibo.Statuses.favorites(count: 50, page: 1)) { [weak self] result in
-//            guard let this = self else {
-//                return
-//            }
-//            do {
-//                let json = JSON(data: try result.dematerialize().data)
-//                var favorites: [WeiboFavorites] = []
-//                json["favorites"].arrayValue.forEach {
-//                    favorites.append(WeiboFavorites($0))
-//                }
-//                this.realm.beginWrite()
-//                this.realm.add(favorites, update: true)
-//                try? this.realm.commitWrite()
-//            } catch {
-//                
-//            }
-//        }
     }
 }
 
@@ -63,13 +34,15 @@ extension DiscoverViewController {
 extension DiscoverViewController {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return results.count
+        return viewModel.results.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
-        let favorite = results[indexPath.row]
-        cell.bind(for: favorite.status)
+        if let status = viewModel.data(for: indexPath)?.status {
+            cell.bind(for: status, delegate: self)
+        }
+        registerForPreviewing(with: self, sourceView: cell)
         return cell
     }
 }
