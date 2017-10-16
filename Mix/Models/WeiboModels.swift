@@ -29,7 +29,7 @@ class WeiboHomeLine: Object {
 
 class WeiboEmotion: Object {
     
-    override static func primaryKey() -> String? {
+    open override static func primaryKey() -> String? {
         return "phrase"
     }
     
@@ -75,15 +75,15 @@ class WeiboEmotion: Object {
     
 }
 
-class WeiboFavorites: Object {
+class WeiboFavorites: WeiboStatus {
     
     override static func primaryKey() -> String? {
-        return "id"
+        return "favorId"
     }
     
-    @objc dynamic var id: Int64 = 0
+    @objc dynamic var favorId: Int64 = 0
     
-    @objc dynamic var status: WeiboStatus! = WeiboStatus()
+//    @objc dynamic var status: WeiboStatus! = WeiboStatus()
     
     @objc dynamic var favoritedTime: NSDate = NSDate()
     
@@ -99,22 +99,22 @@ class WeiboFavorites: Object {
         super.init(realm: realm, schema: schema)
     }
     
-    init(_ json: JSON) {
-        super.init()
-        
-        status = WeiboStatus(json["status"])
-        id = status.id
+    override init(_ json: JSON) {
+//        super.init()
+        super.init(json)
+//        status = WeiboStatus(json["status"])
+//        id = status.id
         favoritedTime = json["favorited_time"].stringValue.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy")! as NSDate
     }
 }
 
-class WeiboStatus: Object {
+open class WeiboStatus: Object {
     
-    override static func primaryKey() -> String? {
+    open override static func primaryKey() -> String? {
         return "id"
     }
     
-    override static func ignoredProperties() -> [String] {
+    open override static func ignoredProperties() -> [String] {
         return ["yyTextLayout"]
     }
     
@@ -180,15 +180,15 @@ class WeiboStatus: Object {
         return picUrlsString.components(separatedBy: "|")
     }
     
-    required init() {
+    required public init() {
         super.init()
     }
     
-    required init(value: Any, schema: RLMSchema) {
+    required public init(value: Any, schema: RLMSchema) {
         super.init(value: value, schema: schema)
     }
     
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+    required public init(realm: RLMRealm, schema: RLMObjectSchema) {
         super.init(realm: realm, schema: schema)
     }
     

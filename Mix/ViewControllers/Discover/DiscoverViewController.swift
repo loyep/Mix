@@ -24,13 +24,13 @@ class DiscoverViewController: CollectionViewController, StoryboardView {
     func bind(reactor: DiscoverViewModel) {
         reactor.state.map { $0.statuses }
                 .bind(to: collectionView!.rx.items(cellIdentifier: StatusCell.mix.reuseIdentifier, cellType: StatusCell.self)) { (row, status, cell) in
-                    cell.bind(for: status)
+//                    cell.bind(for: status)
                 }
                 .disposed(by: disposeBag)
         collectionView?.rx.itemSelected
                 .subscribe(onNext: { [weak self, weak reactor] indexPath in
                     guard let `self` = self else { return }
-                    print("\(indexPath) \(String(describing: reactor))")
+                    print("\(indexPath) \(String(describing: self.reactor))")
                 })
                 .disposed(by: disposeBag)
     }
