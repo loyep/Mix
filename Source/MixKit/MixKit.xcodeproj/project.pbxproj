@@ -104,6 +104,7 @@
 		29057EFC1F7B782000A93803 /* MixKit */ = {
 			isa = PBXGroup;
 			children = (
+				29730ABE1F8C79AB00080833 /* ReMix */,
 				2912DF651F8B4280006A7A93 /* Runtime */,
 				29057F3F1F7BAB9000A93803 /* Realm */,
 				29057F371F7B8E7A00A93803 /* URLNavigator */,
@@ -166,6 +167,13 @@
 				2912DF671F8B42BB006A7A93 /* NSObject+MixKitRuntime.m */,
 			);
 			path = Runtime;
+			sourceTree = "<group>";
+		};
+		29730ABE1F8C79AB00080833 /* ReMix */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ReMix;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

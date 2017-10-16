@@ -15,7 +15,9 @@ import RxSwift
 final class HomeViewModel: Reactor {
     
     struct State {
-        var statuses: [WeiboStatus] = []
+        var statuses: Results<WeiboStatus> {
+            return try! Realm(dbName: "userName").objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
+        }
     }
     
     var initialState = State()
@@ -39,6 +41,10 @@ final class HomeViewModel: Reactor {
         case .reload:
             return Observable.just(Mutation.reload)
         }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        return state
     }
 }
 

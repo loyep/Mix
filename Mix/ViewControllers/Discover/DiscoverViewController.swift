@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-class DiscoverViewController: CollectionViewController {
-    
-    var viewModel = DiscoverViewModel()
-    
+class DiscoverViewController: CollectionViewController, StoryboardView {
+
+    var disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        reactor = DiscoverViewModel()
         collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Discover", comment: "")
+    }
+
+    func bind(reactor: DiscoverViewModel) {
+        reactor.state.map { $0.statuses }
+                .bind(to: collectionView!.rx.items(cellIdentifier: StatusCell.mix.reuseIdentifier, cellType: StatusCell.self)) { (row, status, cell) in
+                    cell.bind(for: status)
+                }
+                .disposed(by: disposeBag)
+        collectionView?.rx.itemSelected
+                .subscribe(onNext: { [weak self, weak reactor] indexPath in
+                    guard let `self` = self else { return }
+                    print("\(indexPath) \(String(describing: reactor))")
+                })
+                .disposed(by: disposeBag)
     }
 }
 
@@ -33,17 +50,17 @@ extension DiscoverViewController {
 
 extension DiscoverViewController {
     
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.results.count
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
-        let status = viewModel.data(for: indexPath).status!
-        cell.bind(for: status, delegate: self)
-        registerForPreviewing(with: self, sourceView: cell)
-        return cell
-    }
+//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return viewModel.results.count
+//    }
+//    
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
+//        let status = viewModel.data(for: indexPath).status!
+//        cell.bind(for: status, delegate: self)
+//        registerForPreviewing(with: self, sourceView: cell)
+//        return cell
+//    }
 }
 
 class DiscoverCollectionViewLayout: UICollectionViewFlowLayout {

@@ -13,27 +13,27 @@ import RxCocoa
 class HomeViewController: CollectionViewController, StoryboardView {
     
     var disposeBag = DisposeBag()
-    var viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        reactor = HomeViewModel()
         collectionView?.mix.registerClassOf(StatusCell.self)
         navigationItem.title = NSLocalizedString("Home", comment: "")
     }
     
     func bind(reactor: HomeViewModel) {
-        
         reactor.state.map { $0.statuses }
-            .bind(to: collectionView!.rx.items(cellIdentifier: StatusCell.mix.reuseIdentifier)) { indexPath, status, cell in
-                if let cell = cell as? StatusCell {
-                    cell.bind(for: status)
-                }
-            }.disposed(by: disposeBag)
-        
-//        reactor.action.
+            .bind(to: collectionView!.rx.items(cellIdentifier: StatusCell.mix.reuseIdentifier, cellType: StatusCell.self)) { (row, status, cell) in
+                cell.bind(for: status)
+            }
+            .disposed(by: disposeBag)
+        collectionView?.rx.itemSelected
+            .subscribe(onNext: { [weak self, weak reactor] indexPath in
+                guard let `self` = self else { return }
+                print("\(indexPath) \(String(describing: reactor))")
+            })
+            .disposed(by: disposeBag)
     }
-    
 }
 
 
@@ -46,23 +46,6 @@ extension HomeViewController {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         
     }
-    
-}
-
-extension HomeViewController {
-    
-    //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        return viewModel.results.count
-    //    }
-    //
-    //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //        let cell: StatusCell = collectionView.mix.dequeueReusableCell(forIndexPath: indexPath)
-    //        if let status = viewModel.data(for: indexPath) {
-    //            cell.bind(for: status, delegate: self)
-    //        }
-    //        registerForPreviewing(with: self, sourceView: cell)
-    //        return cell
-    //    }
 }
 
 class StatusCollectionViewLayout: UICollectionViewFlowLayout {

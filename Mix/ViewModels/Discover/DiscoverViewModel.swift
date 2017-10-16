@@ -10,17 +10,35 @@ import UIKit
 import RealmSwift
 import SwiftyWeibo
 import SwiftyJSON
+import RxSwift
 
-class DiscoverViewModel: NSObject {
-    
-    let realm: Realm = try! Realm(dbName: "userName")
-    
-    lazy var results: Results<WeiboFavorites> = {
-        return self.realm.objects(WeiboFavorites.self).sorted(byKeyPath: "favoritedTime", ascending: false)
-    }()
-    
-    func data(for indexPath: IndexPath) -> WeiboFavorites {
-        return results[indexPath.row]
+final class DiscoverViewModel: Reactor {
+
+    struct State {
+        var statuses: Results<WeiboStatus> {
+            return try! Realm(dbName: "userName").objects(WeiboFavorites.self).sorted(byKeyPath: "favoritedTime", ascending: false).value(forKeyPath: "status") as! Results<WeiboStatus>
+        }
+    }
+
+    var initialState = State()
+
+    enum Action {
+        case reload
+    }
+
+    enum Mutation {
+        case reload
+    }
+
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .reload:
+            return Observable.just(Mutation.reload)
+        }
+    }
+
+    func reduce(state: State, mutation: Mutation) -> State {
+        return state
     }
     
 }

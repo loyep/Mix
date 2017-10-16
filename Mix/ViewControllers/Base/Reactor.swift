@@ -63,7 +63,6 @@ public protocol Reactor: class, AssociatedObjectStore {
 
 
 // MARK: - Associated Object Keys
-
 private struct ReactorRuntimeKeys {
     
     static let actionKey = UnsafeRawPointer(bitPattern: "action".hashValue)!
@@ -74,7 +73,6 @@ private struct ReactorRuntimeKeys {
 }
 
 // MARK: - Default Implementations
-
 extension Reactor {
     
     private var _action: ActionSubject<Action> {
@@ -129,7 +127,7 @@ extension Reactor {
                 self?.currentState = state
             })
             .replay(1)
-        transformedState.connect().addDisposableTo(self.disposeBag)
+        transformedState.connect().disposed(by: self.disposeBag)
         return transformedState
     }
     
@@ -160,9 +158,7 @@ extension Reactor where Action == Mutation {
     }
 }
 
-
 // MARK: - Stub
-
 extension Reactor {
     public var stub: Stub<Self> {
         return self.associatedObject(

@@ -11,7 +11,7 @@ import MixKit
 
 open class CollectionViewController: UIViewController {
     
-    @IBOutlet open var collectionView: UICollectionView?
+    @IBOutlet open weak var collectionView: UICollectionView?
     
     open fileprivate(set) var collectionViewLayout: UICollectionViewLayout = .init()
     
