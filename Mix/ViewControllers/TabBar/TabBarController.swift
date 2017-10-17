@@ -18,16 +18,6 @@ class TabBarController: UITabBarController {
     /// Hijack select action.
     open var didHijackHandler: TabBarController.TabBarControllerDidHijackHandler?
     
-    override func encodeRestorableState(with coder: NSCoder) {
-        super.encodeRestorableState(with: coder)
-        coder.encode(Int(self.selectedIndex), forKey: "selectedIndex")
-    }
-    
-    override func decodeRestorableState(with coder: NSCoder) {
-        super.decodeRestorableState(with: coder)
-        self.selectedIndex = Int(coder.decodeInt32(forKey: "selectedIndex"))
-    }
-    
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return selectedViewController?.supportedInterfaceOrientations ?? UIInterfaceOrientationMask.portrait
     }

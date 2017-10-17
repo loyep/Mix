@@ -29,7 +29,7 @@ class WeiboHomeLine: Object {
 
 class WeiboEmotion: Object {
     
-    open override static func primaryKey() -> String? {
+    @objc open override static func primaryKey() -> String? {
         return "phrase"
     }
     
@@ -75,47 +75,10 @@ class WeiboEmotion: Object {
     
 }
 
-class WeiboFavorites: WeiboStatus {
-    
-    override static func primaryKey() -> String? {
-        return "favorId"
-    }
-    
-    @objc dynamic var favorId: Int64 = 0
-    
-//    @objc dynamic var status: WeiboStatus! = WeiboStatus()
-    
-    @objc dynamic var favoritedTime: NSDate = NSDate()
-    
-    required init() {
-        super.init()
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        super.init(value: value, schema: schema)
-    }
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        super.init(realm: realm, schema: schema)
-    }
-    
-    override init(_ json: JSON) {
-//        super.init()
-        super.init(json)
-//        status = WeiboStatus(json["status"])
-//        id = status.id
-        favoritedTime = json["favorited_time"].stringValue.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy")! as NSDate
-    }
-}
-
 open class WeiboStatus: Object {
     
     open override static func primaryKey() -> String? {
         return "id"
-    }
-    
-    open override static func ignoredProperties() -> [String] {
-        return ["yyTextLayout"]
     }
     
     @objc dynamic var id: Int64 = 0
@@ -218,6 +181,28 @@ open class WeiboStatus: Object {
             self.retweetedStatus = WeiboRetweetedStatus(json["retweeted_status"])
         }
         favorited = json["favorited"].boolValue
+    }
+}
+
+class WeiboFavorites: WeiboStatus {
+    
+    @objc dynamic var favoritedTime: NSDate = NSDate()
+    
+    required init() {
+        super.init()
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        super.init(value: value, schema: schema)
+    }
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        super.init(realm: realm, schema: schema)
+    }
+    
+    override init(_ json: JSON) {
+        super.init(json)
+        favoritedTime = json["favorited_time"].stringValue.date(inFormat: "EEE MMM dd HH:mm:ss Z yyyy")! as NSDate
     }
 }
 

@@ -216,7 +216,7 @@ extension Realm.Configuration {
     
     static let realmDirectory = FileManager.default.containerURL(forSecurityApplicationGroupIdentifier: Config.appGroupID)!
     
-    static let RealmVersion: UInt64 = 54
+    static let RealmVersion: UInt64 = 55
     
     func config(with dbName: Realm.DBName) -> Realm.Configuration {
         

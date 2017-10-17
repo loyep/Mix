@@ -16,18 +16,11 @@ import MixKit
 final class HomeViewModel: Reactor {
     
     struct State {
-        var statuses: Results<WeiboStatus> {
-            return try! Realm(dbName: "userName").objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
+        var statuses: [WeiboStatus] {
+            return try! Realm(dbName: "userName").objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false).mapArr()
         }
     }
-    
     var initialState = State()
-    
-    let realm: Realm = try! Realm(dbName: "userName")
-    
-    lazy var results: Results<WeiboStatus> = {
-        return realm.objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false)
-    }()
     
     enum Action {
         case reload

@@ -76,12 +76,12 @@ extension Provider {
         
         self.observeCallback { [weak self] url in
             var queries = url.queries
-            guard let this = self, let code = queries["code"] else {
+            guard let `self` = self, let code = queries["code"] else {
                 //                                OAuth.retainError(failure);
                 return
             }
-            let _ = this.accessToken(byCode: code, completion: { [weak self] result in
-                guard let this = self else {
+            let _ = self.accessToken(byCode: code, completion: { [weak self] result in
+                guard let `self` = self else {
                     return
                 }
                 
@@ -92,17 +92,17 @@ extension Provider {
                     }
                     
                     guard let token = Token(
-                        parameters: ["clientID": this.clientID,
-                                     "clientSecret": this.clientSecret,
+                        parameters: ["clientID": self.clientID,
+                                     "clientSecret": self.clientSecret,
                                      "expiresAt": Date(timeIntervalSinceNow: response["expires_in"] as! TimeInterval),
                                      "accessToken": accessToken,
                                      "code": code]) else {
                                         return
                     }
-                    this.token = token
-                    this.tokenStore.set(token, forProvider: this)
+                    self.token = token
+                    self.tokenStore.set(token, forProvider: self)
                     let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
-                    this.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
+                    self.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
                     completion(.success(token))
                 } catch {
                     let error = SwiftyWeiboError.missingToken

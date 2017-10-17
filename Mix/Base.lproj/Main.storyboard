@@ -12,7 +12,7 @@
         <!--Main Controller-->
         <scene sceneID="gSg-gp-j6n">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rop-TI-TSP" customClass="MainController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rop-TI-TSP" customClass="MainController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="hjR-4d-5Lt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -33,7 +33,7 @@
         <!--Home-->
         <scene sceneID="abG-Gv-UsK">
             <objects>
-                <navigationController id="EpI-k3-4QV" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NavigationController" id="EpI-k3-4QV" customClass="NavigationController" customModule="Mix" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" id="lWd-1b-kgw" customClass="TabBarItem" customModule="Mix" customModuleProvider="target">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="image" keyPath="image" value="tabbar_home"/>

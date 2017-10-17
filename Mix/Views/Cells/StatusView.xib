@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="StatusView" id="rZR-65-IzJ" customClass="StatusView" customModule="Mix" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8al-vh-Pc2">
+                    <rect key="frame" x="10" y="30" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="TOo-Pz-LOR"/>
+                        <constraint firstAttribute="width" constant="36" id="cNG-Og-mGS"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="user name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Opj-fL-YEy">
+                    <rect key="frame" x="56" y="30" width="76" height="20"/>
+                    <color key="backgroundColor" red="1" green="0.35021431958386651" blue="0.46301236228507825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAX-Ln-NAo">
+                    <rect key="frame" x="56" y="51" width="31" height="14.5"/>
+                    <color key="backgroundColor" red="0.26346119061848539" green="1" blue="0.89662041278992255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" restorationIdentifier="StatusTextLabel" translatesAutoresizingMaskIntoConstraints="NO" id="BT9-DO-m22" customClass="StatusTextLabel" customModule="Mix" customModuleProvider="target">
+                    <rect key="frame" x="10" y="76" width="355" height="0.0"/>
+                    <color key="backgroundColor" red="0.26346119060000001" green="1" blue="0.89662041280000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLG-j4-OHQ" customClass="StatusTextLabel" customModule="Mix" customModuleProvider="target">
+                    <rect key="frame" x="10" y="86" width="355" height="0.0"/>
+                    <color key="backgroundColor" red="1" green="0.35021431959999999" blue="0.46301236229999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" restorationIdentifier="StatusPhotoView" translatesAutoresizingMaskIntoConstraints="NO" id="qzf-Fp-0iX" customClass="StatusPhotoView" customModule="Mix" customModuleProvider="target">
+                    <rect key="frame" x="10" y="96" width="355" height="561"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="qAX-Ln-NAo" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Vql-tZ-ork" secondAttribute="trailing" constant="10" id="0Iq-zv-HLa"/>
+                <constraint firstItem="CLG-j4-OHQ" firstAttribute="top" secondItem="BT9-DO-m22" secondAttribute="bottom" constant="10" id="8nQ-Wt-V2W"/>
+                <constraint firstItem="qAX-Ln-NAo" firstAttribute="top" secondItem="Opj-fL-YEy" secondAttribute="bottom" constant="1" id="A5w-Of-Yo2"/>
+                <constraint firstItem="BT9-DO-m22" firstAttribute="leading" secondItem="Vql-tZ-ork" secondAttribute="leading" constant="10" id="Hhb-wH-EQj"/>
+                <constraint firstItem="qzf-Fp-0iX" firstAttribute="top" secondItem="CLG-j4-OHQ" secondAttribute="bottom" constant="10" id="L5X-MJ-OGy"/>
+                <constraint firstItem="qzf-Fp-0iX" firstAttribute="leading" secondItem="Vql-tZ-ork" secondAttribute="leading" constant="10" id="Ldd-Zx-ilB"/>
+                <constraint firstItem="8al-vh-Pc2" firstAttribute="top" secondItem="Vql-tZ-ork" secondAttribute="top" constant="10" id="PLZ-Yf-N7N"/>
+                <constraint firstItem="Opj-fL-YEy" firstAttribute="leading" secondItem="8al-vh-Pc2" secondAttribute="trailing" constant="10" id="RbE-iK-Vcv"/>
+                <constraint firstItem="8al-vh-Pc2" firstAttribute="leading" secondItem="Vql-tZ-ork" secondAttribute="leading" constant="10" id="S3J-JQ-BBd"/>
+                <constraint firstItem="CLG-j4-OHQ" firstAttribute="trailing" secondItem="Vql-tZ-ork" secondAttribute="trailing" constant="-10" id="VcO-Et-l8P"/>
+                <constraint firstItem="BT9-DO-m22" firstAttribute="trailing" secondItem="Vql-tZ-ork" secondAttribute="trailing" constant="-10" id="Zqa-dc-jb2"/>
+                <constraint firstItem="qAX-Ln-NAo" firstAttribute="leading" secondItem="8al-vh-Pc2" secondAttribute="trailing" constant="10" id="a1c-Xy-3fR"/>
+                <constraint firstItem="Opj-fL-YEy" firstAttribute="top" secondItem="Vql-tZ-ork" secondAttribute="top" constant="10" id="g7l-ro-YbR"/>
+                <constraint firstItem="BT9-DO-m22" firstAttribute="top" secondItem="qAX-Ln-NAo" secondAttribute="bottom" constant="10" id="lB7-nP-aBw"/>
+                <constraint firstItem="Opj-fL-YEy" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Vql-tZ-ork" secondAttribute="trailing" constant="-10" id="pp5-ek-T7l"/>
+                <constraint firstItem="qzf-Fp-0iX" firstAttribute="trailing" secondItem="Vql-tZ-ork" secondAttribute="trailing" constant="-10" id="uGQ-Ug-Exu"/>
+                <constraint firstItem="qzf-Fp-0iX" firstAttribute="bottom" secondItem="Vql-tZ-ork" secondAttribute="bottom" constant="-10" id="xTO-QY-Yso"/>
+                <constraint firstItem="CLG-j4-OHQ" firstAttribute="leading" secondItem="Vql-tZ-ork" secondAttribute="leading" constant="10" id="yxK-fP-BN3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Vql-tZ-ork"/>
+            <connections>
+                <outlet property="dateLabel" destination="qAX-Ln-NAo" id="2xq-sN-iSo"/>
+                <outlet property="nameLabel" destination="Opj-fL-YEy" id="2dG-19-ERi"/>
+                <outlet property="photoView" destination="qzf-Fp-0iX" id="fvu-h0-hx8"/>
+                <outlet property="profileImage" destination="8al-vh-Pc2" id="aau-hd-mfJ"/>
+                <outlet property="retweenTextView" destination="CLG-j4-OHQ" id="jDk-Pm-m56"/>
+                <outlet property="textView" destination="BT9-DO-m22" id="EzC-9a-6Lc"/>
+            </connections>
+            <point key="canvasLocation" x="-75.5" y="31.5"/>
+        </view>
+    </objects>
+</document>

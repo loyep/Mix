@@ -33,3 +33,13 @@ enum Storyboard: String {
     
 }
 
+extension UIView {
+    
+    public static func instantiateFromNib<T: UIView>() -> T {
+        guard let view = Bundle.main.loadNibNamed(String(describing: self), owner: nil, options: nil)?.first as? T else {
+            fatalError("cannot load instantiate initial viewController with sbName: \(self)")
+        }
+        return view
+    }
+}
+

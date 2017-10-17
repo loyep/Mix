@@ -84,76 +84,67 @@ class StatusPhotoView: UIView {
         }
     }
     
+    fileprivate var photosSize = CGSize.zero
+    
+    override func sizeThatFits(_ size: CGSize) -> CGSize {
+        return photosSize
+    }
+    
     func updatePhotos() {
+        
+        var photosSize = CGSize(width: frame.width, height: 0)
+        
         if photos.count <= imageViews.count {
             imageViews[photos.count..<imageViews.count].forEach { $0.isHidden = true }
         }
         
-        guard photos.count > 0 else {
-            frame.size.height = 0
-            return
-        }
-        
-        let itemW = itemWidthForPhotosCount(photos.count)
-        var itemH = CGFloat(0)
-        if photos.count == 1 {
-            itemH = itemW
-        } else {
-            itemH = itemW
-        }
-        
-        let perRowItemCount = itemRowsForPhotosCount(photos.count)
-        let margin: CGFloat = 5.0
-        
-        for (i, item) in photos.enumerated() {
-            let colunIndex = i % perRowItemCount
-            let rowIndex = i / perRowItemCount
-            let imageView = imageViews[i]
-            imageView.isHidden = false
-            imageView.layer.setImageWith(URL(string: item), placeholder: nil, options: .avoidSetImage, completion: { [weak imageView] (image, url, from, stage, error) in
-                guard let imageView = imageView else { return }
-                if image != nil, stage == .finished {
-                    let imageSize = image!.size
-                    let scale = (imageSize.height / imageSize.width) / (imageView.height / imageView.width)
-                    if scale < 0.99 || scale.isNaN {
-                        imageView.contentMode = .scaleAspectFill
-                        imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: 1)
-                    } else {
-                        imageView.contentMode = .scaleToFill
-                        imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: imageSize.width / imageSize.height)
+        if photos.count > 0 {
+            let itemW = itemWidthForPhotosCount(photos.count)
+            var itemH = CGFloat(0)
+            if photos.count == 1 {
+                itemH = itemW
+            } else {
+                itemH = itemW
+            }
+            
+            let perRowItemCount = itemRowsForPhotosCount(photos.count)
+            let margin: CGFloat = 5.0
+            
+            for (i, item) in photos.enumerated() {
+                let colunIndex = i % perRowItemCount
+                let rowIndex = i / perRowItemCount
+                let imageView = imageViews[i]
+                imageView.isHidden = false
+                imageView.layer.setImageWith(URL(string: item), placeholder: nil, options: .avoidSetImage, completion: { [weak imageView] (image, url, from, stage, error) in
+                    guard let imageView = imageView else { return }
+                    if image != nil, stage == .finished {
+                        let imageSize = image!.size
+                        let scale = (imageSize.height / imageSize.width) / (imageView.height / imageView.width)
+                        if scale < 0.99 || scale.isNaN {
+                            imageView.contentMode = .scaleAspectFill
+                            imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: 1)
+                        } else {
+                            imageView.contentMode = .scaleToFill
+                            imageView.layer.contentsRect = CGRect(x: 0, y: 0, width: 1, height: imageSize.width / imageSize.height)
+                        }
+                        
+                        imageView.image = image
                     }
-                    
-                    imageView.image = image
-                }
-//                if (!imageView) return;
-//                if (image && stage == YYWebImageStageFinished) {
-//                    int width = pic.bmiddle.width;
-//                    int height = pic.bmiddle.height;
-//                    CGFloat scale = (height / width) / (imageView.height / imageView.width);
-//                    if (scale < 0.99 || isnan(scale)) { // 宽图把左右两边裁掉
-//                        imageView.contentMode = UIViewContentModeScaleAspectFill;
-//                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, 1);
-//                    } else { // 高图只保留顶部
-//                        imageView.contentMode = UIViewContentModeScaleToFill;
-//                        imageView.layer.contentsRect = CGRectMake(0, 0, 1, (float)width / height);
-//                    }
-//                    ((YYControl *)imageView).image = image;
-//                    if (from != YYWebImageFromMemoryCacheFast) {
-//                        CATransition *transition = [CATransition animation];
-//                        transition.duration = 0.15;
-//                        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
-//                        transition.type = kCATransitionFade;
-//                        [imageView.layer addAnimation:transition forKey:@"contents"];
-//                    }
-//                }
-            })
-            imageView.frame = CGRect(x: CGFloat(colunIndex) * (itemW + margin), y: CGFloat(rowIndex) * (itemH + margin), width: itemW, height: itemH)
+                })
+                imageView.frame = CGRect(x: CGFloat(colunIndex) * (itemW + margin), y: CGFloat(rowIndex) * (itemH + margin), width: itemW, height: itemH)
+            }
+            
+            let columnCount = ceil(Double(photos.count) / Double(perRowItemCount))
+            photosSize.height = CGFloat(columnCount) * itemH + CGFloat(columnCount - 1) * margin
         }
         
-        let columnCount = ceil(Double(photos.count) / Double(perRowItemCount))
-        let h = CGFloat(columnCount) * itemH + CGFloat(columnCount - 1) * margin
-        
-        frame.size.height = h
+        frame.size = photosSize
+        self.photosSize = photosSize
+    }
+    
+    override func layoutIfNeeded() {
+        super.layoutIfNeeded()
+        frame.size = photosSize
     }
     
     override init(frame: CGRect) {

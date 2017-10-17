@@ -12,35 +12,13 @@ import YYKit
 
 class StatusCell: UICollectionViewCell {
     
+    var statusView: StatusView = StatusView.instantiateFromNib()
+    
     static let CellInset = UIEdgeInsetsMake(8, 8, 8, 8)
     
     weak var previewDelegate: UIViewControllerPreviewingDelegate? = nil
     
-    //    var profileImage: UIButton = {
-    //        let proImage = UIButton(type: .custom)
-    //        proImage.backgroundColor = .white
-    //        proImage.contentMode = .scaleAspectFill
-    //        proImage.layer.cornerRadius = 18
-    //        proImage.layer.borderWidth = 1 / UIScreen.main.scale
-    //        proImage.frame.size = CGSize(width: 36, height: 36)
-    //        proImage.layer.borderColor = UIColor.lightGray.cgColor
-    //        proImage.layer.masksToBounds = true
-    //        return proImage
-    //    }()
-    var profileImage: UIImageView = UIImageView()
-    
-    var name = UILabel()
-    
-    var textView = StatusTextLabel()
-    
     var retweetedTextView = StatusTextLabel()
-    
-    var dateView: UILabel = {
-        let dateView = UILabel()
-        dateView.textColor = UIColor.gray
-        dateView.font = UIFont.systemFont(ofSize: 12)
-        return dateView
-    }()
     
     var photosView = StatusPhotoView()
     
@@ -54,6 +32,11 @@ class StatusCell: UICollectionViewCell {
     }
     
     func setupUI() -> () {
+        contentView.addSubview(statusView)
+        statusView.snp.makeConstraints {
+            $0.left.right.top.bottom.equalTo(self)
+        }
+        
         contentView.backgroundColor = UIColor(white: 1, alpha: 1)
         contentView.layer.cornerRadius = 5
         contentView.layer.masksToBounds = true
@@ -63,65 +46,52 @@ class StatusCell: UICollectionViewCell {
         self.layer.shadowRadius = contentView.layer.cornerRadius
         self.layer.shadowOpacity = 0.2
         
-        contentView.addSubview(name)
-        contentView.addSubview(dateView)
-        contentView.addSubview(profileImage)
-        contentView.addSubview(textView)
-        contentView.addSubview(retweetedTextView)
-        contentView.addSubview(photosView)
+//        contentView.addSubview(name)
+//        contentView.addSubview(dateView)
+//        contentView.addSubview(profileImage)
+//        contentView.addSubview(textView)
+//        contentView.addSubview(retweetedTextView)
+//        contentView.addSubview(photosView)
         
-        photosView.theme_backgroundColor = globalViewBackgroundColorPicker
-        textView.theme_backgroundColor = globalViewBackgroundColorPicker
-        retweetedTextView.theme_backgroundColor = globalViewBackgroundColorPicker
-        textView.theme_tintColor = globalViewTintColorPicker
-        retweetedTextView.theme_tintColor = globalViewTintColorPicker
-        name.theme_textColor = globalViewTintColorPicker
-        
-        textView.highlightTapAction = self.highlightTapAction
-        textView.highlightLongPressAction = self.highlightLongPressAction
-        
-        retweetedTextView.highlightTapAction = self.highlightTapAction
-        retweetedTextView.highlightLongPressAction = self.highlightLongPressAction
-        
-        profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
-        name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.width - 80, height: 18)
-        dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
-        textView.frame.origin.y = profileImage.frame.maxY + 10
-        textView.frame.size.width = UIScreen.width - StatusCell.CellInset.left - StatusCell.CellInset.right
-        retweetedTextView.frame.size.width = textView.frame.width
-        photosView.frame.size.width = textView.frame.width - StatusCell.CellInset.left - StatusCell.CellInset.right
-        photosView.frame.origin.x = StatusCell.CellInset.left
-        
-        profileImage.layer.borderWidth = 1 / UIScreen.main.scale
-        profileImage.layer.cornerRadius = profileImage.width / 2
-        profileImage.layer.borderColor = UIColor.lightGray.cgColor
+//        textView.highlightTapAction = self.highlightTapAction
+//        textView.highlightLongPressAction = self.highlightLongPressAction
+//
+//        retweetedTextView.highlightTapAction = self.highlightTapAction
+//        retweetedTextView.highlightLongPressAction = self.highlightLongPressAction
+//
+//        profileImage.frame = CGRect(x: 10, y: 10, width: 36, height: 36)
+//        name.frame = CGRect(x: profileImage.frame.maxX + 10, y: 10, width: UIScreen.width - 80, height: 18)
+//        dateView.frame = CGRect(x: name.frame.minX, y: profileImage.frame.maxY - 16, width: name.frame.width, height: 16)
+//        textView.frame.origin.y = profileImage.frame.maxY + 10
+//        textView.frame.size.width = UIScreen.width - StatusCell.CellInset.left - StatusCell.CellInset.right
+//        retweetedTextView.frame.size.width = textView.frame.width
+//        photosView.frame.size.width = textView.frame.width - StatusCell.CellInset.left - StatusCell.CellInset.right
+//        photosView.frame.origin.x = StatusCell.CellInset.left
+//
+//        profileImage.layer.borderWidth = 1 / UIScreen.main.scale
+//        profileImage.layer.cornerRadius = profileImage.width / 2
+//        profileImage.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     func bind(for viewModel: WeiboStatus, delegate: UIViewControllerPreviewingDelegate? = nil) -> () {
         previewDelegate = delegate
-        name.text = viewModel.user?.screen_name
+        statusView.nameLabel.text = viewModel.user?.screen_name
         
         if let profileImageUrl = URL(string: viewModel.user.profile_image_url ?? "") {
-            profileImage.layer.setImageWith(profileImageUrl, placeholder: nil, options: .avoidSetImage, completion: { [weak profileImage] (image, url, from, stage, error) in
-                guard let profileImage = profileImage else { return }
+            statusView.profileImage.layer.setImageWith(profileImageUrl, placeholder: nil, options: .avoidSetImage, completion: { [weak statusView] (image, url, from, stage, error) in
+                guard let profileImage = statusView?.profileImage else { return }
                 profileImage.image = image?.byRoundCornerRadius(profileImage.width / 2)
             })
         }
-        textView.text = viewModel.text
-        photosView.frame.size.width = UIScreen.width - (StatusCell.CellInset.left + StatusCell.CellInset.right) * 2
-        if let retweetedStatus = viewModel.retweetedStatus {
-            retweetedTextView.text = retweetedStatus.text
-            retweetedTextView.frame.origin.y = textView.frame.maxY
-            photosView.frame.origin.y = retweetedTextView.frame.maxY
-            photosView.photos = retweetedStatus.picUrls
+        statusView.textView.text = viewModel.text
+        if let picUrls = viewModel.retweetedStatus?.picUrls {
+            statusView.photoView.photos = picUrls
         } else {
-            retweetedTextView.text = nil
-            photosView.frame.origin.y = textView.frame.maxY
-            photosView.photos = viewModel.picUrls
+            statusView.photoView.photos = viewModel.picUrls
         }
-        
-        dateView.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.source)"
-        frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
+        statusView.retweenTextView.text = viewModel.retweetedStatus?.text
+        statusView.dateLabel.text = "\(createdDate(viewModel.createdAt as Date) ?? "") \(viewModel.source)"
+        statusView.setNeedsLayout()
     }
     
     func createdDate(_ createdAt: Date) -> String? {
@@ -159,9 +129,7 @@ class StatusCell: UICollectionViewCell {
     }
     
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
-        //        layoutAttributes.frame.size.height = photosView.frame.maxY + StatusCell.CellInset.bottom
-        //        self.frame.size.height = frame.height
-        layoutAttributes.frame.size.height = frame.height
+        layoutAttributes.frame.size = statusView.sizeThatFits(CGSize(width: layoutAttributes.frame.width, height: CGFloat(MAXFLOAT)))
         return layoutAttributes
     }
 }

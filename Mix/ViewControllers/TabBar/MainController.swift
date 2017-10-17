@@ -47,5 +47,4 @@ class MainController: TabBarController {
             } catch {}
         }
     }
-
 }

@@ -91,7 +91,6 @@ extension AppDelegate: WeiboSDKDelegate {
         weibo.tokenStore.set(token, forProvider: weibo)
         let tokenPlugin = AccessTokenPlugin(tokenClosure: accessToken)
         weibo.plugins.updateValue(tokenPlugin, forKey: tokenPlugin.pluginIdentifier)
-        //        UIApplication.shared.keyWindow?.rootViewController = NavigationController(rootViewController: TabBarController())
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: WelcomeViewController.weiboLoginSuccessNotice), object: nil, userInfo: nil)
     }
     

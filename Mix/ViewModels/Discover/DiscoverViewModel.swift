@@ -15,9 +15,8 @@ import RxSwift
 final class DiscoverViewModel: Reactor {
 
     struct State {
-        var statuses: [WeiboStatus] {
-            return try! Realm(dbName: "userName").objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false).filter { _ in return true }
-//            return try! Realm(dbName: "userName").objects(WeiboFavorites.self).filter(<#T##isIncluded: (WeiboFavorites) -> Bool##(WeiboFavorites) -> Bool#>).sorted(byKeyPath: "favoritedTime", ascending: false).value(forKeyPath: "status") ?? [WeiboStatus] as! [WeiboStatus]
+        var statuses: [WeiboFavorites] {
+            return try! Realm(dbName: "userName").objects(WeiboFavorites.self).sorted(byKeyPath: "id", ascending: false).mapArr()
         }
     }
 

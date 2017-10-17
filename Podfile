@@ -14,13 +14,13 @@ target 'Mix' do
     pod 'SwiftyJSON'
     pod 'YYKit'
     pod 'SwiftTheme'
-    pod 'RxSwift', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'rxswift4.0-swift4.0'
-    pod 'RxCocoa', :git => 'https://github.com/ReactiveX/RxSwift.git', :branch => 'rxswift4.0-swift4.0'
+    pod 'RxSwift',  '~> 4.0.0-rc.0'
+    pod 'RxCocoa',  '~> 4.0.0-rc.0'
 
     # Privarte podspec
     pod 'WeiboSDK',         :path => './Source/WeiboSDK'
     pod 'SwiftyWeibo',      :path => './Source/SwiftyWeibo'
-    pod 'MixKit',   :path => './Source/MixKit'
+    pod 'MixKit',           :path => './Source/MixKit'
     
     target 'MixTests' do
         inherit! :search_paths

@@ -64,15 +64,13 @@ final class WebViewController: UIViewController {
             object: nil,
             queue: OperationQueue.main,
             using: { [weak self] _ in
-                guard let this = self else {
-                    return
-                }
-                if let observer = this.observers[key] {
+                guard let `self` = self else { return }
+                if let observer = self.observers[key] {
                     Provider.notificationCenter.removeObserver(observer)
-                    this.observers.removeValue(forKey: key)
+                    self.observers.removeValue(forKey: key)
                 }
                 Provider.main {
-                    this.dismiss()
+                    self.dismiss()
                 }
             }
         )
