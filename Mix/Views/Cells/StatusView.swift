@@ -25,11 +25,4 @@ class StatusView: UIView {
         super.init(coder: aDecoder)
     }
     
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        layoutIfNeeded()
-        var newSize = size
-        newSize.height = photoView.frame.maxY
-        return newSize
-    }
-    
 }

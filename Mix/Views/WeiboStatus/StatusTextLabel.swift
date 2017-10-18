@@ -18,6 +18,7 @@ class StatusTextLabel: YYLabel {
             }
             
             if let text = newValue {
+                print(text)
                 self.textLayout = yyTextLayout(text)
             } else {
                 self.textLayout = nil
@@ -39,14 +40,8 @@ class StatusTextLabel: YYLabel {
         }
     }
     
-    override var textLayout: YYTextLayout? {
-        willSet {
-            if let textLayout = newValue {
-                self.frame.size.height = textLayout.textBoundingSize.height
-            } else {
-                self.frame.size.height = 0
-            }
-        }
+    override var intrinsicContentSize: CGSize {
+        return textLayout?.textBoundingSize ?? .zero
     }
     
     override init(frame: CGRect) {

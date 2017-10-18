@@ -90,6 +90,10 @@ class StatusPhotoView: UIView {
         return photosSize
     }
     
+    override var intrinsicContentSize: CGSize {
+        return photosSize
+    }
+    
     func updatePhotos() {
         
         var photosSize = CGSize(width: frame.width, height: 0)
@@ -138,14 +142,15 @@ class StatusPhotoView: UIView {
             photosSize.height = CGFloat(columnCount) * itemH + CGFloat(columnCount - 1) * margin
         }
         
-        frame.size = photosSize
         self.photosSize = photosSize
+        invalidateIntrinsicContentSize()
+        print("\(photosSize) \(frame.size)")
     }
-    
-    override func layoutIfNeeded() {
-        super.layoutIfNeeded()
-        frame.size = photosSize
-    }
+//
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        frame.size = photosSize
+//    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
