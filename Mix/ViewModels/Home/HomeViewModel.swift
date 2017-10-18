@@ -20,10 +20,12 @@ final class HomeViewModel: Reactor {
             return try! Realm(dbName: "userName").objects(WeiboStatus.self).sorted(byKeyPath: "id", ascending: false).mapArr()
         }
     }
+    
     var initialState = State()
     
     enum Action {
         case reload
+        case selected(IndexPath)
     }
     
     enum Mutation {
@@ -34,6 +36,10 @@ final class HomeViewModel: Reactor {
         switch action {
         case .reload:
             return Observable.just(Mutation.reload)
+        case let .selected(indexPath)
+            let status = currentState.statuses[indexPath.item]
+            
+            return 
         }
     }
     
